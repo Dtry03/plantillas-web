@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Taller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
+</head>
+<body>
+  <nav class="bg-gray-800">
+      <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+          <span class="text-white font-semibold">Autobierzo Sigfredo</span>
+
+          <button data-collapse-toggle="navbar" type="button" class="md:hidden mx-4"><i data-lucide="menu" class="text-white"></i></button>
+          <button  data-modal-target="reserva-modal" data-modal-toggle="reserva-modal" type="button" class="md:hidden bg-red-600 text-white  rounded px-4 hover:bg-red-700">RESERVAR CITA</button>
+         
+
+          <div class="hidden md:flex gap-6 text-white font-semibold" >
+              <a href="#" class="p-2 hover:text-red-600">SERVICIOS</a>
+              <a href="#" class="p-2 hover:text-red-600">CONTACTO</a>
+              <button  data-modal-target="reserva-modal" data-modal-toggle="reserva-modal" type="button" class="hidden md:block bg-red-600 text-white  rounded px-4 hover:bg-red-700">RESERVAR CITA</button>
+          </div>
+      </div>
+      
+          <div class="hidden  gap-6 text-white font-semibold" id="navbar">
+              <a href="#" class="p-2 hover:text-red-600">SERVICIOS</a>
+              <a href="#" class="p-2 hover:text-red-600">CONTACTO</a>
+              <button  data-modal-target="reserva-modal" data-modal-toggle="reserva-modal" type="button" class="hidden md:block bg-red-600 text-white  rounded px-4 hover:bg-red-700">RESERVAR CITA</button>
+          </div>  
+  </nav>
+
+  <section class="relative bg-[url(coche.jpg)] bg-cover bg-center h-screen w-full mx-auto py-20 flex justify-center items-center">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 text-white text-center w-full  flex-col justify-center mx-auto">
+      <h1 class="md:text-7xl font-bold pb-3 text-3xl">TALLER MECÁNICO EN EL BIERZO</h1>
+      <p class="md:text-3xl md:pb-12 text-md pb-6">Reserva tu cita en menos de un minuto</p>
+    
+
+    <button   data-modal-target="reserva-modal" data-modal-toggle="reserva-modal" class="bg-red-600 rounded px-5 py-3 md:text-3xl  text-md font-bold hover:bg-red-700">RESERVAR CITA</button>
+    </div>
+  </section>
+
+  <div id="reserva-modal" tabindex="-1" aria-hidden="true"
+  class="hidden fixed top-0 left-0 right-0 z-50 justify-center items-center w-full h-full bg-black/50 flex">
+
+  <div class="relative p-4 w-full max-w-md">
+
+    <div class="relative bg-gray-800 rounded-lg shadow text-white ">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between p-4 ">
+        <h3 class="text-xl font-semibold">
+          Reservar cita
+        </h3>
+        <button type="button" data-modal-hide="reserva-modal"
+          class="text-white hover:text-red-600 text-2xl">
+          &times;
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="p-4 space-y-3">
+        <input type="text" placeholder="Nombre" class="w-full border border-red-600 border border-red-600-red-600 p-2 rounded bg-gray-800 ">
+        <input type="text" placeholder="Teléfono" class="w-full border border-red-600 p-2 rounded bg-gray-800">
+
+        <select class="w-full border border-red-600 p-2 rounded bg-gray-800">
+          <option class=" bg-gray-800">Cambio de aceite</option>
+          <option class=" bg-gray-800">Frenos</option>
+        </select>
+
+        <input type="date" class="w-full border border-red-600 p-2 rounded bg-gray-800">
+
+        <button id="demo-btn" class="w-full bg-red-500 text-white font-semibold p-2 rounded hover:bg-red-600">
+          Confirmar cita
+        </button>
+
+        <p id="demo-msg" class="hidden text-green-600 font-semibold flex">
+           <i data-lucide="check"></i>Esto es una demo de cómo funcionaría
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+       
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+
+<script>lucide.createIcons();</script>
+
+<script>
+  const btn= document.getElementById("demo-btn");
+  const msg= document.getElementById("demo-msg");
+
+  btn.addEventListener("click", ()=>{
+    msg.classList.remove("hidden");
+
+    setTimeout(()=>{
+      document.querySelector('[data-modal-hide="reserva-modal"]').click();
+    }, 1200);
+  });
+</script>
+
+</body>
+</html>

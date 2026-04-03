@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Taller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 5px;
+            }
+    </style>
+    </head>
+<body>
+  <nav class="bg-white">
+      <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+          <span class="text-dark font-bold font-orbitron">XEITA KITCHEN TOOLS</span>
+
+          <button data-collapse-toggle="navbar" type="button" class="md:hidden mx-4"><i data-lucide="menu" class="text-dark"></i></button>
+          <button type="button" class="md:hidden bg-yellow-700 text-white  rounded px-4 hover:bg-yellow-800"><a href="#catalogo">VER CATÁLOGO</a></button>
+         
+
+          <div class="hidden md:flex gap-6 text-dark font-semibold" >
+              <a href="#" class="p-2 hover:text-yellow-600 font-orbitron">SERVICIOS</a>
+              <a href="#" class="p-2 hover:text-yellow-600 font-orbitron">CONTACTO</a>
+              <button type="button" class="hidden md:block bg-yellow-600 text-white  rounded px-4 hover:bg-yellow-700 font-orbitron"><a href="#catalogo">VER CATÁLOGO</a></button>
+          </div>
+      </div>
+      
+          <div class="hidden  gap-6 text-dark font-semibold" id="navbar">
+              <a href="#" class="p-2 hover:text-yellow-600 font-orbitron">SERVICIOS</a>
+              <a href="#" class="p-2 hover:text-yellow-600 font-orbitron">CONTACTO</a>
+              <button type="button" class="hidden md:block bg-yellow-600 text-white  rounded px-4 hover:bg-yellow-700  font-orbitron">RESERVAR CITA</button>
+          </div>  
+  </nav>
+
+  <section class="relative bg-[url(cuchillo.jpg)] bg-cover bg-center h-screen w-full mx-auto py-20 flex justify-center items-center">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 text-white text-center w-full  flex-col justify-center mx-auto">
+      <h1 class="md:text-7xl font-bold pb-3 text-2xl font-orbitron">CUCHILLOS DE PRODUCCIÓN ARTESANAL</h1>
+      <p class="md:text-3xl md:pb-12 text-md pb-6 font-orbitron">conoce nuestro diverso catálogo</p>
+    
+
+    <button  class="bg-yellow-700 rounded px-5 py-3 md:text-3xl  text-md font-bold hover:bg-yellow-800 font-orbitron"><a href="#catalogo">VER CATÁLOGO</a></button>
+    </div>
+  </section>
+<section class="bg-white py-8 antialiased  md:py-12 font-orbitron">
+  <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+    <!-- Heading & Filters -->
+    <div class="mb-4 items-end justify-center space-y-4 sm:flex sm:space-y-0 md:mb-8">
+      <div class="text-center">
+  
+         
+        <h2 class="mt-3 text-xl font-semibold text-dark sm:text-3xl" id="catalogo">NUESTRO CATÁLOGO</h2>
+      </div>
+    </div>
+    <div class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4">
+      <div class="rounded-lg border border-gray-200 bg-yellow-200  shadow-sm">
+        <div class="h-56  bg-[url(cuchillo-1.jpg)] bg-cover bg-center  w-full mx-auto ">
+        </div>
+        <div class="pt-6 text-center p-5">
+          
+
+          <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline text">Set de cocina en mango rojo</a>
+         <p class="text-2xl font-extrabold leading-tight text-gray-800">150€</p>
+          <div class="mt-2 flex items-center justify-center gap-2">
+            <div class="flex items-center">
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+            </div>
+
+            <p class="text-sm font-medium text-gray-800">5.0</p>
+            <p class="text-sm font-medium text-gray-800">(455)</p>
+          </div>
+
+          <div class="mb-4 flex items-center justify-center gap-4">
+
+
+            <div class="flex items-center justify-center gap-1">
+              <button type="button" data-tooltip-target="tooltip-quick-look" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-white hover:bg-yellow-700 ">
+                <span class="sr-only"> Quick look </span>
+                <svg class="h-5 w-5 text-yellow-700 hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                  <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+              </button>
+              
+
+              <button type="button" data-tooltip-target="tooltip-add-to-favorites" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-white hover:bg-yellow-700 ">
+                <span class="sr-only"> Add to Favorites </span>
+                <svg class="h-5 w-5 text-yellow-700 hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                </svg>
+              </button>
+              
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center justify-center gap-4">
+
+
+            <button type="button" class="inline-flex items-center rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 ">
+          
+              <a href="https://www.whatsapp.com" class="flex items-center"><i data-lucide="message-circle-more"></i> <span class="ml-2">WHATSAPP</span></a>
+            </button>
+          </div>
+        </div>
+      </div>
+        <div class="rounded-lg border border-gray-200 bg-yellow-200  shadow-sm">
+        <div class="h-56  bg-[url(cuchillos-2.jpg)] bg-cover bg-top  w-full mx-auto ">
+        </div>
+        <div class="pt-6 text-center p-5">
+          
+
+          <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline text">Set de cocina en mango crema</a>
+         <p class="text-2xl font-extrabold leading-tight text-gray-800">180€</p>
+          <div class="mt-2 flex items-center justify-center gap-2">
+            <div class="flex items-center">
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+            </div>
+
+            <p class="text-sm font-medium text-gray-800">5.0</p>
+            <p class="text-sm font-medium text-gray-800">(455)</p>
+          </div>
+
+          <div class="mb-4 flex items-center justify-center gap-4">
+
+
+            <div class="flex items-center justify-center gap-1">
+              <button type="button" data-tooltip-target="tooltip-quick-look" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-white hover:bg-yellow-700 ">
+                <span class="sr-only"> Quick look </span>
+                <svg class="h-5 w-5 text-yellow-700 hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                  <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+              </button>
+              
+
+              <button type="button" data-tooltip-target="tooltip-add-to-favorites" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-white hover:bg-yellow-700 ">
+                <span class="sr-only"> Add to Favorites </span>
+                <svg class="h-5 w-5 text-yellow-700 hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                </svg>
+              </button>
+              
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center justify-center gap-4">
+
+
+            <button type="button" class="inline-flex items-center rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 ">
+          
+              <a href="https://www.whatsapp.com" class="flex items-center"><i data-lucide="message-circle-more"></i> <span class="ml-2">WHATSAPP</span></a>
+            </button>
+          </div>
+        </div>
+      </div>
+        <div class="rounded-lg border border-gray-200 bg-yellow-200  shadow-sm">
+        <div class="h-56  bg-[url(cuchillo-3.jpg)] bg-cover bg-top  w-full mx-auto ">
+        </div>
+        <div class="pt-6 text-center p-5">
+          
+
+          <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline text">Cuchillo en mango madera</a>
+         <p class="text-2xl font-extrabold leading-tight text-gray-800">70€</p>
+          <div class="mt-2 flex items-center justify-center gap-2">
+            <div class="flex items-center">
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+            </div>
+
+            <p class="text-sm font-medium text-gray-800">5.0</p>
+            <p class="text-sm font-medium text-gray-800">(455)</p>
+          </div>
+
+          <div class="mb-4 flex items-center justify-center gap-4">
+
+
+            <div class="flex items-center justify-center gap-1">
+              <button type="button" data-tooltip-target="tooltip-quick-look" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-white hover:bg-yellow-700 ">
+                <span class="sr-only"> Quick look </span>
+                <svg class="h-5 w-5 text-yellow-700 hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                  <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+              </button>
+              
+
+              <button type="button" data-tooltip-target="tooltip-add-to-favorites" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-white hover:bg-yellow-700 ">
+                <span class="sr-only"> Add to Favorites </span>
+                <svg class="h-5 w-5 text-yellow-700 hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                </svg>
+              </button>
+              
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center justify-center gap-4">
+
+
+            <button type="button" class="inline-flex items-center rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 ">
+          
+              <a href="https://www.whatsapp.com" class="flex items-center"><i data-lucide="message-circle-more"></i> <span class="ml-2">WHATSAPP</span></a>
+            </button>
+          </div>
+        </div>
+      </div>
+        <div class="rounded-lg border border-gray-200 bg-yellow-200  shadow-sm">
+        <div class="h-56  bg-[url(cuchillo-4.jpg)] bg-cover bg-center  w-full mx-auto ">
+        </div>
+        <div class="pt-6 text-center p-5">
+          
+
+          <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline text">Set cocina mango tricolor</a>
+         <p class="text-2xl font-extrabold leading-tight text-gray-800">190€</p>
+          <div class="mt-2 flex items-center justify-center gap-2">
+            <div class="flex items-center">
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+
+              <svg class="h-4 w-4 text-yellow-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+              </svg>
+            </div>
+
+            <p class="text-sm font-medium text-gray-800">5.0</p>
+            <p class="text-sm font-medium text-gray-800">(455)</p>
+          </div>
+
+          <div class="mb-4 flex items-center justify-center gap-4">
+
+
+            <div class="flex items-center justify-center gap-1">
+              <button type="button" data-tooltip-target="tooltip-quick-look" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-white hover:bg-yellow-700 ">
+                <span class="sr-only"> Quick look </span>
+                <svg class="h-5 w-5 text-yellow-700 hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                  <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+              </button>
+              
+
+              <button type="button" data-tooltip-target="tooltip-add-to-favorites" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-white hover:bg-yellow-700 ">
+                <span class="sr-only"> Add to Favorites </span>
+                <svg class="h-5 w-5 text-yellow-700 hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                </svg>
+              </button>
+              
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center justify-center gap-4">
+
+
+            <button type="button" class="inline-flex items-center rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 ">
+          
+              <a href="https://www.whatsapp.com" class="flex items-center"><i data-lucide="message-circle-more"></i> <span class="ml-2">WHATSAPP</span></a>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      
+
+  </div>
+  
+     <div class="w-full text-center">
+      <button type="button" class="rounded-md bg-yellow-700 px-5 py-2.5  text-white hover:bg-yellow-800">MOSTRAR MÁS</button>
+    </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+       
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+
+<script>lucide.createIcons();</script>
+
+<script>
+  const btn= document.getElementById("demo-btn");
+  const msg= document.getElementById("demo-msg");
+
+  btn.addEventListener("click", ()=>{
+    msg.classList.remove("hidden");
+
+    setTimeout(()=>{
+      document.querySelector('[data-modal-hide="reserva-modal"]').click();
+    }, 1200);
+  });
+</script>
+
+</body>
+</html>
