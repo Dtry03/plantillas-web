@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Taller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Inter', sans-serif;
+            }
+    </style>
+    </head>
+<body>
+  <nav class="bg-blue-500">
+      <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+          <span class="text-white font-bold  text-xl">ASESORÍA PERSONAL</span>
+
+          <button data-collapse-toggle="navbar" type="button" class="md:hidden mx-4"><i data-lucide="menu" class="text-white"></i></button>
+          <button type="button" class="md:hidden bg-yellow-500 text-white  font-bold rounded px-4 hover:bg-yellow-600"><a href="https://wa.me/34647599496">CONSULTA GRATIS</a></button>
+         
+
+          <div class="hidden md:flex gap-6 text-white font-semibold" >
+              <a href="#servicios" class="p-2 hover:text-yellow-500 ">SERVICIOS</a>
+              <a href="#contacto" class="p-2 hover:text-yellow-500 ">CONTACTO</a>
+              <button type="button" class="hidden md:block bg-yellow-500 text-white  rounded px-4 hover:bg-yellow-600 "><a href="https://wa.me/34647599496">CONSULTA GRATIS</a></button>
+          </div>
+      </div>
+      
+          <div class="hidden  gap-6 text-white font-semibold" id="navbar">
+              <a href="#servicios" class="p-2 hover:text-yellow-500 ">SERVICIOS</a>
+              <a href="#contacto" class="p-2 hover:text-yellow-500 ">CONTACTO</a>
+              <button type="button" class="hidden md:block bg-yellow-500 text-white  rounded px-4 hover:bg-yellow-600  ">CONSULTA GRATIS</button>
+          </div>  
+  </nav>
+
+  <section class="relative bg-[url(asesor.jpg)] bg-cover bg-center h-screen w-full mx-auto py-20 flex justify-center items-center">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 text-white text-center w-full  flex-col justify-center mx-auto">
+      <h1 class="md:text-7xl font-bold pb-3 text-2xl ">AHORRA EN TUS FACTURAS Y PAGA LO JUSTO</h1>
+      <p class="md:text-3xl md:pb-12 text-md pb-6 ">Te ayudamos a elegir la mejor opción en luz, seguros y más, sin complicaciones</p>
+    
+
+    <button  class="bg-yellow-500 rounded px-5 py-3 md:text-3xl  text-md font-bold hover:bg-yellow-600 "><a href="https://wa.me/34647599496">CONSULTA GRATIS POR WHATSAPP</a></button>
+    </div>
+  </section>
+<section class="bg-blue-500 pt-12 pb-12 md:pt-0 md:pb-0 ">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6  " id="servicios">
+      <div class=" mb-8 lg:mb-16 flex items-center justify-center ">
+          <h2 class="mb-4 text-4xl text-center tracking-tight font-extrabold  text-white">¿En qué te puedo ayudar?</h2>
+        
+      </div>
+      <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-12 md:space-y-0">
+          <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="shield-check" class="text-yellow-500 w-60 h-60"></i>
+              </div>
+              <h3 class="mb-2 text-2xl font-bold text-white lg:text-2xl">SEGUROS</h3>
+              <p class="text-white text-xl mb-3 text-center">Encuentra el mejor seguro al mejor precio</p>
+
+              <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-3 py-1 rounded font-bold  text-md flex">VER OPCIONES <i data-lucide="chevron-right"></i></button>
+          </div>
+
+          <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition ">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="zap" class="text-yellow-500 w-60 h-60"></i>
+              </div>
+              <h3 class="mb-2 text-2xl font-bold text-white lg:text-2xl">LUZ / GAS</h3>
+              <p class="text-white text-xl mb-3 text-center">Reduce tu factura sin complicaciones</p>
+
+              <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-3 py-1 rounded font-bold  text-md flex">CALCULAR AHORRO <i data-lucide="chevron-right"></i></button>
+          </div>
+
+           <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="sun" class="text-yellow-500 w-60 h-60"></i>
+              </div>
+              <h3 class="mb-2 text-2xl font-bold text-white lg:text-2xl">PLACAS SOLARES</h3>
+              <p class="text-white text-xl mb-3 text-center">Ahorra a largo plazo con energía solar</p>
+
+              <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-3 py-1 rounded font-bold  text-md flex">VER CÓMO<i data-lucide="chevron-right"></i></button>
+          </div>
+          <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="trending-up" class="text-yellow-500 w-60 h-60"></i>
+              </div>
+              <h3 class="mb-2 text-2xl font-bold text-white lg:text-2xl">INVERSIONES</h3>
+              <p class="text-white text-xl mb-3 text-center">Haz crecer tu dinero de forma segura</p>
+
+              <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-3 py-1 rounded font-bold  text-md flex">MÁS INFO<i data-lucide="chevron-right"></i></button>
+          </div>
+          
+          
+
+          
+
+        
+  
+  </div>
+
+</section>
+<section class="bg-gray-900 pt-12 pb-12 md:pt-0 md:pb-0" id="contacto">
+  <div class="flex flex-col text-white items-center justify-center text-center py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+    <h2 class="mb-4  text-3xl md:text-5xl tracking-tight font-extrabold text-gray-900 text-white">¿Quieres que veamos tu caso?</h2>
+    <p class=" text-xl md:text-2xl pb-6">Escríbenos por WhatsApp y te ayudamos en 2 minutos</p>
+       <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded font-bold   text-xl md:text-3xl hover:scale-105 transition "><a href="https://wa.me/34647599496">HABLAR POR WHATSAPP</a></button>
+
+
+  </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+       
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+
+<script>lucide.createIcons();</script>
+
+<script>
+  const btn= document.getElementById("demo-btn");
+  const msg= document.getElementById("demo-msg");
+
+  btn.addEventListener("click", ()=>{
+    msg.classList.remove("hidden");
+
+    setTimeout(()=>{
+      document.querySelector('[data-modal-hide="reserva-modal"]').click();
+    }, 1200);
+  });
+</script>
+
+</body>
+</html>
