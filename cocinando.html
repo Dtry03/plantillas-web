@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Taller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <style>
+        .font-pacifico {
+             font-family: 'Pacifico', cursive;
+            letter-spacing: 5px;
+            }
+        body{
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    </head>
+<body data-collapse-toggle="">
+  <nav class="bg-yellow-800">
+      <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+          <span class="text-white font-bold text-3xl font-pacifico hover:scale-105 transition">COCINEANDO</span>
+
+          <button data-collapse-toggle="navbar" type="button" class="md:hidden mx-4"><i data-lucide="menu" class="text-white"></i></button>
+          <button type="button" class="md:hidden bg-lime-600 text-white  font-bold rounded px-4 hover:bg-amber-600">RESERVAR PLAZA</button>
+         
+
+          <div class="hidden md:flex gap-6 text-white font-semibold" >
+              <a href="#servicios" class="p-2 hover:text-lime-500  hover:scale-105 transition">SERVICIOS</a>
+              <a href="#EXPERIENCIAS" class="p-2 hover:text-lime-500  hover:scale-105 transition">EXPERIENCIAS</a>
+              <button type="button" class="hidden md:block bg-lime-600 text-white  font-bold rounded px-4 hover:bg-lime-700  hover:scale-105 transition">RESERVAR PLAZA</button>
+          </div>
+      </div>
+      
+          <div class="hidden  gap-6 text-white font-semibold" id="navbar">
+              <a href="#servicios" class="p-2 hover:text-bg-lime-700 ">SERVICIOS</a>
+              <a href="#EXPERIENCIAS" class="p-2 hover:text-bg-lime-700 ">EXPERIENCIAS</a>
+              <button type="button" class="hidden md:block bg-lime-700 text-white font-bold  rounded px-4 hover:bg-lime-600  ">PEDIR PRESUPUESTO</button>
+          </div>  
+  </nav>
+
+ <section class="relative bg-[url(cocina4.jpg)] bg-cover bg-center h-screen w-full mx-auto py-20 flex justify-center items-center">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 text-white text-center w-full  flex-col justify-center mx-auto">
+      <h1 class="md:text-7xl font-bold pb-9 text-4xl font-pacifico ">Aprende a cocinar y disfrutar la experiencia</h1>
+      <p class="md:text-3xl md:pb-12 text-md pb-6 ">Talleres de cocina en Ponferrada para niños, adultos y familias</p>
+    
+
+    <button  class="bg-lime-600 rounded px-5 py-3 md:text-3xl  text-md font-bold hover:bg-lime-700 ">RESERVAR PLAZA AHORA</button>
+    </div>
+  </section>
+<section class="bg-yellow-800 pt-12 pb-12 md:pt-0 md:pb-0 " id="servicios">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6  " >
+      <div class=" mb-8 lg:mb-16 flex items-center justify-center ">
+          <h2 class="mb-4 text-5xl text-center tracking-tight font-extrabold  text-white font-pacifico ">Elige tu tipo de taller</h2>
+        
+      </div>
+      <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+          <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="users" class="text-lime-500 w-60 h-60"></i>
+              </div>
+              <h3 class="mb-2 text-2xl font-bold text-white lg:text-2xl  ">TALLERES EN FAMILIA</h3>
+              <p class="text-white text-xl mb-3 text-center">Comparte una experiencia única cocinando juntos</p>
+
+           
+          </div>
+
+          <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition ">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="baby" class="text-lime-500 w-60 h-60"></i>
+              </div>
+              <h3 class="mb-2 text-2xl font-bold text-center text-white lg:text-2xl  ">TALLERES PARA NIÑOS</h3>
+              <p class="text-white text-xl mb-3 text-center">Clases dinámicas donde aprenden y se divierten cocinando</p>
+
+                    </div>
+
+           <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="candy" class="text-lime-500 w-60 h-60"></i>
+              </div>
+              <h3 class="mb-2 text-2xl font-bold text-white lg:text-2xl  text-center">REPOSTERÍA / THERMOMIX</h3>
+              <p class="text-white text-xl mb-3 text-center">Domina recetas dulces y técnicas fáciles para casa</p>
+
+           
+          </div>
+
+          
+          
+
+          
+
+        
+  
+  </div>
+
+</section>
+
+
+<section class="bg-lime-700 p-12 " id="EXPERIENCIAS">
+<div class=" mb-8 lg:mb-16 flex  flex-col  justify-center ">
+    <h2 class="mb-4 text-5xl text-center tracking-tight font-extrabold  text-white font-pacifico ">Así se vive un taller</h2>   
+     <p class=" md:text-xl text-white  text-md text-center">Clases prácticas, ambiente cercano y momentos que se disfrutan de verdad</p>
+</div>
+
+
+<div class="grid grid-cols-2 gap-2">
+        <div>
+            <img class="h-auto max-w-full rounded-base" src="cocina3.jpg" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-base" src="cocina2.jpg" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-base" src="cocina.jpg" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-base" src="cocina4.jpg" alt="">
+        </div>
+    </div>
+
+
+</section>
+<section class="bg-stone-800 pt-12 pb-12 md:pt-0 md:pb-0" id="EXPERIENCIAS">
+  <div class="flex flex-col text-white items-center justify-center text-center py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+    <h2 class="mb-4  text-4xl md:text-5xl tracking-tight font-extrabold text-gray-900 text-white font-pacifico">¿Te apetece vivirlo?</h2>
+    <p class=" text-xl md:text-2xl pb-6">Reserva tu plaza y te ayudamos a elegir el taller perfecto</p>
+       <button class="text-white bg-lime-600 hover:bg-lime-700 px-6 py-3 rounded font-bold   text-md md:text-3xl hover:scale-105 transition ">RESERVA PLAZA AHORA</button>
+
+
+  </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+       
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+
+<script>lucide.createIcons();</script>
+
+<script>
+  const btn= document.getElementById("demo-btn");
+  const msg= document.getElementById("demo-msg");
+
+  btn.addEventListener("click", ()=>{
+    msg.classList.remove("hidden");
+
+    setTimeout(()=>{
+      document.querySelector('[data-modal-hide="reserva-modal"]').click();
+    }, 1200);
+  });
+</script>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('opacity-100');
+    slides[current].classList.add('opacity-0');
+
+    current = (current + 1) % slides.length;
+
+    slides[current].classList.remove('opacity-0');
+    slides[current].classList.add('opacity-100');
+  }, 4000);
+</script>
+
+</body>
+</html>
