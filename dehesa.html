@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Taller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
+<style>
+        .font-satisfy {
+            font-family: 'Satisfy', cursive;
+            letter-spacing: 6px;
+            }
+            body{
+                font-family: 'Cormorant Garamond', serif;
+            }
+    </style>
+    </head>
+<body>
+  <nav class="bg-red-950">
+      <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+          <span class="text-white font-bold font-satisfy md:text-3xl">La Dehesa del Bierzo</span>
+
+          <button data-collapse-toggle="navbar" type="button" class="md:hidden mx-4"><i data-lucide="menu" class="text-white"></i></button>
+          <button type="button" class="md:hidden bg-red-800 text-white  rounded px-4 hover:bg-red-900 font-bold"><a href="https://wa.me">PEDIR AHORA</a></button>
+         
+
+          <div class="hidden md:flex gap-6 text-white font-semibold" >
+              <a href="#productos" class="p-2 hover:text-red-900 text-2xl font-bold">PRODUCTOS</a>
+              <a href="#eventos" class="p-2 hover:text-red-900 text-2xl font-bold">EVENTOS</a>
+              <button type="button" class="hidden md:block bg-red-800 text-white  rounded px-4 hover:bg-red-900 text-2xl font-bold"><a href="https://wa.me">PEDIR AHORA</a></button>
+          </div>
+      </div>
+      
+          <div class="hidden  gap-6 text-white font-semibold" id="navbar">
+              <a href="#productos" class="p-2 hover:text-red-900 text-2xl font-bold">PRODUCTOS</a>
+              <a href="#eventos" class="p-2 hover:text-red-900 text-2xl font-bold">EVENTOS</a>
+              <button type="button" class="hidden md:block bg-red-800 text-white  rounded px-4 hover:bg-red-900 text-2xl font-bold ">RESERVAR CITA</button>
+          </div>  
+  </nav>
+
+  <section class="relative bg-[url(dehesa.webp)] bg-cover bg-center h-screen w-full mx-auto py-20 flex justify-center items-center">
+    <div class="absolute inset-0 bg-black/75"></div>
+    <div class="relative z-10 text-white text-center w-full  flex-col justify-center mx-auto">
+      <h1 class="md:text-7xl font-bold pb-3 text-2xl font-satisfy">PRODUCTOS GOURMET DEL BIERZO PARA REGALAR O DISFRUTAR</h1>
+      <p class="md:text-5xl md:pb-12 text-2xl pb-6 ">Cestas, vinos y detalles listos para cualquier ocasión</p>
+    
+
+    <button  class="bg-red-800 rounded px-5 py-3 md:text-3xl  text-md font-bold hover:bg-red-900 "><a href="https://wa.me">PEDIR POR WHATSAPP</a></button>
+    </div>
+  </section>
+  <section class="bg-red-950 pt-12 pb-12 md:pt-0 md:pb-0 ">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6  " id="productos">
+      <div class=" mb-8 lg:mb-16 flex items-center justify-center ">
+          <h2 class="mb-4 text-5xl text-center tracking-tight font-extrabold  text-white font-satisfy">Nuestros productos más vendidos</h2>
+        
+      </div>
+      <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-12 md:space-y-0">
+          <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="shopping-basket" class="text-red-800 w-60 h-60"></i>
+              </div>
+              <h3 class=" text-center mb-2 text-xl font-bold text-white lg:text-2xl">CESTAS GOURMET</h3>
+              <p class="text-white text-xl mb-3 text-center">Selecciones listas para regalar</p>
+
+              <button class="text-white bg-red-800 hover:bg-red-900 px-5 py-3 rounded font-bold  text-md flex"><a href="http://wa.me">CONSULTAR WHATSAPP</a><i data-lucide="chevron-right"></i></button>
+          </div>
+
+          <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition ">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="wine" class="text-red-800 w-60 h-60"></i>
+              </div>
+              <h3 class=" text-center mb-2 text-xl font-bold text-white lg:text-2xl">VINOS DEL BIERZO</h3>
+              <p class="text-white text-xl mb-3 text-center">Calidad local para cualquier ocasión</p>
+
+              <button class="text-white bg-red-800 hover:bg-red-900 px-5 py-3 rounded font-bold  text-md flex"><a href="http://wa.me">CONSULTAR WHATSAPP</a><i data-lucide="chevron-right"></i></button>
+          </div>
+
+           <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="utensils" class="text-red-800 w-60 h-60"></i>
+              </div>
+              <h3 class=" text-center mb-2 text-xl font-bold text-white lg:text-2xl">PRODUCTOS GOURMET</h3>
+              <p class="text-white text-xl mb-3 text-center">Sabores únicos del Bierzo</p>
+
+              <button class="text-white bg-red-800 hover:bg-red-900 px-5 py-3 rounded font-bold  text-md flex"><a href="http://wa.me">CONSULTAR WHATSAPP</a><i data-lucide="chevron-right"></i></button>
+          </div>
+          <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+               <i data-lucide="gift" class="text-red-800 w-60 h-60"></i>
+              </div>
+              <h3 class=" text-center mb-2 text-xl font-bold text-white lg:text-2xl">REGALOS PERSONALIZADOS</h3>
+              <p class="text-white text-xl mb-3 text-center">Detalles adaptados a cada cliente</p>
+
+              <button class="text-white bg-red-800 hover:bg-red-900 px-5 py-3 rounded font-bold  text-md flex"><a href="http://wa.me">CONSULTAR WHATSAPP</a><i data-lucide="chevron-right"></i></button>
+          </div>
+          
+          
+
+          
+
+        
+  
+  </div>
+
+</section>
+<section class="bg-gray-200 " id="eventos">
+    <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div class=" place-self-center lg:col-span-7  flex flex-col items-center justify-center">
+          <h2 class="mb-4 text-5xl text-center  tracking-tight font-extrabold  text-dark font-satisfy md:text-left">Degustaciones y eventos en tienda</h2>
+      <p class="text-2xl text-center text-dark md:pb-6 text-md pb-6 md:text-left">Disfruta de catas de vino, degustaciones y eventos en un ambiente único</p>
+           
+              <button class=" flex items-center text-center text-white bg-red-800 hover:bg-red-900 px-5 py-3 rounded font-bold  text-xl justify-center ">CONSULTAR PRÓXIMO EVENTO<i data-lucide="chevron-right"></i></button>
+        </div>
+        <div class=" md:mt-0 mt-6 w-full h-full  lg:col-span-5 lg:flex">
+            <img src="dehesa2.webp" alt="mockup">
+        </div>                
+    </div>
+</section>
+<section class="bg-red-950 pt-12 pb-12 md:pt-0 md:pb-0" id="EVENTOS">
+  <div class="flex flex-col text-white items-center justify-center text-center py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+    <h2 class="mb-4  text-3xl md:text-5xl tracking-tight font-extrabold text-gray-900 text-white font-satisfy">¿Buscas un regalo especial o algo diferente?</h2>
+    <p class=" text-xl text-3xl pb-6">Te ayudamos en 2 minutos por WhatsApp</p>
+       <button class="text-white bg-red-800 hover:bg-red-900 px-6 py-3 rounded font-bold   text-xl md:text-3xl hover:scale-105 transition "><a href="https://wa.me">HABLAR POR WHATSAPP</a></button>
+
+
+  </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+       
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+
+<script>lucide.createIcons();</script>
+
+<script>
+  const btn= document.getElementById("demo-btn");
+  const msg= document.getElementById("demo-msg");
+
+  btn.addEventListener("click", ()=>{
+    msg.classList.remove("hidden");
+
+    setTimeout(()=>{
+      document.querySelector('[data-modal-hide="reserva-modal"]').click();
+    }, 1200);
+  });
+</script>
+
+</body>
+</html>
