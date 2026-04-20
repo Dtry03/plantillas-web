@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Flowbite -->
+  <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script>
+
+  <!-- Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Oswald', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-white">
+
+<!-- HEADER -->
+<header class="bg-black text-white fixed w-full z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">FCO MORENO</h1>
+
+    <nav class="hidden md:flex gap-8">
+      <a href="#" class="hover:text-red-500">Servicios</a>
+      <a href="#" class="hover:text-red-500">Proyectos</a>
+      <a href="#" class="hover:text-red-500">Contacto</a>
+    </nav>
+
+    <a href="#" class="bg-red-600 px-5 py-2 rounded font-semibold hover:bg-red-700">
+      Presupuesto
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative h-screen flex items-center">
+  <img src="construccion.png" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 text-white">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+      Construcción y Reformas Profesionales
+    </h1>
+
+    <p class="text-lg md:text-xl mb-8 max-w-xl">
+      Especialistas en obra civil, estructuras y reformas integrales con resultados duraderos y de calidad.
+    </p>
+
+    <a href="#" class="bg-red-600 px-6 py-4 rounded font-semibold hover:bg-red-700">
+      Solicitar presupuesto
+    </a>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="py-20 bg-gray-100">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <h2 class="text-4xl font-bold mb-12">Servicios</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="bg-white p-8 rounded shadow hover:shadow-lg transition">
+        <i data-lucide="building" class="mx-auto mb-4 w-10 h-10 text-red-600"></i>
+        <h3 class="text-xl font-semibold mb-2">Obra nueva</h3>
+        <p class="text-gray-600">Construcción completa de viviendas y proyectos.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded shadow hover:shadow-lg transition">
+        <i data-lucide="hammer" class="mx-auto mb-4 w-10 h-10 text-red-600"></i>
+        <h3 class="text-xl font-semibold mb-2">Reformas</h3>
+        <p class="text-gray-600">Reformas integrales y parciales adaptadas a cada cliente.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded shadow hover:shadow-lg transition">
+        <i data-lucide="layers" class="mx-auto mb-4 w-10 h-10 text-red-600"></i>
+        <h3 class="text-xl font-semibold mb-2">Estructuras</h3>
+        <p class="text-gray-600">Especialistas en estructuras y encofrados.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-red-600 text-white py-16 text-center">
+  <h2 class="text-4xl font-bold mb-4">¿Necesitas una obra o reforma?</h2>
+  <p class="mb-6">Solicita información sin compromiso</p>
+  <a href="#" class="bg-white text-red-600 px-6 py-3 rounded font-semibold">
+    Contactar ahora
+  </a>
+</section>
+
+<!-- CONTACTO -->
+<section class="py-20 bg-gray-100">
+  <div class="max-w-4xl mx-auto text-center px-6">
+
+    <h2 class="text-4xl font-bold mb-8">Contacto</h2>
+
+    <p class="mb-4">📞 Teléfono: 000 000 000</p>
+    <p class="mb-4">📧 Email: info@empresa.com</p>
+
+    <iframe 
+      class="w-full h-64 rounded"
+      src="https://www.google.com/maps?q=España&output=embed">
+    </iframe>
+
+  </div>
+</section>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
