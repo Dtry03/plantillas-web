@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo ZANMAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    
+    <style>
+
+        .font-playfair {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+            }
+        body{
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    </head>
+<body data-collapse-toggle="">
+  <nav class="bg-red-700">
+      <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+          <span class="text-white font-extrabold text-3xl font-playfair hover:scale-105 transition">ZANMAI</span>
+
+          <button data-collapse-toggle="navbar" type="button" class="md:hidden mx-4"><i data-lucide="menu" class="text-white"></i></button>
+          <button type="button" class="md:hidden  bg-white text-black  font-bold rounded px-4 hover:bg-red-100 text-xl  font-playfair hover:scale-105 transition"><a href="https://wa.me/">RESERVAR CITA</a></button>
+         
+
+          <div class="hidden md:flex gap-6 text-white font-semibold" >
+              <a href="#servicios" class="p-2 hover:text-red-100  text-md  font-playfair hover:scale-105 transition">SERVICIOS</a>
+                            <a href="#contacto" class="p-2 hover:text-red-100  text-md  font-playfair hover:scale-105 transition">CONTACTO</a>
+              <button type="button" class="hidden md:block  bg-white text-black  font-bold rounded px-4 hover:bg-red-100 text-xl  font-playfair hover:scale-105 transition"><a href="https://wa.me/">RESERVAR CITA</a></button>
+          </div>
+      </div>
+      
+          <div class="hidden  gap-6 text-white font-semibold" id="navbar">
+              <a href="#servicios" class="p-2 hover:text-red-100  text-md  font-playfair">SERVICIOS </a>
+                            <a href="#contacto" class="p-2 hover:text-red-100  text-md  font-playfair">CONTACTO </a>
+              <button type="button" class="hidden md:block  bg-white text-black  font-bold rounded px-4 hover:bg-red-100 text-xl  font-playfair hover:scale-105 transition"><a href="https://wa.me/">RESERVAR CITA</a></button>
+          </div>  
+  </nav>
+
+  <section class="relative bg-[url(masajes.jpg)] bg-cover bg-center h-screen w-full mx-auto py-20 flex justify-center items-center">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 text-white text-center w-full  flex-col justify-center mx-auto">
+      <h1 class="md:text-7xl font-bold pb-3 m-2 text-3xl  font-playfair">ACUPUNTURA Y MASAJE EN EL BIERZO</h1>
+      <p class="md:text-3xl md:pb-12 text-md pb-6 px-2 font-orbitron">Alivia el dolor, reduce el éstres y vuelve a sentirte bien</p>
+       <button  class="bg-white rounded md:px-8 md:py-6  px-6 py-3 md:text-3xl text-black text-md font-bold hover:bg-red-100 hover:scale-105 transition font-playfair"><a href="https://wa.me/">RESERVAR CITA AHORA</a></button>
+
+  
+    </div>
+  </section>
+<section class="bg-red-700 pt-12 pb-12 md:pt-0 md:pb-0 " id="servicios">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6  " >
+      <div class=" mb-8 lg:mb-16 flex items-center justify-center ">
+          <h2 class="mb-4 text-5xl text-center tracking-tight font-extrabold  text-white  font-playfair ">NUESTROS SERVICIOS</h2>
+        
+      </div>
+     <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-12 md:space-y-0">
+
+  <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+      <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+        <i data-lucide="activity" class="text-white w-16 h-16"></i>
+      </div>
+      <h3 class="mb-2 text-2xl font-bold text-white  font-playfair text-center">ACUPUNTURA</h3>
+      <p class="text-white text-xl mb-3 text-center">Técnica tradicional para ayudar a aliviar molestias, equilibrar el cuerpo y mejorar el bienestar</p>
+  </div>
+
+  <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+      <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+        <i data-lucide="hand-heart" class="text-white w-16 h-16"></i>
+      </div>
+      <h3 class="mb-2 text-2xl font-bold text-white  font-playfair text-center">MASAJE</h3>
+      <p class="text-white text-xl mb-3 text-center">Sesiones pensadas para soltar tensión, relajar el cuerpo y ayudarte a sentirte mejor</p>
+  </div>
+
+  <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+      <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+        <i data-lucide="footprints" class="text-white w-16 h-16"></i>
+      </div>
+      <h3 class="mb-2 text-2xl font-bold text-white  font-playfair text-center">REFELEXOLOGÍA</h3>
+      <p class="text-white text-xl mb-3 text-center">Trabajo sobre puntos especificos para favorecer la relajación y el equilibrio general</p>
+  </div>
+
+  <div class="flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition">
+      <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+        <i data-lucide="flame" class="text-white w-16 h-16"></i>
+      </div>
+      <h3 class="mb-2 text-2xl font-bold text-white  font-playfair text-center">MOXIBUSTIÓN</h3>
+      <p class="text-white text-xl mb-3 text-center">Técnica con calor suave utilizada para estimular zonas concretas  y aportar sensación de bienestar</p>
+  </div>
+
+</div>
+          
+          
+
+          
+
+        
+  
+  </div>
+
+</section>
+
+
+
+<section class="bg-black py-20 text-center px-4" id="contacto">
+  <h2 class="text-white font-extrabold font-playfair text-5xl mb-6">
+    EMPIEZA A ENCONTARTE MEJOR HOY 
+  </h2>
+
+  <p class="text-gray-300 text-xl mb-8 max-w-2xl mx-auto">
+    Reserva tu sesión de forma sencilla y te ayudamos a elegir lo que mejor necesitas
+  </p>
+
+    <a href="https://wa.me/" class="border border-white text-white  font-playfair text-xl px-8 py-4 rounded-full hover:bg-red-700 hover:border-red-700 hover:scale-110 transition">
+        RESERVAR CITA POR WHATSAPP
+    </a>
+  </div>
+
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+       
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+
+<script>lucide.createIcons();</script>
+
+<script>
+  const btn= document.getElementById("demo-btn");
+  const msg= document.getElementById("demo-msg");
+
+  btn.addEventListener("click", ()=>{
+    msg.classList.remove("hidden");
+
+    setTimeout(()=>{
+      document.querySelector('[data-modal-hide="reserva-modal"]').click();
+    }, 1200);
+  });
+</script>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('opacity-100');
+    slides[current].classList.add('opacity-0');
+
+    current = (current + 1) % slides.length;
+
+    slides[current].classList.remove('opacity-0');
+    slides[current].classList.add('opacity-100');
+  }, 4000);
+</script>
+
+</body>
+</html>
