@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monte Restaurante | Demo</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, 'Times New Roman', serif; }
+
+    .gallery-marquee {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: galleryMove 35s linear infinite;
+    }
+
+    .gallery-img {
+      width: 300px;
+      height: 360px;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 1.5rem;
+    }
+
+    @keyframes galleryMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-33.333%); }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-img {
+        width: 220px;
+        height: 280px;
+      }
+
+      .gallery-track {
+        animation-duration: 30s;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900 overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header id="header" class="fixed top-0 left-0 z-50 w-full bg-transparent text-white transition-all duration-500 ">
+    <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 md:px-5 md:py-4">
+
+      <a href="#inicio" class="flex items-center hover:scale-105 transition">
+        <img src="logo-monte.png" alt="logo-monte">
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.2em]">
+        <a href="#carta" class="hover:text-orange-300 font-extrabold hover:scale-105 transition">Carta</a>
+        <a href="#historia" class="hover:text-orange-300 font-extrabold hover:scale-105 transition">Historia</a>
+        <a href="#reservas" class="hover:text-orange-300 font-extrabold hover:scale-105 transition">Reservas</a>
+        <a href="#contacto" class="hover:text-orange-300 font-extrabold hover:scale-105 transition">Contacto</a>
+      </div>
+
+      <a href="https://widget.thefork.com/es/54a4593b-72f6-4fc3-993d-ec18de5f7ef8?step=date&utm_source=montesanfeliz.com"
+        class="hidden rounded-full bg-orange-400 px-5 py-2 text-sm font-semibold uppercase tracking-widest transition hover:scale-105 hover:bg-orange-500 md:inline-flex">
+        Reservar
+      </a>
+
+      <div class="flex items-center gap-2 md:hidden">
+        <a href="https://widget.thefork.com/es/54a4593b-72f6-4fc3-993d-ec18de5f7ef8?step=date&utm_source=montesanfeliz.com"
+          class="rounded-full bg-orange-400 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white shadow-lg">
+          Reservar
+        </a>
+
+        <button data-collapse-toggle="mobile-menu" class="rounded-full bg-white/10 p-2 backdrop-blur">
+          <i data-lucide="menu" class="h-6 w-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-white/10 bg-black/90 px-5 pb-6 pt-4 md:hidden">
+      <div class="flex flex-col gap-5 text-sm uppercase tracking-widest">
+        <a href="#carta" class="hover:text-orange-300 font-extrabold">Carta</a>
+        <a href="#historia" class="hover:text-orange-300 font-extrabold">Historia</a>
+        <a href="#reservas" class="hover:text-orange-300 font-extrabold">Reservas</a>
+        <a href="#contacto" class="hover:text-orange-300 font-extrabold">Contacto</a>
+
+        <a href="https://widget.thefork.com/es/54a4593b-72f6-4fc3-993d-ec18de5f7ef8?step=date&utm_source=montesanfeliz.com"
+          class="mt-2 rounded-full bg-orange-400 px-5 py-3 text-center text-xs font-bold uppercase tracking-widest text-white">
+          Reservar mesa
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative flex min-h-screen items-center justify-center bg-[url('monte7.jpg')] bg-cover bg-center px-4 text-white">
+    <div class="absolute inset-0 bg-black/55"></div>
+
+    <div class="relative z-10 mx-auto max-w-4xl pt-24 text-center">
+      <div class="mb-6 flex items-center justify-center gap-3 md:mb-8 md:gap-5">
+        <img src="monte1.png" class="h-16 w-16 object-contain md:h-28 md:w-28">
+        <img src="monte2.png" class="h-14 w-14 object-contain md:h-20 md:w-20">
+        <img src="monte6.png" class="h-16 w-16 object-contain md:h-24 md:w-24">
+      </div>
+
+      <p class="mb-4 text-xs uppercase tracking-[0.25em] text-orange-200 md:text-sm md:tracking-[0.35em]">
+        Gastronomía · Raíces · Producto
+      </p>
+
+      <h1 class="mb-6 text-4xl font-bold uppercase leading-tight tracking-[0.08em] md:text-7xl md:tracking-[0.15em]">
+        Bienvenidos a Monte
+      </h1>
+
+      <p class="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/85 md:text-xl">
+        Una experiencia gastronómica donde la cocina de paisaje, el producto local y el fuego se unen para crear momentos especiales.
+      </p>
+
+      <div class="flex flex-col justify-center gap-3 sm:flex-row">
+        <a href="https://widget.thefork.com/es/54a4593b-72f6-4fc3-993d-ec18de5f7ef8?step=date&utm_source=montesanfeliz.com"
+          class="rounded-full bg-orange-400 px-8 py-4 text-sm font-bold uppercase tracking-widest transition hover:bg-orange-500 transition">
+          Reservar mesa
+        </a>
+
+        <a href="#carta"
+          class="rounded-full border border-white px-8 py-4 text-sm font-bold uppercase tracking-widest transition hover:bg-white hover:text-black transition">
+          Ver carta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="px-5 py-16 text-center md:py-24">
+    <div class="mx-auto max-w-3xl">
+      <p class="mb-3 text-xs uppercase tracking-[0.3em] text-orange-700 md:text-sm md:tracking-[0.35em]">
+        Restaurante en Ponferrada
+      </p>
+
+      <h2 class="mb-6 text-3xl font-semibold md:text-5xl">
+        Cocina con identidad
+      </h2>
+
+      <p class="text-base leading-8 text-stone-700 md:text-lg">
+        En Monte trabajamos una cocina honesta, cuidada y cercana. Platos pensados para disfrutar sin prisas, con una propuesta visual y clara para que cualquier cliente entienda qué ofrecemos y reserve en segundos desde el móvil.
+      </p>
+    </div>
+  </section>
+
+  <!-- DESTACADOS -->
+  <section class="bg-white px-5 py-16 md:py-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-10 text-center md:mb-14">
+        <p class="mb-3 text-xs uppercase tracking-[0.3em] text-orange-700 md:text-sm md:tracking-[0.35em]">
+          Qué ofrecemos
+        </p>
+
+        <h2 class="text-3xl font-semibold md:text-5xl">
+          Una web pensada para convertir visitas en reservas
+        </h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3 md:gap-8">
+        <div class="rounded-3xl border border-stone-200 bg-stone-50 p-6 text-center shadow-sm md:p-8">
+          <i data-lucide="utensils" class="mx-auto mb-5 h-9 w-9 text-orange-700 md:h-10 md:w-10"></i>
+          <h3 class="mb-3 text-2xl font-semibold">Carta clara</h3>
+          <p class="leading-7 text-stone-600">Entrantes, platos principales, postres y menús organizados para que el cliente no tenga dudas.</p>
+        </div>
+
+        <div class="rounded-3xl border border-stone-200 bg-stone-50 p-6 text-center shadow-sm md:p-8">
+          <i data-lucide="calendar-check" class="mx-auto mb-5 h-9 w-9 text-orange-700 md:h-10 md:w-10"></i>
+          <h3 class="mb-3 text-2xl font-semibold">Reservas rápidas</h3>
+          <p class="leading-7 text-stone-600">Botón directo para reservar mesa sin llamadas largas ni pérdida de clientes.</p>
+        </div>
+
+        <div class="rounded-3xl border border-stone-200 bg-stone-50 p-6 text-center shadow-sm md:p-8">
+          <i data-lucide="map-pin" class="mx-auto mb-5 h-9 w-9 text-orange-700 md:h-10 md:w-10"></i>
+          <h3 class="mb-3 text-2xl font-semibold">Cómo llegar</h3>
+          <p class="leading-7 text-stone-600">Ubicación visible y acceso directo a Google Maps para facilitar visitas desde el móvil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIA -->
+  <section id="historia" class="px-5 py-16 md:py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-2 md:gap-12">
+      <div>
+        <p class="mb-3 text-xs uppercase tracking-[0.3em] text-orange-700 md:text-sm md:tracking-[0.35em]">
+          Nuestra esencia
+        </p>
+
+        <h2 class="mb-6 text-3xl font-semibold md:text-5xl">
+          Cocina de paisaje
+        </h2>
+
+        <p class="mb-5 text-base leading-8 text-stone-700 md:text-lg">
+          Una sección perfecta para contar la filosofía del restaurante, el tipo de cocina, el origen del producto y lo que hace diferente a Monte frente a otros restaurantes.
+        </p>
+
+        <p class="text-base leading-8 text-stone-700 md:text-lg">
+          Aquí el cliente no solo ve platos: entiende el valor del sitio antes de reservar.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 md:gap-4">
+        <img class="h-56 w-full rounded-3xl object-cover md:h-72" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=900&auto=format&fit=crop" alt="Plato del restaurante" />
+        <img class="mt-8 h-56 w-full rounded-3xl object-cover md:mt-10 md:h-72" src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=900&auto=format&fit=crop" alt="Interior restaurante" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section id="carta" class="bg-stone-900 px-5 py-16 text-white md:py-24">
+    <div class="mx-auto max-w-5xl">
+      <div class="mb-10 text-center md:mb-14">
+        <p class="mb-3 text-xs uppercase tracking-[0.3em] text-orange-300 md:text-sm md:tracking-[0.35em]">
+          Carta
+        </p>
+
+        <h2 class="text-3xl font-semibold md:text-5xl">
+          Platos destacados
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="flex items-start justify-between gap-5 border-b border-white/15 pb-6">
+          <div>
+            <h3 class="text-xl font-semibold md:text-2xl">Croquetas caseras</h3>
+            <p class="mt-2 text-sm text-white/65 md:text-base">Receta cremosa, producto cuidado y sabor tradicional.</p>
+          </div>
+          <span class="shrink-0 text-lg text-orange-300 md:text-xl">8€</span>
+        </div>
+
+        <div class="flex items-start justify-between gap-5 border-b border-white/15 pb-6">
+          <div>
+            <h3 class="text-xl font-semibold md:text-2xl">Carne a la brasa</h3>
+            <p class="mt-2 text-sm text-white/65 md:text-base">Cocinada al punto y acompañada de guarnición de temporada.</p>
+          </div>
+          <span class="shrink-0 text-lg text-orange-300 md:text-xl">18€</span>
+        </div>
+
+        <div class="flex items-start justify-between gap-5 border-b border-white/15 pb-6">
+          <div>
+            <h3 class="text-xl font-semibold md:text-2xl">Menú degustación</h3>
+            <p class="mt-2 text-sm text-white/65 md:text-base">Una propuesta completa para descubrir la cocina de Monte.</p>
+          </div>
+          <span class="shrink-0 text-lg text-orange-300 md:text-xl">Consultar</span>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center md:mt-12">
+        <a href="#" class="inline-flex rounded-full bg-orange-400 px-7 py-4 text-xs font-bold uppercase tracking-widest transition hover:bg-orange-500 md:px-8 md:text-sm">
+          Consultar carta completa
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="relative overflow-hidden bg-stone-50 py-16 md:py-24">
+    <div class="mb-10 px-5 text-center md:mb-14">
+      <p class="mb-3 text-xs uppercase tracking-[0.3em] text-orange-700 md:text-sm md:tracking-[0.35em]">
+        Galería
+      </p>
+
+      <h2 class="text-3xl font-semibold md:text-5xl">
+        El ambiente también vende
+      </h2>
+    </div>
+
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" />
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop" />
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" />
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop" />
+
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" />
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop" />
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" />
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop" />
+
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" />
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop" />
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" />
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop" />
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVAS -->
+  <section id="reservas" class="relative bg-[url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center px-5 py-20 text-center text-white md:py-28">
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative z-10 mx-auto max-w-3xl">
+      <p class="mb-3 text-xs uppercase tracking-[0.3em] text-orange-300 md:text-sm md:tracking-[0.35em]">
+        Reservas
+      </p>
+
+      <h2 class="mb-6 text-3xl font-semibold md:text-6xl">
+        Reserva tu mesa en segundos
+      </h2>
+
+      <p class="mb-8 text-base leading-8 text-white/80 md:mb-9 md:text-lg">
+        Un botón claro, visible y directo. Menos dudas para el cliente. Más reservas para el restaurante.
+      </p>
+
+      <a href="https://widget.thefork.com/es/54a4593b-72f6-4fc3-993d-ec18de5f7ef8?step=date&utm_source=montesanfeliz.com"
+        class="inline-flex items-center gap-3 rounded-full bg-orange-400 px-7 py-4 text-xs font-bold uppercase tracking-widest hover:bg-orange-600 md:px-9 md:py-5 md:text-sm">
+        <i data-lucide="calendar-check" class="h-5 w-5"></i>
+        Reservar mesa ahora
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="bg-white px-5 py-16 md:py-24">
+    <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:gap-12">
+      <div>
+        <p class="mb-3 text-xs uppercase tracking-[0.3em] text-orange-700 md:text-sm md:tracking-[0.35em]">
+          Contacto
+        </p>
+
+        <h2 class="mb-6 text-3xl font-semibold md:text-5xl">
+          Ven a Monte
+        </h2>
+
+        <div class="space-y-5 text-base text-stone-700 md:text-lg">
+          <p class="flex items-start gap-3">
+            <i data-lucide="map-pin" class="mt-1 h-5 w-5 shrink-0 text-orange-700"></i>
+            San Feliz s/n, 33638 San Feliz, Asturias
+          </p>
+
+          <p class="flex items-center gap-3">
+            <i data-lucide="phone" class="h-5 w-5 shrink-0 text-orange-700"></i>
+            659 59 66 66
+          </p>
+
+          <p class="flex items-center gap-3 break-all">
+            <i data-lucide="mail" class="h-5 w-5 shrink-0 text-orange-700"></i>
+            hola@montesanfeliz.com
+          </p>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-3xl border border-stone-200 shadow-sm">
+        <iframe
+          class="h-80 w-full md:h-[450px]"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d372474.41201472544!2d-6.229793160274348!3d43.16844053403966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd36fb3fdf8da78f%3A0xbbadeb36d65cb022!2sMonte!5e0!3m2!1ses!2ses!4v1778088467751!5m2!1ses!2ses"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-stone-950 px-5 py-10 text-center text-white">
+    <p class="mb-4 text-lg uppercase tracking-[0.2em] md:text-xl md:tracking-[0.25em]">
+      Monte Restaurante
+    </p>
+
+    <p class="text-sm text-white/60">
+      Demo creada para mostrar una web más clara, visual y enfocada a reservas.
+    </p>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a 
+  href="https://wa.me/659596666?text=Hola%2C%20quiero%20hacer%20una%20reserva"
+  target="_blank"
+  class="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-green-500 px-5 py-4 text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-green-600"
+>
+
+  <!-- ICONO -->
+<svg 
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  class="h-7 w-7"
+>
+  <path d="M20.52 3.48A11.79 11.79 0 0 0 12.04 0C5.4 0 .02 5.38.02 12c0 2.11.55 4.18 1.6 6L0 24l6.19-1.62A11.95 11.95 0 0 0 12.04 24c6.63 0 12-5.38 12-12 0-3.2-1.25-6.2-3.52-8.52ZM12.04 21.85a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.67.96.98-3.57-.24-.37A9.82 9.82 0 0 1 2.2 12c0-5.43 4.42-9.85 9.85-9.85 2.63 0 5.1 1.03 6.96 2.89A9.8 9.8 0 0 1 21.9 12c0 5.43-4.42 9.85-9.86 9.85Zm5.4-7.37c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.48-.88-.78-1.47-1.74-1.64-2.03-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.5.71.3 1.27.49 1.7.63.72.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/>
+</svg>
+
+  <!-- TEXTO -->
+  <span class="hidden md:block text-sm font-semibold uppercase tracking-wider">
+    Reservar
+  </span>
+
+</a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js"></script>
+
+  <script>
+    lucide.createIcons();
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.remove("bg-transparent");
+        header.classList.add("bg-black/80", "backdrop-blur-md", "shadow-lg");
+      } else {
+        header.classList.remove("bg-black/80", "backdrop-blur-md", "shadow-lg");
+        header.classList.add("bg-transparent");
+      }
+    });
+  </script>
+
+</body>
+</html>
