@@ -1,0 +1,486 @@
+º<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squash Ponferrada</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    .font-bebas { font-family: "Bebas Neue", sans-serif; }
+    .font-inter { font-family: "Inter", sans-serif; }
+    .bento-container {
+  display: grid;
+  gap: var(--gap);
+  width: 90vw;
+  height: 90vh;
+  max-width: 1000px;
+  max-height: 800px;
+
+}
+
+
+/*
+Specific classes for each event target
+*/
+.bento-container.rows-3-1-1 {
+  grid-template-rows: 3fr 1fr 1fr;
+  
+}
+
+.bento-container.rows-1-3-1 {
+  grid-template-rows: 1fr 3fr 1fr;
+}
+
+.bento-container.rows-1-1-3 {
+  grid-template-rows: 1fr 1fr 3fr;
+}
+
+.bento-container.cols-3-1-1 {
+  grid-template-columns: 3fr 1fr 1fr;
+}
+
+.bento-container.cols-1-3-1 {
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.bento-container.cols-1-1-3 {
+  grid-template-columns: 1fr 1fr 3fr;
+}
+
+.bento-item {
+  background-color: var(--card-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(255, 252, 225, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 5px;
+  color: #333;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid rgba(255, 252, 225, 0.5);
+
+  img {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #333;
+    opacity: 0;
+    z-index: 2;
+  }
+}
+
+/* Hover Effect: Scale up and bring to front */
+.bento-item:hover {
+  z-index: 10;
+}
+
+.ball {
+  width: 142px;
+  height: 142px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 28%;
+  background: radial-gradient(circle at 30% 30%, #fff176, #facc15 45%, #ca8a04 100%);
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.8);
+}
+  </style>
+</head>
+
+<body class="font-inter bg-blue-900 text-white">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-blue-900/80 backdrop-blur border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#" class="font-bebas text-3xl tracking-wide text-white">
+        SQUASH <span class="text-yellow-400">PONFERRADA</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-bold uppercase">
+        <a href="#beneficios" class="hover:text-blue-400">Por qué squash</a>
+        <a href="#instalaciones" class="hover:text-blue-400">Instalaciones</a>
+        <a href="#torneos" class="hover:text-blue-400">Torneos</a>
+        <a href="#contacto" class="bg-white text-black px-5 py-2 rounded-full hover:scale-105 transition">
+          Reservar
+        </a>
+      </div>
+        <a href="#contacto" class="md:hidden bg-white font-bold text-black px-5 py-2 rounded-full hover:scale-105 transition">
+          Reservar
+        </a>
+    </nav>
+  </header>
+  
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center justify-center bg-[url('squash-hero.jpg')] bg-cover bg-center">
+    <div class="absolute inset-0 bg-blue-900/75"></div>
+
+
+<div class="absolute inset-0 z-10 w-full pointer-events-none overflow-hidden ">
+  <div class="ball"></div>
+  <div class="point point-1"></div>
+  <div class="point point-2"></div>
+  <div class="point point-3"></div>
+  <div class="point point-4"></div>
+  <div class="point point-5"></div>
+</div>
+
+    <div class="relative z-20 max-w-5xl mx-auto px-4 text-center pt-24">
+      <span class="inline-block mb-4 px-5 py-2 rounded-full bg-white text-black font-bold uppercase text-sm">
+        Club deportivo en Ponferrada
+      </span>
+
+      <h1 class="font-bebas text-6xl md:text-8xl leading-none tracking-wide">
+        PRUEBA EL SQUASH EN <span class="text-yellow-400">PONFERRADA</span>
+      </h1>
+
+      <p class="mt-6 text-lg md:text-2xl text-slate-200 max-w-3xl mx-auto">
+        Entrena, compite o empieza desde cero en un deporte rápido, intenso y divertido.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contacto" class="bg-white text-black px-8 py-4 rounded-full font-extrabold uppercase hover:scale-105 transition">
+          Reservar pista
+        </a>
+
+        <a href="#torneos" class="border border-white px-8 py-4 rounded-full font-extrabold uppercase hover:bg-white hover:text-slate-950 transition">
+          Ver actividad
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- BENEFICIOS -->
+  <section id="beneficios" class="py-20 px-4 bg-white text-black">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-14">
+        <span class="text-yellow-400 uppercase font-bold tracking-widest">Por qué probarlo</span>
+        <h2 class="font-bebas text-5xl md:text-7xl mt-3">UN DEPORTE QUE ENGANCHA</h2>
+        <p class=" text-lg max-w-2xl mx-auto mt-4">
+          Ideal para entrenar, competir o simplemente moverte de una forma diferente.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-blue-900 text-white p-8 rounded-3xl border border-white/10 hover:-translate-y-2 transition">
+          <i data-lucide="zap" class="w-10 h-10 text-yellow-400 mb-5"></i>
+          <h3 class="font-bebas text-3xl">RÁPIDO E INTENSO</h3>
+          <p class="text-slate-400 mt-2">Entrenamientos cortos, dinámicos y muy completos.</p>
+        </div>
+
+        <div class="bg-blue-900 text-white p-8 rounded-3xl border border-white/10 hover:-translate-y-2 transition">
+          <i data-lucide="brain" class="w-10 h-10 text-yellow-400 mb-5"></i>
+          <h3 class="font-bebas text-3xl">REFLEJOS Y RESISTENCIA</h3>
+          <p class="text-slate-400 mt-2">Mejora tu agilidad, coordinación y forma física.</p>
+        </div>
+
+        <div class="bg-blue-900 text-white p-8 rounded-3xl border border-white/10 hover:-translate-y-2 transition">
+          <i data-lucide="trophy" class="w-10 h-10 text-yellow-400 mb-5"></i>
+          <h3 class="font-bebas text-3xl">TORNEOS Y EVENTOS</h3>
+          <p class="text-slate-400 mt-2">Actividad durante el año para todos los niveles.</p>
+        </div>
+
+        <div class="bg-blue-900 text-white p-8 rounded-3xl border border-white/10 hover:-translate-y-2 transition">
+          <i data-lucide="users" class="w-10 h-10 text-yellow-400 mb-5"></i>
+          <h3 class="font-bebas text-3xl">PARA TODOS</h3>
+          <p class="text-slate-400 mt-2">Puedes empezar aunque nunca hayas jugado.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INSTALACIONES -->
+  <section id="instalaciones" class="py-20 px-4 bg-blue-950">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+      <div>
+        <span class="text-yellow-400 uppercase font-bold tracking-widest">Instalaciones</span>
+        <h2 class="font-bebas text-5xl md:text-7xl mt-3">4 PISTAS PARA JUGAR</h2>
+        <p class="text-slate-300 text-lg mt-6">
+          Ven a entrenar, jugar con amigos o preparar competiciones en nuestras pistas de squash en Ponferrada.
+        </p>
+
+        <div class="mt-8 space-y-4">
+          <p class="flex gap-3 text-slate-200"><i data-lucide="check" class="text-yellow-400"></i> Pistas disponibles para entrenar</p>
+          <p class="flex gap-3 text-slate-200"><i data-lucide="check" class="text-yellow-400"></i> Ambiente deportivo y cercano</p>
+          <p class="flex gap-3 text-slate-200"><i data-lucide="check" class="text-yellow-400"></i> Información para nuevos jugadores</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <img src="squashpista3.jpg" class="rounded-3xl aspect-square object-cover w-full hover:scale-105 transition" alt="">
+        <img src="squashpista2.jpg" class="rounded-3xl aspect-square object-cover w-full hover:scale-105 transition" alt="">
+        <img src="squashpista4.jpg" class="rounded-3xl aspect-square object-cover w-full hover:scale-105 transition" alt="">
+        <img src="squashpista1.jpg" class="rounded-3xl aspect-square object-cover w-full hover:scale-105 transition" alt="">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TORNEOS -->
+  <section id="torneos" class="py-20 px-4 bg-blue-900">
+    <div class="max-w-7xl mx-auto flex justify-center items-center flex-col">
+
+      <div class="text-center mb-14">
+        <span class="text-yellow-400 uppercase font-bold tracking-widest">Actividad del club</span>
+        <h2 class="font-bebas text-5xl md:text-7xl mt-3">MÁS QUE UN CLUB</h2>
+        <p class="text-slate-300 text-lg max-w-2xl mx-auto mt-4">
+          Campeonatos, entrenamientos, jugadores y comunidad deportiva en Ponferrada.
+        </p>
+      </div>
+<div class="bento-container cols-1-3-1 rows-1-3-1 ">
+  <div data-column="0" data-row="0" class="bento-item">
+    <img src="squash.jpg" alt="">
+    <div class="image-overlay"></div>
+  </div>
+  <div data-column="1" data-row="0" class="bento-item">
+    <img src="squash2.jpg" alt="">
+    <div class="image-overlay"></div>
+  </div>
+  <div data-column="2" data-row="0" class="bento-item">
+    <img src="squash3.jpg" alt="">
+    <div class="image-overlay"></div>
+  </div>
+  <div data-column="0" data-row="1" class="bento-item">
+    <img src="squash4.jpg" alt="">
+    <div class="image-overlay"></div>
+  </div>
+  <div data-column="1" data-row="1" class="bento-item center-piece">
+    <img src="squash5.webp" alt="">
+    <div class="image-overlay"></div>
+  </div>
+  <div data-column="2" data-row="1" class="bento-item">
+    <img src="squash9.webp" alt="">
+    <div class="image-overlay"></div>
+  </div>
+  <div data-column="0" data-row="2" class="bento-item">
+    <img src="squash7.webp" alt="">
+    <div class="image-overlay"></div>
+  </div>
+  <div data-column="1" data-row="2" class="bento-item">
+    <img src="squash8.webp" alt="">
+    <div class="image-overlay"></div>
+  </div>
+  <div data-column="2" data-row="2" class="bento-item">
+    <img src="squash6.webp" alt="">
+    <div class="image-overlay"></div>
+  </div>
+</div>
+
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="py-24 px-4 bg-white text-black text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-bebas text-5xl md:text-7xl">¿TE ANIMAS A PROBAR?</h2>
+      <p class="text-lg md:text-xl mt-4 max-w-2xl mx-auto font-medium">
+        Reserva pista o pide información directamente por WhatsApp.
+      </p>
+
+      <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20probar%20squash"
+         class="inline-flex items-center gap-3 mt-10 bg-blue-900 text-white px-8 py-4 rounded-full font-extrabold uppercase hover:scale-105 transition">
+        <i data-lucide="message-circle"></i>
+        Reservar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+ <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/Flip.min.js"></script>
+
+<script>
+  gsap.registerPlugin(Flip);
+
+  const bentoContainer = document.querySelector(".bento-container");
+  const bentoItems = bentoContainer.querySelectorAll("[data-row]");
+
+  const rowClasses = ["rows-3-1-1", "rows-1-3-1", "rows-1-1-3"];
+  const colClasses = ["cols-3-1-1", "cols-1-3-1", "cols-1-1-3"];
+
+  let activeColumn = 1;
+  let activeRow = 1;
+
+  function animateTo(item) {
+    const colNumber = Number(item.dataset.column);
+    const rowNumber = Number(item.dataset.row);
+
+    const state = Flip.getState(bentoItems);
+
+    bentoContainer.classList.remove(
+      colClasses[activeColumn],
+      rowClasses[activeRow]
+    );
+
+    bentoContainer.classList.add(
+      colClasses[colNumber],
+      rowClasses[rowNumber]
+    );
+
+    activeColumn = colNumber;
+    activeRow = rowNumber;
+
+    Flip.from(state, {
+      duration: 0.4,
+      ease: "power2.out",
+      absolute: true
+    });
+  }
+
+  function resetGrid() {
+    const state = Flip.getState(bentoItems);
+
+    bentoContainer.classList.remove(
+      colClasses[activeColumn],
+      rowClasses[activeRow]
+    );
+
+    bentoContainer.classList.add(
+      colClasses[1],
+      rowClasses[1]
+    );
+
+    activeColumn = 1;
+    activeRow = 1;
+
+    Flip.from(state, {
+      duration: 0.4,
+      ease: "power2.out",
+      absolute: true
+    });
+  }
+
+  const isTouchDevice = window.matchMedia("(hover: none)").matches;
+
+  bentoItems.forEach((item) => {
+    if (isTouchDevice) {
+      item.addEventListener("click", () => {
+        animateTo(item);
+      });
+    } else {
+      item.addEventListener("mouseenter", () => {
+        animateTo(item);
+      });
+    }
+  });
+
+  if (!isTouchDevice) {
+    bentoContainer.addEventListener("mouseleave", resetGrid);
+  }
+</script>
+<script src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
+
+<script>
+  const screenW = window.innerWidth;
+  const screenH = window.innerHeight;
+
+  const isMobile = screenW < 768;
+
+  const topY = isMobile ? -80 : -200;
+  const bottomY = isMobile ? screenH - 260 : screenH - 180;
+
+  const startX = isMobile ? -60 : 0;
+  const startY = isMobile ? 100 : 140;
+
+  gsap.set(".ball", {
+    x: startX,
+    y: startY,
+    scaleX: 1,
+    scaleY: 1,
+    opacity: 1,
+    rotation: 0
+  });
+
+  const tl = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 0.1
+  });
+
+  function bounce(x1, y1, x2, y2, rot) {
+    tl.to(".ball", {
+      duration: isMobile ? 0.32 : 0.38,
+      x: x1,
+      y: y1,
+      rotation: rot,
+      ease: "power2.out"
+    });
+
+    tl.to(".ball", {
+      duration: isMobile ? 0.32 : 0.38,
+      x: x2,
+      y: y2,
+      rotation: rot + 90,
+      ease: "power2.in"
+    });
+
+    tl.to(".ball", {
+      duration: 0.05,
+      scaleX: 1.4,
+      scaleY: 0.6,
+      ease: "power1.out"
+    });
+
+    tl.to(".ball", {
+      duration: 0.06,
+      scaleX: 1,
+      scaleY: 1,
+      ease: "power1.out"
+    });
+  }
+
+  if (isMobile) {
+    bounce(screenW * 0.18, topY, screenW * 0.32, bottomY, 90);
+    bounce(screenW * 0.45, 30, screenW * 0.58, bottomY, 180);
+    bounce(screenW * 0.72, topY + 30, screenW * 0.86, bottomY, 270);
+
+    tl.to(".ball", {
+      duration: 0.65,
+      x: screenW + 80,
+      y: topY - 120,
+      rotation: 540,
+      ease: "power2.out"
+    });
+
+  } else {
+    bounce(180, topY, 320, bottomY, 90);
+    bounce(480, 80, 620, bottomY, 180);
+    bounce(760, topY + 40, 900, bottomY, 270);
+    bounce(1050, 120, 1180, bottomY, 360);
+
+    tl.to(".ball", {
+      duration: 0.9,
+      x: screenW + 100,
+      y: topY - 310,
+      rotation: 540,
+      ease: "power2.out"
+    });
+  }
+</script>
+</body>
+</html>
