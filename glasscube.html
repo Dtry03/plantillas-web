@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glass Cube Experience</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    .font-title { font-family: "Orbitron", sans-serif; }
+    .font-body { font-family: "Inter", sans-serif; }
+    @import url("https://fonts.googleapis.com/css2?family=Caveat");
+
+.Container {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+}
+
+.Picture {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 5px solid #fff;
+  border-radius: 3px;
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+  user-select: none;
+  cursor: pointer;
+}
+
+.Picture-img {
+  display: block;
+  width: 250px;
+  height: 250px;
+  pointer-events: none;
+}
+
+.Picture-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 70px;
+  padding: 12px 24px;
+  font-size: 1.5rem;
+  text-align: center;
+  color: black;
+}
+
+
+
+@media (max-width:768px){
+
+
+.Picture-img {
+
+  width: 150px;
+  height: 150px;
+
+}
+
+.Picture-note {
+
+  width: 150px;
+  height: 35px;
+ 
+}
+}
+
+.Network {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.Network img {
+  width: 1.5rem;
+  aspect-ratio: 1 / 1;
+  vertical-align: middle;
+}
+
+/* --------------------- */
+/* Other styles          */
+/* --------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+
+  </style>
+</head>
+
+<body class="font-body bg-black text-white">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-amber-200/60 backdrop-blur border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="font-title text-2xl tracking-widest">
+        glass cube
+      </a>
+
+      <div class="hidden md:flex gap-8 text-sm font-bold uppercase items-center justify-center">
+        <a href="#casa" class="hover:text-amber-700">La casa</a>
+        <a href="#experiencia" class="hover:text-amber-700">Experiencia</a>
+        <a href="#galeria" class="hover:text-amber-700">Galería</a>
+        <a href="#contacto" class="bg-amber-700 text-white px-5 py-2 rounded-full hover:bg-amber-800 transition">
+          RESERVAR AHORA 
+        </a>
+      </div>
+
+              <a href="#contacto" class=" md:hidden font-bold bg-amber-700 text-white px-5 py-2 rounded-full hover:bg-amber-800 transition">
+          RESERVAR AHORA
+        </a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center justify-center bg-[url('glass.jpg')] bg-cover bg-center px-4">
+    <div class="absolute inset-0 bg-black/65"></div>
+
+    <div class="relative z-10 text-center max-w-5xl pt-24">
+      <span class="inline-block border border-amber-200 text-amber-200 px-5 py-2 rounded-full font-bold uppercase mb-5">
+        Alojamiento exclusivo cerca de la playa
+      </span>
+
+      <h1 class="font-title text-4xl md:text-7xl leading-tight tracking-widest">
+        Desconecta en <span class="text-amber-200">Glass Cube</span>
+      </h1>
+
+      <p class="text-lg md:text-2xl text-white/80 mt-6 max-w-3xl mx-auto">
+        Una escapada moderna, tranquila y con encanto a pocos metros de la playa de Broña.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contacto" class="bg-amber-800 text-white px-8 py-4 rounded-full font-black uppercase hover:bg-amber-900 hover:scale-105 transition">
+          Reservar estancia
+        </a>
+
+        <a href="#galeria" class="border border-amber-200 text-white px-8 py-4 rounded-full font-black uppercase hover:bg-amber-200 hover:text-black/60 transition">
+          Ver la casa
+        </a>
+      </div>
+    </div>
+  </section>
+
+ 
+
+
+
+  <!-- EXPERIENCIA -->
+  <section id="experiencia" class="py-24 px-4 bg-amber-100">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-14">
+        <span class="text-amber-700 font-black uppercase tracking-widest">Experiencia</span>
+        <h2 class="font-title text-4xl md:text-6xl mt-3 text-amber-500">
+          Más que dormir fuera
+        </h2>
+        <p class="text-amber-700/60 text-lg mt-4 max-w-2xl mx-auto">
+          Una estancia pensada para disfrutar del entorno, la calma y los pequeños detalles.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="rounded-3xl overflow-hidden bg-black  bg-[url('glass1.jpg')] bg-cover bg-center  hover:scale-105 transition">
+          <div class="h-64"></div>
+          <div class="p-6 bg-black/50 ">
+            <h3 class="text-2xl font-black">Desayunos tranquilos</h3>
+            <p class="text-white/60 mt-2">Empieza el día con calma y vistas.</p>
+          </div>
+        </div>
+     
+     
+
+
+        <div class="rounded-3xl overflow-hidden bg-black  bg-[url('glass2.jpg')] bg-cover bg-center  hover:scale-105 transition">
+          <div class="h-64"></div>
+          <div class="p-6 bg-black/50 ">
+            <h3 class="text-2xl font-black">Playa y naturaleza</h3>
+            <p class="text-white/60 mt-2">Planes cerca del mar y rutas por la zona.</p>
+          </div>
+        </div>
+  
+
+
+    
+        <div class="rounded-3xl overflow-hidden bg-black  bg-[url('glass3.jpg')] bg-cover bg-center  hover:scale-105 transition">
+          <div class="h-64"></div>
+          <div class="p-6 bg-black/50 ">
+            <h3 class="text-2xl font-black">Noches especiales</h3>
+            <p class="text-white/60 mt-2">Un espacio perfecto para desconectar.</p>
+          </div>
+        </div>
+        </div>
+ 
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria" class="relative py-24 px-4 bg-amber-100/90 h-screen">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-14">
+        <span class="text-amber-700 font-black uppercase tracking-widest">Galería</span>
+        <h2 class="font-title text-4xl md:text-6xl mt-3 text-amber-500">
+          Así se vive Glass Cube
+        </h2>
+        <p class="text-amber-700/60 text-lg mt-4 max-w-2xl mx-auto">
+          Interior, exterior, terraza, playa y detalles de una estancia diferente.
+        </p>
+      </div>
+
+<div class="Container">
+ 
+  <!-- other cards -->
+  <div class="Picture">
+    <img class="Picture-img" src="glass4.jpg" alt="" />
+    <div class="Picture-note"></div>
+  </div>
+  <div class="Picture">
+    <img class="Picture-img" src="glass5.jpg" alt="" />
+    <div class="Picture-note"></div>
+  </div>
+  <div class="Picture">
+    <img class="Picture-img" src="glass6.jpg" alt="" />
+    <div class="Picture-note"></div>
+  </div>
+  <div class="Picture">
+    <img class="Picture-img" src="glass7.jpg" alt="" />
+    <div class="Picture-note"></div>
+  </div>
+  <div class="Picture">
+    <img class="Picture-img" src="glass8.jpg" alt="" />
+    <div class="Picture-note"></div>
+  </div>
+  <div class="Picture">
+    <img class="Picture-img" src="glass9.jpg" alt="" />
+    <div class="Picture-note"></div>
+  </div>
+  <div class="Picture">
+    <img class="Picture-img" src="glass10.jpg" alt="" />
+    <div class="Picture-note"></div>
+  </div>
+  <div class="Picture">
+    <img class="Picture-img" src="glass11.jpg" alt="" />
+    <div class="Picture-note"></div>
+  </div>
+
+</div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="py-24 px-4 bg-amber-100/50 text-white text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-title text-4xl md:text-6xl">
+        Reserva tu escapada
+      </h2>
+
+      <p class="text-lg md:text-xl mt-5 max-w-2xl mx-auto text-white/90">
+        Consulta disponibilidad y vive una experiencia diferente cerca del mar.
+      </p>
+
+      <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Glass%20Cube"
+         class="inline-flex items-center gap-3 mt-10 bg-amber-400/50 text-white px-8 py-4 rounded-full font-black uppercase hover:scale-105 transition">
+        <i data-lucide="message-circle"></i>
+        Consultar disponibilidad
+      </a>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script>
+  const pictures = document.querySelectorAll('.Picture');
+var previousTouch = undefined;
+
+function updateElementPosition(element, event) {
+  var movementX, movementY;
+
+  if (event.type === 'touchmove') {
+    const touch = event.touches[0];
+    movementX = previousTouch ? touch.clientX - previousTouch.clientX : 0;
+    movementY = previousTouch ? touch.clientY - previousTouch.clientY : 0;
+    previousTouch = touch;
+  } else {
+    movementX = event.movementX;
+    movementY = event.movementY;
+  }
+  
+  const elementY = parseInt(element.style.top || 0) + movementY;
+  const elementX = parseInt(element.style.left|| 0) + movementX;
+
+  element.style.top = elementY + "px";
+  element.style.left = elementX + "px";
+}
+
+function startDrag(element, event) {
+  const updateFunction = (event) => updateElementPosition(element, event);
+  const stopFunction = () => stopDrag({update: updateFunction, stop: stopFunction});
+  document.addEventListener("mousemove", updateFunction);
+  document.addEventListener("touchmove", updateFunction);
+  document.addEventListener("mouseup", stopFunction);
+  document.addEventListener("touchend", stopFunction);
+}
+
+function stopDrag(functions) {
+  previousTouch = undefined;
+  document.removeEventListener("mousemove", functions.update);
+  document.removeEventListener("touchmove", functions.update);
+  document.removeEventListener("mouseup", functions.stop);
+  document.removeEventListener("touchend", functions.stop);
+}
+
+pictures.forEach(picture => {
+  const range = 100;
+  const randomX = Math.random() * (range * 2) - range;
+  const randomY = Math.random() * (range * 2) - range;
+  const randomRotate = Math.random() * (range / 2) - range / 4;
+  const startFunction = (event) => startDrag(picture, event);
+  picture.style.top = `${randomY}px`;
+  picture.style.left = `${randomX}px`;
+  picture.style.transform = `translate(-50%, -50%) rotate(${randomRotate}deg)`;
+  picture.addEventListener("mousedown", startFunction);
+  picture.addEventListener("touchstart", startFunction);
+});
+</script>
+
+</body>
+</html>
