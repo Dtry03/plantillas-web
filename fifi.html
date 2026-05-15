@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FiFi Asian Market</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,
+body{
+  width:100%;
+  min-height:100%;
+  overflow-x:hidden;
+}
+
+body{
+  font-family:"Inter",sans-serif;
+  background:#fff8ed;
+  color:#1c1917;
+}
+
+.font-title{
+  font-family:"Bebas Neue",sans-serif;
+}
+
+/* =========================
+   HERO WAVES
+========================= */
+
+#hero{
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+  background:#ff3f3f;
+}
+
+.wave-wrapper{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+
+.wave-main{
+  width:1500px;
+  height:1000px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.section_wave{
+  width:100%;
+  height:100%;
+  transform:rotate(-45deg);
+}
+
+.dash{
+  stroke-dasharray:700;
+  animation:dash 15s linear infinite;
+  stroke:#FBC02E;
+}
+
+.dash_0{
+  animation-delay:0s;
+}
+
+.dash_1{
+  transform:translateY(100px);
+  animation-delay:2.5s;
+}
+
+.dash_2{
+  transform:translateY(200px);
+  animation-delay:6s;
+}
+
+.dash_3{
+  transform:translateY(300px);
+  animation-delay:4s;
+}
+
+.dash_4{
+  transform:translateY(400px);
+  animation-delay:1s;
+}
+
+.dash_5{
+  transform:translateY(500px);
+  animation-delay:5s;
+}
+
+.dash_6{
+  transform:translateY(600px);
+  animation-delay:3s;
+}
+
+.dash_7{
+  transform:translateY(700px);
+  animation-delay:1.5s;
+}
+
+.dash_8{
+  transform:translateY(800px);
+  animation-delay:5.5s;
+}
+
+.dash_9{
+  transform:translateY(900px);
+  animation-delay:1s;
+}
+
+@keyframes dash{
+
+  0%{
+    stroke-dashoffset:10;
+    stroke:#FBC02E;
+  }
+
+  50%{
+    stroke:#19D8FF;
+  }
+
+  100%{
+    stroke-dashoffset:9800;
+    stroke:#FBC02E;
+  }
+}
+
+/* =========================
+   HERO OVERLAY
+========================= */
+
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:2;
+
+  background:
+  radial-gradient(
+    circle at center,
+    rgba(0,0,0,.35) 0%,
+    rgba(0,0,0,.18) 35%,
+    rgba(0,0,0,.08) 65%,
+    rgba(0,0,0,.05) 100%
+  );
+}
+
+
+.hero-content{
+  position:relative;
+  z-index:5;
+}
+.animated-logo{
+  position:relative;
+  width:min(520px, 90vw);
+  margin:60px auto -70px;
+ 
+  padding-bottom:20px;
+}
+
+.logo-texto{
+  width:100%;
+  opacity:0;
+  transform:translateY(120px);
+  animation:logoSaleDeAbajo 1s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+.hero-subtitle{
+  opacity:0;
+  transform:translateY(40px);
+  animation:heroTextUp .8s ease forwards;
+  animation-delay:1s;
+}
+
+.hero-buttons{
+  opacity:0;
+  transform:translateY(40px);
+  animation:heroTextUp .8s ease forwards;
+  animation-delay:1.25s;
+}
+
+.hero-content p{
+  text-shadow:
+  0 2px 10px rgba(0,0,0,.35),
+  0 0 25px rgba(0,0,0,.15);
+}
+
+.wave-wrapper{
+  opacity:.85;
+}
+
+@keyframes heroTextUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes logoSaleDeAbajo{
+  0%{
+    opacity:0;
+    transform:translateY(120px);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+.gato{
+  position:absolute;
+  width:160px;
+  top:80px;
+  right:70px;
+  opacity:0;
+  
+  transform:translateY(-80px) rotate(-8deg);
+  animation:
+    catEnter .8s ease forwards 1s,
+    catIdle 3s ease-in-out infinite 1.9s;
+}
+
+.cola{
+  position:absolute;
+  width:200px;
+  top:67px;
+  right:-35px;
+  opacity:0;
+  z-index: 20;
+  transform-origin:25% 50%;
+  transform:translateY(-80px) rotate(-8deg);
+  animation:
+    tailEnter .8s ease forwards 1s,
+    tailMove .7s ease-in-out 2 1.85s,
+    tailIdle 2.5s ease-in-out infinite 3.2s;
+}
+
+.product-slider{
+  position:relative;
+
+
+  height:620px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+
+  border-radius:32px;
+
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:.55s cubic-bezier(.22,.61,.36,1);
+  cursor:pointer;
+  overflow:hidden;
+}
+
+.slide img{
+
+
+  width: 600px;
+  object-fit:cover;
+}
+
+.slide h3{
+  font-weight:900;
+  font-size:1.1rem;
+  margin-top:18px;
+  text-align:center;
+}
+
+.slide.active{
+  transform:translateX(0) scale(1);
+  opacity:1;
+  z-index:5;
+}
+
+.slide.prev{
+  transform:translateX(-230px) scale(.78);
+  opacity:.55;
+  z-index:3;
+}
+
+.slide.next{
+  transform:translateX(230px) scale(.78);
+  opacity:.55;
+  z-index:3;
+}
+
+.slide.far-prev{
+  transform:translateX(-430px) scale(.55);
+  opacity:.18;
+  z-index:1;
+}
+
+.slide.far-next{
+  transform:translateX(430px) scale(.55);
+  opacity:.18;
+  z-index:1;
+}
+
+.slide.hidden-slide{
+  transform:scale(.4);
+  opacity:0;
+  z-index:0;
+}
+
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:20;
+  width:56px;
+  height:56px;
+  border-radius:999px;
+  background:#15803d;
+  color:white;
+  font-size:32px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.slider-btn:hover{
+  background:#ef4444;
+  transform:translateY(-50%) scale(1.08);
+}
+
+.slider-btn.left{
+  left:10px;
+}
+
+.slider-btn.right{
+  right:10px;
+}
+
+
+@media (max-width:768px){
+
+  .animated-logo{
+    width:90vw;
+    height:180px;
+   
+
+  margin:0 auto 100px;
+
+
+  }
+
+  .logo-texto{
+  width:95%;
+
+}
+
+  .gato{
+
+  width:150px;
+  top:27px;
+  right:45px;
+  opacity:0;
+
+  }
+
+  .cola{
+    width:160px;
+  z-index: 20;
+    top:25px;
+    right:-20px;
+  }
+
+ 
+ 
+  .slide img{
+   width: 300px;
+  }
+
+  .slide.prev{
+    transform:translateX(-150px) scale(.7);
+  }
+
+  .slide.next{
+    transform:translateX(150px) scale(.7);
+  }
+
+  .slide.far-prev,
+  .slide.far-next{
+    opacity:0;
+  }
+
+  .product-slider{
+    height: 350px;
+  }
+
+}
+
+
+
+
+@keyframes catEnter{
+  0%{
+    opacity:0;
+    transform:translateY(-80px) rotate(-8deg);
+  }
+
+  70%{
+    opacity:1;
+    transform:translateY(8px) rotate(2deg);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes tailEnter{
+  0%{
+    opacity:0;
+    transform:translateY(-80px) rotate(-8deg);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes tailMove{
+  0%{
+    transform:rotate(0deg);
+  }
+
+  50%{
+    transform:rotate(12deg);
+  }
+
+  100%{
+    transform:rotate(0deg);
+  }
+}
+
+@keyframes catIdle{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-5px);
+  }
+}
+
+@keyframes tailIdle{
+  0%,100%{
+    transform:rotate(0deg);
+  }
+
+  50%{
+    transform:rotate(5deg);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 w-full z-50  bg-green-800/90 backdrop-blur ">
+  <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+
+ 
+    <a href="#" class="font-title text-3xl text-white tracking-wide">
+      FiFi Asian <span class="text-red-500">Market</span>
+    </a>
+
+    <div class="hidden md:flex gap-8 text-sm font-black uppercase items-center justify-center text-white">
+
+      <a href="#" class="hover:text-red-500">
+        Categorías
+      </a>
+
+      <a href="#" class="hover:text-red-500">
+        Productos
+      </a>
+
+      <a href="#" class="hover:text-red-500">
+        Ubicación
+      </a>
+
+      <a href="https://wa.me/34698989987?text=Hola%2C%20quiero%20preguntar%20por%20productos%20de%20FiFi%20Asian%20Market" class="bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600 transition">
+        WhatsApp
+      </a>
+
+    </div>
+
+       <a href="https://wa.me/34698989987?text=Hola%2C%20quiero%20preguntar%20por%20productos%20de%20FiFi%20Asian%20Market" class=" md:hidden font-bold bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600 transition">
+        WhatsApp
+      </a>
+
+
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero" class="flex items-center justify-center px-4">
+
+  <!-- WAVES -->
+  <div class="wave-wrapper">
+
+    <main class="wave-main">
+
+      <section class="section_wave">
+<svg width="100%" height="100%" viewBox="0 0 1500 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+            <path class="dash dash_0" d="M16,16 C76.235,16 77.932,77 138.167,77 C198.402,77 198.402,16 260.333,16 C320.568,16 322.265,77 382.5,77 C442.735,77 442.735,16 504.667,16 C564.902,16 566.598,77 626.833,77 C687.068,77 687.068,16 749,16 C809.235,16 810.932,77 871.167,77 C931.402,77 931.402,16 993.333,16 C1053.568,16 1055.265,77 1115.5,77 C1175.735,77 1175.735,16 1237.667,16 C1297.902,16 1299.598,77 1359.833,77 C1420.068,77 1420.068,16 1482,16" id="wave" stroke-width="32"></path>
+          
+            <path class="dash dash_1" d="M16,16 C76.235,16 77.932,77 138.167,77 C198.402,77 198.402,16 260.333,16 C320.568,16 322.265,77 382.5,77 C442.735,77 442.735,16 504.667,16 C564.902,16 566.598,77 626.833,77 C687.068,77 687.068,16 749,16 C809.235,16 810.932,77 871.167,77 C931.402,77 931.402,16 993.333,16 C1053.568,16 1055.265,77 1115.5,77 C1175.735,77 1175.735,16 1237.667,16 C1297.902,16 1299.598,77 1359.833,77 C1420.068,77 1420.068,16 1482,16" id="wave" stroke-width="32"></path>
+          
+            <path class="dash dash_2" d="M16,16 C76.235,16 77.932,77 138.167,77 C198.402,77 198.402,16 260.333,16 C320.568,16 322.265,77 382.5,77 C442.735,77 442.735,16 504.667,16 C564.902,16 566.598,77 626.833,77 C687.068,77 687.068,16 749,16 C809.235,16 810.932,77 871.167,77 C931.402,77 931.402,16 993.333,16 C1053.568,16 1055.265,77 1115.5,77 C1175.735,77 1175.735,16 1237.667,16 C1297.902,16 1299.598,77 1359.833,77 C1420.068,77 1420.068,16 1482,16" id="wave" stroke-width="32"></path>
+          
+            <path class="dash dash_3" d="M16,16 C76.235,16 77.932,77 138.167,77 C198.402,77 198.402,16 260.333,16 C320.568,16 322.265,77 382.5,77 C442.735,77 442.735,16 504.667,16 C564.902,16 566.598,77 626.833,77 C687.068,77 687.068,16 749,16 C809.235,16 810.932,77 871.167,77 C931.402,77 931.402,16 993.333,16 C1053.568,16 1055.265,77 1115.5,77 C1175.735,77 1175.735,16 1237.667,16 C1297.902,16 1299.598,77 1359.833,77 C1420.068,77 1420.068,16 1482,16" id="wave" stroke-width="32"></path>
+          
+            <path class="dash dash_4" d="M16,16 C76.235,16 77.932,77 138.167,77 C198.402,77 198.402,16 260.333,16 C320.568,16 322.265,77 382.5,77 C442.735,77 442.735,16 504.667,16 C564.902,16 566.598,77 626.833,77 C687.068,77 687.068,16 749,16 C809.235,16 810.932,77 871.167,77 C931.402,77 931.402,16 993.333,16 C1053.568,16 1055.265,77 1115.5,77 C1175.735,77 1175.735,16 1237.667,16 C1297.902,16 1299.598,77 1359.833,77 C1420.068,77 1420.068,16 1482,16" id="wave" stroke-width="32"></path>
+          
+            <path class="dash dash_5" d="M16,16 C76.235,16 77.932,77 138.167,77 C198.402,77 198.402,16 260.333,16 C320.568,16 322.265,77 382.5,77 C442.735,77 442.735,16 504.667,16 C564.902,16 566.598,77 626.833,77 C687.068,77 687.068,16 749,16 C809.235,16 810.932,77 871.167,77 C931.402,77 931.402,16 993.333,16 C1053.568,16 1055.265,77 1115.5,77 C1175.735,77 1175.735,16 1237.667,16 C1297.902,16 1299.598,77 1359.833,77 C1420.068,77 1420.068,16 1482,16" id="wave" stroke-width="32"></path>
+          
+            <path class="dash dash_6" d="M16,16 C76.235,16 77.932,77 138.167,77 C198.402,77 198.402,16 260.333,16 C320.568,16 322.265,77 382.5,77 C442.735,77 442.735,16 504.667,16 C564.902,16 566.598,77 626.833,77 C687.068,77 687.068,16 749,16 C809.235,16 810.932,77 871.167,77 C931.402,77 931.402,16 993.333,16 C1053.568,16 1055.265,77 1115.5,77 C1175.735,77 1175.735,16 1237.667,16 C1297.902,16 1299.598,77 1359.833,77 C1420.068,77 1420.068,16 1482,16" id="wave" stroke-width="32"></path>
+          
+            <path class="dash dash_7" d="M16,16 C76.235,16 77.932,77 138.167,77 C198.402,77 198.402,16 260.333,16 C320.568,16 322.265,77 382.5,77 C442.735,77 442.735,16 504.667,16 C564.902,16 566.598,77 626.833,77 C687.068,77 687.068,16 749,16 C809.235,16 810.932,77 871.167,77 C931.402,77 931.402,16 993.333,16 C1053.568,16 1055.265,77 1115.5,77 C1175.735,77 1175.735,16 1237.667,16 C1297.902,16 1299.598,77 1359.833,77 C1420.068,77 1420.068,16 1482,16" id="wave" stroke-width="32"></path>
+          
+            <path class="dash dash_8" d="M16,16 C76.235,16 77.932,77 138.167,77 C198.402,77 198.402,16 260.333,16 C320.568,16 322.265,77 382.5,77 C442.735,77 442.735,16 504.667,16 C564.902,16 566.598,77 626.833,77 C687.068,77 687.068,16 749,16 C809.235,16 810.932,77 871.167,77 C931.402,77 931.402,16 993.333,16 C1053.568,16 1055.265,77 1115.5,77 C1175.735,77 1175.735,16 1237.667,16 C1297.902,16 1299.598,77 1359.833,77 C1420.068,77 1420.068,16 1482,16" id="wave" stroke-width="32"></path>
+          
+            <path class="dash dash_9" d="M16,16 C76.235,16 77.932,77 138.167,77 C198.402,77 198.402,16 260.333,16 C320.568,16 322.265,77 382.5,77 C442.735,77 442.735,16 504.667,16 C564.902,16 566.598,77 626.833,77 C687.068,77 687.068,16 749,16 C809.235,16 810.932,77 871.167,77 C931.402,77 931.402,16 993.333,16 C1053.568,16 1055.265,77 1115.5,77 C1175.735,77 1175.735,16 1237.667,16 C1297.902,16 1299.598,77 1359.833,77 C1420.068,77 1420.068,16 1482,16" id="wave" stroke-width="32"></path>
+        </g>
+    </svg>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+<div class="hero-overlay"></div>
+  <!-- CONTENT -->
+  <div class="hero-content text-center max-w-5xl text-white pt-24">
+
+       <div class="animated-logo">
+  <img src="logofifi.png" class="logo-texto" alt="FiFi Asian Market">
+  <img src="colafifi.png" class="cola" alt="">
+  <img src="gatofifi.png" class="gato" alt="">
+</div>
+
+
+
+    <p class="hero-subtitle text-lg md:text-2xl text-white/90 max-w-3xl mx-auto">
+      Ramen, snacks, bebidas, salsas y productos difíciles de encontrar.
+    </p>
+
+    <div class="hero-buttons mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+
+      <a href="#"
+        class="bg-green-800 text-white px-8 py-4 rounded-full font-black uppercase hover:bg-green-900 hover:scale-105 transition">
+
+        Ver productos
+
+      </a>
+
+      <a href="https://www.google.com/maps/dir/FiFi+AsianMarket+Le%C3%B3n,+Ponferrada,+C.+Cam.+de+Santiago,+%E9%82%AE%E6%94%BF%E7%BC%96%E7%A0%81:+24402/FiFi+AsianMarket+Le%C3%B3n,+Ponferrada,+C.+Cam.+de+Santiago,+%E9%82%AE%E6%94%BF%E7%BC%96%E7%A0%81:+24402/@42.5459712,-6.5830912,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0xd30bb34f651cec3:0x9afa62fd64dd94ee!2m2!1d-6.6001507!2d42.5484424!1m5!1m1!1s0xd30bb34f651cec3:0x9afa62fd64dd94ee!2m2!1d-6.6001507!2d42.5484424?entry=ttu&g_ep=EgoyMDI2MDUxMi4wIKXMDSoASAFQAw%3D%3D"
+        class="bg-white text-green-800 px-8 py-4 rounded-full font-black uppercase hover:scale-105 transition">
+
+        Cómo llegar
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
+
+  <!-- CATEGORÍAS -->
+  <section id="categorias" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-14">
+        <span class="text-red-500 font-black uppercase tracking-widest">Categorías</span>
+        <h2 class="font-title text-5xl md:text-7xl mt-3 text-green-800">
+          Encuentra justo lo que buscas
+        </h2>
+        <p class="text-stone-600 text-lg mt-4 max-w-2xl mx-auto">
+          Productos asiáticos para cocinar en casa, probar algo nuevo o repetir tus favoritos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-5">
+        <div class="bg-[#fff8ed] p-6 rounded-3xl text-center hover:-translate-y-2 transition">
+          <i data-lucide="soup" class="w-10 h-10 mx-auto text-red-500 mb-4"></i>
+          <h3 class="font-black">Ramen</h3>
+        </div>
+
+        <div class="bg-[#fff8ed] p-6 rounded-3xl text-center hover:-translate-y-2 transition">
+          <i data-lucide="bottle-wine" class="w-10 h-10 mx-auto text-red-500 mb-4"></i>
+          <h3 class="font-black">Salsas</h3>
+        </div>
+
+        <div class="bg-[#fff8ed] p-6 rounded-3xl text-center hover:-translate-y-2 transition">
+          <i data-lucide="cookie" class="w-10 h-10 mx-auto text-red-500 mb-4"></i>
+          <h3 class="font-black">Snacks</h3>
+        </div>
+
+        <div class="bg-[#fff8ed] p-6 rounded-3xl text-center hover:-translate-y-2 transition">
+          <i data-lucide="cup-soda" class="w-10 h-10 mx-auto text-red-500 mb-4"></i>
+          <h3 class="font-black">Bebidas</h3>
+        </div>
+
+        <div class="bg-[#fff8ed] p-6 rounded-3xl text-center hover:-translate-y-2 transition">
+          <i data-lucide="snowflake" class="w-10 h-10 mx-auto text-red-500 mb-4"></i>
+          <h3 class="font-black">Congelados</h3>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- GALERÍA -->
+<section id="productos" class="py-20  bg-[#fff8ed]">
+  <div class="max-w-7xl mx-auto text-center">
+    <span class="text-red-500 font-black uppercase tracking-widest">Productos destacados</span>
+    <h2 class="font-title text-5xl md:text-7xl mt-3 text-green-800">
+      Lo más buscado
+    </h2>
+
+    <div class="product-slider" id="productSlider">
+
+      <button class="slider-btn left" id="prevBtn">‹</button>
+
+      <div class="slide active">
+        <img src="fifi1.png" alt="Ramen">
+
+      </div>
+
+      <div class="slide next">
+        <img src="fifi2.png" alt="Sushi">
+  
+      </div>
+
+      <div class="slide far-next">
+        <img src="fifi3.png" alt="Noodles">
+       
+      </div>
+
+      <div class="slide hidden-slide">
+        <img src="fifi4.png" alt="Snacks">
+     
+      </div>
+
+      <div class="slide hidden-slide">
+        <img src="fifi5.png" alt="Bebidas">
+     
+      </div>
+
+      <button class="slider-btn right" id="nextBtn">›</button>
+
+    </div>
+  </div>
+</section>
+  <!-- UBICACIÓN / CTA -->
+  <section id="ubicacion" class="py-24 px-4 bg-green-800 text-white text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="text-red-300 font-black uppercase tracking-widest">Ven a visitarnos</span>
+      <h2 class="font-title text-5xl md:text-7xl mt-3">
+        Productos asiáticos en Ponferrada
+      </h2>
+      <p class="text-lg md:text-xl mt-5 max-w-2xl mx-auto text-white/90">
+        Si buscas ingredientes, snacks o algo diferente para cocinar, pásate por FiFi Asian Market.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/34698989987?text=Hola%2C%20quiero%20preguntar%20por%20productos%20de%20FiFi%20Asian%20Market"
+           class="bg-red-500 text-white px-8 py-4 rounded-full font-black uppercase hover:bg-red-600 hover:scale-105 transition">
+          WhatsApp
+        </a>
+
+        <a href="https://www.google.com/maps/dir/FiFi+AsianMarket+Le%C3%B3n,+Ponferrada,+C.+Cam.+de+Santiago,+%E9%82%AE%E6%94%BF%E7%BC%96%E7%A0%81:+24402/FiFi+AsianMarket+Le%C3%B3n,+Ponferrada,+C.+Cam.+de+Santiago,+%E9%82%AE%E6%94%BF%E7%BC%96%E7%A0%81:+24402/@42.5459712,-6.5830912,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0xd30bb34f651cec3:0x9afa62fd64dd94ee!2m2!1d-6.6001507!2d42.5484424!1m5!1m1!1s0xd30bb34f651cec3:0x9afa62fd64dd94ee!2m2!1d-6.6001507!2d42.5484424?entry=ttu&g_ep=EgoyMDI2MDUxMi4wIKXMDSoASAFQAw%3D%3D" class="bg-white text-green-800 px-8 py-4 rounded-full font-black uppercase hover:scale-105 transition">
+          Cómo llegar
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+<script>
+
+
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+const slider = document.getElementById("productSlider");
+
+let current = 3;
+
+updateSlider();
+
+function updateSlider(){
+  slides.forEach((slide, index) => {
+    slide.className = "slide";
+
+    const position = (index - current + slides.length) % slides.length;
+
+    if(position === 0){
+      slide.classList.add("active");
+    }else if(position === 1){
+      slide.classList.add("next");
+    }else if(position === 2){
+      slide.classList.add("far-next");
+    }else if(position === slides.length - 1){
+      slide.classList.add("prev");
+    }else if(position === slides.length - 2){
+      slide.classList.add("far-prev");
+    }else{
+      slide.classList.add("hidden-slide");
+    }
+  });
+}
+
+function nextSlide(){
+  current = (current + 1) % slides.length;
+  updateSlider();
+}
+
+function prevSlide(){
+  current = (current - 1 + slides.length) % slides.length;
+  updateSlider();
+}
+
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
+
+slides.forEach((slide, index) => {
+  slide.addEventListener("click", () => {
+    current = index;
+    updateSlider();
+  });
+});
+
+let startX = 0;
+
+slider.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+slider.addEventListener("touchend", e => {
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if(diff > 50){
+    nextSlide();
+  }
+
+  if(diff < -50){
+    prevSlide();
+  }
+});
+</script>
+</body>
+</html>
