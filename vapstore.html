@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vapstore Ponferrada</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    .font-title { font-family: "Bebas Neue", sans-serif; }
+    .font-body { font-family: "Inter", sans-serif; }
+  </style>
+</head>
+
+<body class="font-body bg-black text-white">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="font-title text-3xl tracking-wide">
+        VAPSTORE <span class="text-yellow-400">PONFERRADA</span>
+      </a>
+
+      <div class="hidden md:flex gap-8 text-sm font-black uppercase items-center justify-center">
+        <a href="#productos" class="hover:text-yellow-400">Productos</a>
+        <a href="#tienda" class="hover:text-yellow-400">Tienda</a>
+        <a href="https://wa.me/34622347088?text=Hola%2C%20quer%C3%ADa%20preguntar%20por%20Vapstore%20Ponferrada" class="bg-yellow-400 text-black px-5 py-2 rounded-full hover:bg-yellow-300 transition">
+          WhatsApp
+        </a>
+
+      </div>
+
+
+        <a href="https://wa.me/34622347088?text=Hola%2C%20quer%C3%ADa%20preguntar%20por%20Vapstore%20Ponferrada" class="md:hidden font-bold bg-yellow-400 text-black px-5 py-2 rounded-full hover:bg-yellow-300 transition">
+          WhatsApp
+        </a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center justify-center bg-[url('vap.jpg')] bg-cover bg-center px-4">
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative z-10 max-w-5xl text-center pt-24">
+      <span class="inline-block bg-yellow-400 text-black px-5 py-2 rounded-full font-black uppercase mb-5">
+        Tienda especializada en Ponferrada
+      </span>
+
+      <h1 class="font-title text-6xl md:text-8xl leading-none">
+        TODO LO QUE BUSCAS, <span class="text-yellow-400">EN TIENDA</span>
+      </h1>
+
+      <p class="text-lg md:text-2xl text-white/80 mt-6 max-w-3xl mx-auto">
+        Productos seleccionados, atención directa y asesoramiento para que elijas sin perder tiempo.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/34622347088?text=Hola%2C%20quer%C3%ADa%20preguntar%20por%20Vapstore%20Ponferrada" class="bg-yellow-400 text-black px-8 py-4 rounded-full font-black uppercase hover:scale-105 transition">
+          Preguntar por WhatsApp
+        </a>
+
+        <a href="https://www.google.com/maps?client=firefox-b-d&um=1&ie=UTF-8&fb=1&gl=es&sa=X&geocode=KcfYUKn0uzANMVX8J6mG7yzf&daddr=C.+Julio+Cervera,+8,+24404+Ponferrada,+Le%C3%B3n" class="border border-white px-8 py-4 rounded-full font-black uppercase hover:bg-white hover:text-black transition">
+          Cómo llegar
+        </a>
+      </div>
+
+      <p class="text-white/50 text-sm mt-6">
+        +18 · Venta exclusiva para mayores de edad
+      </p>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="py-20 px-4 bg-zinc-950">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-14">
+        <span class="text-yellow-400 font-black uppercase tracking-widest">En tienda</span>
+        <h2 class="font-title text-5xl md:text-7xl mt-3">
+          Encuentra lo que necesitas
+        </h2>
+        <p class="text-white/60 text-lg mt-4 max-w-2xl mx-auto">
+          Diferentes opciones, novedades y ofertas disponibles directamente en tienda.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="bg-black border border-white/10 p-8 rounded-3xl text-center hover:-translate-y-2 transition">
+          <i data-lucide="sparkles" class="w-10 h-10 mx-auto text-yellow-400 mb-5"></i>
+          <h3 class="font-title text-3xl">NOVEDADES</h3>
+          <p class="text-white/50 mt-2">Productos nuevos y reposiciones habituales.</p>
+        </div>
+
+        <div class="bg-black border border-white/10 p-8 rounded-3xl text-center hover:-translate-y-2 transition">
+          <i data-lucide="badge-percent" class="w-10 h-10 mx-auto text-yellow-400 mb-5"></i>
+          <h3 class="font-title text-3xl">OFERTAS</h3>
+          <p class="text-white/50 mt-2">Promociones y packs disponibles según stock.</p>
+        </div>
+
+        <div class="bg-black border border-white/10 p-8 rounded-3xl text-center hover:-translate-y-2 transition">
+          <i data-lucide="message-circle" class="w-10 h-10 mx-auto text-yellow-400 mb-5"></i>
+          <h3 class="font-title text-3xl">ASESORAMIENTO</h3>
+          <p class="text-white/50 mt-2">Te ayudamos a elegir según lo que buscas.</p>
+        </div>
+
+        <div class="bg-black border border-white/10 p-8 rounded-3xl text-center hover:-translate-y-2 transition">
+          <i data-lucide="map-pin" class="w-10 h-10 mx-auto text-yellow-400 mb-5"></i>
+          <h3 class="font-title text-3xl">TIENDA FÍSICA</h3>
+          <p class="text-white/50 mt-2">Atención directa en Ponferrada.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="tienda" class="py-20 px-4 bg-black">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-14">
+        <span class="text-yellow-400 font-black uppercase tracking-widest">Galería</span>
+        <h2 class="font-title text-5xl md:text-7xl mt-3">
+          Así es Vapstore
+        </h2>
+        <p class="text-white/60 text-lg mt-4 max-w-2xl mx-auto">
+          Productos, ofertas y atención en tienda para resolver cualquier duda.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="aspect-square overflow-hidden rounded-3xl"><vap.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><vap.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><vap.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><vap.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><vap.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><vap.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><vap.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><vap.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- UBICACIÓN / CTA -->
+  <section id="contacto" class="py-24 px-4 bg-yellow-400 text-black text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-title text-5xl md:text-7xl">
+        ¿TIENES DUDAS?
+      </h2>
+
+      <p class="text-lg md:text-xl mt-5 max-w-2xl mx-auto font-semibold">
+        Escríbenos por WhatsApp o ven directamente a tienda.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/34622347088?text=Hola%2C%20quer%C3%ADa%20preguntar%20por%20Vapstore%20Ponferrada"
+           class="bg-black text-white px-8 py-4 rounded-full font-black uppercase hover:scale-105 transition">
+          WhatsApp
+        </a>
+
+        <a id="ubicacion" href="https://www.google.com/maps?client=firefox-b-d&um=1&ie=UTF-8&fb=1&gl=es&sa=X&geocode=KcfYUKn0uzANMVX8J6mG7yzf&daddr=C.+Julio+Cervera,+8,+24404+Ponferrada,+Le%C3%B3n" class="bg-white text-black px-8 py-4 rounded-full font-black uppercase hover:scale-105 transition">
+          Cómo llegar
+        </a>
+      </div>
+
+      <p class="text-black/60 text-sm mt-6">
+        Calle Julio Cervera 8, Ponferrada · +18
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
