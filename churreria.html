@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Churrería Sánchez La Rosaleda</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Flowbite -->
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet"/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      overflow-x:hidden;
+      font-family:"Inter",sans-serif;
+      background:#fff4df;
+      color:#1c1917;
+    }
+
+    .font-title{
+      font-family:"Bebas Neue",sans-serif;
+    }
+
+    .font-script{
+      font-family:"Pacifico",cursive;
+    }
+
+    /* HERO OVERLAY */
+
+    .hero-overlay{
+      background:
+      linear-gradient(
+        to bottom,
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.45),
+        rgba(42,22,8,.9)
+      );
+    }
+
+    /* FLOATING CHURROS */
+
+    .floating{
+      animation:float 5s ease-in-out infinite;
+    }
+
+    .floating2{
+      animation:float2 6s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px) rotate(0deg);
+      }
+
+      50%{
+        transform:translateY(-20px) rotate(4deg);
+      }
+
+      100%{
+        transform:translateY(0px) rotate(0deg);
+      }
+    }
+
+    @keyframes float2{
+      0%{
+        transform:translateY(0px) rotate(0deg);
+      }
+
+      50%{
+        transform:translateY(15px) rotate(-5deg);
+      }
+
+      100%{
+        transform:translateY(0px) rotate(0deg);
+      }
+    }
+
+    /* GLOW */
+
+    .glow{
+      box-shadow:0 0 60px rgba(251,146,60,.35);
+    }
+
+    /* HOVER SCALE */
+
+    .card-hover{
+      transition:.5s;
+    }
+
+    .card-hover:hover{
+      transform:translateY(-10px);
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="fixed top-0 left-0 w-full z-50 bg-[#2a1608]/90 backdrop-blur border-b border-white/10">
+
+  <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+
+    <!-- LOGO -->
+
+    <a href="#" class="font-script text-3xl text-orange-300 leading-none">
+      Sánchez
+    </a>
+
+    <!-- DESKTOP -->
+
+    <div class="hidden md:flex items-center gap-8 text-white text-sm font-black uppercase">
+
+      <a href="#productos" class="flex items-center h-10 hover:text-orange-300 transition">
+        Productos
+      </a>
+
+      <a href="#galeria" class="flex items-center h-10 hover:text-orange-300 transition">
+        Galería
+      </a>
+
+      <a href="#ubicacion" class="flex items-center h-10 hover:text-orange-300 transition">
+        Ubicación
+      </a>
+
+      <a href="#contacto"
+      class="flex items-center h-10 bg-orange-400 text-stone-950 px-5 rounded-full hover:bg-orange-300 transition">
+        Pedir ahora
+      </a>
+
+    </div>
+
+    <!-- MOBILE -->
+
+    <div class="md:hidden flex items-center gap-3">
+
+      <a href="#contacto"
+      class="bg-orange-400 text-stone-950 px-4 py-2 rounded-full text-xs font-black uppercase">
+        Pedir
+      </a>
+
+      <button data-collapse-toggle="mobile-menu" type="button" class="text-white">
+
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+
+          <path stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"/>
+
+        </svg>
+
+      </button>
+
+    </div>
+
+  </nav>
+
+  <!-- MOBILE MENU -->
+
+  <div id="mobile-menu"
+  class="hidden md:hidden bg-[#2a1608] border-t border-white/10 px-4 pb-5">
+
+    <div class="flex flex-col gap-4 pt-4 text-white font-black uppercase text-sm">
+
+      <a href="#productos" class="hover:text-orange-300">
+        Productos
+      </a>
+
+      <a href="#galeria" class="hover:text-orange-300">
+        Galería
+      </a>
+
+      <a href="#ubicacion" class="hover:text-orange-300">
+        Ubicación
+      </a>
+
+      <a href="#contacto"
+      class="bg-orange-400 text-stone-950 text-center px-5 py-3 rounded-full">
+        Pedir por WhatsApp
+      </a>
+
+    </div>
+
+  </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[url('https://images.unsplash.com/photo-1624371414361-e670edf4898d?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center px-4">
+
+  <!-- OVERLAY -->
+
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <!-- FLOATING ELEMENTS -->
+
+  <img src="https://images.unsplash.com/photo-1624371414361-e670edf4898d?q=80&w=500&auto=format&fit=crop"
+  class="floating absolute top-32 left-[-40px] w-40 rounded-full opacity-20 blur-[1px] hidden md:block">
+
+  <img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?q=80&w=500&auto=format&fit=crop"
+  class="floating2 absolute bottom-20 right-[-40px] w-48 rounded-full opacity-20 hidden md:block">
+
+  <!-- CONTENT -->
+
+  <div class="relative z-10 text-center max-w-6xl pt-24 text-white">
+
+    <span class="inline-block bg-orange-400 text-stone-950 px-5 py-2 rounded-full font-black uppercase mb-6">
+      Churros · Chocolate · Batidos · Helados
+    </span>
+
+    <h1 class="font-title text-7xl md:text-[11rem] leading-none">
+      CHURROS
+    </h1>
+
+    <h2 class="font-script text-4xl md:text-6xl text-orange-300 -mt-4">
+      recién hechos
+    </h2>
+
+    <p class="text-lg md:text-2xl text-white/80 mt-8 max-w-3xl mx-auto">
+      Tu lugar de desayunos y meriendas en La Rosaleda.
+      Chocolate caliente, churros crujientes y caprichos dulces preparados al momento.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+
+      <a href="#contacto"
+      class="bg-orange-400 text-stone-950 px-8 py-5 rounded-full font-black uppercase hover:scale-105 transition glow">
+        Pedir ahora
+      </a>
+
+      <a href="#productos"
+      class="border-2 border-white px-8 py-5 rounded-full font-black uppercase hover:bg-white hover:text-stone-950 transition">
+        Ver productos
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="bg-[#2a1608] text-white py-10 px-4">
+
+  <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+    <div>
+      <p class="font-title text-6xl text-orange-300">100%</p>
+      <p class="uppercase font-black">Recién hechos</p>
+    </div>
+
+    <div>
+      <p class="font-title text-6xl text-orange-300">+800</p>
+      <p class="uppercase font-black">Seguidores</p>
+    </div>
+
+    <div>
+      <p class="font-title text-6xl text-orange-300">TOP</p>
+      <p class="uppercase font-black">Desayunos</p>
+    </div>
+
+    <div>
+      <p class="font-title text-6xl text-orange-300">∞</p>
+      <p class="uppercase font-black">Antojos</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PRODUCTOS -->
+
+<section id="productos" class="py-24 px-4 bg-[#fff4df]">
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center mb-16">
+
+      <span class="text-orange-600 font-black uppercase tracking-widest">
+        Lo más pedido
+      </span>
+
+      <h2 class="font-title text-6xl md:text-8xl mt-4 text-[#2a1608]">
+        PARA TODOS LOS PÚBLICOS
+      </h2>
+
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- CARD -->
+
+      <div class="bg-white rounded-[2rem] overflow-hidden shadow-2xl card-hover">
+
+        <img src="https://images.unsplash.com/photo-1624371414361-e670edf4898d?q=80&w=900&auto=format&fit=crop"
+        class="h-72 w-full object-cover">
+
+        <div class="p-7">
+
+          <h3 class="font-title text-5xl text-[#2a1608]">
+            Churros
+          </h3>
+
+          <p class="text-stone-500 mt-2">
+            Crujientes por fuera y perfectos para mojar.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="bg-white rounded-[2rem] overflow-hidden shadow-2xl card-hover">
+
+        <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=900&auto=format&fit=crop"
+        class="h-72 w-full object-cover">
+
+        <div class="p-7">
+
+          <h3 class="font-title text-5xl text-[#2a1608]">
+            Chocolate
+          </h3>
+
+          <p class="text-stone-500 mt-2">
+            El clásico que nunca falla.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="bg-white rounded-[2rem] overflow-hidden shadow-2xl card-hover">
+
+        <img src="https://images.unsplash.com/photo-1577805947697-89e18249d767?q=80&w=900&auto=format&fit=crop"
+        class="h-72 w-full object-cover">
+
+        <div class="p-7">
+
+          <h3 class="font-title text-5xl text-[#2a1608]">
+            Smoothies
+          </h3>
+
+          <p class="text-stone-500 mt-2">
+            Preparados al momento con fruta fresca.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="bg-white rounded-[2rem] overflow-hidden shadow-2xl card-hover">
+
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=900&auto=format&fit=crop"
+        class="h-72 w-full object-cover">
+
+        <div class="p-7">
+
+          <h3 class="font-title text-5xl text-[#2a1608]">
+            Helados
+          </h3>
+
+          <p class="text-stone-500 mt-2">
+            Sabores para disfrutar todo el año.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="relative py-24 px-4 overflow-hidden bg-[#2a1608]">
+
+  <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto text-center text-white">
+
+    <h2 class="font-title text-6xl md:text-8xl">
+      EL MEJOR MOMENTO DEL DÍA
+    </h2>
+
+    <p class="text-white/70 text-xl mt-5 max-w-2xl mx-auto">
+      Churros recién hechos, chocolate caliente y el olor que hace que quieras volver.
+    </p>
+
+    <a href="#contacto"
+    class="inline-block mt-10 bg-orange-400 text-stone-950 px-8 py-5 rounded-full font-black uppercase hover:scale-105 transition">
+      Pedir ahora
+    </a>
+
+  </div>
+
+</section>
+
+<!-- GALERÍA -->
+
+<section id="galeria" class="py-24 px-4 bg-white">
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center mb-16">
+
+      <span class="text-orange-600 font-black uppercase tracking-widest">
+        Galería
+      </span>
+
+      <h2 class="font-title text-6xl md:text-8xl mt-4 text-[#2a1608]">
+        ENTRA HAMBRE SOLO DE VERLO
+      </h2>
+
+    </div>
+
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="aspect-square overflow-hidden rounded-3xl"><img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><img src="https://images.unsplash.com/photo-1527515545081-5db817172677?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+        <div class="aspect-square overflow-hidden rounded-3xl"><img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+      </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section id="contacto"
+class="py-28 px-4 bg-orange-400 text-stone-950 text-center">
+
+  <div class="max-w-4xl mx-auto">
+
+    <h2 class="font-title text-6xl md:text-8xl">
+      ¿TE APETECE?
+    </h2>
+
+    <p class="text-xl mt-5 font-semibold">
+      Ven a Churrería Sánchez La Rosaleda o pide información directamente por WhatsApp.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+
+      <a href="https://wa.me/34XXXXXXXXX"
+      class="bg-[#2a1608] text-white px-8 py-5 rounded-full font-black uppercase hover:scale-105 transition">
+        Pedir por WhatsApp
+      </a>
+
+      <a href="#"
+      id="ubicacion"
+      class="bg-white text-[#2a1608] px-8 py-5 rounded-full font-black uppercase hover:scale-105 transition">
+        Cómo llegar
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="bg-[#2a1608] py-10 px-4 text-white">
+
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+
+    <div>
+
+      <h3 class="font-script text-4xl text-orange-300">
+        Sánchez
+      </h3>
+
+      <p class="text-white/50">
+        Churrería · Desayunos · Meriendas
+      </p>
+
+    </div>
+
+    <div class="flex gap-6 text-white/50 text-sm">
+
+      <a href="#productos" class="hover:text-orange-300">
+        Productos
+      </a>
+
+      <a href="#galeria" class="hover:text-orange-300">
+        Galería
+      </a>
+
+      <a href="#contacto" class="hover:text-orange-300">
+        Contacto
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- FLOWBITE -->
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
+</body>
+</html>
