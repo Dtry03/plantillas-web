@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JC Servicios Inmobiliarios</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: "Manrope", sans-serif; }
+    .font-title { font-family: "Playfair Display", serif; }
+  </style>
+</head>
+
+<body class="bg-[#080808] text-white">
+
+<header class="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-xl border-b border-white/10">
+  <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="#" class="font-black text-xl tracking-wide">
+      JC <span class="text-amber-400">Servicios Inmobiliarios</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8 text-sm font-bold">
+      <a href="#servicios" class="hover:text-amber-400">Servicios</a>
+      <a href="#viviendas" class="hover:text-amber-400">Viviendas</a>
+      <a href="#contacto" class="bg-amber-400 text-black px-5 py-2 rounded-full">
+        Vender mi casa
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1800&auto=format&fit=crop"
+         class="w-full h-full object-cover opacity-45">
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/20"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 pt-24 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <span class="inline-block text-amber-400 uppercase tracking-[0.3em] text-sm font-black mb-5">
+        Inmobiliaria en Ponferrada
+      </span>
+
+      <h1 class="font-title text-5xl md:text-7xl leading-tight">
+        Vende tu vivienda con una estrategia que atrae compradores
+      </h1>
+
+      <p class="text-white/70 text-xl mt-6 max-w-xl">
+        Valoración, difusión, visitas y acompañamiento completo para vender sin perder tiempo.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <a href="#contacto" class="bg-amber-400 text-black px-8 py-4 rounded-full font-black uppercase hover:scale-105 transition">
+          Quiero vender mi casa
+        </a>
+
+        <a href="#viviendas" class="border border-white/30 px-8 py-4 rounded-full font-black uppercase hover:bg-white hover:text-black transition">
+          Ver viviendas
+        </a>
+      </div>
+    </div>
+
+    <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 shadow-2xl">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop"
+           class="rounded-[1.5rem] h-[420px] w-full object-cover">
+      <div class="flex justify-between items-center mt-5">
+        <div>
+          <p class="text-white/50 text-sm">Valoración inicial</p>
+          <p class="text-2xl font-black">Sin compromiso</p>
+        </div>
+        <span class="bg-amber-400 text-black px-4 py-2 rounded-full font-black">
+          24/48h
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="py-12 px-4 bg-[#111] border-y border-white/10">
+  <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div>
+      <p class="font-title text-5xl text-amber-400">+20</p>
+      <p class="text-white/50 uppercase text-sm font-bold">Años ayudando</p>
+    </div>
+    <div>
+      <p class="font-title text-5xl text-amber-400">Bierzo</p>
+      <p class="text-white/50 uppercase text-sm font-bold">Zona local</p>
+    </div>
+    <div>
+      <p class="font-title text-5xl text-amber-400">360º</p>
+      <p class="text-white/50 uppercase text-sm font-bold">Proceso completo</p>
+    </div>
+    <div>
+      <p class="font-title text-5xl text-amber-400">1</p>
+      <p class="text-white/50 uppercase text-sm font-bold">Contacto directo</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="py-24 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-amber-400 uppercase tracking-[0.3em] text-sm font-black">Servicios</span>
+      <h2 class="font-title text-4xl md:text-6xl mt-4">Todo lo que necesitas para vender o comprar</h2>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition">
+        <i data-lucide="home" class="text-amber-400 w-10 h-10 mb-6"></i>
+        <h3 class="text-2xl font-black">Venta de viviendas</h3>
+        <p class="text-white/50 mt-3">Estrategia, visitas y gestión para encontrar comprador.</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition">
+        <i data-lucide="key-round" class="text-amber-400 w-10 h-10 mb-6"></i>
+        <h3 class="text-2xl font-black">Compra segura</h3>
+        <p class="text-white/50 mt-3">Te ayudamos a encontrar la vivienda que encaja contigo.</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition">
+        <i data-lucide="badge-euro" class="text-amber-400 w-10 h-10 mb-6"></i>
+        <h3 class="text-2xl font-black">Valoración</h3>
+        <p class="text-white/50 mt-3">Conoce el precio real antes de poner tu casa en venta.</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition">
+        <i data-lucide="handshake" class="text-amber-400 w-10 h-10 mb-6"></i>
+        <h3 class="text-2xl font-black">Acompañamiento</h3>
+        <p class="text-white/50 mt-3">Te guiamos en todo el proceso, sin complicaciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIVIENDAS -->
+<section id="viviendas" class="py-24 px-4 bg-[#111]">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-12">
+      <div>
+        <span class="text-amber-400 uppercase tracking-[0.3em] text-sm font-black">Oportunidades</span>
+        <h2 class="font-title text-4xl md:text-6xl mt-4">Viviendas destacadas</h2>
+      </div>
+      <a href="#contacto" class="text-amber-400 font-black">Preguntar disponibilidad →</a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <article class="group bg-black rounded-[2rem] overflow-hidden border border-white/10">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1000&auto=format&fit=crop"
+             class="h-80 w-full object-cover group-hover:scale-105 transition duration-700">
+        <div class="p-6">
+          <span class="text-amber-400 text-sm font-black uppercase">Ponferrada</span>
+          <h3 class="text-2xl font-black mt-2">Piso luminoso reformado</h3>
+          <p class="text-white/50 mt-2">3 habitaciones · buena ubicación · listo para entrar</p>
+        </div>
+      </article>
+
+      <article class="group bg-black rounded-[2rem] overflow-hidden border border-white/10">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1000&auto=format&fit=crop"
+             class="h-80 w-full object-cover group-hover:scale-105 transition duration-700">
+        <div class="p-6">
+          <span class="text-amber-400 text-sm font-black uppercase">Camponaraya</span>
+          <h3 class="text-2xl font-black mt-2">Casa con patio</h3>
+          <p class="text-white/50 mt-2">Espacio exterior · zona tranquila · oportunidad</p>
+        </div>
+      </article>
+
+      <article class="group bg-black rounded-[2rem] overflow-hidden border border-white/10">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1000&auto=format&fit=crop"
+             class="h-80 w-full object-cover group-hover:scale-105 transition duration-700">
+        <div class="p-6">
+          <span class="text-amber-400 text-sm font-black uppercase">El Bierzo</span>
+          <h3 class="text-2xl font-black mt-2">Casa familiar con terreno</h3>
+          <p class="text-white/50 mt-2">Ideal para familias o inversión.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="py-24 px-4">
+  <div class="max-w-6xl mx-auto text-center">
+    <span class="text-amber-400 uppercase tracking-[0.3em] text-sm font-black">Proceso</span>
+    <h2 class="font-title text-4xl md:text-6xl mt-4 mb-14">Vender tu casa puede ser más sencillo</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="w-16 h-16 rounded-full bg-amber-400 text-black flex items-center justify-center mx-auto text-2xl font-black">1</div>
+        <h3 class="text-2xl font-black mt-5">Valoramos</h3>
+        <p class="text-white/50 mt-2">Analizamos tu vivienda y el mercado.</p>
+      </div>
+
+      <div>
+        <div class="w-16 h-16 rounded-full bg-amber-400 text-black flex items-center justify-center mx-auto text-2xl font-black">2</div>
+        <h3 class="text-2xl font-black mt-5">Preparamos</h3>
+        <p class="text-white/50 mt-2">Fotos, anuncio, difusión y visitas.</p>
+      </div>
+
+      <div>
+        <div class="w-16 h-16 rounded-full bg-amber-400 text-black flex items-center justify-center mx-auto text-2xl font-black">3</div>
+        <h3 class="text-2xl font-black mt-5">Vendemos</h3>
+        <p class="text-white/50 mt-2">Te acompañamos hasta el cierre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contacto" class="py-28 px-4 bg-amber-400 text-black text-center">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="font-title text-5xl md:text-7xl">¿Quieres saber cuánto vale tu vivienda?</h2>
+    <p class="text-xl mt-5 font-semibold">
+      Escríbenos y te orientamos sin compromiso.
+    </p>
+
+    <a href="https://wa.me/34645959491?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20vender%20mi%20casa"
+       class="inline-flex items-center gap-3 mt-10 bg-black text-white px-8 py-4 rounded-full font-black uppercase hover:scale-105 transition">
+      <i data-lucide="message-circle"></i>
+      Hablar por WhatsApp
+    </a>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
