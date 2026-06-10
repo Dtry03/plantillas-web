@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miriam Souto | Centro de Estética Avanzada</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+    .font-title { font-family: 'Cormorant Garamond', serif; letter-spacing: -0.03em; }
+    .font-bebas { font-family: 'Manrope', sans-serif; letter-spacing: .13em; text-transform: uppercase; font-weight: 800; }
+    .btn-elegante { font-family: 'Manrope', sans-serif; letter-spacing: 0; text-transform: none; font-weight: 700; line-height: 1; }
+    .nav-link { font-family: 'Manrope', sans-serif; letter-spacing: .01em; text-transform: none; font-weight: 600; }
+
+    .hero-bg {
+      background:
+        linear-gradient(rgba(255, 250, 243, .78), rgba(239, 225, 210, .88)),
+        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .soft-card {
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(14px);
+    }
+  </style>
+</head>
+
+<body class="bg-[#faf5ed] text-[#3a2d25]">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-[#e8d8c5]/90 backdrop-blur-md border-b border-[#d7c2ad]/60">
+    <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+      <a href="#inicio" class="text-[#3a2d25] text-2xl md:text-3xl font-title font-bold hover:scale-105 transition flex justify-center items-center">
+        <img src="logo_estetica.png" alt="" class="w-10 h-10"> Estética
+      </a>
+
+      <button data-collapse-toggle="navbar-estetica" type="button" class="md:hidden text-[#3a2d25]">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+
+      <div class="hidden md:flex items-center gap-7 text-[#3a2d25] font-semibold">
+        <a href="#tratamientos" class="nav-link text-[15px] hover:text-[#9a7a63] transition">Tratamientos</a>
+        <a href="#resultados" class="nav-link text-[15px] hover:text-[#9a7a63] transition">Resultados</a>
+        <a href="https://wa.me/34982200345?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20el%20centro%20de%20est%C3%A9tica" class="bg-[#cdb7a2] text-[#3a2d25] btn-elegante text-[15px] px-5 py-2.5 rounded-full hover:bg-[#fffaf3] transition">
+          Reservar cita
+        </a>
+      </div>
+    </div>
+
+    <div id="navbar-estetica" class="hidden md:hidden px-4 pb-4 text-[#3a2d25] bg-[#e8d8c5]">
+      <a href="#tratamientos" class="block py-2 nav-link text-base">Tratamientos</a>
+      <a href="#resultados" class="block py-2 nav-link text-base">Resultados</a>
+      <a href="https://wa.me/34982200345?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20el%20centro%20de%20est%C3%A9tica" class="inline-block mt-3 bg-[#cdb7a2] text-[#3a2d25] btn-elegante text-base px-5 py-2.5 rounded-full">
+        Reservar cita
+      </a>
+    </div>
+  </nav>
+
+  <!-- SECCIÓN 1: HERO -->
+  <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center px-4 pt-24">
+    <div class="max-w-4xl mx-auto text-center text-[#3a2d25]">
+      <span class="inline-block mb-5 bg-[#fffaf3]/70 border border-[#d7c2ad]/80 rounded-full px-5 py-2 text-sm md:text-base backdrop-blur">
+        Centro de estética avanzada en Mirian Souto
+      </span>
+
+      <h1 class="font-title text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6">
+        Siéntete más cuidada desde la primera cita
+      </h1>
+
+      <p class="text-lg md:text-2xl text-[#5f4b3e] max-w-2xl mx-auto mb-9">
+        Pestañas, uñas, tratamientos faciales, corporales y masajes en un espacio pensado para que vengas, desconectes y salgas mejor.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/34982200345?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20el%20centro%20de%20est%C3%A9tica" class="bg-[#cdb7a2] text-[#3a2d25] btn-elegante text-lg md:text-xl px-8 py-4 rounded-full hover:bg-[#fffaf3] hover:scale-105 transition">
+          Reservar por WhatsApp
+        </a>
+        <a href="#tratamientos" class="border border-[#b89b82] text-[#3a2d25] btn-elegante text-lg md:text-xl px-8 py-4 rounded-full hover:bg-[#fffaf3] hover:text-[#3a2d25] transition">
+          Ver tratamientos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: TRATAMIENTOS -->
+  <section id="tratamientos" class="py-20 px-4 bg-[#faf5ed]">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="font-bebas text-2xl text-[#9a7a63]">Lo que puedes reservar</span>
+        <h2 class="font-title text-4xl md:text-6xl font-bold mt-2 mb-4">Tratamientos claros y fáciles de elegir</h2>
+        <p class="text-[#6f5a49] text-lg max-w-2xl mx-auto">
+          Una web sencilla para que la clienta vea rápido qué haces y pueda pedir cita sin perderse entre publicaciones.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-[#fffaf3] rounded-3xl p-7 text-center shadow-sm hover:-translate-y-2 hover:shadow-xl transition">
+          <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-[#efe1d2] flex items-center justify-center">
+            <i data-lucide="eye" class="text-[#9a7a63]"></i>
+          </div>
+          <h3 class="font-bebas text-3xl mb-2">Pestañas</h3>
+          <p class="text-[#6f5a49]">Extensiones, lifting y diseño para una mirada más marcada.</p>
+        </div>
+
+        <div class="bg-[#fffaf3] rounded-3xl p-7 text-center shadow-sm hover:-translate-y-2 hover:shadow-xl transition">
+          <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-[#efe1d2] flex items-center justify-center">
+            <i data-lucide="sparkles" class="text-[#9a7a63]"></i>
+          </div>
+          <h3 class="font-bebas text-3xl mb-2">Uñas</h3>
+          <p class="text-[#6f5a49]">Manicura, pedicura y diseños cuidados para cada ocasión.</p>
+        </div>
+
+        <div class="bg-[#fffaf3] rounded-3xl p-7 text-center shadow-sm hover:-translate-y-2 hover:shadow-xl transition">
+          <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-[#efe1d2] flex items-center justify-center">
+            <i data-lucide="flower-2" class="text-[#9a7a63]"></i>
+          </div>
+          <h3 class="font-bebas text-3xl mb-2">Facial</h3>
+          <p class="text-[#6f5a49]">Limpieza, hidratación y tratamientos para mejorar la piel.</p>
+        </div>
+
+        <div class="bg-[#fffaf3] rounded-3xl p-7 text-center shadow-sm hover:-translate-y-2 hover:shadow-xl transition">
+          <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-[#efe1d2] flex items-center justify-center">
+            <i data-lucide="hand-heart" class="text-[#9a7a63]"></i>
+          </div>
+          <h3 class="font-bebas text-3xl mb-2">Corporal</h3>
+          <p class="text-[#6f5a49]">Masajes, depilación, láser y tratamientos reductores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: RESULTADOS + CTA -->
+  <section id="resultados" class="bg-[#e8d8c5] py-20 px-4 text-[#3a2d25]">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="font-bebas text-2xl text-[#9a7a63]">Antes de escribir por Instagram</span>
+          <h2 class="font-title text-4xl md:text-6xl font-bold mt-2 mb-6">Aquí la clienta entiende todo en 30 segundos</h2>
+          <p class="text-[#6f5a49] text-lg mb-8 max-w-xl">
+            En vez de buscar precios, tratamientos y trabajos entre posts mezclados, esta página ordena lo importante: qué haces, qué resultados ofreces y cómo reservar.
+          </p>
+
+          <div class="space-y-4 mb-9">
+            <div class="flex gap-3 items-start">
+              <i data-lucide="check-circle" class="text-[#9a7a63] mt-1"></i>
+              <p class="text-[#5f4b3e]">Botón directo a WhatsApp para pedir cita.</p>
+            </div>
+            <div class="flex gap-3 items-start">
+              <i data-lucide="check-circle" class="text-[#9a7a63] mt-1"></i>
+              <p class="text-[#5f4b3e]">Tratamientos divididos para que no haya confusión.</p>
+            </div>
+            <div class="flex gap-3 items-start">
+              <i data-lucide="check-circle" class="text-[#9a7a63] mt-1"></i>
+              <p class="text-[#5f4b3e]">Aspecto profesional sin complicar la navegación.</p>
+            </div>
+          </div>
+
+          <a href="https://wa.me/34982200345?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20el%20centro%20de%20est%C3%A9tica" class="inline-flex bg-[#cdb7a2] text-[#3a2d25] btn-elegante text-lg md:text-xl px-9 py-4 rounded-full hover:bg-[#fffaf3] hover:scale-105 transition">
+            Pedir cita ahora
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="rounded-3xl overflow-hidden h-64 bg-cover bg-center hover:scale-[1.03] transition" style="background-image:url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=900&auto=format&fit=crop')"></div>
+          <div class="rounded-3xl overflow-hidden h-64 bg-cover bg-center mt-10 hover:scale-[1.03] transition" style="background-image:url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=900&auto=format&fit=crop')"></div>
+          <div class="rounded-3xl overflow-hidden h-64 bg-cover bg-center hover:scale-[1.03] transition" style="background-image:url('https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=900&auto=format&fit=crop')"></div>
+          <div class="rounded-3xl overflow-hidden h-64 bg-cover bg-center mt-10 hover:scale-[1.03] transition" style="background-image:url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=900&auto=format&fit=crop')"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTÓN FLOTANTE -->
+  <a href="https://wa.me/34982200345?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20el%20centro%20de%20est%C3%A9tica" class="fixed bottom-5 right-5 z-50 bg-[#cdb7a2] text-[#3a2d25] rounded-full px-5 py-4 shadow-2xl flex items-center gap-2 hover:scale-105 transition">
+    <i data-lucide="message-circle"></i>
+    <span class="font-bold hidden sm:inline">Reservar</span>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
