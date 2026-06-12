@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadenza Dúo | Música para bodas y eventos</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Great+Vibes&family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@700&family=Parisienne&display=swap" rel="stylesheet">
+
+  <style>
+    .font-orbitron {
+      font-family: "Gelasio", serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }
+
+    .animate-logo {
+      opacity: 0;
+      transform: scale(0.6);
+      animation: logoIn 0.6s ease-out forwards;
+    }
+
+    @keyframes logoIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .animate-text {
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: textOut 0.6s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes textOut {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .font-bodas-anim {
+      animation: fontBodasSwitch 1.5s infinite steps(1);
+    }
+
+    @keyframes fontBodasSwitch {
+      0% {
+        font-family: 'Playfair Display', serif;
+      }
+
+      25% {
+        font-family: 'Cormorant Garamond', serif;
+      }
+
+      50% {
+        font-family: 'Great Vibes', cursive;
+      }
+
+      75% {
+        font-family: 'Parisienne', cursive;
+      }
+
+      100% {
+        font-family: 'Playfair Display', serif;
+      }
+    }
+
+    .card {
+      width: 0;
+      height: 0;
+      border-top: 14px solid #eee;
+      border-bottom: 14px solid #ccc;
+      border-right: 21px solid #ddd;
+      border-left: 21px solid #ccc;
+    }
+
+    .heart {
+      width: 6px;
+      height: 6px;
+      background-color: #ff4848;
+      transform: translate(-50%, -50%) rotate(45deg);
+      animation: heartbeat 1.4s linear infinite;
+    }
+
+    .heart:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ff4848;
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+
+    .heart:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ff4848;
+      transform: translateX(-50%);
+      border-radius: 50%;
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+      }
+
+      25% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+      }
+
+      30% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.4);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+      }
+
+      70% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.4);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="bg-opacity-80 fixed w-full top-0 z-50 bg-transparent text-white transition-all duration-500">
+    <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+
+      <span class="text-white font-bold font-orbitron flex items-center gap-1 hover:scale-105 transition">
+
+        <!-- ICONO / LOGO -->
+        <img src="cadenza_logo.png" 
+             class="w-9 h-12 animate-logo"
+             alt="Logo Cadenza Dúo">
+
+        <!-- TEXTO -->
+        <span class="animate-text">CADENZA DÚO</span>
+
+      </span>
+
+      <button data-collapse-toggle="navbar" type="button" class="md:hidden mx-4">
+        <i data-lucide="menu" class="text-white"></i>
+      </button>
+
+      <button type="button" class="md:hidden bg-orange-200 text-stone-500 rounded px-4 hover:bg-orange-300 font-orbitron">
+        <a href="#contacto">CONSULTAR</a>
+      </button>
+
+      <div class="hidden md:flex gap-6 text-white font-semibold">
+        <a href="#servicios" class="p-2 hover:text-orange-200 font-orbitron hover:scale-105 transition">MÚSICA</a>
+        <a href="#portfolio" class="p-2 hover:text-orange-200 font-orbitron hover:scale-105 transition">MOMENTOS</a>
+        <a href="#contacto" class="p-2 hover:text-orange-200 font-orbitron hover:scale-105 transition">CONTACTO</a>
+
+        <button type="button" class="hidden md:block bg-orange-200 text-stone-500 font-extrabold rounded px-4 hover:bg-orange-300 transition font-orbitron hover:scale-105">
+          <a href="#contacto">CONSULTAR FECHA</a>
+        </button>
+      </div>
+    </div>
+
+    <div class="hidden gap-6 text-white font-semibold" id="navbar">
+      <a href="#servicios" class="p-2 hover:text-orange-200 font-orbitron">MÚSICA</a>
+      <a href="#portfolio" class="p-2 hover:text-orange-200 font-orbitron">MOMENTOS</a>
+      <a href="#contacto" class="p-2 hover:text-orange-200 font-orbitron">CONTACTO</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative bg-[url(cadenzaduo3.jpg)] bg-cover bg-[position:50%_74%] h-screen w-full mx-auto py-20 flex justify-center items-center">
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <div class="relative z-10 text-white text-center w-full flex-col justify-center mx-auto px-4">
+
+      <h1 class="md:text-6xl font-bold pb-3 text-2xl font-orbitron">
+        MÚSICA EN DIRECTO PARA UN DÍA 
+        
+      </h1>
+<span class="font-bodas-anim md:text-6xl font-bold pb-3 text-2xl text-orange-200">INOLVIDABLE</span>
+      <p class="md:text-3xl md:pb-12 text-md pb-6 font-orbitron max-w-4xl mx-auto pt-5">
+        Cadenza Dúo pone banda sonora a bodas, ceremonias y eventos con elegancia, emoción y cercanía.
+      </p>
+
+      <button class="bg-orange-200 rounded px-5 py-3 md:text-3xl text-stone-500 text-md font-bold hover:bg-orange-300 font-orbitron">
+        <a href="#contacto">CONSULTAR DISPONIBILIDAD</a>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="bg-stone-200 py-20 px-4" id="portfolio">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-14">
+        <span class="text-stone-500 tracking-[0.3em] text-sm uppercase">Momentos con música</span>
+
+        <h2 class="text-4xl md:text-6xl font-bold text-stone-700 mt-3 font-orbitron">
+          La banda sonora de vuestros recuerdos
+        </h2>
+
+        <p class="text-stone-500 text-lg mt-4 max-w-2xl mx-auto">
+          Ceremonias, cócteles y celebraciones donde la música acompaña cada instante con sensibilidad y estilo.
+        </p>
+      </div>
+
+      <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="cadenzaduo.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Música en ceremonia">
+        </div>
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="cadenzaduo2.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Violín en boda">
+        </div>
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="cadenzaduo4.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Cadenza Dúo en evento">
+        </div>
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="cadenzaduo5.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Música para cóctel">
+        </div>
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="cadenzaduo6.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Ceremonia elegante">
+        </div>
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="cadenzaduoPortada.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Evento con música en directo">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="bg-stone-200 py-20 px-4" id="servicios">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-14">
+        <span class="text-orange-300 tracking-[0.3em] text-sm uppercase">Música para eventos</span>
+
+        <h2 class="text-4xl md:text-6xl font-bold text-stone-700 mt-3 font-orbitron">
+          Música cuidada para cada momento
+        </h2>
+
+        <p class="text-stone-500 text-lg mt-4 max-w-2xl mx-auto">
+          Adaptamos el repertorio y el ambiente musical a vuestra ceremonia, cóctel o celebración especial.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- Servicio 1 -->
+        <div class="text-center p-8 rounded-3xl bg-stone-100 hover:scale-105 transition shadow-sm">
+          <div class="w-14 h-14 mx-auto mb-5 bg-orange-200 rounded-full flex items-center justify-center">
+            <i data-lucide="music-4" class="text-stone-600 w-7 h-7"></i>
+          </div>
+
+          <h3 class="text-2xl font-bold text-stone-700 font-orbitron">Ceremonia</h3>
+
+          <p class="text-stone-500 mt-3">
+            Música en directo para acompañar entradas, lecturas, rituales y momentos clave de la ceremonia.
+          </p>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="text-center p-8 rounded-3xl bg-stone-100 hover:scale-105 transition shadow-sm">
+          <div class="w-14 h-14 mx-auto mb-5 bg-orange-200 rounded-full flex items-center justify-center">
+            <i data-lucide="sparkles" class="text-stone-600 w-7 h-7"></i>
+          </div>
+
+          <h3 class="text-2xl font-bold text-stone-700 font-orbitron">Cóctel y bienvenida</h3>
+
+          <p class="text-stone-500 mt-3">
+            Un ambiente elegante y cercano para recibir a los invitados y crear una atmósfera especial.
+          </p>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="text-center p-8 rounded-3xl bg-stone-100 hover:scale-105 transition shadow-sm">
+          <div class="w-14 h-14 mx-auto mb-5 bg-orange-200 rounded-full flex items-center justify-center">
+            <i data-lucide="party-popper" class="text-stone-600 w-7 h-7"></i>
+          </div>
+
+          <h3 class="text-2xl font-bold text-stone-700 font-orbitron">Eventos privados</h3>
+
+          <p class="text-stone-500 mt-3">
+            Música para aniversarios, pedidas, cenas especiales y celebraciones con un toque diferente.
+          </p>
+        </div>
+
+        <!-- Servicio 4 -->
+        <div class="text-center p-8 rounded-3xl bg-stone-100 hover:scale-105 transition shadow-sm">
+          <div class="w-14 h-14 mx-auto mb-5 bg-orange-200 rounded-full flex items-center justify-center">
+            <i data-lucide="list-music" class="text-stone-600 w-7 h-7"></i>
+          </div>
+
+          <h3 class="text-2xl font-bold text-stone-700 font-orbitron">Repertorio personalizado</h3>
+
+          <p class="text-stone-500 mt-3">
+            Os ayudamos a elegir canciones que encajen con vuestra historia y con cada momento del evento.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-stone-200 py-24 px-4" id="contacto">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <span class="text-orange-300 tracking-[0.3em] text-sm uppercase">Consulta disponibilidad</span>
+
+      <h2 class="text-4xl md:text-6xl font-bold text-stone-700 mt-3 mb-6 font-orbitron">
+        ¿Quieres música en directo en tu boda o evento?
+      </h2>
+
+      <p class="text-stone-500 text-lg max-w-2xl mx-auto mb-10">
+        Escríbenos, cuéntanos la fecha y el tipo de celebración, y te orientamos con una propuesta musical adaptada.
+      </p>
+
+      <a href="https://wa.me/34632421416?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20disponibilidad%20para%20m%C3%BAsica%20en%20directo%20en%20mi%20boda%20o%20evento"
+         class="inline-flex items-center gap-3 bg-orange-200 text-stone-700 px-8 py-4 rounded-full text-xl font-bold hover:bg-orange-300 hover:scale-105 transition font-orbitron">
+
+        <div class="card">
+          <div class="heart"></div>
+        </div>
+
+        CONSULTAR FECHA
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-stone-800 py-10 px-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+
+      <div>
+        <h3 class="text-white text-2xl font-bold font-orbitron">CADENZA DÚO</h3>
+        <p class="text-stone-300">Música para bodas y eventos</p>
+      </div>
+
+      <div class="flex gap-6 text-stone-300">
+        <a href="#servicios" class="hover:text-orange-200 transition">Música</a>
+        <a href="#portfolio" class="hover:text-orange-200 transition">Momentos</a>
+        <a href="#contacto" class="hover:text-orange-200 transition">Contacto</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <!-- Galería dinámica -->
+  <script>
+    const gallery = document.getElementById("gallery-grid");
+
+    if (gallery) {
+      const items = gallery.querySelectorAll(".gallery-item");
+
+      let current = 0;
+
+      const swaps = [
+        [0, 5],
+        [1, 2],
+        [3, 4],
+        [0, 3],
+        [2, 5],
+        [1, 4]
+      ];
+
+      function swapItems(i, j) {
+        const item1 = items[i];
+        const item2 = items[j];
+
+        if (!item1 || !item2) return;
+
+        item1.classList.add("opacity-0", "scale-95");
+        item2.classList.add("opacity-0", "scale-95");
+
+        setTimeout(() => {
+          const next1 = item1.nextSibling === item2 ? item1 : item1.nextSibling;
+          const next2 = item2.nextSibling === item1 ? item2 : item2.nextSibling;
+
+          gallery.insertBefore(item1, next2);
+          gallery.insertBefore(item2, next1);
+
+          setTimeout(() => {
+            item1.classList.remove("opacity-0", "scale-95");
+            item2.classList.remove("opacity-0", "scale-95");
+          }, 100);
+
+        }, 400);
+      }
+
+      setInterval(() => {
+        const [a, b] = swaps[current];
+
+        swapItems(a, b);
+
+        current++;
+
+        if (current >= swaps.length) {
+          current = 0;
+        }
+
+      }, 2500);
+    }
+  </script>
+
+  <!-- Navbar scroll -->
+  <script>
+    const header = document.getElementById("nav");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.remove("bg-transparent");
+        header.classList.add("bg-stone-900/70", "backdrop-blur-md", "shadow-lg");
+      } else {
+        header.classList.remove("bg-stone-900/70", "backdrop-blur-md", "shadow-lg");
+        header.classList.add("bg-transparent");
+      }
+    });
+  </script>
+
+</body>
+</html>
