@@ -25,9 +25,8 @@
 
 .hero-text-shadow h1 {
   text-shadow:
-    0 4px 0 rgba(0, 0, 0, 0.55),
-    0 10px 35px rgba(0, 0, 0, 0.95),
-    0 0 50px rgba(0, 0, 0, 0.8);
+    0 4px 14px rgba(0, 0, 0, 0.95),
+    0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
 .hero-text-shadow p {
@@ -384,19 +383,102 @@ button .span-mother2 span:nth-child(13) {
       scroll-behavior: smooth;
     }
 
-    .ml15 {
-
+.ml15 {
   text-transform: uppercase;
+  overflow: visible;
 
+  /* escala inicial */
+  --hero-scale: 2.4;
 }
 
 .ml15 .word {
   display: inline-block;
   opacity: 0;
-  transform: scale(5);
-  transform-origin: center;
+  transform: translate3d(0, 35px, 0) scale(var(--hero-scale));
+  animation: heroWordIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-origin: center;
+}
 
+.ml15 .word:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.ml15 .word:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.ml15 .word:nth-child(3) {
+  animation-delay: 0.26s;
+}
+
+.ml15 .word:nth-child(4) {
+  animation-delay: 0.34s;
+}
+
+.ml15 .word:nth-child(5) {
+  animation-delay: 0.42s;
+}
+
+@keyframes heroWordIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 35px, 0) scale(var(--hero-scale));
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .ml15 {
+    --hero-scale: 2.15;
+  }
+
+  .ml15 .word {
+    transform: translate3d(0, 26px, 0) scale(var(--hero-scale)) rotate(-3deg);
+    animation-duration: 0.52s;
+  }
+
+  .ml15 .word:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .ml15 .word:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+
+  .ml15 .word:nth-child(3) {
+    animation-delay: 0.19s;
+  }
+
+  .ml15 .word:nth-child(4) {
+    animation-delay: 0.26s;
+  }
+
+  .ml15 .word:nth-child(5) {
+    animation-delay: 0.33s;
+  }
+
+  @keyframes heroWordIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 26px, 0) scale(var(--hero-scale)) rotate(-3deg);
+    }
+
+    70% {
+      opacity: 1;
+      transform: translate3d(0, -4px, 0) scale(1.06) rotate(1deg);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    }
+  }
 }
 
 .bg-hero {
@@ -802,18 +884,7 @@ button .span-mother2 span:nth-child(13) {
       });
     });
   </script>
-  <script>
-    anime.timeline({loop: false})
-  .add({
-    targets: '.ml15 .word',
-    scale: [14,1],
-    opacity: [0,1],
-    easing: "easeOutCirc",
-    duration: 400,
-    delay: (el, i) => 200 * i
-  },0)
 
-  </script>
 <script type="text/babel" data-type="module" data-presets="react">
   import React, { useState, useMemo, useCallback, memo } from "https://esm.sh/react@19";
   import ReactDOM from "https://esm.sh/react-dom@19/client";
