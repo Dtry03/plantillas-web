@@ -392,6 +392,10 @@ button .span-mother2 span:nth-child(13) {
 
 .ml15 .word {
   display: inline-block;
+  opacity: 0;
+  transform: scale(5);
+  transform-origin: center;
+  will-change: transform, opacity;
 
 }
 
@@ -399,6 +403,15 @@ button .span-mother2 span:nth-child(13) {
 
   animation: bgZoomOut 0.2s  5 forwards;
   transform-origin: center;
+}
+
+.animate-on-scroll:not(.is-visible) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.animate-on-scroll.is-visible {
+  visibility: visible;
 }
 
 
@@ -930,21 +943,21 @@ button .span-mother2 span:nth-child(13) {
         const element = entry.target;
         const animation = element.dataset.animate;
 
-        element.classList.remove("opacity-0");
-        element.classList.add("animate__animated", animation);
+        element.classList.add("is-visible", "animate__animated", animation);
 
         observer.unobserve(element);
       }
     });
   }, {
-    threshold: 0.25
+    threshold: 0.2,
+    rootMargin: "0px 0px -10% 0px"
   });
 
   animatedElements.forEach(element => {
     observer.observe(element);
   });
 </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
 
 </body>
 </html>
