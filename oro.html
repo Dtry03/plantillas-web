@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compro Oro | Tasación gratuita</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background: #000;
+    }
+
+    .font-title {
+      font-family: "Playfair Display", serif;
+    }
+.cta{
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  overflow: hidden;
+}
+.cta span {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  letter-spacing: 0.1em;
+  background: linear-gradient(295deg, #ffe5a2 5%, #bf841a 50%, #ffcd74 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+.cta:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(143, 168, 255, 0.2) 100deg,
+    transparent 150deg,
+    transparent 230deg,
+    rgba(191, 122, 0, 0.75) 250deg,
+    rgba(242, 187, 90, 0.9) 280deg,
+    #ffe195 280deg,
+    rgba(242, 187, 90, 0.9) 300deg,
+    rgba(191, 122, 0, 0.75) 310deg,
+    transparent 360deg
+  );
+  transform: scaleX(4) scaleY(2) rotate(0deg);
+  transition: 0.5s transform;
+}
+.cta:hover:before {
+  transform: scaleX(4) scaleY(2) rotate(-360deg);
+}
+.cta:after {
+  content: "";
+  position: absolute;
+  inset: 0.05em;
+  background-color: rgba(0, 0, 0, 0.884);
+}
+.cta span:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    295deg,
+    #ffe195 0%,
+    rgba(242, 187, 90, 0.8) 15%,
+    rgba(191, 122, 0, 0.75) 30%,
+    transparent 95%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.cta:hover span:before {
+  opacity: 1;
+}
+.cta:hover span {
+  background: #fff;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+
+.button {
+
+  border-radius: 100vmax;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  text-transform: uppercase;
+  font:900;
+  background: linear-gradient(45deg, #DAAF08 0%, #DAAF08 45%, #FEE9A0 70%, #DAAF08 85%, #DAAF08 90% 100%);
+  background-size: 800% 400%;
+  animation: gradient 5s infinite cubic-bezier(.62, .28, .23, .99) both;
+  border: 0;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+    .gold-text {
+      background: linear-gradient(135deg, #f7d774, #b8860b, #fff2a8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* SECCIÓN CON PATRÓN QUE APARECE Y DESAPARECE SUAVE */
+    .gold-pattern-section {
+      position: relative;
+      background: #000;
+    }
+
+    .gold-pattern-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+
+      background-image: url("oro4.svg");
+      background-repeat: repeat;
+      background-position: center;
+      background-size: 42px 42px;
+
+      opacity: 0.42;
+      pointer-events: none;
+
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.25) 14%,
+        black 32%,
+        black 68%,
+        rgba(0, 0, 0, 0.25) 86%,
+        transparent 100%
+      );
+
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.25) 14%,
+        black 32%,
+        black 68%,
+        rgba(0, 0, 0, 0.25) 86%,
+        transparent 100%
+      );
+    }
+
+    .gold-pattern-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+
+      background: linear-gradient(
+        to bottom,
+        #000 0%,
+        rgba(0, 0, 0, 0.35) 18%,
+        rgba(0, 0, 0, 0.08) 34%,
+        transparent 48%,
+        transparent 52%,
+        rgba(0, 0, 0, 0.08) 66%,
+        rgba(0, 0, 0, 0.35) 82%,
+        #000 100%
+      );
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur ">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="font-title text-2xl md:text-3xl font-black gold-text">
+        Compro ORO
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 font-bold uppercase text-sm">
+        <a href="#que-compramos" class="hover:text-yellow-400 transition">Qué compramos</a>
+        <a href="#proceso" class="hover:text-yellow-400 transition">Cómo funciona</a>
+        <a href="#contacto" class="hover:text-yellow-400 transition">Contacto</a>
+      </div>
+
+      <button 
+         class="button hover:scale-105 transition font-bold text-yellow-950  px-3 py-2 font-sm">
+        Tasación gratis
+      </button>
+    </nav>
+  </header>
+
+  <!-- 1. HERO -->
+  <section class="relative min-h-screen flex items-center justify-center px-4 pt-24 overflow-hidden">
+
+    <video 
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+      class="absolute top-0 left-0 h-full w-full object-cover"
+    >
+      <source src="oro1-web.mp4" type="video/mp4">
+      Tu navegador no soporta el tag de video.
+    </video>
+
+    <div class="absolute top-0 left-0 h-full w-full bg-black/30"></div>
+    <div class="absolute inset-0 bg-[url('oro-hero.jpg')] bg-cover bg-center opacity-35"></div>
+
+    <!-- Degradado para que el hero termine en negro -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+      <h1 class="font-title text-3xl md:text-7xl font-black leading-tight uppercase">
+        Compramos tu 
+        <span class="gold-text text-7xl md:text-9xl">oro</span> 
+        al mejor precio
+      </h1>
+
+      <p class="text-lg md:text-2xl text-white/75 mt-6 max-w-3xl mx-auto">
+        Vende tus joyas, cadenas, relojes o piezas de oro con una valoración profesional, rápida y transparente.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+        <button class="button hover:scale-105 transition font-bold text-yellow-950  px-8 py-4">
+          Tasar por WhatsApp
+        </button>
+
+        <a href="#que-compramos"
+           class="border border-yellow-500/60 text-yellow-300 px-8 py-4 rounded-full font-black uppercase hover:bg-yellow-500 hover:text-black transition">
+          Ver qué compramos
+        </a>
+      </div>
+
+      
+  </section>
+
+  <!-- 2. QUÉ COMPRAMOS -->
+  <section id="que-compramos" class="gold-pattern-section relative py-24 px-4 min-h-screen overflow-hidden">
+    <div class="relative z-10 max-w-7xl mx-auto">
+
+      <div class="text-center mb-16">
+        <span class="gold-text text-sm font-black uppercase  text-center">
+          Qué compramos
+        </span>
+
+        <h2 class="font-title text-3xl md:text-6xl font-black mt-4 text-center">
+          Compramos oro, plata, joyas y piezas de valor
+        </h2>
+
+        <p class="text-white/60 md:text-lg text-sm mt-5">
+          Si tienes piezas que ya no usas, joyas rotas o relojes antiguos, podemos valorarlas sin compromiso.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="bg-black/90 ring-2 ring-yellow-600/20 text-center rounded-3xl p-8 hover:-translate-y-2 transition shadow-2xl  flex items-center justify-center flex-col">
+          <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center text-black font-black text-2xl mb-5">
+            <img src="gold.png" class="w-full">
+          </div>
+          <h3 class="text-2xl font-black text-yellow-300">Oro</h3>
+          <p class="text-white/60 mt-3">
+            Cadenas, anillos, pendientes, pulseras, medallas y piezas de oro de diferentes quilates.
+          </p>
+        </div>
+
+        <div class="bg-black/90 ring-2 ring-yellow-600/20 text-center rounded-3xl p-8 hover:-translate-y-2 transition shadow-2xl flex items-center justify-center flex-col">
+          <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center text-black font-black text-2xl mb-5">
+            <img src="gold2.png" class="w-96">
+          </div>
+          <h3 class="text-2xl font-black text-yellow-300">Plata</h3>
+          <p class="text-white/60 mt-3">
+            Compramos piezas de plata, cubertería, monedas, joyas y objetos antiguos.
+          </p>
+        </div>
+
+      
+        <div class="bg-black/90 ring-2 ring-yellow-600/20 text-center rounded-3xl p-8 hover:-translate-y-2 transition shadow-2xl flex items-center justify-center flex-col">
+          <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center text-black font-black text-2xl mb-5">
+            <img src="gold3.png" class="w-96">
+          </div>
+          <h3 class="text-2xl font-black text-yellow-300">Relojes y piezas antiguas</h3>
+          <p class="text-white/60 mt-3">
+            Valoramos relojes, piezas especiales y objetos con valor según su estado y material.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. PROCESO + CONTACTO -->
+  <section id="proceso" class="py-24 px-4 bg-black">
+    <div class="max-w-7xl mx-auto gap-2 flex flex-col items-center justify-center">
+
+      <div class="text-center">
+        <span class="gold-text text-sm font-black uppercase  text-center ">
+          Cómo funciona
+        </span>
+
+        <h2 class="font-title text-3xl md:text-6xl font-black mt-4 text-center">
+          Vender tu oro puede rápido, claro y seguro
+        </h2>
+
+        <p class="text-white/60 md:text-lg text-sm mt-5">
+          Te explicamos el proceso desde el primer momento para que sepas qué pieza tienes, cómo se valora y cuánto puedes recibir.
+        </p>
+
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-14">
+        <div class="button flex flex-col border border-yellowbg-yellow-500/10 rounded-2xl p-5 ">
+          <p class="text-black font-black text-2xl">01</p>
+          <p class=" text-black font-bold mt-2">Tasación profesional</p>
+        </div>
+
+      
+        <div class="button flex flex-col border border-yellowbg-yellow-500/10 rounded-2xl p-5 ">
+          <p class="text-black font-black text-2xl">02</p>
+          <p class=" text-black font-bold mt-2">Pago inmediato</p>
+        </div>
+
+
+      
+        <div class="button flex flex-col border border-yellowbg-yellow-500/10 rounded-2xl p-5 ">
+          <p class="text-black font-black text-2xl">03</p>
+          <p class=" text-black font-bold mt-2">Atención en tienda</p>
+        </div>
+      </div>
+    </div>
+
+        <h3 id="contacto" class="font-title text-4xl font-black gold-text mt-9 text-center">
+          ¿Quieres saber cuánto vale?
+        </h3>
+
+        <p class="text-white/60 mt-4 md:text-lg text-sm text-center">
+          Escríbenos por WhatsApp o ven directamente a tienda para una valoración sin compromiso.
+        </p>
+
+
+      <button class="cta flex items-center justify-center mt-9  text-center">
+            <span>TASACIÓN GRATIS</span>
+       </button>
+  
+
+    </div>
+  </section>
+
+</body>
+</html>
