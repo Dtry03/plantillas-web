@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>MAB Energy | Asesoría energética</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" 
+    rel="stylesheet"
+  >
+
+  <style>
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1e293b;
+    }
+
+    .font-title {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .text-main {
+      color: #335c81;
+    }
+
+    .bg-main {
+      background-color: #335c81;
+    }
+
+    .bg-main-soft {
+      background-color: #eaf2f8;
+    }
+
+    .bg-card {
+      background-color: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(12px);
+    }
+
+    .border-soft {
+      border-color: rgba(51, 92, 129, 0.14);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(
+        90deg,
+        rgba(246, 249, 252, 0.94) 0%,
+        rgba(246, 249, 252, 0.84) 38%,
+        rgba(246, 249, 252, 0.45) 72%,
+        rgba(246, 249, 252, 0.18) 100%
+      );
+    }
+
+    .shadow-soft {
+      box-shadow: 0 20px 60px rgba(19, 42, 76, 0.08);
+    }
+
+    .img-soft {
+      filter: saturate(0.9) contrast(0.96);
+    }
+
+    @media (max-width: 640px) {
+      .hero-overlay {
+        background: linear-gradient(
+          to bottom,
+          rgba(246, 249, 252, 0.92) 0%,
+          rgba(246, 249, 252, 0.84) 38%,
+          rgba(246, 249, 252, 0.58) 72%,
+          rgba(246, 249, 252, 0.35) 100%
+        );
+      }
+
+      .header-logo-title {
+        font-size: 1.8rem;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .header-logo-subtitle {
+        display: none;
+      }
+
+      .header-cta {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 0.65rem 0.9rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+      }
+
+      .hero-card {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="bg-white/90 backdrop-blur border-b border-[#e7eef4] sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-5 flex items-center justify-between gap-3">
+      
+      <div class="min-w-0">
+        <h2 class="header-logo-title font-title text-3xl sm:text-4xl text-main leading-none">
+          MAB Energy
+        </h2>
+        <p class="header-logo-subtitle text-[11px] uppercase tracking-[0.28em] text-slate-500 mt-1">
+          Asesoría energética
+        </p>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.16em] text-slate-600">
+        <a href="#inicio" class="hover:text-main transition">Inicio</a>
+        <a href="#ayuda" class="hover:text-main transition">Qué hacemos</a>
+        <a href="#servicios" class="hover:text-main transition">Servicios</a>
+        <a href="#contacto" class="hover:text-main transition">Contacto</a>
+      </nav>
+
+      <a href="https://wa.me/34XXXXXXXXX"
+         class="header-cta bg-main text-white rounded-full uppercase hover:opacity-90 transition px-5 py-3 text-sm tracking-[0.12em]">
+        Estudio gratis
+      </a>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative min-h-[82vh] overflow-hidden">
+    <div 
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=80');"
+    ></div>
+
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-28 min-h-[82vh] flex items-center">
+      <div class="w-full max-w-2xl">
+
+        <div class="hero-card bg-card border border-soft rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 md:p-12 shadow-soft w-full max-w-full">
+          
+          <p class="text-[11px] sm:text-xs uppercase tracking-[0.28em] sm:tracking-[0.38em] text-slate-500 mb-5">
+            Asesoría energética para hogares y negocios
+          </p>
+
+          <h1 class="font-title text-5xl sm:text-6xl md:text-7xl leading-[0.95] text-main">
+            Reduce tu factura de luz y gas sin complicaciones
+          </h1>
+
+          <p class="mt-6 text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
+            Revisamos tu consumo, detectamos oportunidades de ahorro y te ayudamos a pagar solo lo que realmente necesitas.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="https://wa.me/34XXXXXXXXX"
+               class="bg-main text-white px-6 py-4 rounded-full text-sm uppercase tracking-[0.12em] sm:tracking-[0.16em] text-center hover:opacity-90 transition">
+              Solicitar estudio
+            </a>
+
+            <a href="#servicios"
+               class="border border-[#c9d8e5] px-6 py-4 rounded-full text-sm uppercase tracking-[0.12em] sm:tracking-[0.16em] text-center text-main hover:bg-[#eef5fa] transition">
+              Ver servicios
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 1: QUÉ HACEMOS -->
+  <section id="ayuda" class="py-20 md:py-24 bg-[#f6f9fc]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-14 items-center">
+
+      <!-- Collage imágenes -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <div class="space-y-4">
+          <img 
+            src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80" 
+            alt="Energía eléctrica"
+            class="img-soft rounded-[24px] sm:rounded-[28px] h-64 sm:h-72 w-full object-cover shadow-soft"
+          >
+
+          <img 
+            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=900&q=80" 
+            alt="Ahorro energético"
+            class="img-soft rounded-[24px] sm:rounded-[28px] h-48 w-full object-cover shadow-soft"
+          >
+        </div>
+
+        <div class="space-y-4 sm:pt-10">
+          <img 
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80" 
+            alt="Paneles solares"
+            class="img-soft rounded-[24px] sm:rounded-[28px] h-48 w-full object-cover shadow-soft"
+          >
+
+          <div class="bg-white rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 shadow-soft border border-soft">
+            <p class="text-[11px] uppercase tracking-[0.28em] text-slate-500 mb-3">
+              Ahorro real
+            </p>
+            <h3 class="font-title text-4xl text-main leading-tight">
+              Tu factura también se puede optimizar
+            </h3>
+          </div>
+
+          <img 
+            src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=80" 
+            alt="Energía renovable"
+            class="img-soft rounded-[24px] sm:rounded-[28px] h-52 w-full object-cover shadow-soft"
+          >
+        </div>
+
+      </div>
+
+      <!-- Texto -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-4">
+          Qué hacemos
+        </p>
+
+        <h2 class="font-title text-5xl md:text-6xl text-main leading-[1]">
+          Analizamos tu situación y te proponemos mejoras claras
+        </h2>
+
+        <p class="mt-6 text-slate-600 leading-relaxed text-lg">
+          En MAB Energy revisamos facturas, tarifas, potencia contratada y hábitos de consumo para detectar dónde puedes optimizar y pagar menos.
+        </p>
+
+        <div class="mt-8 space-y-4">
+          
+          <div class="bg-white border border-soft rounded-2xl p-5 shadow-soft">
+            <h3 class="font-semibold text-main">Revisión gratuita</h3>
+            <p class="text-slate-600 text-sm mt-2">
+              Primer análisis sin compromiso para ver si hay margen de mejora.
+            </p>
+          </div>
+
+          <div class="bg-white border border-soft rounded-2xl p-5 shadow-soft">
+            <h3 class="font-semibold text-main">Explicación clara</h3>
+            <p class="text-slate-600 text-sm mt-2">
+              Te explicamos de forma sencilla qué estás pagando y qué se puede optimizar.
+            </p>
+          </div>
+
+          <div class="bg-white border border-soft rounded-2xl p-5 shadow-soft">
+            <h3 class="font-semibold text-main">Acompañamiento</h3>
+            <p class="text-slate-600 text-sm mt-2">
+              Te ayudamos a elegir la opción más conveniente según tu caso.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: SERVICIOS -->
+  <section id="servicios" class="py-20 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-4">
+          Servicios
+        </p>
+
+        <h2 class="font-title text-5xl md:text-6xl text-main leading-[1]">
+          Tres áreas clave para ayudarte a ahorrar
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <article class="bg-[#f8fbfd] border border-soft rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-soft hover:-translate-y-1 transition">
+          <img 
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80" 
+            alt="Luz y gas"
+            class="img-soft h-56 w-full object-cover"
+          >
+
+          <div class="p-7 sm:p-8">
+            <p class="text-sm uppercase tracking-[0.25em] text-slate-400 mb-4">
+              01
+            </p>
+
+            <h3 class="font-title text-4xl text-main">
+              Luz y gas
+            </h3>
+
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              Analizamos tus contratos para detectar mejores condiciones y reducir el coste mensual de tus facturas.
+            </p>
+          </div>
+        </article>
+
+        <article class="bg-[#f8fbfd] border border-soft rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-soft hover:-translate-y-1 transition">
+          <img 
+            src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80" 
+            alt="Optimización energética"
+            class="img-soft h-56 w-full object-cover"
+          >
+
+          <div class="p-7 sm:p-8">
+            <p class="text-sm uppercase tracking-[0.25em] text-slate-400 mb-4">
+              02
+            </p>
+
+            <h3 class="font-title text-4xl text-main">
+              Optimización
+            </h3>
+
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              Revisamos potencia, consumo y estructura de tu suministro para que pagues solo lo necesario.
+            </p>
+          </div>
+        </article>
+
+        <article class="bg-[#f8fbfd] border border-soft rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-soft hover:-translate-y-1 transition">
+          <img 
+            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=900&q=80" 
+            alt="Asesoría energética"
+            class="img-soft h-56 w-full object-cover"
+          >
+
+          <div class="p-7 sm:p-8">
+            <p class="text-sm uppercase tracking-[0.25em] text-slate-400 mb-4">
+              03
+            </p>
+
+            <h3 class="font-title text-4xl text-main">
+              Asesoría
+            </h3>
+
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              Te orientamos con una propuesta clara y personalizada para hogares, autónomos y negocios.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: CTA -->
+  <section id="contacto" class="py-20 md:py-24 bg-main-soft">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="bg-white rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-soft border border-soft grid lg:grid-cols-[0.95fr_1.05fr]">
+
+        <div class="min-h-[300px] md:min-h-[420px]">
+          <img 
+            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=80" 
+            alt="Revisión de factura"
+            class="img-soft w-full h-full object-cover"
+          >
+        </div>
+
+        <div class="p-8 sm:p-10 md:p-16 flex flex-col justify-center">
+          <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-4">
+            Estudio gratuito
+          </p>
+
+          <h2 class="font-title text-5xl md:text-6xl text-main leading-[1]">
+            ¿Quieres saber si estás pagando de más?
+          </h2>
+
+          <p class="mt-6 text-slate-600 text-lg leading-relaxed">
+            Escríbenos por WhatsApp y revisamos tu caso para indicarte si existe una opción mejor para tu suministro.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="https://wa.me/34XXXXXXXXX"
+               class="bg-main text-white px-6 py-4 rounded-full text-sm uppercase tracking-[0.12em] sm:tracking-[0.16em] text-center hover:opacity-90 transition">
+              Hablar por WhatsApp
+            </a>
+
+            <a href="#inicio"
+               class="border border-[#c9d8e5] px-6 py-4 rounded-full text-sm uppercase tracking-[0.12em] sm:tracking-[0.16em] text-main text-center hover:bg-[#eef5fa] transition">
+              Volver arriba
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
