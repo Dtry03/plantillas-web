@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Energy Consult | Asesoría energética independiente</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" 
+    rel="stylesheet"
+  >
+
+  <style>
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5faf7;
+      color: #17372c;
+    }
+
+    .font-title {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .text-main {
+      color: #1f6b4f;
+    }
+
+    .text-blue-brand {
+      color: #2b7fa7;
+    }
+
+    .bg-main {
+      background-color: #1f6b4f;
+    }
+
+    .bg-main-soft {
+      background-color: #eaf6ef;
+    }
+
+    .bg-blue-soft {
+      background-color: #edf7fb;
+    }
+
+    .bg-card {
+      background-color: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(12px);
+    }
+
+    .border-soft {
+      border-color: rgba(31, 107, 79, 0.14);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(
+        90deg,
+        rgba(245, 250, 247, 0.96) 0%,
+        rgba(245, 250, 247, 0.88) 38%,
+        rgba(245, 250, 247, 0.48) 72%,
+        rgba(245, 250, 247, 0.18) 100%
+      );
+    }
+
+    .shadow-soft {
+      box-shadow: 0 20px 60px rgba(20, 63, 48, 0.08);
+    }
+
+    .img-soft {
+      filter: saturate(0.92) contrast(0.96);
+    }
+
+    .leaf-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 70% 30%, #8fd7a5 0%, #5ebc83 30%, transparent 32%),
+        linear-gradient(135deg, #2b7fa7 0%, #1f6b4f 100%);
+      position: relative;
+    }
+
+    .leaf-mark::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 28px;
+      border-radius: 999px 999px 0 999px;
+      background: #f5faf7;
+      left: 9px;
+      top: 5px;
+      transform: rotate(35deg);
+      opacity: 0.88;
+    }
+
+    @media (max-width: 640px) {
+      .hero-section {
+        min-height: calc(100vh - 72px);
+      }
+
+      .hero-inner {
+        min-height: calc(100vh - 72px);
+        align-items: flex-end;
+        padding-top: 5.5rem;
+        padding-bottom: 3rem;
+      }
+
+      .hero-overlay {
+        background: linear-gradient(
+          to bottom,
+          rgba(245, 250, 247, 0.70) 0%,
+          rgba(245, 250, 247, 0.78) 32%,
+          rgba(245, 250, 247, 0.92) 68%,
+          rgba(245, 250, 247, 0.98) 100%
+        );
+      }
+
+      .hero-card {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+      }
+
+      .hero-kicker {
+        display: inline-flex;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(31, 107, 79, 0.14);
+        border-radius: 999px;
+        padding: 0.55rem 0.8rem;
+        letter-spacing: 0.16em;
+      }
+
+      .hero-title-mobile {
+        font-size: clamp(2.45rem, 11vw, 3.6rem);
+        line-height: 0.95;
+        letter-spacing: -0.035em;
+      }
+
+      .hero-text-mobile {
+        font-size: 1rem;
+        line-height: 1.65;
+        max-width: 95%;
+      }
+
+      .hero-pills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.55rem;
+      }
+
+      .hero-pills span:last-child {
+        grid-column: span 2;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+
+      .hero-actions a {
+        width: 100%;
+      }
+
+      .header-logo-title {
+        font-size: 1.35rem;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .header-logo-subtitle {
+        display: none;
+      }
+
+      .header-cta {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 0.65rem 0.85rem;
+        font-size: 0.66rem;
+        letter-spacing: 0.05em;
+      }
+
+      .leaf-mark {
+        width: 32px;
+        height: 32px;
+      }
+
+      .leaf-mark::after {
+        width: 15px;
+        height: 23px;
+        left: 8px;
+        top: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <div class="hidden sm:block bg-[#eaf6ef] border-b border-[#d8eadf]">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-2 text-sm text-slate-600">
+      <p>Asesoría energética independiente</p>
+      <p>100% gratuita · Sin compromiso · Solo ahorros</p>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-white/92 backdrop-blur border-b border-[#d8eadf] sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-5 flex items-center justify-between gap-3">
+      
+      <div class="min-w-0 flex items-center gap-3">
+        <div class="leaf-mark shrink-0"></div>
+
+        <div class="min-w-0">
+          <h2 class="header-logo-title font-title text-2xl sm:text-3xl text-main leading-none uppercase tracking-tight">
+            Energy <span class="text-blue-brand">Consult</span>
+          </h2>
+          <p class="header-logo-subtitle text-[11px] uppercase tracking-[0.24em] text-slate-500 mt-1">
+            Empresa de energía
+          </p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.14em] text-slate-600">
+        <a href="#inicio" class="hover:text-main transition">Inicio</a>
+        <a href="#ahorro" class="hover:text-main transition">Ahorra</a>
+        <a href="#servicios" class="hover:text-main transition">Soluciones</a>
+        <a href="#contacto" class="hover:text-main transition">Contacto</a>
+      </nav>
+
+      <a href="https://wa.me/34XXXXXXXXX"
+         class="header-cta bg-main text-white rounded-full uppercase hover:opacity-90 transition px-5 py-3 text-sm tracking-[0.1em]">
+        Revisión gratis
+      </a>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero-section relative min-h-[82vh] overflow-hidden">
+    <div 
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1800&q=80');"
+    ></div>
+
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="hero-inner relative max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-28 min-h-[82vh] flex items-center">
+      <div class="w-full max-w-2xl">
+
+        <div class="hero-card bg-card border border-soft rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 md:p-12 shadow-soft w-full max-w-full">
+          
+          <p class="hero-kicker text-[10px] sm:text-xs uppercase tracking-[0.24em] sm:tracking-[0.32em] text-slate-600 mb-5 font-semibold">
+            Asesoría energética independiente
+          </p>
+
+          <h1 class="hero-title-mobile font-title text-4xl sm:text-6xl md:text-7xl leading-[0.98] text-main uppercase">
+            Paga menos en tu factura de luz y gas
+          </h1>
+
+          <p class="hero-text-mobile mt-6 text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
+            Analizamos tu factura gratis y sin compromiso para detectar si puedes ahorrar en luz y gas.
+          </p>
+
+          <div class="hero-pills mt-7">
+            <span class="bg-white/85 border border-soft text-main px-4 py-2 rounded-full text-[11px] font-bold uppercase text-center">
+              100% gratis
+            </span>
+            <span class="bg-white/85 border border-soft text-main px-4 py-2 rounded-full text-[11px] font-bold uppercase text-center">
+              Sin compromiso
+            </span>
+            <span class="bg-white/85 border border-soft text-main px-4 py-2 rounded-full text-[11px] font-bold uppercase text-center">
+              Solo ahorros
+            </span>
+          </div>
+
+          <div class="hero-actions mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="https://wa.me/34XXXXXXXXX"
+               class="bg-main text-white px-6 py-4 rounded-full text-sm uppercase tracking-[0.1em] sm:tracking-[0.14em] text-center hover:opacity-90 transition">
+              Enviar factura
+            </a>
+
+            <a href="#servicios"
+               class="border border-[#bad8c8] px-6 py-4 rounded-full text-sm uppercase tracking-[0.1em] sm:tracking-[0.14em] text-center text-main hover:bg-[#edf8f1] transition">
+              Ver soluciones
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 1: AHORRO -->
+  <section id="ahorro" class="py-20 md:py-24 bg-[#f5faf7]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-14 items-center">
+
+      <!-- Collage imágenes -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <div class="space-y-4">
+          <img 
+            src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80" 
+            alt="Energía eléctrica"
+            class="img-soft rounded-[24px] sm:rounded-[28px] h-64 sm:h-72 w-full object-cover shadow-soft"
+          >
+
+          <img 
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80" 
+            alt="Paneles solares"
+            class="img-soft rounded-[24px] sm:rounded-[28px] h-48 w-full object-cover shadow-soft"
+          >
+        </div>
+
+        <div class="space-y-4 sm:pt-10">
+          <div class="bg-white rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 shadow-soft border border-soft">
+            <p class="text-[11px] uppercase tracking-[0.24em] text-slate-500 mb-3">
+              Revisión gratuita
+            </p>
+            <h3 class="font-title text-3xl sm:text-4xl text-main leading-tight uppercase">
+              La luz y el gas no deberían ser un gasto a ciegas
+            </h3>
+          </div>
+
+          <img 
+            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=900&q=80" 
+            alt="Ahorro energético"
+            class="img-soft rounded-[24px] sm:rounded-[28px] h-52 w-full object-cover shadow-soft"
+          >
+
+          <img 
+            src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=80" 
+            alt="Energía renovable"
+            class="img-soft rounded-[24px] sm:rounded-[28px] h-48 w-full object-cover shadow-soft"
+          >
+        </div>
+
+      </div>
+
+      <!-- Texto -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.3em] text-slate-500 mb-4">
+          Quién está jugando realmente con el precio de tu luz
+        </p>
+
+        <h2 class="font-title text-4xl md:text-6xl text-main leading-[1] uppercase">
+          Analizamos tu factura para encontrar ahorros reales
+        </h2>
+
+        <p class="mt-6 text-slate-600 leading-relaxed text-lg">
+          Muchas personas pagan más de lo necesario porque no revisan su tarifa, potencia o condiciones. En Energy Consult hacemos ese análisis por ti, de forma gratuita y transparente.
+        </p>
+
+        <div class="mt-8 space-y-4">
+          
+          <div class="bg-white border border-soft rounded-2xl p-5 shadow-soft">
+            <h3 class="font-semibold text-main">100% gratuita</h3>
+            <p class="text-slate-600 text-sm mt-2">
+              Revisamos tu factura sin coste inicial y sin compromiso.
+            </p>
+          </div>
+
+          <div class="bg-white border border-soft rounded-2xl p-5 shadow-soft">
+            <h3 class="font-semibold text-main">Sin trucos, solo transparencia</h3>
+            <p class="text-slate-600 text-sm mt-2">
+              Te explicamos si puedes ahorrar y qué opciones tienes.
+            </p>
+          </div>
+
+          <div class="bg-white border border-soft rounded-2xl p-5 shadow-soft">
+            <h3 class="font-semibold text-main">Ahorros reales</h3>
+            <p class="text-slate-600 text-sm mt-2">
+              Analizamos luz y gas para encontrar oportunidades de mejora.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: SERVICIOS -->
+  <section id="servicios" class="py-20 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <p class="text-xs uppercase tracking-[0.3em] text-slate-500 mb-4">
+          Soluciones Energy Consult
+        </p>
+
+        <h2 class="font-title text-4xl md:text-6xl text-main leading-[1] uppercase">
+          Ahorra, optimiza y entiende tu factura
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <article class="bg-[#f8fcf9] border border-soft rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-soft hover:-translate-y-1 transition">
+          <img 
+            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=900&q=80" 
+            alt="Revisión de factura"
+            class="img-soft h-56 w-full object-cover"
+          >
+
+          <div class="p-7 sm:p-8">
+            <p class="text-sm uppercase tracking-[0.25em] text-slate-400 mb-4">
+              01
+            </p>
+
+            <h3 class="font-title text-3xl text-main uppercase">
+              Revisión de factura
+            </h3>
+
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              Analizamos tu factura de luz y gas para detectar si estás pagando de más.
+            </p>
+          </div>
+        </article>
+
+        <article class="bg-[#f8fcf9] border border-soft rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-soft hover:-translate-y-1 transition">
+          <img 
+            src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80" 
+            alt="Optimización energética"
+            class="img-soft h-56 w-full object-cover"
+          >
+
+          <div class="p-7 sm:p-8">
+            <p class="text-sm uppercase tracking-[0.25em] text-slate-400 mb-4">
+              02
+            </p>
+
+            <h3 class="font-title text-3xl text-main uppercase">
+              Optimización
+            </h3>
+
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              Revisamos tarifa, consumo y condiciones para encontrar opciones más ajustadas.
+            </p>
+          </div>
+        </article>
+
+        <article class="bg-[#f8fcf9] border border-soft rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-soft hover:-translate-y-1 transition">
+          <img 
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80" 
+            alt="Soluciones de ahorro"
+            class="img-soft h-56 w-full object-cover"
+          >
+
+          <div class="p-7 sm:p-8">
+            <p class="text-sm uppercase tracking-[0.25em] text-slate-400 mb-4">
+              03
+            </p>
+
+            <h3 class="font-title text-3xl text-main uppercase">
+              Soluciones
+            </h3>
+
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              Te proponemos la opción más conveniente para pagar menos sin complicaciones.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: CTA -->
+  <section id="contacto" class="py-20 md:py-24 bg-main-soft">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="bg-white rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-soft border border-soft grid lg:grid-cols-[0.95fr_1.05fr]">
+
+        <div class="min-h-[300px] md:min-h-[420px]">
+          <img 
+            src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1200&q=80" 
+            alt="Energía renovable"
+            class="img-soft w-full h-full object-cover"
+          >
+        </div>
+
+        <div class="p-8 sm:p-10 md:p-16 flex flex-col justify-center">
+          <p class="text-xs uppercase tracking-[0.3em] text-slate-500 mb-4">
+            Revisión gratis
+          </p>
+
+          <h2 class="font-title text-4xl md:text-6xl text-main leading-[1] uppercase">
+            ¿Vamos a exprimir tu factura?
+          </h2>
+
+          <p class="mt-6 text-slate-600 text-lg leading-relaxed">
+            Envíanos tu factura y revisamos si puedes pagar menos en luz y gas. 100% gratuito, sin compromiso y con total transparencia.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="https://wa.me/34XXXXXXXXX"
+               class="bg-main text-white px-6 py-4 rounded-full text-sm uppercase tracking-[0.1em] sm:tracking-[0.14em] text-center hover:opacity-90 transition">
+              Enviar factura
+            </a>
+
+            <a href="https://www.energyconsult.es"
+               class="border border-[#bad8c8] px-6 py-4 rounded-full text-sm uppercase tracking-[0.1em] sm:tracking-[0.14em] text-main text-center hover:bg-[#edf8f1] transition">
+              Ver web
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
