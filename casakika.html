@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Casa Kika | Cocina casera</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" 
+    rel="stylesheet"
+  >
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background: #f6f0e8;
+      color: #3f3128;
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .section-label {
+      letter-spacing: 0.22em;
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(to bottom, rgba(32, 22, 15, 0.10), rgba(32, 22, 15, 0.62)),
+        linear-gradient(to right, rgba(32, 22, 15, 0.78), rgba(32, 22, 15, 0.10));
+    }
+
+    .text-main {
+      color: #4a362c;
+    }
+
+    .text-soft {
+      color: #6f5a4d;
+    }
+
+    .text-accent {
+      color: #9a5a3a;
+    }
+
+    .bg-main {
+      background: #f6f0e8;
+    }
+
+    .bg-soft {
+      background: #efe5d8;
+    }
+
+    .btn-primary {
+      background: #9a5a3a;
+      color: #fffaf5;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      background: #7f482d;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(154, 90, 58, 0.18);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(74, 54, 44, 0.22);
+      color: #4a362c;
+      transition: 0.25s ease;
+      background: rgba(255,255,255,0.35);
+      backdrop-filter: blur(3px);
+    }
+
+    .btn-secondary:hover {
+      background: #4a362c;
+      color: #fffaf5;
+      transform: translateY(-2px);
+    }
+
+    .btn-header {
+      background: rgba(255, 248, 241, 0.92);
+      color: #4a362c;
+      transition: 0.25s ease;
+    }
+
+    .btn-header:hover {
+      background: #9a5a3a;
+      color: #fffaf5;
+    }
+
+    .btn-photo {
+      border: 1px solid rgba(255, 250, 245, 0.75);
+      color: #fffaf5;
+      background: rgba(255, 250, 245, 0.08);
+      backdrop-filter: blur(5px);
+      transition: 0.25s ease;
+    }
+
+    .btn-photo:hover {
+      background: #fffaf5;
+      color: #4a362c;
+      transform: translateY(-2px);
+    }
+
+    .gallery-marquee {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: galleryMove 34s linear infinite;
+    }
+
+    .gallery-img {
+      width: 300px;
+      height: 360px;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 1.5rem;
+    }
+
+    @keyframes galleryMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-33.333%); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--delay, 0s);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu-photo-card {
+      min-height: 500px;
+      transition: 0.35s ease;
+    }
+
+    .menu-photo-card img {
+      transition: transform 0.55s ease;
+    }
+
+    .menu-photo-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .menu-photo-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .info-line {
+      border-bottom: 1px solid rgba(74, 54, 44, 0.12);
+    }
+
+    @media (max-width: 768px) {
+      .gallery-img {
+        width: 220px;
+        height: 280px;
+      }
+
+      .gallery-track {
+        animation-duration: 30s;
+      }
+
+      .menu-photo-card {
+        min-height: 430px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="fixed top-0 left-0 z-50 w-full bg-transparent text-white transition-all duration-500">
+    <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
+      <a href="#inicio" class="group">
+        <div class="leading-none">
+          <p class="font-title text-3xl font-bold tracking-wide md:text-4xl">
+            Casa Kika
+          </p>
+          <p class="mt-1 text-[10px] uppercase tracking-[0.28em] text-white/75">
+            Cocina casera
+          </p>
+        </div>
+      </a>
+
+      <div class="hidden items-center gap-8 text-sm font-extrabold uppercase tracking-[0.18em] md:flex">
+        <a href="#menu" class="hover:text-[#f0d7c2] transition">Menú</a>
+        <a href="#platos" class="hover:text-[#f0d7c2] transition">Platos</a>
+        <a href="#reserva" class="hover:text-[#f0d7c2] transition">Reservas</a>
+      </div>
+
+      <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Casa%20Kika"
+         class="hidden rounded-full px-6 py-3 text-sm font-extrabold uppercase tracking-[0.16em] md:inline-flex btn-header">
+        Reservar
+      </a>
+
+      <div class="flex items-center gap-2 md:hidden">
+        <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Casa%20Kika"
+           class="rounded-full px-4 py-2 text-xs font-extrabold uppercase tracking-widest btn-header">
+          Reservar
+        </a>
+
+        <button id="menu-btn" class="rounded-full bg-white/15 p-2 backdrop-blur">
+          <i data-lucide="menu" class="h-6 w-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-white/10 bg-[#3f3128]/95 px-5 pb-6 pt-4 md:hidden">
+      <div class="flex flex-col gap-5 text-sm font-bold uppercase tracking-widest text-white">
+        <a href="#menu" class="hover:text-[#f0d7c2]">Menú</a>
+        <a href="#platos" class="hover:text-[#f0d7c2]">Platos</a>
+        <a href="#reserva" class="hover:text-[#f0d7c2]">Reservas</a>
+
+        <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Casa%20Kika"
+           class="mt-2 rounded-full px-5 py-3 text-center text-xs font-bold uppercase tracking-widest btn-header">
+          Reservar mesa
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative flex min-h-screen items-end bg-[url('kika8.png')] bg-cover bg-center px-4 pb-16 pt-36 text-white md:items-center md:pb-0 md:pt-28">
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative z-10 mx-auto w-full max-w-7xl">
+      <div class="reveal max-w-3xl md:translate-y-8">
+        <p class="mb-5 text-xs font-bold uppercase section-label text-[#efd7c0] md:text-sm">
+          Restaurante familiar · Menú del día · Sabor de siempre
+        </p>
+
+        <h1 class="font-title text-5xl font-bold leading-[0.95] sm:text-6xl md:text-8xl lg:text-9xl">
+          Casa Kika
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-white/85 md:text-xl">
+          Platos caseros, ambiente cercano y una mesa donde apetece sentarse sin prisas.
+        </p>
+
+        <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+          <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Casa%20Kika"
+             class="btn-primary rounded-full px-8 py-4 text-center text-sm font-extrabold uppercase tracking-[0.16em]">
+            Reservar mesa
+          </a>
+
+          <a href="#menu"
+             class="rounded-full border border-white/60 px-8 py-4 text-center text-sm font-extrabold uppercase tracking-[0.16em] text-white transition hover:bg-white hover:text-[#4a362c]">
+            Ver menú
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 1 -->
+  <section id="menu" class="bg-main px-5 py-20 md:py-28">
+    <div class="mx-auto max-w-7xl">
+      <div class="mx-auto mb-14 max-w-3xl text-center reveal">
+        <p class="mb-3 text-xs font-extrabold uppercase section-label text-accent md:text-sm">
+          Menú y cocina casera
+        </p>
+
+        <h2 class="font-title text-4xl font-bold leading-none text-main md:text-7xl">
+          Comer bien, fácil y con ganas de volver
+        </h2>
+
+        <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-soft md:text-lg">
+          Menú del día, platos caseros y postres para disfrutar una comida de siempre.
+        </p>
+      </div>
+
+      <div id="platos" class="grid gap-6 md:grid-cols-3 md:gap-8">
+
+        <article class="menu-photo-card reveal relative overflow-hidden rounded-[2rem]" style="--delay: 0.05s;">
+          <img src="kika9.jpg" alt="Menú del día Casa Kika" class="absolute inset-0 h-full w-full object-cover">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2f2118]/85 via-[#2f2118]/35 to-transparent"></div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-7 text-white md:p-8">
+            <p class="mb-3 text-xs font-extrabold uppercase section-label text-[#efd7c0]">
+              Menú del día
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none md:text-5xl">
+              Lo que hay hoy
+            </h3>
+
+            <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20consultar%20el%20men%C3%BA%20del%20d%C3%ADa%20de%20Casa%20Kika"
+               class="btn-photo mt-7 inline-flex rounded-full px-7 py-3 text-xs font-extrabold uppercase tracking-[0.16em]">
+              Ver todo
+            </a>
+          </div>
+        </article>
+
+        <article class="menu-photo-card reveal relative overflow-hidden rounded-[2rem]" style="--delay: 0.12s;">
+          <img src="kika2.jpg" alt="Platos caseros Casa Kika" class="absolute inset-0 h-full w-full object-cover">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2f2118]/85 via-[#2f2118]/35 to-transparent"></div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-7 text-white md:p-8">
+            <p class="mb-3 text-xs font-extrabold uppercase section-label text-[#efd7c0]">
+              Platos caseros
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none md:text-5xl">
+              Cocina de siempre
+            </h3>
+
+            <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20preguntar%20por%20los%20platos%20de%20Casa%20Kika"
+               class="btn-photo mt-7 inline-flex rounded-full px-7 py-3 text-xs font-extrabold uppercase tracking-[0.16em]">
+              Ver todo
+            </a>
+          </div>
+        </article>
+
+        <article class="menu-photo-card reveal relative overflow-hidden rounded-[2rem]" style="--delay: 0.19s;">
+          <img src="kika11.jpg" alt="Postres caseros Casa Kika" class="absolute inset-0 h-full w-full object-cover">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2f2118]/85 via-[#2f2118]/35 to-transparent"></div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-7 text-white md:p-8">
+            <p class="mb-3 text-xs font-extrabold uppercase section-label text-[#efd7c0]">
+              Postres caseros
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none md:text-5xl">
+              El final perfecto
+            </h3>
+
+            <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20consultar%20postres%20de%20Casa%20Kika"
+               class="btn-photo mt-7 inline-flex rounded-full px-7 py-3 text-xs font-extrabold uppercase tracking-[0.16em]">
+              Ver todo
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2 -->
+  <section class="bg-soft px-5 py-20 md:py-28">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-10 text-center reveal">
+        <p class="mb-3 text-xs font-extrabold uppercase section-label text-accent">
+          El ambiente también vende
+        </p>
+        <h2 class="font-title text-4xl font-bold text-main md:text-6xl">
+          Fotos que hacen que te imagines allí
+        </h2>
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-soft md:text-lg">
+          Platos, terraza, comedor y ese ambiente de casa que hace que apetezca venir.
+        </p>
+      </div>
+
+      <div class="gallery-marquee reveal">
+        <div class="gallery-track">
+          <img class="gallery-img" src="kika4.jpg" alt="Plato Casa Kika">
+          <img class="gallery-img" src="kika5.jpg" alt="Plato Casa Kika">
+          <img class="gallery-img" src="kika6.jpg" alt="Restaurante Casa Kika">
+          <img class="gallery-img" src="kika10.jpg" alt="Casa Kika ambiente">
+
+          <img class="gallery-img" src="kika4.jpg" alt="Plato Casa Kika">
+          <img class="gallery-img" src="kika5.jpg" alt="Plato Casa Kika">
+          <img class="gallery-img" src="kika6.jpg" alt="Restaurante Casa Kika">
+          <img class="gallery-img" src="kika10.jpg" alt="Casa Kika ambiente">
+
+          <img class="gallery-img" src="kika4.jpg" alt="Plato Casa Kika">
+          <img class="gallery-img" src="kika5.jpg" alt="Plato Casa Kika">
+          <img class="gallery-img" src="kika6.jpg" alt="Restaurante Casa Kika">
+          <img class="gallery-img" src="kika10.jpg" alt="Casa Kika ambiente">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3 -->
+  <section id="reserva" class="bg-main px-5 py-20 md:py-28">
+    <div class="mx-auto max-w-7xl">
+      <div class="grid gap-12 md:grid-cols-2 md:items-start">
+
+        <div class="reveal">
+          <p class="mb-3 text-xs font-extrabold uppercase section-label text-accent">
+            Reserva y ubicación
+          </p>
+
+          <h2 class="font-title text-4xl font-bold leading-none text-main md:text-6xl">
+            Que reservar o encontrarte sea facilísimo
+          </h2>
+
+          <p class="mt-6 max-w-xl text-base leading-8 text-soft md:text-lg">
+            Horario claro, ubicación visible y un botón directo para escribir y reservar mesa.
+          </p>
+
+          <div class="mt-10 space-y-0">
+            <div class="info-line flex gap-4 py-6">
+              <i data-lucide="map-pin" class="mt-1 h-6 w-6 shrink-0 text-accent"></i>
+              <div>
+                <h3 class="font-title text-3xl font-bold text-main">Dónde estamos</h3>
+                <p class="mt-2 text-lg text-soft">Casa Kika · Restaurante familiar</p>
+              </div>
+            </div>
+
+            <div class="info-line flex gap-4 py-6">
+              <i data-lucide="clock" class="mt-1 h-6 w-6 shrink-0 text-accent"></i>
+              <div>
+                <h3 class="font-title text-3xl font-bold text-main">Horario</h3>
+                <p class="mt-2 text-lg text-soft">Consulta horario y menú disponible antes de venir.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 py-6">
+              <i data-lucide="phone" class="mt-1 h-6 w-6 shrink-0 text-accent"></i>
+              <div>
+                <h3 class="font-title text-3xl font-bold text-main">Reservas</h3>
+                <p class="mt-2 text-lg text-soft">Escríbenos por WhatsApp y te confirmamos mesa.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Casa%20Kika"
+               class="btn-primary rounded-full px-8 py-4 text-center text-sm font-extrabold uppercase tracking-[0.16em]">
+              Reservar mesa
+            </a>
+
+            <a href="https://maps.google.com/?q=Casa+Kika"
+               class="btn-secondary rounded-full px-8 py-4 text-center text-sm font-extrabold uppercase tracking-[0.16em]">
+              Cómo llegar
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal" style="--delay: 0.1s;">
+          <div class="overflow-hidden rounded-[2rem] border border-[rgba(74,54,44,0.10)] shadow-[0_15px_40px_rgba(63,49,40,0.06)]">
+            <iframe
+              class="h-[420px] w-full"
+              src="https://www.google.com/maps?q=Casa%20Kika&output=embed"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#e8dccd] px-5 py-10 text-center text-main">
+    <p class="font-title text-3xl font-bold tracking-wide">
+      Casa Kika
+    </p>
+    <p class="mt-3 text-sm text-soft">
+      Cocina casera · Menú del día · Restaurante familiar
+    </p>
+  </footer>
+
+  <!-- WHATSAPP -->
+  <a 
+    href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Casa%20Kika"
+    target="_blank"
+    class="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-green-500 px-5 py-4 text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-green-600"
+  >
+    <svg 
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      class="h-7 w-7"
+    >
+      <path d="M20.52 3.48A11.79 11.79 0 0 0 12.04 0C5.4 0 .02 5.38.02 12c0 2.11.55 4.18 1.6 6L0 24l6.19-1.62A11.95 11.95 0 0 0 12.04 24c6.63 0 12-5.38 12-12 0-3.2-1.25-6.2-3.52-8.52ZM12.04 21.85a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.67.96.98-3.57-.24-.37A9.82 9.82 0 0 1 2.2 12c0-5.43 4.42-9.85 9.85-9.85 2.63 0 5.1 1.03 6.96 2.89A9.8 9.8 0 0 1 21.9 12c0 5.43-4.42 9.85-9.86 9.85Zm5.4-7.37c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.48-.88-.78-1.47-1.74-1.64-2.03-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.5.71.3 1.27.49 1.7.63.72.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/>
+    </svg>
+
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    const header = document.getElementById("header");
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const revealElements = document.querySelectorAll(".reveal");
+
+    menuBtn?.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.remove("bg-transparent", "text-white");
+        header.classList.add("bg-[#6f594a]/90", "text-white", "backdrop-blur-md", "shadow-lg");
+      } else {
+        header.classList.remove("bg-[#6f594a]/90", "backdrop-blur-md", "shadow-lg");
+        header.classList.add("bg-transparent", "text-white");
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16,
+      rootMargin: "0px 0px -8% 0px"
+    });
+
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
+</html>
