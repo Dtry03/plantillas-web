@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Imperio Urbano | Streetwear</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Road+Rage&family=Rubik+Spray+Paint&family=Teko:wght@500;600;700&display=swap" 
+    rel="stylesheet"
+  >
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #050505;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: 'Rubik Spray Paint', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .font-street {
+      font-family: 'Road Rage', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    .font-action {
+      font-family: 'Teko', sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .gold-text {
+      color: #d4af37;
+      transition: color 0.45s ease;
+    }
+
+    .gold-bg {
+      background: linear-gradient(135deg, #f2d56b 0%, #c89c1d 50%, #f7e08e 100%);
+    }
+
+    .btn-gold {
+      font-family: 'Teko', sans-serif;
+      letter-spacing: 0.08em;
+      background: linear-gradient(135deg, #f2d56b 0%, #c89c1d 50%, #f7e08e 100%);
+      color: #0a0a0a;
+      transition: 
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 35px rgba(212, 175, 55, 0.22);
+    }
+
+    .btn-outline {
+      font-family: 'Teko', sans-serif;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      color: #d4af37;
+      transition: 
+        transform 0.25s ease,
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .btn-outline:hover {
+      background: #d4af37;
+      color: #0a0a0a;
+      transform: translateY(-2px);
+    }
+
+    .soft-shadow {
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.68)),
+        linear-gradient(to right, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.15));
+      transition: background 0.5s ease, opacity 0.5s ease;
+    }
+
+    .section-dark {
+      background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.05), transparent 20%),
+        #050505;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    .mini-label {
+      letter-spacing: 0.2em;
+    }
+
+    .product-card,
+    .look-card {
+      transition: transform 0.3s ease, border-color 0.35s ease, background 0.35s ease;
+    }
+
+    .product-card:hover,
+    .look-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-card img,
+    .look-card img {
+      transition: transform 0.45s ease;
+    }
+
+    .product-card:hover img,
+    .look-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .dark-card {
+      background: #0a0a0a;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .section-line {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(212, 175, 55, 0),
+        rgba(212, 175, 55, 0.35),
+        rgba(212, 175, 55, 0)
+      );
+      transition: background 0.45s ease;
+    }
+
+    .info-column {
+      border-left: 1px solid rgba(212, 175, 55, 0.24);
+      padding-left: 1.25rem;
+      transition: border-color 0.45s ease;
+    }
+
+    .hero-frame {
+      min-height: 620px;
+    }
+
+    .hero-frame-inner {
+      min-height: 620px;
+    }
+
+    .hero-title {
+      letter-spacing: 0.01em;
+    }
+
+    .nav-link {
+      font-family: 'Teko', sans-serif;
+      letter-spacing: 0.08em;
+      font-size: 1rem;
+    }
+
+    .product-link {
+      font-family: 'Teko', sans-serif;
+      letter-spacing: 0.08em;
+      font-size: 1rem;
+    }
+
+    .swap-text {
+      transition: color 0.45s ease;
+    }
+
+    /* LOGO HEADER */
+    .logo-normal,
+    .logo-active {
+      transition: 
+        opacity 0.35s ease,
+        transform 0.35s ease;
+    }
+
+    .logo-active {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+
+    .header-main:has(.gold-trigger:hover) .logo-normal,
+    .header-main.gold-active .logo-normal {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+
+    .header-main:has(.gold-trigger:hover) .logo-active,
+    .header-main.gold-active .logo-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* HEADER: SOLO CAMBIA CON EL BOTÓN DORADO */
+    .header-main {
+      transition: background 0.45s ease, backdrop-filter 0.45s ease;
+    }
+
+    .header-main:has(.gold-trigger:hover),
+    .header-main.gold-active {
+      background: #d4af37 !important;
+      backdrop-filter: none;
+    }
+
+    .header-main:has(.gold-trigger:hover) .gold-text,
+    .header-main.gold-active .gold-text {
+      color: #050505 !important;
+    }
+
+    .header-main:has(.gold-trigger:hover) .nav-link,
+    .header-main.gold-active .nav-link {
+      color: rgba(5, 5, 5, 0.75) !important;
+    }
+
+    .header-main:has(.gold-trigger:hover) .gold-trigger,
+    .header-main.gold-active .gold-trigger {
+      background: #050505 !important;
+      color: #d4af37 !important;
+      border-color: #050505 !important;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+    }
+
+    /* HERO: SOLO CAMBIA CON BOTONES DORADOS */
+    .hero-frame:has(.gold-trigger:hover) .hero-overlay,
+    .hero-frame.gold-active .hero-overlay {
+      background: rgba(212, 175, 55, 0.9);
+    }
+
+    .hero-frame:has(.gold-trigger:hover) .swap-text,
+    .hero-frame.gold-active .swap-text,
+    .hero-frame:has(.gold-trigger:hover) .gold-text,
+    .hero-frame.gold-active .gold-text {
+      color: #050505 !important;
+    }
+
+    .hero-frame:has(.gold-trigger:hover) .gold-trigger,
+    .hero-frame.gold-active .gold-trigger {
+      background: #050505 !important;
+      color: #d4af37 !important;
+      border-color: #050505 !important;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-frame:has(.gold-trigger:hover) .btn-outline,
+    .hero-frame.gold-active .btn-outline {
+      color: #050505 !important;
+      border-color: #050505 !important;
+      background: transparent !important;
+    }
+
+    /* CTA: SOLO CAMBIA CON BOTONES DORADOS */
+    .section-swap:has(.gold-trigger:hover),
+    .section-swap.gold-active {
+      background: #d4af37 !important;
+      color: #050505 !important;
+    }
+
+    .section-swap:has(.gold-trigger:hover) .swap-text,
+    .section-swap.gold-active .swap-text,
+    .section-swap:has(.gold-trigger:hover) .gold-text,
+    .section-swap.gold-active .gold-text {
+      color: #050505 !important;
+    }
+
+    .section-swap:has(.gold-trigger:hover) p,
+    .section-swap.gold-active p {
+      color: rgba(5, 5, 5, 0.72) !important;
+    }
+
+    .section-swap:has(.gold-trigger:hover) .gold-trigger,
+    .section-swap.gold-active .gold-trigger {
+      background: #050505 !important;
+      color: #d4af37 !important;
+      border-color: #050505 !important;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-swap:has(.gold-trigger:hover) .btn-outline,
+    .section-swap.gold-active .btn-outline {
+      color: #050505 !important;
+      border-color: #050505 !important;
+      background: transparent !important;
+    }
+
+    .section-swap:has(.gold-trigger:hover) .section-line,
+    .section-swap.gold-active .section-line {
+      background: linear-gradient(
+        to right,
+        rgba(5, 5, 5, 0),
+        rgba(5, 5, 5, 0.35),
+        rgba(5, 5, 5, 0)
+      );
+    }
+
+    .section-swap:has(.gold-trigger:hover) .info-column,
+    .section-swap.gold-active .info-column {
+      border-color: rgba(5, 5, 5, 0.32);
+    }
+
+    /* ANIMACIONES DE ENTRADA */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--delay, 0s);
+      will-change: opacity, transform;
+    }
+
+    .reveal-left {
+      transform: translateX(-46px);
+    }
+
+    .reveal-right {
+      transform: translateX(46px);
+    }
+
+    .reveal-scale {
+      transform: scale(0.94);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-overlay {
+        background:
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.9)),
+          linear-gradient(to right, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.28));
+      }
+
+      .header-logo {
+        font-size: 1.25rem;
+      }
+
+      .hero-frame {
+        min-height: 720px;
+      }
+
+      .hero-frame-inner {
+        min-height: 720px;
+        align-items: flex-end;
+        padding-top: 7rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 14vw, 4.8rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .info-column {
+        padding-left: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header-main fixed top-0 left-0 w-full z-50 bg-black/75 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+
+      <a href="#" class="flex items-center gap-3">
+        <div class="relative size-20 shrink-0">
+          <img 
+            src="logoimperio.png" 
+            alt="Imperio Urbano" 
+            class="logo-normal absolute inset-0 h-full w-full object-contain"
+          >
+
+          <img 
+            src="logoimperio2.png" 
+            alt="Imperio Urbano" 
+            class="logo-active absolute inset-0 h-full w-full object-contain"
+          >
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 uppercase font-bold text-white/70">
+        <a href="#coleccion" class="nav-link hover:text-yellow-500 transition">Colección</a>
+        <a href="#productos" class="nav-link hover:text-yellow-500 transition">Productos</a>
+        <a href="#comprar" class="nav-link hover:text-yellow-500 transition">Comprar</a>
+      </nav>
+
+      <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20Imperio%20Urbano"
+         class="gold-trigger btn-gold rounded-full px-4 md:px-6 py-3 text-base md:text-lg font-bold uppercase whitespace-nowrap leading-none">
+        Pedir ahora
+      </a>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="coleccion" class="pt-24 pb-5 md:pt-28 section-dark">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-4">
+
+        <div class="look-card reveal reveal-scale overflow-hidden rounded-2xl md:rounded-[1.8rem] h-40 md:h-72 soft-shadow" style="--delay: 0.05s;">
+          <img
+            src="imperio9.jpg"
+            class="w-full h-full object-cover"
+            alt="Look urbano"
+          >
+        </div>
+
+        <div class="look-card reveal reveal-scale overflow-hidden rounded-2xl md:rounded-[1.8rem] h-40 md:h-72 soft-shadow" style="--delay: 0.12s;">
+          <img
+            src="imperio6.jpg"
+            class="w-full h-full object-cover"
+            alt="Streetwear"
+          >
+        </div>
+
+        <div class="look-card reveal reveal-scale overflow-hidden rounded-2xl md:rounded-[1.8rem] h-40 md:h-72 soft-shadow" style="--delay: 0.19s;">
+          <img
+            src="imperio7.jpg"
+            class="w-full h-full object-cover"
+            alt="Outfit urbano"
+          >
+        </div>
+
+        <div class="look-card reveal reveal-scale overflow-hidden rounded-2xl md:rounded-[1.8rem] h-40 md:h-72 soft-shadow" style="--delay: 0.26s;">
+          <img
+            src="imperio8.jpg"
+            class="w-full h-full object-cover"
+            alt="Moda urbana"
+          >
+        </div>
+
+      </div>
+
+      <div class="hero-frame reveal reveal-scale relative overflow-hidden rounded-[2rem] md:rounded-[2.4rem]">
+
+        <img
+          src="imperio5.jpg"
+          alt="Colección streetwear"
+          class="absolute inset-0 w-full h-full object-cover"
+        >
+
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <div class="hero-frame-inner relative z-10 h-full flex items-end md:items-center px-6 md:px-12 py-10">
+          <div class="max-w-2xl">
+
+            <p class="font-action text-base sm:text-lg uppercase mini-label text-yellow-300 font-semibold mb-4 swap-text reveal" style="--delay: 0.2s;">
+              Nueva colección
+            </p>
+
+            <h1 class="hero-title font-title text-6xl sm:text-7xl md:text-[7rem] leading-[1] uppercase swap-text reveal" style="--delay: 0.3s;">
+              Imperio
+              <span class="block gold-text">Urbano</span>
+            </h1>
+
+            <p class="hero-subtitle text-white/75 text-base sm:text-lg md:text-xl max-w-xl mt-5 leading-relaxed swap-text reveal" style="--delay: 0.4s;">
+              Ropa urbana con personalidad, outfits con actitud y prendas para vestir distinto.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mt-8 reveal" style="--delay: 0.5s;">
+              <a href="#productos"
+                 class="gold-trigger btn-gold rounded-full px-8 py-4 font-bold uppercase text-lg leading-none text-center">
+                Ver productos
+              </a>
+
+              <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20consultar%20la%20colecci%C3%B3n%20de%20Imperio%20Urbano"
+                 class="btn-outline rounded-full px-8 py-4 font-bold uppercase text-lg leading-none text-center">
+                Consultar WhatsApp
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="py-20 md:py-28 bg-black">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div class="max-w-2xl">
+          <p class="font-action text-lg uppercase mini-label text-yellow-300 font-semibold mb-3 reveal">
+            Último drop
+          </p>
+
+          <h2 class="font-title text-5xl md:text-7xl leading-[1] uppercase reveal" style="--delay: 0.1s;">
+            Prendas que
+            <span class="gold-text">no esperan</span>
+          </h2>
+        </div>
+
+        <p class="text-white/60 max-w-xl text-sm md:text-base reveal reveal-right" style="--delay: 0.15s;">
+          Stock limitado, tallas seleccionadas y piezas urbanas para completar tu próximo outfit.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+
+        <article class="product-card dark-card rounded-[1.6rem] overflow-hidden reveal" style="--delay: 0.05s;">
+          <div class="h-72 overflow-hidden">
+            <img
+              src="imperio1.jpg"
+              alt="Camiseta urbana"
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="p-5">
+            <p class="font-action text-base uppercase text-yellow-400 font-semibold">Camiseta</p>
+            <h3 class="font-street text-4xl mt-2 uppercase">Mixed Emotion</h3>
+            <p class="text-white/55 text-sm mt-2">Camiseta gráfica estilo urbano.</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="font-bold text-white">39,90€</span>
+              <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20consultar%20la%20camiseta%20Mixed%20Emotion"
+                 class="product-link text-yellow-400 font-bold uppercase">
+                Preguntar
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card dark-card rounded-[1.6rem] overflow-hidden reveal" style="--delay: 0.12s;">
+          <div class="h-72 overflow-hidden">
+            <img
+              src="imperio4.jpg"
+              alt="Outfit urbano"
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="p-5">
+            <p class="font-action text-base uppercase text-yellow-400 font-semibold">Outfit</p>
+            <h3 class="font-street text-4xl mt-2 uppercase">Street Drop</h3>
+            <p class="text-white/55 text-sm mt-2">Combinación lista para salir.</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="font-bold text-white">Desde 59,90€</span>
+              <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20consultar%20el%20outfit%20Street%20Drop"
+                 class="product-link text-yellow-400 font-bold uppercase">
+                Preguntar
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card dark-card rounded-[1.6rem] overflow-hidden reveal" style="--delay: 0.19s;">
+          <div class="h-72 overflow-hidden">
+            <img
+              src="imperio2.jpg"
+              alt="Gorras urbanas"
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="p-5">
+            <p class="font-action text-base uppercase text-yellow-400 font-semibold">Gorras</p>
+            <h3 class="font-street text-4xl mt-2 uppercase">Caps Selection</h3>
+            <p class="text-white/55 text-sm mt-2">Modelos para completar el look.</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="font-bold text-white">24,90€</span>
+              <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20consultar%20las%20gorras"
+                 class="product-link text-yellow-400 font-bold uppercase">
+                Preguntar
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card dark-card rounded-[1.6rem] overflow-hidden reveal" style="--delay: 0.26s;">
+          <div class="h-72 overflow-hidden">
+            <img
+              src="imperio3.jpg"
+              alt="Jeans urbanos"
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="p-5">
+            <p class="font-action text-base uppercase text-yellow-400 font-semibold">Jeans</p>
+            <h3 class="font-street text-4xl mt-2 uppercase">Urban Denim</h3>
+            <p class="text-white/55 text-sm mt-2">Vaqueros para un outfit completo.</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="font-bold text-white">49,90€</span>
+              <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20consultar%20los%20jeans%20Urban%20Denim"
+                 class="product-link text-yellow-400 font-bold uppercase">
+                Preguntar
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SIN CONTENEDOR -->
+  <section id="comprar" class="section-swap py-20 md:py-28 section-dark">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+
+      <div class="section-line mb-12"></div>
+
+      <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 md:gap-16 items-end">
+
+        <div>
+          <p class="font-action text-lg uppercase mini-label text-yellow-300 font-semibold mb-4 swap-text reveal">
+            Compra rápida
+          </p>
+
+          <h2 class="font-title text-5xl sm:text-6xl md:text-8xl leading-[1] uppercase max-w-4xl swap-text reveal" style="--delay: 0.1s;">
+            ¿Te mola una prenda?
+            <span class="gold-text block">Pídela por WhatsApp.</span>
+          </h2>
+
+          <p class="text-white/65 text-base md:text-lg max-w-2xl mt-6 leading-relaxed swap-text reveal" style="--delay: 0.2s;">
+            Te decimos disponibilidad, talla y precio antes de que vengas.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-4 lg:items-stretch reveal reveal-right" style="--delay: 0.25s;">
+          <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20ver%20disponibilidad%20de%20prendas%20en%20Imperio%20Urbano"
+             class="gold-trigger btn-gold rounded-full px-8 py-4 font-bold uppercase text-lg leading-none text-center">
+            Pedir ahora
+          </a>
+
+          <a href="#productos"
+             class="btn-outline rounded-full px-8 py-4 font-bold uppercase text-lg leading-none text-center">
+            Ver prendas
+          </a>
+        </div>
+
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 md:gap-10 mt-16 pt-10 border-t border-white/10">
+
+        <div class="info-column reveal" style="--delay: 0.05s;">
+          <p class="font-action text-yellow-400 text-base font-bold uppercase mb-3 swap-text">
+            Ubicación
+          </p>
+          <p class="text-white/70 leading-relaxed swap-text">
+            Avenida Valdés 32, Ponferrada
+          </p>
+        </div>
+
+        <div class="info-column reveal" style="--delay: 0.12s;">
+          <p class="font-action text-yellow-400 text-base font-bold uppercase mb-3 swap-text">
+            Horario
+          </p>
+          <p class="text-white/70 leading-relaxed swap-text">
+            Lunes a sábado · 10:00–14:00 / 17:00–22:00
+          </p>
+        </div>
+
+        <div class="info-column reveal" style="--delay: 0.19s;">
+          <p class="font-action text-yellow-400 text-base font-bold uppercase mb-3 swap-text">
+            Consulta
+          </p>
+          <p class="text-white/70 leading-relaxed swap-text">
+            Tallas, stock, modelos y disponibilidad.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.18,
+      rootMargin: "0px 0px -8% 0px"
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    const goldButtons = document.querySelectorAll(".gold-trigger");
+
+    function getGoldArea(button) {
+      return button.closest(".hero-frame, .section-swap, .header-main");
+    }
+
+    function goToHref(href) {
+      if (!href) return;
+
+      if (href.startsWith("#")) {
+        const target = document.querySelector(href);
+
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+
+        return;
+      }
+
+      window.location.href = href;
+    }
+
+    goldButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const isTouchDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches || window.innerWidth <= 768;
+        const href = button.getAttribute("href");
+
+        if (!isTouchDevice || !href) return;
+
+        event.preventDefault();
+
+        const area = getGoldArea(button);
+
+        if (area) {
+          area.classList.add("gold-active");
+        }
+
+        setTimeout(() => {
+          goToHref(href);
+        }, 520);
+      });
+    });
+  </script>
+
+</body>
+</html>
