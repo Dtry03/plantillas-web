@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Academia 360 | Peluquería y Estética</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800&display=swap" 
+    rel="stylesheet"
+  >
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: #fff7f4;
+      color: #4b3438;
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .font-script {
+      font-family: "Great Vibes", cursive;
+    }
+
+    .bg-cream {
+      background: #fff7f4;
+    }
+
+    .bg-pink {
+      background: #f8dfe6;
+    }
+
+    .bg-soft-pink {
+      background: #fff0f4;
+    }
+
+    .bg-rose {
+      background: #c97589;
+    }
+
+    .text-rose {
+      color: #b85f76;
+    }
+
+    .text-mauve {
+      color: #69454e;
+    }
+
+    .btn-main {
+      background: #c97589;
+      color: #fff7f4;
+      transition: 0.25s ease;
+      box-shadow: 0 16px 35px rgba(201, 117, 137, 0.25);
+    }
+
+    .btn-main:hover {
+      background: #b45f76;
+      transform: translateY(-2px);
+      box-shadow: 0 22px 45px rgba(201, 117, 137, 0.32);
+    }
+
+    .btn-soft {
+      background: rgba(255, 255, 255, 0.76);
+      color: #9d5265;
+      border: 1px solid rgba(201, 117, 137, 0.25);
+      transition: 0.25s ease;
+    }
+
+    .btn-soft:hover {
+      background: #fff;
+      transform: translateY(-2px);
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(90deg, rgba(255, 240, 244, 0.82), rgba(255, 240, 244, 0.46), rgba(255, 240, 244, 0.08)),
+        linear-gradient(180deg, rgba(255, 247, 244, 0.05), rgba(255, 247, 244, 0.58));
+    }
+
+    .nav-blur {
+      background: rgba(255, 247, 244, 0.86);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 35px rgba(105, 69, 78, 0.08);
+      border-bottom: 1px solid rgba(201, 117, 137, 0.14);
+    }
+
+    .course-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 370px;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.50);
+      box-shadow: 0 22px 48px rgba(105, 69, 78, 0.15);
+      transition: 0.3s ease;
+      background: #c97589;
+    }
+
+    .course-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(75, 52, 56, 0.05), rgba(75, 52, 56, 0.18) 35%, rgba(75, 52, 56, 0.82)),
+        rgba(201, 117, 137, 0.14);
+      z-index: 1;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 58px rgba(105, 69, 78, 0.22);
+    }
+
+    .course-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease;
+    }
+
+    .course-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .course-card-content {
+      position: relative;
+      z-index: 2;
+      min-height: 370px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.8rem;
+      color: white;
+      text-shadow: 0 2px 18px rgba(40, 20, 24, 0.35);
+    }
+
+    .dot-pattern {
+      background-image: radial-gradient(rgba(201, 117, 137, 0.35) 2px, transparent 2px);
+      background-size: 16px 16px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta-text-shadow {
+      text-shadow: 0 3px 22px rgba(70, 30, 40, 0.35);
+    }
+
+    @media (max-width: 768px) {
+      .hero-overlay {
+        background:
+          linear-gradient(180deg, rgba(255, 240, 244, 0.76), rgba(255, 247, 244, 0.78)),
+          linear-gradient(90deg, rgba(255, 240, 244, 0.55), rgba(255, 240, 244, 0.28));
+      }
+
+      .course-card,
+      .course-card-content {
+        min-height: 330px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="flex items-center gap-3">
+     
+
+        <div class="leading-none">
+          <p class="font-title text-2xl font-bold text-[#69454e]">Academia 360</p>
+          <p class="text-[10px] md:text-xs uppercase tracking-[0.23em] text-[#b85f76]">
+            Peluquería y estética
+          </p>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-xs uppercase tracking-[0.2em] font-bold text-[#69454e]">
+        <a href="#inicio" class="hover:text-[#c97589] transition">Inicio</a>
+        <a href="#cursos" class="hover:text-[#c97589] transition">Cursos</a>
+        <a href="#contacto" class="hover:text-[#c97589] transition">Contacto</a>
+      </nav>
+
+      <a href="https://wa.me/34644232619?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos%20de%20Academia%20360"
+         class="hidden md:inline-flex btn-main rounded-full px-5 py-3 text-xs uppercase tracking-[0.16em] font-bold">
+        Preguntar
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[#69454e]">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[#fff7f4] border-t border-[#f3cbd4] px-6 pb-6">
+      <nav class="flex flex-col gap-4 text-sm uppercase tracking-[0.18em] font-bold text-[#69454e]">
+        <a href="#inicio">Inicio</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 1: HERO -->
+  <section id="inicio" class="relative min-h-screen bg-cover bg-center flex items-center overflow-hidden"
+           style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1800&auto=format&fit=crop');">
+
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-[#f3cbd4] rounded-full opacity-60"></div>
+    <div class="absolute top-28 right-10 w-32 h-32 bg-[#fff7f4] rounded-full opacity-70 hidden md:block"></div>
+    <div class="absolute bottom-28 right-20 w-44 h-44 dot-pattern opacity-50 hidden md:block"></div>
+
+    <!-- FADE HERO -> CURSOS MÁS PEQUEÑO Y SUAVE -->
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent via-[#fff7f4]/35 to-[#f8dfe6] z-[6] pointer-events-none"></div>
+
+    <div class="relative z-20 max-w-7xl mx-auto px-5 md:px-6 pt-28 w-full">
+      <div class="max-w-3xl">
+
+        <p class="font-script text-5xl md:text-7xl text-[#c97589] mb-2 reveal">
+          Reserva tu plaza
+        </p>
+
+        <h1 class="font-title text-5xl sm:text-6xl md:text-8xl leading-[0.95] font-bold text-[#4b3438] reveal">
+          Formación profesional en belleza
+        </h1>
+
+        <p class="text-[#69454e] text-base md:text-xl leading-relaxed max-w-2xl mt-6 reveal">
+          Cursos de peluquería, barbería, estética, uñas, cejas y pestañas con formación práctica,
+          acompañamiento y enfoque profesional.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mt-8 reveal">
+          <a href="#cursos" class="btn-main rounded-full px-8 py-4 text-sm uppercase tracking-[0.18em] font-bold text-center">
+            Ver cursos
+          </a>
+
+          <a href="https://wa.me/34644232619?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos%20de%20Academia%20360"
+             class="btn-soft rounded-full px-8 py-4 text-sm uppercase tracking-[0.18em] font-bold text-center">
+            Contactar
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: CURSOS -->
+  <section id="cursos" class="bg-pink py-24 md:py-32 px-5 md:px-6 relative overflow-hidden">
+
+    <div class="absolute top-10 left-8 w-28 h-28 bg-white/50 rounded-full"></div>
+    <div class="absolute bottom-10 right-10 w-44 h-44 bg-[#f3cbd4]/70 rounded-full"></div>
+
+    <!-- DIFUMINADO SUAVE AL ENTRAR DESDE EL HERO MÁS PEQUEÑO -->
+    <div class="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#f8dfe6] to-transparent pointer-events-none"></div>
+
+    <!-- DIFUMINADO HACIA EL CTA MÁS PEQUEÑO -->
+    <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-b from-transparent to-[#f8dfe6] z-[5] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <p class="uppercase tracking-[0.35em] text-xs text-[#b85f76] font-bold mb-4">
+          Cursos destacados
+        </p>
+
+        <h2 class="font-title text-4xl md:text-6xl leading-[1.05] font-bold text-[#4b3438]">
+          Elige el área en la que quieres formarte
+        </h2>
+
+        <p class="text-[#69454e] mt-5 leading-relaxed">
+          Formación para empezar desde cero, mejorar tu técnica o especializarte en un servicio concreto.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=900&auto=format&fit=crop"
+            alt="Curso de peluquería"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Curso profesional
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Peluquería integral
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Corte, color, peinado, técnica y práctica para comenzar en el mundo de la peluquería.
+            </p>
+          </div>
+        </article>
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=900&auto=format&fit=crop"
+            alt="Curso de barbería"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Técnica masculina
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Barbería y fade
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Aprende degradados, cortes masculinos actuales, perfilado y acabado profesional.
+            </p>
+          </div>
+        </article>
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=900&auto=format&fit=crop"
+            alt="Curso de estética"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Cuidado profesional
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Estética facial y corporal
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Tratamientos, protocolos, cuidado de la piel, cabina y atención al cliente.
+            </p>
+          </div>
+        </article>
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=900&auto=format&fit=crop"
+            alt="Curso de uñas"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Manicura profesional
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Uñas y decoración
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Manicura, acrílico, esmaltado, decoración, cuidado de la uña y tendencias actuales.
+            </p>
+          </div>
+        </article>
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?q=80&w=900&auto=format&fit=crop"
+            alt="Curso de cejas y pestañas"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Mirada
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Cejas, pestañas y lifting
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Diseño de cejas, lifting, tratamientos de mirada y acabado natural.
+            </p>
+          </div>
+        </article>
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=900&auto=format&fit=crop"
+            alt="Cursos intensivos"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Especialización
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Cursos intensivos
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Formaciones específicas para aprender una técnica concreta en menos tiempo.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: CONTACTO / CTA SIMPLE CON FONDO -->
+  <section id="contacto" class="relative bg-cover bg-center py-28 md:py-40 px-5 md:px-6 overflow-hidden"
+           style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1800&auto=format&fit=crop');">
+
+    <!-- CAPAS DEL CTA -->
+    <div class="absolute inset-0 bg-[#b85f76]/75 z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#f8dfe6]/95 via-[#c97589]/58 to-[#7c3447]/68 z-10"></div>
+
+    <!-- FADE CURSOS -> CTA FOTO MÁS PEQUEÑO Y SUAVE -->
+    <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#f8dfe6] via-[#f8dfe6]/55 to-transparent z-20 pointer-events-none"></div>
+
+    <!-- TEXTO ARRIBA DE TODAS LAS CAPAS -->
+    <div class="relative z-30 max-w-4xl mx-auto text-center reveal cta-text-shadow">
+
+      <p class="font-script text-5xl md:text-7xl text-white mb-3">
+        Reserva tu plaza
+      </p>
+
+      <h2 class="font-title text-4xl md:text-6xl leading-[1.05] font-bold text-white mb-6">
+        ¿Quieres información sobre un curso?
+      </h2>
+
+      <p class="text-white/90 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-9">
+        Escríbenos por WhatsApp y te contamos fechas, plazas disponibles, precios y qué formación encaja mejor contigo.
+      </p>
+
+      <a href="https://wa.me/34644232619?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos%20de%20Academia%20360"
+         class="bg-white text-[#b85f76] rounded-full px-9 py-4 inline-flex text-sm uppercase tracking-[0.18em] font-bold hover:bg-[#fff7f4] hover:scale-105 transition">
+        Hablar por WhatsApp
+      </a>
+
+      <p class="text-white/75 text-sm mt-6">
+        Academia 360 · Peluquería y Estética · 644 23 26 19
+      </p>
+
+    </div>
+  </section>
+
+  <script>
+    lucide.createIcons();
+
+    const header = document.getElementById("header");
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        header.classList.add("nav-blur");
+      } else {
+        header.classList.remove("nav-blur");
+      }
+    });
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
