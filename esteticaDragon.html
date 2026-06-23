@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Estética El Dragón | Salud y Bienestar</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" 
+    rel="stylesheet"
+  >
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: #fff6f7;
+      color: #3d2a2f;
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .font-brand {
+      font-family: "Cinzel", serif;
+    }
+
+    .bg-cream {
+      background: #fff6f7;
+    }
+
+    .bg-pink {
+      background: #f8d7df;
+    }
+
+    .bg-soft-pink {
+      background: #fff0f3;
+    }
+
+    .bg-rose {
+      background: #c95f76;
+    }
+
+    .text-rose {
+      color: #b54f66;
+    }
+
+    .text-mauve {
+      color: #68454d;
+    }
+
+    .btn-main {
+      background: #c95f76;
+      color: #fff6f7;
+      transition: 0.25s ease;
+      box-shadow: 0 16px 35px rgba(201, 95, 118, 0.25);
+    }
+
+    .btn-main:hover {
+      background: #a94358;
+      transform: translateY(-2px);
+      box-shadow: 0 22px 45px rgba(201, 95, 118, 0.32);
+    }
+
+    .btn-soft {
+      background: rgba(255, 255, 255, 0.78);
+      color: #a94358;
+      border: 1px solid rgba(201, 95, 118, 0.25);
+      transition: 0.25s ease;
+    }
+
+    .btn-soft:hover {
+      background: #fff;
+      transform: translateY(-2px);
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(90deg, rgba(255, 246, 247, 0.88), rgba(255, 226, 232, 0.58), rgba(255, 226, 232, 0.12)),
+        linear-gradient(180deg, rgba(255, 246, 247, 0.10), rgba(255, 246, 247, 0.65));
+    }
+
+    .nav-blur {
+      background: rgba(255, 246, 247, 0.88);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 35px rgba(104, 69, 77, 0.08);
+      border-bottom: 1px solid rgba(201, 95, 118, 0.14);
+    }
+
+    .treatment-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 370px;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 0 22px 48px rgba(104, 69, 77, 0.15);
+      transition: 0.3s ease;
+      background: #c95f76;
+    }
+
+    .treatment-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(61, 42, 47, 0.04), rgba(61, 42, 47, 0.18) 35%, rgba(61, 42, 47, 0.82)),
+        rgba(201, 95, 118, 0.15);
+      z-index: 1;
+    }
+
+    .treatment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 58px rgba(104, 69, 77, 0.22);
+    }
+
+    .treatment-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease;
+    }
+
+    .treatment-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .treatment-card-content {
+      position: relative;
+      z-index: 2;
+      min-height: 370px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.8rem;
+      color: white;
+      text-shadow: 0 2px 18px rgba(40, 20, 24, 0.35);
+    }
+
+    .dot-pattern {
+      background-image: radial-gradient(rgba(201, 95, 118, 0.35) 2px, transparent 2px);
+      background-size: 16px 16px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta-text-shadow {
+      text-shadow: 0 3px 22px rgba(70, 30, 40, 0.35);
+    }
+
+    @media (max-width: 768px) {
+      .hero-overlay {
+        background:
+          linear-gradient(180deg, rgba(255, 246, 247, 0.78), rgba(255, 246, 247, 0.84)),
+          linear-gradient(90deg, rgba(255, 226, 232, 0.55), rgba(255, 226, 232, 0.28));
+      }
+
+      .treatment-card,
+      .treatment-card-content {
+        min-height: 330px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="flex items-center gap-3">
+     
+        <div class="leading-none">
+          <p class="font-brand text-xl md:text-2xl font-bold text-[#5a3039]">Estética El Dragón</p>
+          <p class="text-[10px] md:text-xs uppercase tracking-[0.23em] text-[#b54f66]">
+            Salud y bienestar
+          </p>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-xs uppercase tracking-[0.2em] font-bold text-[#68454d]">
+        <a href="#inicio" class="hover:text-[#c95f76] transition">Inicio</a>
+        <a href="#tratamientos" class="hover:text-[#c95f76] transition">Tratamientos</a>
+        <a href="#contacto" class="hover:text-[#c95f76] transition">Contacto</a>
+      </nav>
+
+      <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20tratamiento%20est%C3%A9tico"
+         class="hidden md:inline-flex btn-main rounded-full px-5 py-3 text-xs uppercase tracking-[0.16em] font-bold">
+        Pedir cita
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[#68454d]">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[#fff6f7] border-t border-[#f3cbd4] px-6 pb-6">
+      <nav class="flex flex-col gap-4 text-sm uppercase tracking-[0.18em] font-bold text-[#68454d]">
+        <a href="#inicio">Inicio</a>
+        <a href="#tratamientos">Tratamientos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 1: HERO -->
+  <section id="inicio" class="relative min-h-screen bg-cover bg-center flex items-center overflow-hidden"
+           style="background-image: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1800&auto=format&fit=crop');">
+
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-[#f1cbd5] rounded-full opacity-60"></div>
+    <div class="absolute top-28 right-10 w-32 h-32 bg-[#fff6f7] rounded-full opacity-70 hidden md:block"></div>
+    <div class="absolute bottom-28 right-20 w-44 h-44 dot-pattern opacity-50 hidden md:block"></div>
+
+    <!-- FADE HERO -> TRATAMIENTOS -->
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent via-[#fff6f7]/35 to-[#f8d7df] z-[6] pointer-events-none"></div>
+
+    <div class="relative z-20 max-w-7xl mx-auto px-5 md:px-6 pt-28 w-full">
+      <div class="max-w-3xl">
+
+        <p class="font-title text-4xl md:text-6xl text-[#c95f76] mb-2 reveal">
+          Cuida tu piel, cuida tu bienestar
+        </p>
+
+        <h1 class="font-title text-5xl sm:text-6xl md:text-8xl leading-[0.95] font-bold text-[#3d2a2f] reveal">
+          Estética avanzada para sentirte mejor
+        </h1>
+
+        <p class="text-[#68454d] text-base md:text-xl leading-relaxed max-w-2xl mt-6 reveal">
+          Tratamientos faciales, corporales, depilación láser y aparatología estética con atención cercana,
+          personalizada y orientada a resultados.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mt-8 reveal">
+          <a href="#tratamientos" class="btn-main rounded-full px-8 py-4 text-sm uppercase tracking-[0.18em] font-bold text-center">
+            Ver tratamientos
+          </a>
+
+          <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20tratamiento%20est%C3%A9tico"
+             class="btn-soft rounded-full px-8 py-4 text-sm uppercase tracking-[0.18em] font-bold text-center">
+            Pedir valoración
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: TRATAMIENTOS -->
+  <section id="tratamientos" class="bg-pink py-24 md:py-32 px-5 md:px-6 relative overflow-hidden">
+
+    <div class="absolute top-10 left-8 w-28 h-28 bg-white/50 rounded-full"></div>
+    <div class="absolute bottom-10 right-10 w-44 h-44 bg-[#f1cbd5]/70 rounded-full"></div>
+
+    <!-- DIFUMINADO SUAVE AL ENTRAR DESDE EL HERO -->
+    <div class="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#f8d7df] to-transparent pointer-events-none"></div>
+
+    <!-- DIFUMINADO HACIA EL CTA -->
+    <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-b from-transparent to-[#f8d7df] z-[5] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <p class="uppercase tracking-[0.35em] text-xs text-[#b54f66] font-bold mb-4">
+          Tratamientos destacados
+        </p>
+
+        <h2 class="font-title text-4xl md:text-6xl leading-[1.05] font-bold text-[#3d2a2f]">
+          Elige el cuidado que tu piel y tu cuerpo necesitan
+        </h2>
+
+        <p class="text-[#68454d] mt-5 leading-relaxed">
+          Servicios estéticos pensados para mejorar tu piel, trabajar zonas concretas y ayudarte a verte mejor con naturalidad.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <article class="treatment-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=900&auto=format&fit=crop"
+            alt="Depilación láser"
+          >
+
+          <div class="treatment-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Tecnología estética
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Depilación láser
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Tratamientos de depilación para diferentes zonas, con valoración previa y seguimiento personalizado.
+            </p>
+          </div>
+        </article>
+
+        <article class="treatment-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=900&auto=format&fit=crop"
+            alt="Limpieza facial"
+          >
+
+          <div class="treatment-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Cuidado facial
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Limpieza facial profunda
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Higiene, renovación y cuidado de la piel para mejorar textura, luminosidad y sensación de limpieza.
+            </p>
+          </div>
+        </article>
+
+        <article class="treatment-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=900&auto=format&fit=crop"
+            alt="Radiofrecuencia facial y corporal"
+          >
+
+          <div class="treatment-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Aparatología
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Radiofrecuencia
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Tratamientos faciales y corporales para trabajar firmeza, textura y mejorar el aspecto de la piel.
+            </p>
+          </div>
+        </article>
+
+        <article class="treatment-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=900&auto=format&fit=crop"
+            alt="Presoterapia y bienestar"
+          >
+
+          <div class="treatment-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Bienestar corporal
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Presoterapia
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Ayuda a mejorar la sensación de piernas cansadas, drenaje y bienestar corporal.
+            </p>
+          </div>
+        </article>
+
+        <article class="treatment-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=900&auto=format&fit=crop"
+            alt="Tratamientos reductores"
+          >
+
+          <div class="treatment-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Corporal
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Tratamientos reductores
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Programas estéticos para trabajar zonas concretas con aparatología y seguimiento.
+            </p>
+          </div>
+        </article>
+
+        <article class="treatment-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?q=80&w=900&auto=format&fit=crop"
+            alt="Belleza facial"
+          >
+
+          <div class="treatment-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/80 font-bold mb-2">
+              Belleza y piel
+            </p>
+
+            <h3 class="font-title text-4xl font-bold leading-none">
+              Cuidado facial personalizado
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Valoración, recomendaciones y tratamientos adaptados al estado de tu piel y a tus objetivos.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: CONTACTO / CTA SIMPLE CON FONDO -->
+  <section id="contacto" class="relative bg-cover bg-center py-28 md:py-40 px-5 md:px-6 overflow-hidden"
+           style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1800&auto=format&fit=crop');">
+
+    <!-- CAPAS DEL CTA -->
+    <div class="absolute inset-0 bg-[#b54f66]/76 z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#f8d7df]/95 via-[#c95f76]/62 to-[#5a3039]/75 z-10"></div>
+
+    <!-- FADE TRATAMIENTOS -> CTA -->
+    <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#f8d7df] via-[#f8d7df]/55 to-transparent z-20 pointer-events-none"></div>
+
+    <!-- TEXTO ARRIBA DE TODAS LAS CAPAS -->
+    <div class="relative z-30 max-w-4xl mx-auto text-center reveal cta-text-shadow">
+
+      <p class="font-title text-5xl md:text-7xl text-white mb-3">
+        Pide tu valoración
+      </p>
+
+      <h2 class="font-title text-4xl md:text-6xl leading-[1.05] font-bold text-white mb-6">
+        ¿Qué tratamiento encaja contigo?
+      </h2>
+
+      <p class="text-white/90 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-9">
+        Escríbenos por WhatsApp, cuéntanos qué quieres mejorar y te orientamos sobre el tratamiento más adecuado.
+      </p>
+
+      <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20una%20valoraci%C3%B3n%20para%20un%20tratamiento%20est%C3%A9tico"
+         class="bg-white text-[#b54f66] rounded-full px-9 py-4 inline-flex text-sm uppercase tracking-[0.18em] font-bold hover:bg-[#fff6f7] hover:scale-105 transition">
+        Hablar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <script>
+    lucide.createIcons();
+
+    const header = document.getElementById("header");
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        header.classList.add("nav-blur");
+      } else {
+        header.classList.remove("nav-blur");
+      }
+    });
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
