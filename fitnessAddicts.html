@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Fitness Addicts | Comunidad Fitness</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&family=Teko:wght@500;600;700&display=swap" 
+    rel="stylesheet"
+  >
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #070707;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Teko", sans-serif;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .font-script {
+      font-family: "Archivo Black", sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .font-logo {
+      font-family: "Archivo Black", sans-serif;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+    }
+
+    .bg-cream {
+      background: #070707;
+    }
+
+    .bg-pink {
+      background: #080808;
+    }
+
+    .bg-soft-pink {
+      background: #101010;
+    }
+
+    .bg-rose {
+      background: #f5c400;
+    }
+
+    .text-rose {
+      color: #f5c400;
+    }
+
+    .text-mauve {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-main {
+      background: #f5c400;
+      color: #050505;
+      transition: 0.25s ease;
+      box-shadow: none;
+    }
+
+    .btn-main:hover {
+      background: #ffffff;
+      color: #050505;
+      transform: translateY(-2px);
+      box-shadow: none;
+    }
+
+    .btn-soft {
+      background: rgba(0, 0, 0, 0.62);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: 0.25s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-soft:hover {
+      background: #f5c400;
+      color: #050505;
+      transform: translateY(-2px);
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.20)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.88));
+    }
+
+    .nav-blur {
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.42);
+      border-bottom: none;
+    }
+
+    .brand-title {
+      font-size: 1.875rem;
+      line-height: 1;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      line-height: 1;
+    }
+
+    .mobile-menu-panel {
+      background: rgba(0, 0, 0, 0.97);
+      backdrop-filter: blur(18px);
+    }
+
+    .course-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 370px;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45);
+      transition: 0.3s ease;
+      background: #121212;
+    }
+
+    .course-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.22) 35%, rgba(0, 0, 0, 0.90));
+      z-index: 1;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 28px 58px rgba(0, 0, 0, 0.55);
+    }
+
+    .course-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease;
+      filter: saturate(0.95) contrast(1.12);
+    }
+
+    .course-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .course-card-content {
+      position: relative;
+      z-index: 2;
+      min-height: 370px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.8rem;
+      color: white;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.65);
+    }
+
+    .dot-pattern {
+      display: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta-text-shadow {
+      text-shadow: 0 3px 22px rgba(0, 0, 0, 0.70);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #f5c400;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-weight: 900;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 3.5rem;
+      height: 3px;
+      background: #f5c400;
+    }
+
+    @media (max-width: 768px) {
+      #header {
+        background: rgba(0, 0, 0, 0.94);
+        backdrop-filter: blur(16px);
+      }
+
+      .brand-title {
+        font-size: 1.35rem;
+        line-height: 0.95;
+        letter-spacing: -0.055em;
+      }
+
+      .brand-subtitle {
+        font-size: 0.54rem;
+        line-height: 1;
+        letter-spacing: 0.22em;
+        margin-top: 0.15rem;
+      }
+
+      .mobile-menu-panel {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        min-height: calc(100vh - 72px);
+        padding: 1.2rem 1.5rem 2rem;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(18px);
+      }
+
+      .mobile-menu-panel nav a {
+        display: block;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 1rem;
+        letter-spacing: 0.22em;
+      }
+
+      .mobile-menu-cta {
+        margin-top: 1.4rem;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+      }
+
+      .hero-overlay {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.90)),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.42));
+      }
+
+      .course-card,
+      .course-card-content {
+        min-height: 330px;
+      }
+
+      .hero-kicker::before {
+        width: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between relative">
+
+      <a href="#inicio" class="flex items-center min-w-0">
+        <div class="leading-none min-w-0">
+          <p class="font-logo brand-title text-white whitespace-nowrap">
+            Fitness<span class="text-yellow-400">Addicts</span>
+          </p>
+          <p class="brand-subtitle uppercase text-yellow-400 whitespace-nowrap">
+            comunidad fitness
+          </p>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-xs uppercase tracking-[0.2em] font-black text-white/80">
+        <a href="#inicio" class="hover:text-yellow-400 transition">Inicio</a>
+        <a href="#contenido" class="hover:text-yellow-400 transition">Contenido</a>
+        <a href="#contacto" class="hover:text-yellow-400 transition">Contacto</a>
+      </nav>
+
+      <a href="https://www.instagram.com/fitnessaddicts.es/"
+         target="_blank"
+         class="hidden md:inline-flex btn-main rounded-full px-5 py-3 text-xs uppercase tracking-[0.16em] font-black">
+        Unirme
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-white shrink-0">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu-panel hidden md:hidden">
+      <nav class="flex flex-col text-sm uppercase font-black text-white">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#contenido" class="mobile-link">Contenido</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="https://www.instagram.com/fitnessaddicts.es/"
+         target="_blank"
+         class="mobile-menu-cta bg-yellow-400 text-black rounded-full px-8 py-4 text-sm uppercase tracking-[0.18em] font-black hover:bg-white hover:text-black transition">
+        Contactar por chat
+      </a>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 1: HERO -->
+  <section id="inicio" class="relative min-h-screen bg-cover bg-center flex items-center overflow-hidden"
+           style="background-image: url('https://images.unsplash.com/photo-1579758629938-03607ccdbaba?q=80&w=1800&auto=format&fit=crop');">
+
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <!-- FADE HERO -> CONTENIDO -->
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent via-black/50 to-[#080808] z-[6] pointer-events-none"></div>
+
+    <div class="relative z-20 max-w-7xl mx-auto px-5 md:px-6 pt-28 w-full">
+      <div class="max-w-5xl">
+
+        <div class="hero-kicker reveal mb-6">
+          Comunidad de creadores fitness
+        </div>
+
+        <h1 class="font-title text-6xl sm:text-7xl md:text-[9rem] leading-[0.78] text-white reveal max-w-5xl">
+          Entrena.<br>
+          Crea.<br>
+          <span class="text-yellow-400">Pertenece.</span>
+        </h1>
+
+        <p class="text-white/78 text-lg md:text-2xl leading-relaxed max-w-3xl mt-8 reveal">
+          Ejercicios, humor, nutrición, podcast y contenido para gente que vive el gym de verdad.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mt-9 reveal max-w-2xl">
+          <a href="https://www.instagram.com/fitnessaddicts.es/"
+             target="_blank"
+             class="btn-main rounded-full px-8 py-4 text-sm uppercase tracking-[0.18em] font-black text-center">
+            Unirme a la comunidad
+          </a>
+
+          <a href="#contenido"
+             class="btn-soft rounded-full px-8 py-4 text-sm uppercase tracking-[0.18em] font-black text-center">
+            Ver contenido
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: CONTENIDO -->
+  <section id="contenido" class="bg-pink py-24 md:py-32 px-5 md:px-6 relative overflow-hidden">
+
+    <!-- DIFUMINADO SUAVE AL ENTRAR DESDE EL HERO -->
+    <div class="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#080808] to-transparent pointer-events-none"></div>
+
+    <!-- DIFUMINADO HACIA EL CTA -->
+    <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-b from-transparent to-[#080808] z-[5] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <p class="uppercase tracking-[0.35em] text-xs text-yellow-400 font-black mb-4">
+          Dentro de Fitness Addicts
+        </p>
+
+        <h2 class="font-title text-5xl md:text-7xl leading-[0.9] text-white">
+          Lo que encontrarás dentro
+        </h2>
+
+        <p class="text-white/60 mt-5 leading-relaxed">
+          Una comunidad para entrenar mejor, aprender sin postureo y reírte de todo lo que pasa en el gym.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=900&auto=format&fit=crop"
+            alt="Ejercicios de gimnasio"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-yellow-300 font-black mb-2">
+              Entrena mejor
+            </p>
+
+            <h3 class="font-title text-5xl leading-none">
+              Ejercicios
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Ideas, técnica, rutinas y contenido para moverte mejor dentro y fuera del gimnasio.
+            </p>
+          </div>
+        </article>
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?q=80&w=900&auto=format&fit=crop"
+            alt="Humor fitness"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-yellow-300 font-black mb-2">
+              La parte real del gym
+            </p>
+
+            <h3 class="font-title text-5xl leading-none">
+              Humor fitness
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Memes, situaciones reales y contenido para quien sabe que el gym también se vive con humor.
+            </p>
+          </div>
+        </article>
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=900&auto=format&fit=crop"
+            alt="Podcast fitness"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-yellow-300 font-black mb-2">
+              Charlas y comunidad
+            </p>
+
+            <h3 class="font-title text-5xl leading-none">
+              Podcast
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Conversaciones sobre entrenamiento, hábitos, motivación y la vida alrededor del fitness.
+            </p>
+          </div>
+        </article>
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=900&auto=format&fit=crop"
+            alt="Nutrición fitness"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-yellow-300 font-black mb-2">
+              Comer con cabeza
+            </p>
+
+            <h3 class="font-title text-5xl leading-none">
+              Nutrición
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Consejos simples, ideas y contenido para cuidar lo que comes sin volverte loco.
+            </p>
+          </div>
+        </article>
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=900&auto=format&fit=crop"
+            alt="Comunidad fitness"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-yellow-300 font-black mb-2">
+              Gente del gym
+            </p>
+
+            <h3 class="font-title text-5xl leading-none">
+              Comunidad
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Un espacio para compartir progreso, dudas, bromas, entrenos y ganas de mejorar.
+            </p>
+          </div>
+        </article>
+
+        <article class="course-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=900&auto=format&fit=crop"
+            alt="Creadores de contenido fitness"
+          >
+
+          <div class="course-card-content">
+            <p class="text-xs uppercase tracking-[0.28em] text-yellow-300 font-black mb-2">
+              Creador FA
+            </p>
+
+            <h3 class="font-title text-5xl leading-none">
+              Contenido
+            </h3>
+
+            <p class="text-white/85 text-sm mt-3 leading-relaxed max-w-sm">
+              Para quienes quieren crear, aparecer, colaborar o formar parte del movimiento Fitness Addicts.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: CONTACTO / CTA SIMPLE CON FONDO -->
+  <section id="contacto" class="relative bg-cover bg-center py-28 md:py-40 px-5 md:px-6 overflow-hidden"
+           style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1800&auto=format&fit=crop');">
+
+    <!-- CAPAS DEL CTA -->
+    <div class="absolute inset-0 bg-black/78 z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#080808]/95 via-black/70 to-black/85 z-10"></div>
+
+    <!-- FADE CONTENIDO -> CTA FOTO -->
+    <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#080808] via-[#080808]/55 to-transparent z-20 pointer-events-none"></div>
+
+    <!-- TEXTO ARRIBA DE TODAS LAS CAPAS -->
+    <div class="relative z-30 max-w-4xl mx-auto text-center reveal cta-text-shadow">
+
+      <p class="font-script text-4xl md:text-6xl text-yellow-400 mb-3">
+        Únete a la comunidad
+      </p>
+
+      <h2 class="font-title text-5xl md:text-7xl leading-[0.9] text-white mb-6">
+        Contacta con Fitness Addicts por chat para entrar
+      </h2>
+
+      <p class="text-white/85 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-9">
+        Habla con el equipo y te explican cómo formar parte de la comunidad.
+      </p>
+
+      <a href="https://www.instagram.com/fitnessaddicts.es/"
+         target="_blank"
+         class="bg-yellow-400 text-black rounded-full px-9 py-4 inline-flex text-sm uppercase tracking-[0.18em] font-black hover:bg-white hover:text-black hover:scale-105 transition">
+        Contactar por chat
+      </a>
+
+    </div>
+  </section>
+
+  <script>
+    lucide.createIcons();
+
+    const header = document.getElementById("header");
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        header.classList.add("nav-blur");
+      } else {
+        header.classList.remove("nav-blur");
+      }
+    });
+
+    menuBtn.addEventListener("click", () => {
+      const isHidden = mobileMenu.classList.toggle("hidden");
+      document.body.classList.toggle("overflow-hidden", !isHidden);
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
