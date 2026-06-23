@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Alleda Eventos | Organización y Decoración de Eventos</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Parisienne&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #fff9f7;
+      --lavanda: #eadcf2;
+      --lavanda-claro: #f6eef9;
+      --lila: #8d68a6;
+      --lila-oscuro: #4b365b;
+      --malva: #b78acb;
+      --rosa: #e8bfd8;
+      --dorado: #c8a76a;
+      --texto: #4a3b4f;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--cream);
+      color: var(--texto);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .font-script {
+      font-family: "Parisienne", cursive;
+    }
+
+    .font-logo {
+      font-family: "Playfair Display", serif;
+    }
+
+    .animate-logo {
+      opacity: 0;
+      transform: scale(0.6);
+      animation: logoIn 0.6s ease-out forwards;
+    }
+
+    @keyframes logoIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .animate-text {
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: textOut 0.6s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes textOut {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .font-bodas-anim {
+      animation: fontBodasSwitch 1.8s infinite steps(1);
+    }
+
+    @keyframes fontBodasSwitch {
+      0% {
+        font-family: "Playfair Display", serif;
+      }
+
+      30% {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      65% {
+        font-family: "Parisienne", cursive;
+      }
+
+      100% {
+        font-family: "Playfair Display", serif;
+      }
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(180deg, rgba(52, 38, 63, 0.35), rgba(52, 38, 63, 0.76)),
+        radial-gradient(circle at 25% 30%, rgba(234, 220, 242, 0.20), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(183, 138, 203, 0.25), transparent 38%);
+    }
+
+    .btn-main {
+      background: var(--lila);
+      color: white;
+      transition: 0.25s ease;
+      box-shadow: 0 18px 35px rgba(141, 104, 166, 0.25);
+    }
+
+    .btn-main:hover {
+      background: var(--lila-oscuro);
+      transform: translateY(-2px);
+      box-shadow: 0 24px 45px rgba(141, 104, 166, 0.32);
+    }
+
+    .btn-soft {
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--lila-oscuro);
+      border: 1px solid rgba(234, 220, 242, 0.5);
+      transition: 0.25s ease;
+    }
+
+    .btn-soft:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(141, 104, 166, 0.14);
+      box-shadow: 0 18px 40px rgba(75, 54, 91, 0.07);
+      transition: 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      background: white;
+      box-shadow: 0 25px 60px rgba(75, 54, 91, 0.13);
+    }
+
+    .icon-circle {
+      background: linear-gradient(135deg, var(--lavanda), var(--rosa));
+      color: var(--lila-oscuro);
+    }
+
+    .gallery-item img {
+      filter: saturate(0.95) contrast(0.98);
+    }
+
+    .card {
+      width: 0;
+      height: 0;
+      border-top: 14px solid #f8ecff;
+      border-bottom: 14px solid #e5d3ee;
+      border-right: 21px solid #eadcf2;
+      border-left: 21px solid #d9c1e7;
+    }
+
+    .heart {
+      width: 6px;
+      height: 6px;
+      background-color: var(--lila);
+      transform: translate(-50%, -50%) rotate(45deg);
+      animation: heartbeat 1.4s linear infinite;
+    }
+
+    .heart:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--lila);
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+
+    .heart:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--lila);
+      transform: translateX(-50%);
+      border-radius: 50%;
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+      }
+
+      25% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+      }
+
+      30% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.4);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+      }
+
+      70% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.4);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+      }
+    }
+
+    .decor-blur {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(8px);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="fixed w-full top-0 z-50 bg-transparent text-white transition-all duration-500">
+    <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+
+      <a href="#inicio" class="text-white font-bold flex items-center gap-3 hover:scale-105 transition">
+    
+
+        <div class="leading-none animate-text">
+          <span class="block font-logo text-xl md:text-2xl tracking-wide">ALLEDA EVENTOS</span>
+        </div>
+      </a>
+
+      <button data-collapse-toggle="navbar" type="button" class="md:hidden mx-4">
+        <i data-lucide="menu" class="text-white"></i>
+      </button>
+
+      <a href="#contacto" class="md:hidden btn-soft rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.12em]">
+        Propuesta
+      </a>
+
+      <div class="hidden md:flex gap-6 text-white font-semibold items-center">
+        <a href="#portfolio" class="p-2 hover:text-[#eadcf2] font-bold uppercase text-sm tracking-[0.16em] hover:scale-105 transition">Eventos</a>
+        <a href="#servicios" class="p-2 hover:text-[#eadcf2] font-bold uppercase text-sm tracking-[0.16em] hover:scale-105 transition">Servicios</a>
+        <a href="#contacto" class="p-2 hover:text-[#eadcf2] font-bold uppercase text-sm tracking-[0.16em] hover:scale-105 transition">Contacto</a>
+
+        <a href="#contacto" class="btn-soft rounded-full px-5 py-3 font-bold uppercase text-xs tracking-[0.18em] hover:scale-105 transition">
+          Pedir propuesta
+        </a>
+      </div>
+    </div>
+
+    <div class="hidden gap-6 text-white font-semibold px-6 pb-6" id="navbar">
+      <a href="#portfolio" class="block p-2 hover:text-[#eadcf2] font-bold uppercase">Eventos</a>
+      <a href="#servicios" class="block p-2 hover:text-[#eadcf2] font-bold uppercase">Servicios</a>
+      <a href="#contacto" class="block p-2 hover:text-[#eadcf2] font-bold uppercase">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative bg-cover bg-center h-screen w-full mx-auto py-20 flex justify-center items-center"
+           style="background-image: url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1800&auto=format&fit=crop');">
+
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="decor-blur w-40 h-40 bg-[#eadcf2] top-24 left-10 hidden md:block"></div>
+    <div class="decor-blur w-52 h-52 bg-[#b78acb] bottom-10 right-20 hidden md:block"></div>
+
+    <div class="relative z-10 text-white text-center w-full flex-col justify-center mx-auto px-4">
+      <p class="font-script text-5xl md:text-7xl text-[#eadcf2] mb-3">
+        Creamos momentos
+      </p>
+
+      <h1 class="md:text-7xl font-bold pb-4 text-4xl font-title leading-[0.95]">
+        EVENTOS BONITOS, CUIDADOS <span class="font-bodas-anim text-[#8d68a6]">Y A MEDIDA</span>
+      </h1>
+
+      <p class="md:text-2xl md:pb-12 text-base pb-7 max-w-3xl mx-auto text-white/85">
+        Organización, decoración y detalles para bodas, comuniones, cumpleaños y celebraciones especiales.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#portfolio" class="btn-main rounded-full px-7 py-4 md:text-lg text-sm font-bold uppercase tracking-[0.18em]">
+          Ver eventos
+        </a>
+
+        <a href="#contacto" class="btn-soft rounded-full px-7 py-4 md:text-lg text-sm font-bold uppercase tracking-[0.18em]">
+          Pedir propuesta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="py-20 px-4 bg-[#f6eef9]" id="portfolio">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-14">
+        <span class="text-[#8d68a6] tracking-[0.3em] text-sm uppercase font-bold">Momentos reales</span>
+
+        <h2 class="text-4xl md:text-6xl font-bold text-[#4b365b] mt-3 font-title">
+          Celebraciones que hablan por sí solas
+        </h2>
+
+        <p class="text-[#6f5a78] text-lg mt-4 max-w-2xl mx-auto">
+          Espacios, mesas, globos, flores y detalles pensados para que cada celebración tenga personalidad.
+        </p>
+      </div>
+
+      <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Decoración de boda">
+        </div>
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Decoración de fiesta">
+        </div>
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Mesa de evento">
+        </div>
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Globos para evento">
+        </div>
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Boda elegante">
+        </div>
+
+        <div class="gallery-item aspect-square overflow-hidden rounded-3xl transition-all duration-700">
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Fiesta con globos">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="py-20 px-4 bg-[#f6eef9]" id="servicios">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-14">
+        <span class="text-[#8d68a6] tracking-[0.3em] text-sm uppercase font-bold">Servicios</span>
+
+        <h2 class="text-4xl md:text-6xl font-bold text-[#4b365b] mt-3 font-title">
+          Todo para que tu evento se vea especial
+        </h2>
+
+        <p class="text-[#6f5a78] text-lg mt-4 max-w-2xl mx-auto">
+          Te ayudamos a dar forma a la idea, elegir estilo, cuidar los detalles y crear una decoración coherente.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="service-card text-center p-8 rounded-3xl hover:scale-105 transition">
+          <div class="w-14 h-14 mx-auto mb-5 icon-circle rounded-full flex items-center justify-center">
+            <i data-lucide="sparkles" class="w-7 h-7"></i>
+          </div>
+
+          <h3 class="text-2xl font-bold text-[#4b365b] font-title">Decoración de eventos</h3>
+
+          <p class="text-[#6f5a78] mt-3">
+            Diseño de espacios, colores, flores, centros, mesas y rincones con encanto.
+          </p>
+        </div>
+
+        <div class="service-card text-center p-8 rounded-3xl hover:scale-105 transition">
+          <div class="w-14 h-14 mx-auto mb-5 icon-circle rounded-full flex items-center justify-center">
+            <i data-lucide="cake-slice" class="w-7 h-7"></i>
+          </div>
+
+          <h3 class="text-2xl font-bold text-[#4b365b] font-title">Mesas dulces</h3>
+
+          <p class="text-[#6f5a78] mt-3">
+            Candy bar, detalles, presentación y montaje para comuniones, cumpleaños y celebraciones.
+          </p>
+        </div>
+
+        <div class="service-card text-center p-8 rounded-3xl hover:scale-105 transition">
+          <div class="w-14 h-14 mx-auto mb-5 icon-circle rounded-full flex items-center justify-center">
+            <i data-lucide="party-popper" class="w-7 h-7"></i>
+          </div>
+
+          <h3 class="text-2xl font-bold text-[#4b365b] font-title">Globos y photocall</h3>
+
+          <p class="text-[#6f5a78] mt-3">
+            Rincones decorativos, fondos, globos personalizados y espacios para fotos.
+          </p>
+        </div>
+
+        <div class="service-card text-center p-8 rounded-3xl hover:scale-105 transition">
+          <div class="w-14 h-14 mx-auto mb-5 icon-circle rounded-full flex items-center justify-center">
+            <i data-lucide="calendar-heart" class="w-7 h-7"></i>
+          </div>
+
+          <h3 class="text-2xl font-bold text-[#4b365b] font-title">Bodas y celebraciones</h3>
+
+          <p class="text-[#6f5a78] mt-3">
+            Acompañamiento para bodas, comuniones, bautizos, cumpleaños y eventos familiares.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA SOBRE CARTA -->
+  <section class="py-24 px-4 bg-[#f6eef9]" id="contacto">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <span class="text-[#8d68a6] tracking-[0.3em] text-sm uppercase font-bold">Empecemos</span>
+
+      <h2 class="text-4xl md:text-6xl font-bold text-[#4b365b] mt-3 mb-6 font-title">
+        Cuéntanos qué celebración tienes en mente
+      </h2>
+
+      <p class="text-[#6f5a78] text-lg max-w-2xl mx-auto mb-10">
+        Escríbenos y vemos juntas cómo crear una propuesta decorativa con estilo, calma y todos los detalles cuidados.
+      </p>
+
+      <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20informaci%C3%B3n%20para%20un%20evento"
+         class="inline-flex items-center gap-3 btn-main px-8 py-4 rounded-full text-xl font-bold uppercase tracking-[0.12em] hover:scale-105 transition">
+        <div class="card">
+          <div class="heart"></div>
+        </div>
+        Pedir propuesta
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#4b365b] py-10 px-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+
+      <div>
+        <h3 class="text-white text-3xl font-bold font-logo">Alleda Eventos</h3>
+        <p class="text-[#eadcf2]">Organización y decoración de eventos</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-6 text-[#eadcf2]">
+        <a href="#servicios" class="hover:text-white transition">Servicios</a>
+        <a href="#portfolio" class="hover:text-white transition">Eventos</a>
+        <a href="#contacto" class="hover:text-white transition">Contacto</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <script>
+    const gallery = document.getElementById("gallery-grid");
+    const items = gallery ? gallery.querySelectorAll(".gallery-item") : [];
+
+    let current = 0;
+
+    const swaps = [
+      [0, 5],
+      [1, 2],
+      [3, 4],
+      [0, 3],
+      [2, 5],
+      [1, 4]
+    ];
+
+    function swapItems(i, j) {
+      if (!gallery || !items.length) return;
+
+      const item1 = items[i];
+      const item2 = items[j];
+
+      if (!item1 || !item2) return;
+
+      item1.classList.add("opacity-0", "scale-95");
+      item2.classList.add("opacity-0", "scale-95");
+
+      setTimeout(() => {
+        const next1 = item1.nextSibling === item2 ? item1 : item1.nextSibling;
+        const next2 = item2.nextSibling === item1 ? item2 : item2.nextSibling;
+
+        gallery.insertBefore(item1, next2);
+        gallery.insertBefore(item2, next1);
+
+        setTimeout(() => {
+          item1.classList.remove("opacity-0", "scale-95");
+          item2.classList.remove("opacity-0", "scale-95");
+        }, 100);
+
+      }, 400);
+    }
+
+    if (gallery && items.length) {
+      setInterval(() => {
+        const [a, b] = swaps[current];
+
+        swapItems(a, b);
+
+        current++;
+
+        if (current >= swaps.length) {
+          current = 0;
+        }
+
+      }, 2500);
+    }
+  </script>
+
+  <script>
+    const header = document.getElementById("nav");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.remove("bg-transparent");
+        header.classList.add("bg-[#4b365b]/80", "backdrop-blur-md", "shadow-lg");
+      } else {
+        header.classList.remove("bg-[#4b365b]/80", "backdrop-blur-md", "shadow-lg");
+        header.classList.add("bg-transparent");
+      }
+    });
+  </script>
+
+</body>
+</html>
