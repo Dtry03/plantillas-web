@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Yogana | Centro de Bienestar</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@300;400;500;600;700;800&family=Parisienne&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --cream: #f5eee1;
+      --cream-soft: #fffaf1;
+      --sage: #8d9a78;
+      --sage-dark: #5f6b4f;
+      --sage-light: #d8ddca;
+      --sand: #e7d8c1;
+      --clay: #c79a7a;
+      --brown: #4a3a2f;
+      --muted: #74685c;
+      --white: #fffdf7;
+      --mauve: #cdb8cc;
+      --mauve-dark: #765a87;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Nunito", sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .font-script {
+      font-family: "Parisienne", cursive;
+    }
+
+    .header-scrolled {
+      background: #5f6b4f;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(74, 58, 47, 0.08);
+    }
+
+    .nav-link {
+      position: relative;
+      color: white;
+      transition: 0.25s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.35rem;
+      width: 0;
+      height: 1px;
+      background: white;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-main {
+      background: var(--sage-dark);
+      color: var(--white);
+      border: 1px solid var(--sage-dark);
+      transition: 0.25s ease;
+    }
+
+    .btn-main:hover {
+      background: var(--brown);
+      border-color: var(--brown);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      color: white;
+      border: 1px solid white;
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: black;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-green {
+      color: #5f6b4f;
+      border: 1px solid #5f6b4f;
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline-green:hover {
+      background: #5f6b4f;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 78vh;
+      background-image:
+        linear-gradient(180deg, rgba(46, 38, 31, 0.12), rgba(46, 38, 31, 0.42)),
+        url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-text {
+      text-shadow: 0 4px 22px rgba(35, 25, 18, 0.42);
+    }
+
+    /* TRANSICIONES MÁS PEQUEÑAS Y SUAVES */
+    .fade-hero-to-cream {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 72px;
+      background: linear-gradient(
+        to bottom,
+        rgba(245, 238, 225, 0),
+        rgba(245, 238, 225, 0.38) 58%,
+        #f5eee1 100%
+      );
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .fade-cream-top {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 34px;
+      background: linear-gradient(
+        to bottom,
+        #f5eee1,
+        rgba(245, 238, 225, 0)
+      );
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .fade-cream-to-cta {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 82px;
+      background: linear-gradient(
+        to bottom,
+        rgba(245, 238, 225, 0),
+        rgba(245, 238, 225, 0.58) 62%,
+        rgba(245, 238, 225, 0.88) 100%
+      );
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .fade-cta-top {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 82px;
+      background: linear-gradient(
+        to bottom,
+        #f5eee1 0%,
+        rgba(245, 238, 225, 0.52) 48%,
+        rgba(245, 238, 225, 0) 100%
+      );
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* CARDS */
+    .service-card {
+      position: relative;
+      min-height: 240px;
+      overflow: hidden;
+      box-shadow: 0 18px 35px rgba(74, 58, 47, 0.13);
+      transition: 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 55px rgba(74, 58, 47, 0.18);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.65s ease;
+      filter: saturate(0.86) contrast(0.97);
+    }
+
+    .service-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.68)),
+        rgba(95, 107, 79, 0.08);
+      z-index: 1;
+    }
+
+    /* CTA */
+    .contact-section {
+      background-image:
+        linear-gradient(90deg, rgba(74, 58, 47, 0.78), rgba(95, 107, 79, 0.58), rgba(74, 58, 47, 0.30)),
+        url("https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .cta-text-shadow {
+      text-shadow: 0 4px 24px rgba(38, 30, 24, 0.55);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      /* HEADER MÓVIL */
+      #header > div:first-child {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.55rem;
+        padding-bottom: 0.55rem;
+      }
+
+      #header a[href="#inicio"] {
+        font-size: 1.9rem;
+        margin-bottom: 0;
+        line-height: 1;
+      }
+
+      #menu-btn {
+        color: white;
+      }
+
+      .mobile-panel {
+        background: rgba(245, 238, 225, 0.98);
+        backdrop-filter: blur(18px);
+      }
+
+      /* HERO MÓVIL */
+      .hero {
+        min-height: 100vh;
+        background-position: center;
+      }
+
+      .hero .max-w-4xl {
+        padding-top: 4.5rem;
+      }
+
+      .hero .font-script {
+        font-size: 3.6rem;
+        line-height: 0.95;
+        margin-bottom: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 3.45rem;
+        line-height: 0.92;
+      }
+
+      .hero p.text-white\/90 {
+        font-size: 0.98rem;
+        line-height: 1.55;
+        margin-top: 1.2rem;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+      }
+
+      .hero .mt-9 {
+        margin-top: 1.7rem;
+      }
+
+      /* SECCIÓN CLASES: MÁRGENES MÓVIL */
+      #clases {
+        padding-top: 4.7rem;
+        padding-bottom: 4.9rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      #clases .max-w-5xl {
+        margin-bottom: 2.2rem;
+      }
+
+      #clases .max-w-5xl p:first-child {
+        font-size: 0.68rem;
+        letter-spacing: 0.24em;
+        margin-bottom: 0.8rem;
+      }
+
+      #clases h2 {
+        font-size: 3.1rem;
+        line-height: 0.95;
+        max-width: 22rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #clases .max-w-5xl p:last-child {
+        font-size: 0.96rem;
+        line-height: 1.55;
+        margin-top: 1rem;
+        max-width: 21rem;
+      }
+
+      #clases .max-w-4xl {
+        gap: 0.85rem;
+      }
+
+      /* CARDS MÓVIL */
+      .service-card {
+        min-height: 190px;
+        box-shadow: 0 12px 25px rgba(74, 58, 47, 0.12);
+      }
+
+      .service-card::after {
+        background:
+          linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.72)),
+          rgba(95, 107, 79, 0.08);
+      }
+
+      .service-card > div {
+        padding: 0.85rem;
+      }
+
+      .service-card h3 {
+        font-size: 0.68rem;
+        line-height: 1.1;
+        letter-spacing: 0.11em;
+        max-width: 100%;
+        word-break: normal;
+      }
+
+      .service-card p {
+        font-size: 0.68rem;
+        line-height: 1.25;
+        margin-top: 0.35rem;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .service-card:nth-child(3) h3,
+      .service-card:nth-child(4) h3 {
+        font-size: 0.62rem;
+        letter-spacing: 0.08em;
+      }
+
+      #clases .text-center.mt-12 {
+        margin-top: 2.3rem;
+      }
+
+      #clases .btn-outline-green {
+        padding-left: 1.4rem;
+        padding-right: 1.4rem;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+      }
+
+      /* CTA MÓVIL */
+      #contacto {
+        min-height: 100vh;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      #contacto .font-script {
+        font-size: 3.7rem;
+        line-height: 0.95;
+      }
+
+      #contacto h2 {
+        font-size: 3.4rem;
+        line-height: 0.95;
+      }
+
+      #contacto p.text-white\/88 {
+        font-size: 0.98rem;
+        line-height: 1.55;
+        margin-top: 1.2rem;
+      }
+
+      #contacto .mt-9 {
+        margin-top: 1.8rem;
+      }
+
+      #contacto a {
+        width: 100%;
+        max-width: 22rem;
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+      }
+
+      .fade-hero-to-cream {
+        height: 55px;
+      }
+
+      .fade-cream-top {
+        height: 24px;
+      }
+
+      .fade-cream-to-cta {
+        height: 58px;
+      }
+
+      .fade-cta-top {
+        height: 60px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 3.05rem;
+      }
+
+      .hero .font-script {
+        font-size: 3.25rem;
+      }
+
+      #clases h2 {
+        font-size: 2.75rem;
+      }
+
+      .service-card {
+        min-height: 175px;
+      }
+
+      .service-card > div {
+        padding: 0.75rem;
+      }
+
+      .service-card h3 {
+        font-size: 0.62rem;
+        letter-spacing: 0.08em;
+      }
+
+      .service-card p {
+        font-size: 0.62rem;
+        line-height: 1.2;
+      }
+
+      .service-card:nth-child(3) h3,
+      .service-card:nth-child(4) h3 {
+        font-size: 0.57rem;
+        letter-spacing: 0.055em;
+      }
+
+      #contacto h2 {
+        font-size: 3rem;
+      }
+
+      #contacto .font-script {
+        font-size: 3.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-2 flex items-center justify-between">
+
+      <a href="#inicio" class="font-title mb-2 text-3xl md:text-4xl font-bold text-white">
+        Yogana
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.22em] font-extrabold">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#clases" class="nav-link">Clases</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="https://wa.me/34697306908?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Yogana"
+         target="_blank"
+         class="hidden md:inline-flex btn-outline rounded-full px-5 py-2 text-xs uppercase tracking-[0.18em] font-extrabold">
+        Reservar
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-white">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden mobile-panel border-t border-[#d8ddca] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-4 text-sm uppercase tracking-[0.18em] font-extrabold text-[#5f6b4f]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#clases" class="mobile-link">Clases</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="https://wa.me/34697306908?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Yogana"
+         target="_blank"
+         class="btn-main mt-5 rounded-full px-6 py-4 text-xs uppercase tracking-[0.18em] font-extrabold inline-flex justify-center w-full">
+        Preguntar por WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 1: HERO -->
+  <section id="inicio" class="hero relative flex items-center justify-center text-center px-5 overflow-hidden h-screen">
+
+    <div class="max-w-4xl mx-auto pt-24 hero-text relative z-10">
+      <p class="font-script text-5xl md:text-7xl text-white mb-4 reveal">
+        Respira, suelta, vuelve a ti
+      </p>
+
+      <h1 class="font-title text-5xl md:text-7xl leading-[0.95] font-bold text-white reveal">
+        Un espacio para soltar, respirar y volver a ti
+      </h1>
+
+      <p class="text-white/90 text-base md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed reveal">
+        Yoga, bienestar y calma en un lugar cuidado para reconectar contigo desde el cuerpo, la respiración y la presencia.
+      </p>
+
+      <div class="mt-9 flex flex-col sm:flex-row justify-center gap-4 reveal">
+        <a href="#clases" class="bg-white/20 backdrop-blur-md border border-white text-white hover:bg-white hover:text-[#5f6b4f] rounded-full px-8 py-3 text-xs uppercase tracking-[0.2em] font-extrabold transition">
+          Ver clases
+        </a>
+
+        <a href="#contacto" class="bg-[#5f6b4f] border border-[#5f6b4f] text-white hover:bg-[#4a3a2f] rounded-full px-8 py-3 text-xs uppercase tracking-[0.2em] font-extrabold transition">
+          Reservar plaza
+        </a>
+      </div>
+    </div>
+
+    <div class="fade-hero-to-cream"></div>
+
+  </section>
+
+  <!-- SECCIÓN 2: CLASES Y EXPERIENCIAS -->
+  <section id="clases" class="relative bg-[#f5eee1] py-24 px-5 md:px-8 overflow-hidden">
+
+    <div class="fade-cream-top"></div>
+
+    <div class="relative z-10">
+      <div class="max-w-5xl mx-auto text-center mb-14 reveal">
+        <p class="uppercase tracking-[0.35em] text-xs text-[#5f6b4f] font-extrabold mb-4">
+          Clases y experiencias
+        </p>
+
+        <h2 class="font-title text-5xl md:text-6xl font-bold text-[#5f6b4f]">
+          Encuentra la práctica que necesitas hoy
+        </h2>
+
+        <p class="text-[#74685c] mt-5 leading-relaxed max-w-2xl mx-auto">
+          Diferentes formas de practicar para moverte con calma, descansar mejor y crear un momento para ti.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-5">
+
+        <article class="service-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop"
+            alt="Yoga en sala"
+          >
+
+          <div class="relative z-10 h-full flex flex-col justify-end p-5 text-white">
+            <h3 class="uppercase tracking-[0.18em] font-extrabold text-sm">
+              Yoga
+            </h3>
+            <p class="text-xs mt-2 text-white/85">
+              Movimiento, respiración y presencia.
+            </p>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=800&auto=format&fit=crop"
+            alt="Yoga restaurativo"
+          >
+
+          <div class="relative z-10 h-full flex flex-col justify-end p-5 text-white">
+            <h3 class="uppercase tracking-[0.18em] font-extrabold text-sm">
+              Restaurativo
+            </h3>
+            <p class="text-xs mt-2 text-white/85">
+              Soltar tensión y descansar profundo.
+            </p>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1600881333168-2ef49b341f30?q=80&w=800&auto=format&fit=crop"
+            alt="Yoga infantil"
+          >
+
+          <div class="relative z-10 h-full flex flex-col justify-end p-5 text-white">
+            <h3 class="uppercase tracking-[0.18em] font-extrabold text-sm">
+              Yoga infantil
+            </h3>
+            <p class="text-xs mt-2 text-white/85">
+              Juego, calma y respiración.
+            </p>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1593810451137-5dc55105dace?q=80&w=800&auto=format&fit=crop"
+            alt="Puertas abiertas"
+          >
+
+          <div class="relative z-10 h-full flex flex-col justify-end p-5 text-white">
+            <h3 class="uppercase tracking-[0.18em] font-extrabold text-sm">
+              Puertas abiertas
+            </h3>
+            <p class="text-xs mt-2 text-white/85">
+              Ven a conocer el espacio.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="#contacto" class="btn-outline-green rounded-full px-7 py-3 text-xs uppercase tracking-[0.18em] font-extrabold">
+          Consultar horarios
+        </a>
+      </div>
+    </div>
+
+    <div class="fade-cream-to-cta"></div>
+
+  </section>
+
+  <!-- SECCIÓN 3: CTA DIRECTO A WHATSAPP -->
+  <section id="contacto" class="contact-section relative min-h-[72vh] flex items-center justify-center text-center px-5 md:px-8 overflow-hidden h-screen">
+
+    <div class="absolute inset-0 bg-[#4a3a2f]/24"></div>
+    <div class="fade-cta-top"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-white cta-text-shadow reveal">
+
+      <p class="font-script text-5xl md:text-7xl mb-4 text-[#f5eee1]">
+        Reserva tu momento
+      </p>
+
+      <h2 class="font-title text-5xl md:text-7xl leading-[0.95] font-bold">
+        ¿Quieres saber qué clase encaja contigo?
+      </h2>
+
+      <p class="text-white/88 text-base md:text-xl leading-relaxed max-w-2xl mx-auto mt-6">
+        Escríbenos por WhatsApp y te contamos horarios, plazas disponibles y qué práctica puede ayudarte mejor según lo que necesites.
+      </p>
+
+      <div class="mt-9">
+        <a href="https://wa.me/34697306908?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20clases%20de%20Yogana"
+           target="_blank"
+           class="bg-[#f5eee1] text-[#5f6b4f] hover:bg-white hover:text-[#4a3a2f] rounded-full px-9 py-4 text-xs uppercase tracking-[0.22em] font-extrabold inline-flex items-center justify-center gap-3 transition">
+          Preguntar por WhatsApp
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+    lucide.createIcons();
+
+    const header = document.getElementById("header");
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 30) {
+        header.classList.add("header-scrolled");
+      } else {
+        header.classList.remove("header-scrolled");
+      }
+    });
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
