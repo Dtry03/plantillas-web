@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Librería Cajón Desastre | Demo</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" 
+    rel="stylesheet"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+
+  <style>
+
+
+.special-button{
+
+
+
+background-image: url("https://www.transparenttextures.com/patterns/my-little-plaid.png");
+
+}
+    .form{
+
+background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+
+      -webkit-box-shadow: 0px 10px 17px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 10px 17px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 10px 17px 0px rgba(0,0,0,0.75);
+    }
+
+
+
+    .bg-btn{
+
+background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
+
+    }
+    
+.birthstone-regular {
+  font-family: "Birthstone", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+    .hero{
+      
+        background-image: url("cajonsastre-hero.png");
+    }
+
+    .section{
+      background-image: url("cajonsastre-section.png");
+    }
+
+    .cta{
+
+      background-image: url("cajonsastre-cta.png");
+      background-size: center;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f4ead8;
+      color: #211915;
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .bg-paper {
+      background: #f4ead8;
+    }
+
+    .bg-paper-light {
+      background: #fbf6eb;
+    }
+
+  
+    .border-soft {
+      border-color: rgba(33, 25, 21, 0.12);
+    }
+
+    .section-label {
+      letter-spacing: 0.22em;
+    }
+
+    .btn-main {
+      background: #9f2f2f;
+      color: #fffaf0;
+      transition: 0.25s ease;
+    }
+
+    .btn-main:hover {
+      background: #211915;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(33, 25, 21, 0.18);
+      color: #211915;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: #211915;
+      color: #fffaf0;
+      transform: translateY(-2px);
+    }
+
+    .book-card {
+      background: #fffaf0;
+      border: 1px solid rgba(33, 25, 21, 0.08);
+      transition: 0.25s ease;
+      background-color: #d48d00;
+background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
+      -webkit-box-shadow: 0px 10px 17px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 10px 17px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 10px 17px 0px rgba(0,0,0,0.75);
+    }
+
+ 
+
+    .book-card img {
+      transition: 0.35s ease;
+    }
+
+    .book-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+      transition-delay: var(--delay, 0s);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .header{
+
+background-image: url("https://www.transparenttextures.com/patterns/white-tiles.png");
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="fixed left-0 top-0 z-50 w-full border-b border-black/5 ">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
+
+      <a href="#inicio" class="flex items-center gap-3">
+     
+
+        <div class="leading-none">
+          <p class="font-title text-2xl font-bold text-white md:text-3xl">
+            Cajón Desastre
+          </p>
+          <p class="mt-1 text-[10px] font-bold uppercase tracking-[0.22em] text-white">
+            Librería · Ponferrada
+          </p>
+        </div>
+      </a>
+
+      <div class="hidden items-center gap-7 text-sm font-bold uppercase tracking-[0.16em] md:flex text-white">
+        <a href="#catalogo" class="hover:text-red-200 transition">Catálogo</a>
+        <a href="#libreria" class="hover:text-red-200 transition">La librería</a>
+        <a href="#buscador" class="hover:text-red-200 transition">Buscar libro</a>
+
+        <a href="#contacto" class="rounded-full bg-btn border border-black/10 px-5 py-3 text-sm font-bold uppercase tracking-widest text-white bg-rose-500">
+          Contacto
+        </a>
+      </div>
+
+      <button id="menu-btn" class="rounded-full bg-black/10 p-2 md:hidden">
+        <i data-lucide="menu" class="h-6 w-6 text-ink"></i>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-black/5 bg-[#f4ead8] px-5 pb-6 pt-4 md:hidden">
+      <div class="flex flex-col gap-5 text-sm font-bold uppercase tracking-widest">
+        <a href="#catalogo" class="mobile-link">Catálogo</a>
+        <a href="#libreria" class="mobile-link">La librería</a>
+        <a href="#buscador" class="mobile-link">Buscar libro</a>
+        <a href="#contacto" class="mobile-link rounded-full bg-wine px-5 py-3 text-center text-white">
+          Contacto
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative hero px-4 pb-20 pt-32 md:pb-28 md:pt-36 h-screen">
+    <div class="absolute top-0 left-0 w-full h-screen z-10 bg-black/20"></div>
+    <div class="relative   flex items-center justify-center h-full">
+        
+
+      <div class="relative z-20 reveal flex flex-col items-center justify-center gap-5 ">
+    
+        <h1 class="birthstone-regular text-center  text-5xl font-bold text-center m-0 leading-[0.95] text-white md:text-8xl drop-shadow-[0_5px_18px_rgba(0,0,0,0.85)]">
+          Libros raros para lectores que buscan algo más
+        </h1>
+
+
+
+<p class="text-shadow-lg/30  max-w-7xl text-center birthstone-regular mt-6 text-3xl text-white md:text-5xl drop-shadow-[0_3px_10px_rgba(0,0,0,0.75)]">
+Hay libros que no se buscan: aparecen.
+En Ponferrada, entre páginas antiguas, usadas y difíciles de encontrar, esperan historias que aún tienen algo que decir.
+        </p>
+        
+
+
+<div class="flex gap-10 mt-5">
+      <a href="#catalogo" class=" special-button birthstone-regular rounded-full border border-black/10 px-5 py-3 drop-shadow-[0_5px_18px_rgba(0,0,0,0.85)] leading-[0.95] text-xl md:text-4xl font-bold uppercase tracking-widest text-white bg-red-800 hover:bg-red-950 transition">
+          Encontrar joyas perdidas
+        </a>
+        
+</div>
+
+    
+      </div>
+
+    </div>
+  </section>
+
+  <section id="catalogo" class="px-4 py-20 md:py-28   section">
+    <div class="mx-auto max-w-7xl">
+
+      <div class="reveal mb-12 text-center">
+        <p class="birthstone-regular  mb-3 text-xl font-bold uppercase text-rose-700 md:text-3xl">
+          Catálogo destacado
+        </p>
+
+        <h2 class="birthstone-regular text-5xl font-bold leading-none  text-white md:text-7xl">
+          Últimos hallazgos del cajón
+        </h2>
+
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-8 text-white md:text-lg">
+          Una selección de libros especiales, usados, antiguos o difíciles de encontrar.
+        </p>
+      </div>
+
+      <div class="mb-10 flex flex-wrap justify-center gap-3">
+
+      <button class="rounded-full bg-btn border border-black/10 px-5 py-3  text-xs md:text-sm font-bold uppercase text-white bg-rose-800">
+          Antiguos
+        </button>
+        <button class="rounded-full bg-btn border border-black/10 px-5 py-3  text-xs md:text-sm font-bold uppercase text-white bg-rose-500 hover:bg-red-800 transition">
+          Antiguos
+        </button>
+
+        <button class="rounded-full bg-btn border border-black/10 px-5 py-3  text-xs md:text-sm font-bold uppercase text-white bg-rose-500 hover:bg-red-800 transition">
+          Cómic
+        </button>
+
+        <button class="rounded-full bg-btn border border-black/10 px-5 py-3  text-xs md:text-sm font-bold uppercase text-white bg-rose-500 hover:bg-red-800 transition">
+          Infantil
+        </button>
+
+        <button class="rounded-full bg-btn border border-black/10 px-5 py-3  text-xs md:text-sm font-bold uppercase text-white bg-rose-500 hover:bg-red-800 transition">
+          Novedades
+        </button>
+      </div>
+
+      <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+
+        <!-- LIBRO 1 -->
+        <article  class="text-white book-card reveal overflow-hidden rounded-3xl bg-red-200 p-5  " style="--delay: 0.06s;">
+      
+          <div class=" flex items-center justify-center">
+              <img src="cajonsastre.jpg" alt="libro" class="w-40" >
+          </div>
+
+          <div class="p-5 mt-4 rounded-3xl bg-red-200" style="
+background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-wine">
+              Antiguo
+            </p>
+
+            <h3 class="mt-2 font-title text-2xl font-bold leading-tight text-ink">
+              Historias olvidadas
+            </h3>
+
+            <p class="mt-2 text-sm text-muted">
+              Edición usada
+            </p>
+
+            <div class="mt-4 flex items-center justify-between bg-amber">
+              <span class="font-bold text-ink">12,00 €</span>
+              <a href="#contacto" class="rounded-full bg-btn border border-black/10 px-5 py-3 text-sm font-bold uppercase tracking-widest text-white bg-rose-800">
+                Reservar
+              </a>
+            </div>
+          </div>
+     
+        </article>
+                <article  class="text-white book-card reveal overflow-hidden rounded-3xl bg-red-200 p-5  " style="--delay: 0.06s;">
+      
+          <div class=" flex items-center justify-center">
+              <img src="cajonsastre2.jpg" alt="libro" class="w-40" >
+          </div>
+
+          <div class="p-5 mt-4 rounded-3xl bg-red-200" style="
+background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-wine">
+              Antiguo
+            </p>
+
+            <h3 class="mt-2 font-title text-2xl font-bold leading-tight text-ink">
+              Historias olvidadas
+            </h3>
+
+            <p class="mt-2 text-sm text-muted">
+              Edición usada
+            </p>
+
+            <div class="mt-4 flex items-center justify-between bg-amber">
+              <span class="font-bold text-ink">12,00 €</span>
+              <a href="#contacto" class="rounded-full bg-btn border border-black/10 px-5 py-3 text-sm font-bold uppercase tracking-widest text-white bg-rose-800">
+                Reservar
+              </a>
+            </div>
+          </div>
+     
+        </article>
+                <article  class="text-white  book-card reveal overflow-hidden rounded-3xl bg-red-200 p-5  " style="--delay: 0.06s;">
+      
+          <div class=" flex items-center justify-center">
+              <img src="cajonsastre3.webp" alt="libro" class="w-40" >
+          </div>
+
+          <div class="p-5 mt-4 rounded-3xl bg-red-200" style="
+background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-wine">
+              Antiguo
+            </p>
+
+            <h3 class="mt-2 font-title text-2xl font-bold leading-tight text-ink">
+              Historias olvidadas
+            </h3>
+
+            <p class="mt-2 text-sm text-muted">
+              Edición usada
+            </p>
+
+            <div class="mt-4 flex items-center justify-between bg-amber">
+              <span class="font-bold text-ink">12,00 €</span>
+              <a href="#contacto" class="rounded-full bg-btn border border-black/10 px-5 py-3 text-sm font-bold uppercase tracking-widest text-white bg-rose-800">
+                Reservar
+              </a>
+            </div>
+          </div>
+     
+        </article>
+                <article  class="text-white book-card reveal overflow-hidden rounded-3xl bg-red-200 p-5  " style="--delay: 0.06s;">
+      
+          <div class=" flex items-center justify-center">
+              <img src="cajonsastre4.webp" alt="libro" class="w-40" >
+          </div>
+
+          <div class="p-5 mt-4 rounded-3xl bg-red-200" style="
+background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-wine">
+              Antiguo
+            </p>
+
+            <h3 class="mt-2 font-title text-2xl font-bold leading-tight text-ink">
+              Historias olvidadas
+            </h3>
+
+            <p class="mt-2 text-sm text-muted">
+              Edición usada
+            </p>
+
+            <div class="mt-4 flex items-center justify-between bg-amber">
+              <span class="font-bold text-ink">12,00 €</span>
+              <a href="#contacto" class="rounded-full bg-btn border border-black/10 px-5 py-3 text-sm font-bold uppercase tracking-widest text-white bg-rose-800">
+                Reservar
+              </a>
+            </div>
+          </div>
+     
+        </article>
+
+
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- BUSCADOR / CONTACTO -->
+  <section id="buscador" class="relative cta px-4 py-20 md:py-28">
+        <div class="absolute top-0 left-0 w-full h-full z-10 bg-black/40"></div>
+    <div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+
+      <div class="reveal relative z-30">
+        <p class="birthstone-regular  mb-3 text-xl font-bold text-center md:text-left uppercase text-white md:text-3xl drop-shadow-[0_5px_18px_rgba(0,0,0,0.85)]">
+          Buscamos tu libro
+        </p>
+
+        <h2 class="birthstone-regular text-5xl text-center font-bold leading-none text-white md:text-7xl drop-shadow-[0_5px_18px_rgba(0,0,0,0.85)]  md:text-left">
+          ¿Buscas un libro que parece desaparecido?
+        </h2>
+
+        <p class="mt-6 max-w-xl text-base leading-8 text-white md:text-lg drop-shadow-[0_3px_10px_rgba(0,0,0,0.75)] text-center  md:text-left">
+          Escríbenos el título, autor o temática que buscas. Te confirmamos si está disponible o si podemos recomendarte algo parecido.
+        </p>
+
+    
+      </div>
+
+      <div id="contacto" class=" relative z-30 reveal rounded-[2rem] bg-[#fffaf0] p-6 shadow-xl shadow-black/5 md:p-8  bg-amber-100 form" style="--delay: 0.12s;">
+        <form class=" space-y-5">
+          <div>
+            <label class="birthstone-regular block text-xl font-bold font-bold uppercase tracking-widest text-white">
+              Libro o autor
+            </label>
+            <input 
+              type="text" 
+              placeholder="Ej: Sherlock Holmes, libro antiguo, cómic..."
+              class="w-full rounded-full border border-black/10 bg-btn bg-amber-100 px-5 py-4 outline-none "
+            >
+          </div>
+
+          <div>
+            <label class="birthstone-regular block text-xl font-bold font-bold uppercase tracking-widest text-white">
+              Tu contacto
+            </label>
+            <input 
+              type="text" 
+              placeholder="Teléfono o email"
+              class="w-full rounded-full border border-black/10 bg-btn bg-amber-100 px-5 py-4 outline-none "
+            >
+          </div>
+
+          <div>
+            <label class="birthstone-regular block text-xl font-bold font-bold uppercase tracking-widest text-white">
+              Mensaje
+            </label>
+            <textarea 
+              placeholder="Cuéntanos qué estás buscando..."
+              rows="5"
+              class="w-full rounded-3xl border border-black/10  bg-btn px-5 py-4 outline-none bg-amber-100 "
+            ></textarea>
+          </div>
+
+          <button type="button" class="bg-btn bg-black/90 w-full rounded-full px-8 py-4 text-white text-sm md:text-xl font-bold font-extrabold uppercase tracking-[0.16em]">
+            Enviar consulta
+          </button>
+
+              <a 
+            href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20preguntar%20por%20un%20libro"
+            class="bg-btn flex w-full items-center justify-center gap-3 rounded-full border border-black/10 bg-white px-8 py-4 text-sm md:text-xl font-extrabold uppercase tracking-[0.16em]  transition hover:bg-[#211915] hover:text-white"
+          >
+    
+            Preguntar por WhatsApp
+          </a>
+
+        </form>
+
+
+      
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <script>
+    lucide.createIcons();
+
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn?.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16,
+      rootMargin: "0px 0px -8% 0px"
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        header.classList.add("shadow-lg", "shadow-black/5", "bg-red-400", "header");
+      } else {
+        header.classList.remove("shadow-lg", "shadow-black/5","bg-red-400", "header");
+      }
+    });
+  </script>
+
+</body>
+</html>
