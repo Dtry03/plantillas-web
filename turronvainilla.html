@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Turrón de Vainilla | Repostería Creativa</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --pink: #f7d7df;
+      --pink-strong: #e8a9b9;
+      --vanilla: #fff2cc;
+      --cream: #fffaf0;
+      --white: #ffffff;
+      --chocolate: #3f2925;
+      --brown-soft: #7c5a52;
+      --cherry: #b64b5c;
+      --line: #2f211f;
+      --muted: #7f6c65;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--white);
+      color: var(--chocolate);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .font-script {
+      font-family: "Great Vibes", cursive;
+    }
+
+    .top-strip {
+      background: var(--pink);
+      color: var(--chocolate);
+      border-bottom: 1px solid rgba(63, 41, 37, 0.08);
+    }
+
+    .main-header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(63, 41, 37, 0.10);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-link {
+      font-size: 10px;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--chocolate);
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--cherry);
+    }
+
+    .logo-text {
+      letter-spacing: 0.28em;
+    }
+
+    .btn-small {
+      border: 1px solid var(--line);
+      color: var(--chocolate);
+      background: transparent;
+      transition: 0.25s ease;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .btn-small:hover {
+      background: var(--chocolate);
+      color: white;
+    }
+
+    .btn-main {
+      border: 1px solid var(--line);
+      background: var(--pink);
+      color: var(--chocolate);
+      transition: 0.25s ease;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .btn-main:hover {
+      background: var(--chocolate);
+      color: white;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 72vh;
+      background-image:
+        linear-gradient(90deg, rgba(63, 41, 37, 0.18), rgba(63, 41, 37, 0.04), rgba(63, 41, 37, 0.10)),
+        url("https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.20));
+      pointer-events: none;
+    }
+
+    .hero-title {
+      text-shadow: 0 4px 18px rgba(63, 41, 37, 0.35);
+    }
+
+    /* PRODUCTOS */
+    .product-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      object-position: center;
+      transition: 0.35s ease;
+    }
+
+    .product:hover .product-img {
+      transform: translateY(-4px);
+    }
+
+    .editorial-block {
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .editorial-block img {
+      width: 100%;
+      height: 100%;
+      min-height: 460px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .floating-box {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      box-shadow: 7px 7px 0 rgba(247, 215, 223, 0.75);
+    }
+
+    .section-heading {
+      letter-spacing: 0.18em;
+    }
+
+    .fine-line {
+      height: 1px;
+      background: rgba(63, 41, 37, 0.18);
+    }
+
+    /* CTA PEDIDO */
+    .order-section {
+      background:
+        linear-gradient(90deg, rgba(255,250,240,0.94), rgba(247,215,223,0.82)),
+        url("https://images.unsplash.com/photo-1602351447937-745cb720612f?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .order-box {
+      background: rgba(255, 255, 255, 0.93);
+      border: 1px solid var(--line);
+      box-shadow: 9px 9px 0 rgba(232, 169, 185, 0.45);
+    }
+
+    .step {
+      border-top: 1px solid rgba(63, 41, 37, 0.22);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 76vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        line-height: 0.9;
+      }
+
+      .product-img {
+        height: 165px;
+      }
+
+      .editorial-block {
+        min-height: auto;
+      }
+
+      .editorial-block img {
+        min-height: 320px;
+      }
+
+      .floating-box {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        transform: none;
+        margin: -2.5rem 1rem 2rem;
+      }
+
+      .order-box {
+        box-shadow: 6px 6px 0 rgba(232, 169, 185, 0.45);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50">
+
+
+
+    <div class="main-header">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 grid grid-cols-3 items-center">
+
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="#inicio" class="nav-link">Inicio</a>
+          <a href="#tartas" class="nav-link">Tartas</a>
+          <a href="#pedido" class="nav-link">Pedido</a>
+        </nav>
+
+        <button id="menu-btn" class="md:hidden justify-self-start">
+          <span class="block w-7 h-[1px] bg-[#3f2925] mb-2"></span>
+          <span class="block w-7 h-[1px] bg-[#3f2925]"></span>
+        </button>
+
+        <a href="#inicio" class="text-center leading-none justify-self-center">
+          <p class="font-title logo-text text-2xl md:text-3xl uppercase font-bold text-[#3f2925]">
+            Turrón
+          </p>
+          <p class="text-[9px] md:text-[10px] uppercase tracking-[0.48em] text-[#b64b5c] font-semibold mt-1">
+            de Vainilla
+          </p>
+        </a>
+
+        <a href="#pedido" class="hidden md:inline-flex btn-small justify-self-end px-5 py-2">
+          Pedir tarta
+        </a>
+
+        <div class="md:hidden"></div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden border-t border-[#ead8d8] bg-[#fffaf0] px-6 pb-6">
+        <nav class="flex flex-col gap-4 pt-5 text-xs uppercase tracking-[0.2em] font-bold text-[#3f2925]">
+          <a href="#inicio" class="mobile-link">Inicio</a>
+          <a href="#tartas" class="mobile-link">Tartas</a>
+          <a href="#pedido" class="mobile-link">Pedido</a>
+        </nav>
+
+        <a href="#pedido" class="btn-main mt-6 px-6 py-4 inline-flex justify-center w-full">
+          Pedir tarta
+        </a>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- SECCIÓN 1: HERO -->
+  <section id="inicio" class="relative hero flex items-center justify-center text-center px-5 pt-28 md:pt-36">
+
+    <div class="absolute bg-black/50 top-0 left-0 h-full w-full"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-white reveal">
+
+      <p class="text-[11px] uppercase tracking-[0.34em] font-semibold mb-4">
+        De vainilla · chocolate · crema · frutos rojos
+      </p>
+
+      <h1 class="hero-title font-title text-6xl md:text-8xl leading-[0.88] font-bold uppercase">
+        Tartas para celebrar bonito
+      </h1>
+
+      <p class="font-script text-4xl md:text-5xl mt-3 text-[#fff2cc]">
+        hechas a mano, por encargo
+      </p>
+
+      <a href="#pedido" class="btn-main mt-8 px-8 py-3 inline-flex">
+        Encargar ahora
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- SECCIÓN 2: LO MÁS PEDIDO + BLOQUES EDITORIALES -->
+  <section id="tartas" class="bg-white py-16 md:py-20 px-5 md:px-8">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-12 reveal">
+        <h2 class="section-heading text-sm md:text-base uppercase text-[#3f2925] font-medium">
+          Lo más pedido
+        </h2>
+        <p class="text-[10px] uppercase tracking-[0.28em] text-[#b64b5c] mt-2">
+          Tartas personalizadas
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto mb-20">
+
+        <article class="product text-center reveal">
+          <div class="overflow-hidden bg-[#fffaf0]">
+            <img
+              src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=900&auto=format&fit=crop"
+              alt="Tarta de cumpleaños"
+              class="product-img"
+            >
+          </div>
+          <p class="text-[10px] uppercase tracking-[0.20em] mt-5 text-[#b64b5c] font-semibold">
+            Cumpleaños
+          </p>
+          <h3 class="font-title text-xl md:text-2xl font-bold mt-1">
+            Tarta personalizada
+          </h3>
+        </article>
+
+        <article class="product text-center reveal">
+          <div class="overflow-hidden bg-[#fffaf0]">
+            <img
+              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=900&auto=format&fit=crop"
+              alt="Tarta de chocolate"
+              class="product-img"
+            >
+          </div>
+          <p class="text-[10px] uppercase tracking-[0.20em] mt-5 text-[#b64b5c] font-semibold">
+            Chocolate
+          </p>
+          <h3 class="font-title text-xl md:text-2xl font-bold mt-1">
+            Cremosa y casera
+          </h3>
+        </article>
+
+        <article class="product text-center reveal">
+          <div class="overflow-hidden bg-[#fffaf0]">
+            <img
+              src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?q=80&w=900&auto=format&fit=crop"
+              alt="Cupcakes"
+              class="product-img"
+            >
+          </div>
+          <p class="text-[10px] uppercase tracking-[0.20em] mt-5 text-[#b64b5c] font-semibold">
+            Dulces
+          </p>
+          <h3 class="font-title text-xl md:text-2xl font-bold mt-1">
+            Detalles para regalar
+          </h3>
+        </article>
+
+        <article class="product text-center reveal">
+          <div class="overflow-hidden bg-[#fffaf0]">
+            <img
+              src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=900&auto=format&fit=crop"
+              alt="Tarta especial"
+              class="product-img"
+            >
+          </div>
+          <p class="text-[10px] uppercase tracking-[0.20em] mt-5 text-[#b64b5c] font-semibold">
+            Eventos
+          </p>
+          <h3 class="font-title text-xl md:text-2xl font-bold mt-1">
+            Para celebraciones
+          </h3>
+        </article>
+
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5 md:gap-8">
+
+        <article class="editorial-block reveal">
+          <img
+            src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=1200&auto=format&fit=crop"
+            alt="Tarta para baby shower"
+          >
+
+          <div class="floating-box absolute top-10 left-8 right-8 md:right-auto md:w-[74%] p-7 text-center">
+            <p class="text-[10px] uppercase tracking-[0.28em] text-[#b64b5c] font-bold mb-2">
+              El mejor regalo
+            </p>
+            <h3 class="font-title text-3xl md:text-4xl leading-none uppercase">
+              Tartas para baby shower
+            </h3>
+            <p class="text-sm text-[#7c5a52] mt-3 leading-relaxed">
+              Diseños delicados, colores suaves y una tarta pensada para un momento inolvidable.
+            </p>
+            <a href="#pedido" class="btn-main mt-5 px-6 py-2 inline-flex">
+              Encargar
+            </a>
+          </div>
+        </article>
+
+        <article class="editorial-block reveal">
+          <img
+            src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=1200&auto=format&fit=crop"
+            alt="Tarta personalizada"
+          >
+
+          <div class="floating-box absolute top-10 left-8 right-8 md:left-auto md:w-[74%] p-7 text-center">
+            <p class="text-[10px] uppercase tracking-[0.28em] text-[#b64b5c] font-bold mb-2">
+              Hecha para ti
+            </p>
+            <h3 class="font-title text-3xl md:text-4xl leading-none uppercase">
+              Tartas personalizadas
+            </h3>
+            <p class="text-sm text-[#7c5a52] mt-3 leading-relaxed">
+              Tú me cuentas la idea, colores, fecha y personas. Yo preparo una tarta con tu estilo.
+            </p>
+            <a href="#pedido" class="btn-main mt-5 px-6 py-2 inline-flex">
+              Pedir info
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SECCIÓN 3: PEDIDO DIRECTO -->
+  <section id="pedido" class="order-section py-20 md:py-28 px-5 md:px-8">
+
+    <div class="max-w-6xl mx-auto">
+
+      <div class="order-box max-w-4xl mx-auto text-center p-8 md:p-12 reveal">
+
+        <p class="text-[10px] uppercase tracking-[0.34em] text-[#b64b5c] font-bold mb-4">
+          Pedidos por mensaje
+        </p>
+
+        <h2 class="font-title text-5xl md:text-7xl leading-[0.9] font-bold uppercase text-[#3f2925]">
+          Cuéntame tu idea y preparo tu tarta
+        </h2>
+
+        <p class="text-[#7c5a52] leading-relaxed max-w-2xl mx-auto mt-6">
+          Escríbeme con la fecha, número de personas, sabor o idea de diseño, y te digo disponibilidad y presupuesto.
+        </p>
+
+        <a href="https://www.instagram.com/turrondevainilla/"
+           target="_blank"
+           class="btn-main mt-8 px-9 py-4 inline-flex">
+          Pedir por mensaje
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
