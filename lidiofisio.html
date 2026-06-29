@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Lidiofisiofitgo | Dolor Cervical y Fisioterapia Online</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --soft: #f4f8f8;
+      --soft-2: #e7f0f0;
+
+      --dark: #17242b;
+      --dark-teal: #173b40;
+      --teal: #2f8f95;
+      --teal-deep: #226a70;
+      --teal-soft: #dceeee;
+
+      --accent: #e3c95c;
+
+      --text: #17242b;
+      --muted: #637277;
+      --line: rgba(23, 36, 43, 0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Barlow Condensed", sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    .top-bar {
+      background: var(--dark);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      transition: 0.3s ease;
+    }
+
+    .nav-link {
+      color: var(--dark);
+      font-size: 14px;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--teal-deep);
+    }
+
+    .btn-main {
+      background: var(--teal-deep);
+      color: white;
+      border: 1px solid var(--teal-deep);
+      transition: 0.25s ease;
+      box-shadow: 0 10px 24px rgba(34, 106, 112, 0.18);
+    }
+
+    .btn-main:hover {
+      background: var(--dark-teal);
+      border-color: var(--dark-teal);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(23, 59, 64, 0.20);
+    }
+
+    .btn-secondary {
+      background: var(--dark-teal);
+      color: white;
+      border: 1px solid var(--dark-teal);
+      transition: 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--teal-deep);
+      border-color: var(--teal-deep);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--teal-deep);
+      color: var(--teal-deep);
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--teal-deep);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .logo-wordmark {
+      line-height: 1;
+    }
+
+    .logo-wordmark strong {
+      display: block;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 2.25rem;
+      color: var(--dark);
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .logo-wordmark span {
+      display: block;
+      margin-top: 0.1rem;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--teal-deep);
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 64vh;
+      background-image:
+        linear-gradient(90deg, rgba(23, 36, 43, 0.86), rgba(23, 59, 64, 0.70), rgba(47, 143, 149, 0.34)),
+        url("https://images.pexels.com/photos/20860605/pexels-photo-20860605.jpeg?auto=compress&cs=tinysrgb&w=1800");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(23, 36, 43, 0.04), rgba(23, 36, 43, 0.18));
+      pointer-events: none;
+    }
+
+    .hero h1,
+    .hero p {
+      text-shadow: 0 4px 18px rgba(0,0,0,0.28);
+    }
+
+    .section-label {
+      color: var(--teal-deep);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .feature-card {
+      background: white;
+      border: 1px solid rgba(23, 36, 43, 0.10);
+      transition: 0.25s ease;
+      box-shadow: 0 8px 20px rgba(23, 36, 43, 0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(23, 36, 43, 0.10);
+      border-color: rgba(47, 143, 149, 0.28);
+    }
+
+    .icon-box {
+      background: var(--teal-soft);
+      color: var(--teal-deep);
+    }
+
+    .treatment-pill {
+      border-left: 4px solid var(--teal);
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 10px 24px rgba(23, 36, 43, 0.10);
+    }
+
+    .soft-section {
+      background:
+        linear-gradient(180deg, var(--soft), #ffffff 100%);
+    }
+
+    .cta-section {
+      background-image:
+        linear-gradient(90deg, rgba(23, 36, 43, 0.92), rgba(23, 59, 64, 0.82), rgba(47, 143, 149, 0.56)),
+        url("https://images.pexels.com/photos/20860577/pexels-photo-20860577.jpeg?auto=compress&cs=tinysrgb&w=1800");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .work-block {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .work-block .section-label {
+      color: #d7eeee;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 76vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 4.1rem;
+        line-height: 0.92;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .logo-wordmark strong {
+        font-size: 1.95rem;
+      }
+
+      .logo-wordmark span {
+        font-size: 0.55rem;
+        letter-spacing: 0.15em;
+      }
+
+      .treatment-pill {
+        background: rgba(255,255,255,0.97);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 3.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar hidden md:flex justify-center items-center gap-10 py-2 px-5">
+    <a href="#contacto" class="btn-secondary rounded-full px-5 py-1.5 text-[11px] uppercase tracking-[0.12em] font-black">
+      Valoración online
+    </a>
+
+    <div class="flex items-center gap-2">
+      <i data-lucide="activity" class="w-4 h-4"></i>
+      <span>Dolor cervical · fisioterapia online · vuelve a moverte libre</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="logo-wordmark">
+        <strong>Lidiofisiofitgo</strong>
+        <span>Dolor cervical · fisio online</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#tratamientos" class="nav-link">Método</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="hidden md:inline-flex btn-main rounded-full px-6 py-3 text-sm font-black">
+        Empezar valoración
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[var(--dark)]">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-[var(--line)] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-5 text-sm font-black text-[var(--dark)]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#tratamientos" class="mobile-link">Método</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn-main mt-5 rounded-full px-6 py-4 text-sm font-black inline-flex justify-center w-full">
+        Valoración online
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero flex items-center justify-center text-center px-5">
+    <div class="relative z-10 max-w-5xl mx-auto text-white reveal">
+      <p class="text-lg md:text-2xl mb-4 font-bold">
+        Dolor cervical · mareos · tensión · miedo a moverte
+      </p>
+
+      <h1 class="font-title text-6xl md:text-8xl leading-[0.88] font-bold uppercase">
+        Sal del bucle del dolor cervical
+      </h1>
+
+      <p class="text-white/90 text-base md:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+        Fisioterapia online para personas con dolor de cuello, mareos o tensión cervical que quieren volver a confiar en su cuerpo y moverse sin miedo.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <a href="#contacto" class="btn-main rounded-full px-8 py-4 text-sm font-black inline-flex justify-center">
+          Empezar valoración online
+        </a>
+
+        <a href="#tratamientos" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full px-8 py-4 text-sm font-black inline-flex justify-center hover:bg-white/20 transition">
+          Ver método
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO / SERVICIOS -->
+  <section id="tratamientos" class="soft-section py-20 md:py-24 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="reveal">
+          <p class="section-label mb-4">
+            Fisioterapia online
+          </p>
+
+          <h2 class="font-title text-5xl md:text-7xl leading-[0.9] font-bold uppercase text-[var(--dark)]">
+            No se trata solo de estirar el cuello, sino de entender por qué vuelve el dolor
+          </h2>
+
+          <p class="text-[var(--muted)] leading-relaxed mt-6">
+            El dolor cervical suele convertirse en un bucle: molestias, miedo a moverte, tensión, reposo y vuelta del dolor. El objetivo es entender qué está pasando y construir un plan progresivo para recuperar confianza.
+          </p>
+
+          <p class="text-[var(--teal-deep)] font-black mt-7">
+            Valoramos tu caso, definimos el plan y ajustamos el proceso según tu evolución.
+          </p>
+
+          <a href="#contacto" class="btn-main rounded-full px-7 py-3 mt-7 inline-flex text-sm font-black">
+            Pedir valoración
+          </a>
+        </div>
+
+        <div class="reveal">
+          <img
+            src="https://images.pexels.com/photos/20860591/pexels-photo-20860591.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Fisioterapia cervical con paciente hombre"
+            class="w-full aspect-[4/3] object-cover shadow-xl"
+          >
+        </div>
+      </div>
+
+      <div class="bg-white/85 border border-[var(--line)] py-14 px-5 md:px-12 shadow-sm">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="reveal">
+            <img
+              src="https://images.pexels.com/photos/20860577/pexels-photo-20860577.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Ejercicio guiado de fisioterapia cervical"
+              class="w-full aspect-[4/3] object-cover shadow-md"
+            >
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="video" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--dark)]">
+                Valoración online
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Analizamos tu dolor, cuándo aparece, qué lo empeora y qué movimientos te preocupan.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="brain" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--dark)]">
+                Entiende tu dolor
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Dejas de depender de consejos sueltos y entiendes qué necesita tu cuello.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="activity" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--dark)]">
+                Ejercicios guiados
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Progresiones adaptadas para moverte mejor, reducir miedo y recuperar control.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="badge-check" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--dark)]">
+                Vuelve a confiar
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                El objetivo es que vuelvas a entrenar, trabajar y moverte sin estar pendiente del cuello.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section py-20 md:py-28 px-5 md:px-8 text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <p class="uppercase tracking-[0.18em] text-sm font-black text-[#d7eeee] mb-5">
+          Valoración personalizada
+        </p>
+
+        <h2 class="font-title text-6xl md:text-8xl leading-[0.86] font-bold uppercase">
+          Vuelve a moverte libre sin vivir pendiente del cuello
+        </h2>
+
+        <p class="text-white/86 text-base md:text-lg leading-relaxed max-w-xl mt-6">
+          Cuéntame tu caso y vemos si tu dolor cervical puede trabajarse con un plan online personalizado, adaptado a tu situación, tus síntomas y tu rutina.
+        </p>
+
+        <a href="https://wa.me/0000000000?text=Hola%2C%20quiero%20una%20valoraci%C3%B3n%20online%20por%20dolor%20cervical"
+           target="_blank"
+           class="mt-8 inline-flex rounded-full bg-[var(--teal-deep)] hover:bg-[var(--dark-teal)] text-white px-8 py-4 font-black transition shadow-lg">
+          Pedir valoración por WhatsApp
+        </a>
+      </div>
+
+      <div class="work-block reveal">
+        <p class="section-label mb-5">
+          Cómo trabajamos
+        </p>
+
+        <div class="space-y-5">
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-bold uppercase text-[var(--dark)]">
+              1. Me cuentas tu caso
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Dolor, mareos, tensión, cuándo aparece, qué te limita y qué has probado hasta ahora.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-bold uppercase text-[var(--dark)]">
+              2. Creamos el plan
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Ejercicios, educación, control de síntomas y progresiones adaptadas a tu rutina.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-bold uppercase text-[var(--dark)]">
+              3. Recuperas confianza
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              El objetivo no es solo que duela menos, sino que vuelvas a moverte sin miedo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    lucide.createIcons();
+
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
