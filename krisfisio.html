@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kris Fisio Online | Dolor de Ingle en Futbolistas</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --ice: #f3f8fb;
+      --ice-2: #e6f3f8;
+
+      --dark: #061723;
+      --dark-2: #0b2233;
+      --blue: #0b72b9;
+      --blue-deep: #084f83;
+      --cyan: #18bde8;
+      --cyan-soft: #d8f5fb;
+
+      --orange: #ff6b00;
+      --red: #ef2b2d;
+
+      --text: #101820;
+      --muted: #5d6b76;
+      --line: rgba(6, 23, 35, 0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .top-bar {
+      background: var(--dark);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      transition: 0.3s ease;
+    }
+
+    .nav-link {
+      color: var(--dark);
+      font-size: 14px;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--blue);
+    }
+
+    .btn-main {
+      background: var(--blue);
+      color: white;
+      border: 1px solid var(--blue);
+      transition: 0.25s ease;
+      box-shadow: 0 16px 36px rgba(11, 114, 185, 0.24);
+    }
+
+    .btn-main:hover {
+      background: var(--dark);
+      border-color: var(--dark);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(6, 23, 35, 0.24);
+    }
+
+    .btn-secondary {
+      background: var(--orange);
+      color: white;
+      border: 1px solid var(--orange);
+      transition: 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--blue);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .logo-wordmark {
+      line-height: 1;
+    }
+
+    .logo-wordmark strong {
+      display: block;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2.25rem;
+      color: var(--dark);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .logo-wordmark span {
+      display: block;
+      margin-top: 0.1rem;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 64vh;
+      background-image:
+        linear-gradient(90deg, rgba(6, 23, 35, 0.86), rgba(8, 79, 131, 0.68), rgba(24, 189, 232, 0.16)),
+        url("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 82% 45%, rgba(24, 189, 232, 0.18), transparent 34%),
+        linear-gradient(180deg, rgba(6, 23, 35, 0.08), rgba(6, 23, 35, 0.26));
+      pointer-events: none;
+    }
+
+    .hero h1,
+    .hero p {
+      text-shadow: 0 6px 24px rgba(0,0,0,0.35);
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .feature-card {
+      background: white;
+      border: 1px solid rgba(6, 23, 35, 0.10);
+      transition: 0.25s ease;
+      box-shadow: 0 10px 24px rgba(6, 23, 35, 0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(6, 23, 35, 0.10);
+      border-color: rgba(24, 189, 232, 0.35);
+    }
+
+    .icon-box {
+      background: var(--cyan-soft);
+      color: var(--blue-deep);
+    }
+
+    .treatment-pill {
+      border-left: 4px solid var(--orange);
+      background: rgba(255,255,255,0.94);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+    }
+
+    .soft-section {
+      background:
+        radial-gradient(circle at top left, rgba(24, 189, 232, 0.16), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(255, 107, 0, 0.10), transparent 28%),
+        linear-gradient(180deg, var(--ice), #ffffff 100%);
+    }
+
+    .cta-section {
+      background-image:
+        linear-gradient(90deg, rgba(6, 23, 35, 0.92), rgba(8, 79, 131, 0.78), rgba(6, 23, 35, 0.70)),
+        url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .work-block {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .work-block .section-label {
+      color: var(--cyan);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 76vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 4.4rem;
+        line-height: 0.9;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .logo-wordmark strong {
+        font-size: 1.95rem;
+      }
+
+      .logo-wordmark span {
+        font-size: 0.55rem;
+        letter-spacing: 0.15em;
+      }
+
+      .treatment-pill {
+        background: rgba(255,255,255,0.95);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 3.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar hidden md:flex justify-center items-center gap-10 py-2 px-5">
+    <a href="#contacto" class="btn-secondary rounded-full px-5 py-1.5 text-[11px] uppercase tracking-[0.12em] font-black">
+      Valoración online
+    </a>
+
+    <div class="flex items-center gap-2">
+      <i data-lucide="activity" class="w-4 h-4"></i>
+      <span>Fisio online especializada en dolor de ingle para futbolistas</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="logo-wordmark">
+        <strong>Kris Fisio Online</strong>
+        <span>Ingle · fútbol · recuperación</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#tratamientos" class="nav-link">Método</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="hidden md:inline-flex btn-main rounded-full px-6 py-3 text-sm font-black">
+        Empezar valoración
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[var(--dark)]">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-[var(--line)] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-5 text-sm font-black text-[var(--dark)]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#tratamientos" class="mobile-link">Método</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn-main mt-5 rounded-full px-6 py-4 text-sm font-black inline-flex justify-center w-full">
+        Valoración online
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero flex items-center justify-center text-center px-5">
+    <div class="relative z-10 max-w-5xl mx-auto text-white reveal">
+      <p class="text-lg md:text-2xl mb-4 font-bold">
+        Dolor de ingle · fútbol femenino · vuelta al juego
+      </p>
+
+      <h1 class="font-title text-6xl md:text-8xl leading-[0.88] font-bold uppercase">
+        Vuelve a jugar sin dolor y sin miedo
+      </h1>
+
+      <p class="text-white/90 text-base md:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+        Fisioterapia online especializada en dolor de ingle para futbolistas. Te ayudo a entender qué pasa, entrenar con seguridad y volver al campo con confianza.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <a href="#contacto" class="btn-main rounded-full px-8 py-4 text-sm font-black inline-flex justify-center">
+          Empezar valoración online
+        </a>
+        <a href="#tratamientos" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full px-8 py-4 text-sm font-black inline-flex justify-center hover:bg-white/20 transition">
+          Ver cómo funciona
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section id="tratamientos" class="soft-section py-20 md:py-24 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="reveal">
+          <p class="section-label mb-4">
+            Método online
+          </p>
+
+          <h2 class="font-title text-5xl md:text-7xl leading-[0.9] font-bold uppercase text-[var(--dark)]">
+            Recuperar la ingle no es solo hacer ejercicios sueltos
+          </h2>
+
+          <p class="text-[var(--muted)] leading-relaxed mt-6">
+            El dolor de ingle en fútbol necesita entender cargas, fuerza, cambios de dirección, golpeo, miedo al movimiento y vuelta progresiva al campo. Por eso el plan se adapta a tu caso, tu posición, tus entrenamientos y tu objetivo.
+          </p>
+
+          <p class="text-[var(--blue-deep)] font-black mt-7">
+            Valoramos tu caso, definimos el plan y ajustamos la progresión semana a semana.
+          </p>
+
+          <a href="#contacto" class="btn-main rounded-full px-7 py-3 mt-7 inline-flex text-sm font-black">
+            Pedir valoración
+          </a>
+        </div>
+
+        <div class="reveal">
+          <img
+            src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1200&auto=format&fit=crop"
+            alt="Futbolista entrenando"
+            class="w-full aspect-[4/3] object-cover shadow-xl"
+          >
+        </div>
+      </div>
+
+      <div class="bg-white/80 border border-[var(--line)] py-14 px-5 md:px-12 shadow-sm">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <img
+              src="https://objetos-xlk.estaticos-marca.com/files/article_660_widen_webp/uploads/2026/06/28/6a413c6886361.webp"
+              alt="Futbolista trabajando vuelta al campo"
+              class="w-full aspect-[4/3] object-cover shadow-md"
+            >
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="search-check" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--dark)]">
+                Valoración inicial
+              </h3>
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Analizamos tu dolor, historial, entrenamientos, posición y qué movimientos te limitan.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="dumbbell" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--dark)]">
+                Plan de ejercicios
+              </h3>
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Ejercicios adaptados para recuperar fuerza, control y confianza en la zona de la ingle.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="gauge" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--dark)]">
+                Control de cargas
+              </h3>
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Ajustamos entrenamientos, intensidad, volumen y progresiones para evitar recaídas.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="trophy" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--dark)]">
+                Vuelta al fútbol
+              </h3>
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Progresión para volver a correr, cambiar de dirección, golpear y competir con seguridad.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section py-20 md:py-28 px-5 md:px-8 text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <p class="uppercase tracking-[0.18em] text-sm font-black text-[var(--cyan)] mb-5">
+          Valoración personalizada
+        </p>
+
+        <h2 class="font-title text-6xl md:text-8xl leading-[0.86] font-bold uppercase">
+          No tienes que dejar de jugar por miedo al dolor
+        </h2>
+
+        <p class="text-white/86 text-base md:text-lg leading-relaxed max-w-xl mt-6">
+          Cuéntame tu caso y vemos si tu dolor de ingle puede trabajarse con un plan online personalizado, adaptado a tus entrenamientos y a tu vuelta al campo.
+        </p>
+
+        <a href="https://wa.me/0000000000?text=Hola%2C%20quiero%20una%20valoraci%C3%B3n%20online%20por%20dolor%20de%20ingle"
+           target="_blank"
+           class="mt-8 inline-flex rounded-full bg-[var(--blue)] hover:bg-[var(--orange)] text-white px-8 py-4 font-black transition shadow-lg">
+          Pedir valoración por WhatsApp
+        </a>
+      </div>
+
+      <div class="work-block reveal">
+        <p class="section-label mb-5">
+          Cómo trabajamos
+        </p>
+
+        <div class="space-y-5">
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-bold uppercase text-[var(--dark)]">
+              1. Me cuentas tu caso
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Qué te duele, cuándo aparece, cuánto entrenas y qué te impide hacer en el campo.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-bold uppercase text-[var(--dark)]">
+              2. Creamos el plan
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Ejercicios, control de cargas y progresión adaptada a tu situación.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-bold uppercase text-[var(--dark)]">
+              3. Vuelves con confianza
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              El objetivo no es solo que duela menos, sino que vuelvas a jugar sin miedo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    lucide.createIcons();
+
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
