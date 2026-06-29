@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fisioderma AV | Fisioterapia Dermatofuncional</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --cream: #f7f2ec;
+      --cream-2: #efe6dc;
+      --beige: #e4d5c5;
+      --brown-soft: #9d7d61;
+      --brown: #7b5f49;
+      --brown-deep: #5d4636;
+
+      --green-soft: #dbe8e0;
+      --green-light: #b9cec2;
+      --green: #6f8f7d;
+      --green-deep: #476556;
+      --green-dark: #2e483c;
+
+      --text: #2f2a26;
+      --muted: #766b63;
+      --line: rgba(93, 70, 54, 0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .top-bar {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .header {
+      background: rgba(247, 242, 236, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      transition: 0.3s ease;
+    }
+
+    .nav-link {
+      color: var(--brown-deep);
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--green-dark);
+    }
+
+    .btn-main {
+      background: var(--green-dark);
+      color: white;
+      border: 1px solid var(--green-dark);
+      transition: 0.25s ease;
+      box-shadow: 0 16px 36px rgba(46, 72, 60, 0.22);
+    }
+
+    .btn-main:hover {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(93, 70, 54, 0.20);
+    }
+
+    .btn-secondary {
+      background: var(--brown-soft);
+      color: white;
+      border: 1px solid var(--brown-soft);
+      transition: 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--green-deep);
+      border-color: var(--green-deep);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--green-dark);
+      color: var(--green-dark);
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--green-dark);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .logo-wordmark {
+      line-height: 1;
+    }
+
+    .logo-wordmark strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      color: var(--brown-deep);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-wordmark span {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--green-dark);
+      font-weight: 800;
+    }
+
+    .hero {
+      min-height: 64vh;
+      background-image:
+        linear-gradient(90deg, rgba(46, 72, 60, 0.78), rgba(71, 101, 86, 0.58), rgba(123, 95, 73, 0.28)),
+        url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero h1,
+    .hero p {
+      text-shadow: 0 6px 24px rgba(0,0,0,0.22);
+    }
+
+    .section-label {
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .feature-card {
+      background: white;
+      border: 1px solid rgba(93, 70, 54, 0.10);
+      transition: 0.25s ease;
+      box-shadow: 0 10px 24px rgba(93, 70, 54, 0.04);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(93, 70, 54, 0.10);
+      border-color: rgba(71, 101, 86, 0.24);
+    }
+
+    .icon-box {
+      background: var(--green-soft);
+      color: var(--green-dark);
+    }
+
+    .treatment-pill {
+      border-left: 4px solid var(--brown-soft);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.10);
+    }
+
+    .soft-section {
+      background:
+        radial-gradient(circle at top left, rgba(219, 232, 224, 0.8), transparent 35%),
+        linear-gradient(180deg, var(--cream), #fcfaf8 100%);
+    }
+
+    .cta-section {
+      background-image:
+        linear-gradient(90deg, rgba(46, 72, 60, 0.88), rgba(71, 101, 86, 0.72), rgba(93, 70, 54, 0.52)),
+        url("https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .work-block {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .work-block .section-label {
+      color: var(--green-soft);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 74vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        line-height: 0.95;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .logo-wordmark strong {
+        font-size: 1.75rem;
+      }
+
+      .logo-wordmark span {
+        font-size: 0.55rem;
+        letter-spacing: 0.18em;
+      }
+
+      .treatment-pill {
+        background: rgba(255,255,255,0.94);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar hidden md:flex justify-center items-center gap-10 py-2 px-5">
+    <a href="#contacto" class="btn-secondary rounded-full px-5 py-1.5 text-[11px] uppercase tracking-[0.12em] font-bold">
+      Agenda valoración
+    </a>
+
+    <div class="flex items-center gap-2">
+      <i data-lucide="phone" class="w-4 h-4"></i>
+      <span>Fisioterapia dermatofuncional · atención personalizada</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="logo-wordmark">
+        <strong>Fisioderma AV</strong>
+        <span>Dermatofuncional</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#tratamientos" class="nav-link">Tratamientos</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="hidden md:inline-flex btn-main rounded-full px-6 py-3 text-sm font-bold">
+        Reservar consulta
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[var(--brown-deep)]">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[var(--cream)] border-t border-[var(--line)] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-5 text-sm font-bold text-[var(--brown-deep)]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#tratamientos" class="mobile-link">Tratamientos</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn-main mt-5 rounded-full px-6 py-4 text-sm font-bold inline-flex justify-center w-full">
+        Agendar valoración
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero flex items-center justify-center text-center px-5">
+    <div class="max-w-5xl mx-auto text-white reveal">
+      <p class="text-lg md:text-2xl mb-4 font-medium">
+        Vascular · ortopedia y deportiva · pre, trans y post operatorio
+      </p>
+
+      <h1 class="font-title text-5xl md:text-7xl leading-[0.95] font-bold">
+        Cuidado profesional para acompañar tu recuperación y tu bienestar
+      </h1>
+
+      <p class="text-white/90 text-base md:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+        Tratamientos personalizados en fisioterapia dermatofuncional para mejorar tu proceso, reducir molestias y ayudarte a sentirte mejor en cada etapa.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <a href="#contacto" class="btn-main rounded-full px-8 py-4 text-sm font-bold inline-flex justify-center">
+          Agendar valoración
+        </a>
+        <a href="#tratamientos" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full px-8 py-4 text-sm font-bold inline-flex justify-center hover:bg-white/20 transition">
+          Ver tratamientos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRATAMIENTOS -->
+  <section id="tratamientos" class="soft-section py-20 md:py-24 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="reveal">
+          <p class="section-label mb-4">
+            Tratamiento personalizado
+          </p>
+
+          <h2 class="font-title text-4xl md:text-6xl leading-[1] font-bold text-[var(--brown-deep)]">
+            Un enfoque profesional, estético y funcional adaptado a cada caso
+          </h2>
+
+          <p class="text-[var(--muted)] leading-relaxed mt-6">
+            En Fisioderma AV cada valoración parte de tu situación concreta. El objetivo es acompañarte con un tratamiento serio, personalizado y centrado en resultados, tanto en procesos dermatofuncionales como vasculares, post quirúrgicos o de recuperación física.
+          </p>
+
+          <p class="text-[var(--green-dark)] font-bold mt-7">
+            Valoramos tu caso, definimos el mejor enfoque y te guiamos en el proceso.
+          </p>
+
+          <a href="#contacto" class="btn-main rounded-full px-7 py-3 mt-7 inline-flex text-sm font-bold">
+            Reservar consulta
+          </a>
+        </div>
+
+        <div class="reveal">
+          <img
+            src="https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=1200&auto=format&fit=crop"
+            alt="Tratamiento fisioterapéutico y estético"
+            class="w-full aspect-[4/3] object-cover shadow-xl"
+          >
+        </div>
+      </div>
+
+      <div class="bg-white/70 border border-[var(--line)] py-14 px-5 md:px-12 shadow-sm">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <img
+              src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop"
+              alt="Consulta y valoración profesional"
+              class="w-full aspect-[4/3] object-cover shadow-md"
+            >
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-title text-2xl font-bold text-[var(--brown-deep)]">
+                Dermatofuncional
+              </h3>
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Mejora del tejido, recuperación y abordaje funcional con visión estética y clínica.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="waves" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-title text-2xl font-bold text-[var(--brown-deep)]">
+                Vascular
+              </h3>
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Trabajo enfocado en circulación, retención, inflamación y bienestar corporal.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-title text-2xl font-bold text-[var(--brown-deep)]">
+                Pre y post operatorio
+              </h3>
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Acompañamiento profesional para una recuperación mejor guiada y más segura.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="badge-check" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-title text-2xl font-bold text-[var(--brown-deep)]">
+                Seguimiento
+              </h3>
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Plan ajustado a tu evolución con atención real a tus necesidades y objetivos.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section py-20 md:py-28 px-5 md:px-8 text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <p class="uppercase tracking-[0.18em] text-sm font-bold text-[var(--green-soft)] mb-5">
+          Valoración personalizada
+        </p>
+
+        <h2 class="font-title text-5xl md:text-7xl leading-[0.95] font-bold">
+          Cuéntame tu caso y vemos cómo ayudarte
+        </h2>
+
+        <p class="text-white/86 text-base md:text-lg leading-relaxed max-w-xl mt-6">
+          Si quieres empezar un tratamiento o resolver dudas sobre tu situación, escríbeme por WhatsApp. Te orientaré según tu caso y el tipo de abordaje que mejor encaje contigo.
+        </p>
+
+        <a href="https://wa.me/0000000000?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n%20con%20Fisioderma%20AV"
+           target="_blank"
+           class="mt-8 inline-flex rounded-full bg-[var(--green-dark)] hover:bg-[var(--brown-deep)] text-white px-8 py-4 font-bold transition shadow-lg">
+          Pedir valoración por WhatsApp
+        </a>
+      </div>
+
+      <div class="work-block reveal">
+        <p class="section-label mb-5">
+          Cómo trabajamos
+        </p>
+
+        <div class="space-y-5">
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-3xl font-bold text-[var(--brown-deep)]">
+              1. Valoración inicial
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Revisamos tu caso, tu etapa actual y el objetivo real del tratamiento.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-3xl font-bold text-[var(--brown-deep)]">
+              2. Plan adaptado a ti
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Definimos el enfoque más adecuado según tu necesidad funcional y estética.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-3xl font-bold text-[var(--brown-deep)]">
+              3. Seguimiento profesional
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Ajustamos el tratamiento según evolución y respuesta para acompañarte mejor.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    lucide.createIcons();
+
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
