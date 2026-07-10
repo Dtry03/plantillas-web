@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Javimn Fisio | Fisioterapia, Neurociencia y Movimiento</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --paper: #f6f3ee;
+      --paper-2: #ebe5dc;
+
+      --navy: #17233b;
+      --navy-soft: #253553;
+      --blue: #2f6f9f;
+      --blue-dark: #224f73;
+      --blue-soft: #e3eef5;
+
+      --sand: #d7c3a6;
+      --copper: #a96f45;
+
+      --text: #20242a;
+      --muted: #67717c;
+      --line: rgba(23, 35, 59, 0.14);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Source Serif 4", serif;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .top-bar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .header {
+      background: rgba(246, 243, 238, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      transition: 0.3s ease;
+    }
+
+    .nav-link {
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--blue-dark);
+    }
+
+    .btn-main {
+      background: var(--navy);
+      color: white;
+      border: 1px solid var(--navy);
+      transition: 0.25s ease;
+      box-shadow: 0 14px 30px rgba(23, 35, 59, 0.20);
+      font-weight: 700;
+    }
+
+    .btn-main:hover {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(34, 79, 115, 0.20);
+    }
+
+    .btn-secondary {
+      background: var(--copper);
+      color: white;
+      border: 1px solid var(--copper);
+      transition: 0.25s ease;
+      font-weight: 700;
+    }
+
+    .btn-secondary:hover {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--navy);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .logo-wordmark {
+      line-height: 1;
+    }
+
+    .logo-wordmark strong {
+      display: block;
+      font-family: "Source Serif 4", serif;
+      font-size: 2rem;
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+    }
+
+    .logo-wordmark span {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--blue-dark);
+      font-weight: 800;
+    }
+
+    .hero {
+      min-height: 64vh;
+      background-image:
+        linear-gradient(90deg, rgba(23, 35, 59, 0.88), rgba(37, 53, 83, 0.72), rgba(47, 111, 159, 0.35)),
+        url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(23,35,59,0.04), rgba(23,35,59,0.18));
+      pointer-events: none;
+    }
+
+    .hero h1,
+    .hero p {
+      text-shadow: 0 5px 22px rgba(0,0,0,0.30);
+    }
+
+    .section-label {
+      color: var(--blue-dark);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .feature-card {
+      background: white;
+      border: 1px solid rgba(23, 35, 59, 0.10);
+      transition: 0.25s ease;
+      box-shadow: 0 10px 24px rgba(23, 35, 59, 0.04);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(23, 35, 59, 0.10);
+      border-color: rgba(47, 111, 159, 0.24);
+    }
+
+    .icon-box {
+      background: var(--blue-soft);
+      color: var(--blue-dark);
+    }
+
+    .treatment-pill {
+      border-left: 4px solid var(--copper);
+      background: rgba(255,255,255,0.94);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+    }
+
+    .soft-section {
+      background:
+        radial-gradient(circle at top left, rgba(227, 238, 245, 0.95), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(215, 195, 166, 0.48), transparent 30%),
+        linear-gradient(180deg, var(--paper), #ffffff 100%);
+    }
+
+    .cta-section {
+      background-image:
+        linear-gradient(90deg, rgba(23, 35, 59, 0.92), rgba(37, 53, 83, 0.80), rgba(47, 111, 159, 0.58)),
+        url("https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .work-block {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .work-block .section-label {
+      color: #d9e9f3;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 76vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        line-height: 1;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .logo-wordmark strong {
+        font-size: 1.65rem;
+      }
+
+      .logo-wordmark span {
+        font-size: 0.55rem;
+        letter-spacing: 0.15em;
+      }
+
+      .treatment-pill {
+        background: rgba(255,255,255,0.96);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar hidden md:flex justify-center items-center gap-10 py-2 px-5">
+    <a href="#contacto" class="btn-secondary rounded-full px-5 py-1.5 text-[11px] uppercase tracking-[0.12em]">
+      Solicitar valoración
+    </a>
+
+    <div class="flex items-center gap-2">
+      <i data-lucide="activity" class="w-4 h-4"></i>
+      <span>Fisioterapia · osteopatía · neurociencia · docencia clínica</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="logo-wordmark">
+        <strong>Javimn Fisio</strong>
+        <span>Fisioterapia · osteopatía · neurociencia</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#tratamientos" class="nav-link">Enfoque</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="hidden md:inline-flex btn-main rounded-full px-6 py-3 text-sm">
+        Reservar valoración
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[var(--navy)]">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[var(--paper)] border-t border-[var(--line)] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-5 text-sm font-bold text-[var(--navy)]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#tratamientos" class="mobile-link">Enfoque</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn-main mt-5 rounded-full px-6 py-4 text-sm inline-flex justify-center w-full">
+        Solicitar valoración
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero flex items-center justify-center text-center px-5">
+    <div class="relative z-10 max-w-5xl mx-auto text-white reveal">
+      <p class="text-lg md:text-2xl mb-4 font-semibold">
+        Fisioterapia · osteopatía · sistema nervioso · movimiento
+      </p>
+
+      <h1 class="font-title text-5xl md:text-7xl leading-[1]">
+        Entiende tu cuerpo para moverte mejor
+      </h1>
+
+      <p class="text-white/90 text-base md:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+        Un enfoque clínico basado en fisioterapia, osteopatía y neurociencia para comprender el origen de tus molestias y construir un plan de recuperación con sentido.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <a href="#contacto" class="btn-main rounded-full px-8 py-4 text-sm inline-flex justify-center">
+          Solicitar valoración
+        </a>
+
+        <a href="#tratamientos" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full px-8 py-4 text-sm font-semibold inline-flex justify-center hover:bg-white/20 transition">
+          Ver enfoque
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENFOQUE / SERVICIOS -->
+  <section id="tratamientos" class="soft-section py-20 md:py-24 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="reveal">
+          <p class="section-label mb-4">
+            Enfoque clínico
+          </p>
+
+          <h2 class="font-title text-4xl md:text-6xl leading-[1.05] text-[var(--navy)]">
+            No se trata solo de tratar síntomas, sino de entender el sistema completo
+          </h2>
+
+          <p class="text-[var(--muted)] leading-relaxed mt-6">
+            Dolor, movimiento, sistema nervioso, hábitos y contexto influyen en cómo responde el cuerpo. La valoración busca entender qué ocurre, qué factores mantienen el problema y qué estrategia puede ayudarte a mejorar de forma progresiva.
+          </p>
+
+          <p class="text-[var(--blue-dark)] font-bold mt-7">
+            Valoración, razonamiento clínico y plan adaptado a tu caso.
+          </p>
+
+          <a href="#contacto" class="btn-main rounded-full px-7 py-3 mt-7 inline-flex text-sm">
+            Pedir valoración
+          </a>
+        </div>
+
+        <div class="reveal">
+          <img
+            src="https://tutorasap.es/wp-content/uploads/2018/01/El-arte-y-la-neurociencia.png"
+            alt="Valoración clínica de fisioterapia"
+            class="w-full aspect-[4/3] object-cover shadow-xl"
+          >
+        </div>
+      </div>
+
+      <div class="bg-white/78 border border-[var(--line)] py-14 px-5 md:px-12 shadow-sm">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="reveal">
+            <img
+              src="https://www.psicoactiva.com/wp-content/uploads/2024/07/neurociencias-avances.jpg"
+              alt="Estudio del sistema nervioso y movimiento"
+              class="w-full aspect-[4/3] object-cover shadow-md"
+            >
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="stethoscope" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-semibold text-[var(--navy)]">
+                Fisioterapia
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Valoración y tratamiento del dolor, la función y el movimiento desde una visión clínica.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="hand" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-semibold text-[var(--navy)]">
+                Osteopatía
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Abordaje manual y funcional para entender cómo se relacionan estructuras y sistemas.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="brain" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-semibold text-[var(--navy)]">
+                Neurociencia
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Sistema nervioso, dolor, nervio vago, eje gut-brain y factores que influyen en la recuperación.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-semibold text-[var(--navy)]">
+                Docencia
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Divulgación y formación para entender mejor el cuerpo, el dolor y el movimiento.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section py-20 md:py-28 px-5 md:px-8 text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <p class="uppercase tracking-[0.18em] text-sm font-bold text-[#d9e9f3] mb-5">
+          Valoración personalizada
+        </p>
+
+        <h2 class="font-title text-5xl md:text-7xl leading-[1]">
+          Cuéntame tu caso y buscamos la mejor estrategia
+        </h2>
+
+        <p class="text-white/86 text-base md:text-lg leading-relaxed max-w-xl mt-6">
+          Si tienes dolor, molestias recurrentes o quieres entender mejor qué le pasa a tu cuerpo, podemos valorar tu caso y definir un plan adaptado a tus objetivos.
+        </p>
+
+        <a href="https://www.instagram.com/javimn.fisio/"
+           target="_blank"
+           class="mt-8 inline-flex rounded-full bg-[var(--navy)] hover:bg-[var(--blue-dark)] text-white px-8 py-4 font-bold transition shadow-lg">
+          Pedir valoración por mensaje
+        </a>
+      </div>
+
+      <div class="work-block reveal">
+        <p class="section-label mb-5">
+          Cómo trabajamos
+        </p>
+
+        <div class="space-y-5">
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-3xl font-semibold text-[var(--navy)]">
+              1. Analizamos tu caso
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Síntomas, historia, hábitos, movimiento y factores que pueden estar influyendo.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-3xl font-semibold text-[var(--navy)]">
+              2. Entendemos el origen
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Buscamos relaciones entre dolor, sistema nervioso, carga, función y contexto.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-3xl font-semibold text-[var(--navy)]">
+              3. Creamos el plan
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Tratamiento, educación, ejercicio y seguimiento según lo que necesite tu cuerpo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    lucide.createIcons();
+
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
