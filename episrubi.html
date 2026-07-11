@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EPIS RUBI | Ropa de Trabajo y Protección Laboral</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --black: #0b0b0b;
+      --dark: #151515;
+      --graphite: #242424;
+      --yellow: #f5c400;
+      --orange: #f28c00;
+      --red: #c62828;
+      --white: #ffffff;
+      --muted: #d8d8d8;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    .font-oswald {
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1.5px;
+    }
+
+    .btn-main {
+      background: var(--yellow);
+      color: var(--black);
+      font-weight: 900;
+      transition: 0.25s ease;
+    }
+
+    .btn-main:hover {
+      background: var(--orange);
+      color: white;
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      width: 0;
+      height: 2px;
+      background: var(--yellow);
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .hero-title {
+      text-shadow: 0 8px 32px rgba(0,0,0,0.8);
+    }
+
+    .slide-bg {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(245,196,0,0.16) 0 10%, transparent 10% 20%, rgba(245,196,0,0.16) 20% 30%, transparent 30% 40%),
+        radial-gradient(circle at 20% 30%, rgba(245,196,0,0.22), transparent 28%),
+        radial-gradient(circle at 80% 70%, rgba(198,40,40,0.22), transparent 26%);
+      opacity: 0.9;
+    }
+
+    .slide-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.45;
+    }
+
+    .slide-1 {
+      background:
+        linear-gradient(120deg, #0b0b0b 0%, #202020 55%, #f5c400 55%, #f28c00 100%);
+    }
+
+    .slide-2 {
+      background:
+        linear-gradient(120deg, #171717 0%, #0b0b0b 45%, #c62828 45%, #f5c400 100%);
+    }
+
+    .slide-3 {
+      background:
+        linear-gradient(120deg, #0b0b0b 0%, #2c2c2c 50%, #111111 50%, #f5c400 100%);
+    }
+
+    .hero-product {
+      position: absolute;
+      right: 8%;
+      bottom: 12%;
+      width: min(420px, 36vw);
+      aspect-ratio: 1 / 1;
+      border: 2px solid rgba(245,196,0,0.55);
+      background: rgba(0,0,0,0.42);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-3deg);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.38);
+    }
+
+    .hero-product span {
+      font-family: 'Oswald', sans-serif;
+      color: var(--yellow);
+      font-size: clamp(2rem, 4vw, 4.5rem);
+      line-height: 0.9;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: 0 6px 22px rgba(0,0,0,0.7);
+    }
+
+    .service-card {
+      transition: 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .catalog-card {
+      min-height: 250px;
+      border-radius: 0.35rem;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(0,0,0,0.18);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+      background: #111;
+      transition: 0.3s ease;
+    }
+
+    .catalog-card:hover {
+      transform: scale(1.035);
+      box-shadow: 0 22px 44px rgba(0,0,0,0.30);
+    }
+
+    .catalog-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(245,196,0,0.20) 0 10%, transparent 10% 20%, rgba(245,196,0,0.20) 20% 30%, transparent 30% 40%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.10), transparent 30%);
+      opacity: 0.7;
+    }
+
+    .catalog-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 55%;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.88));
+    }
+
+    .catalog-content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .catalog-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 3;
+      background: var(--yellow);
+      color: var(--black);
+      font-weight: 900;
+      font-size: 0.72rem;
+      padding: 0.35rem 0.55rem;
+      border-radius: 0.2rem;
+      letter-spacing: 0.04em;
+    }
+
+    .catalog-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      color: rgba(255,255,255,0.16);
+      width: 7rem;
+      height: 7rem;
+    }
+
+    .card-yellow {
+      background: linear-gradient(135deg, #111 0%, #272727 52%, #f5c400 52%, #f28c00 100%);
+    }
+
+    .card-red {
+      background: linear-gradient(135deg, #111 0%, #242424 55%, #c62828 55%, #f5c400 100%);
+    }
+
+    .card-dark {
+      background: linear-gradient(135deg, #050505 0%, #1d1d1d 55%, #3a3a3a 100%);
+    }
+
+    .card-orange {
+      background: linear-gradient(135deg, #111 0%, #2a2a2a 52%, #f28c00 52%, #f5c400 100%);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+        line-height: 1;
+      }
+
+      .service-icon {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+
+      .hero-product {
+        display: none;
+      }
+
+      .catalog-card {
+        min-height: 210px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="bg-[#111111] border-b border-white/10 sticky top-0 z-50">
+    <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+
+      <a href="#inicio" class="font-oswald text-white font-bold text-3xl hover:text-yellow-400 transition">
+        EPIS RUBI
+      </a>
+
+      <button data-collapse-toggle="navbar" type="button" class="md:hidden mx-4">
+        <i data-lucide="menu" class="text-white"></i>
+      </button>
+
+      <a
+        href="https://api.whatsapp.com/send?phone=34930234219&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20ropa%20de%20trabajo%20y%20EPIs"
+        target="_blank"
+        class="md:hidden btn-main rounded px-4 py-2 text-sm"
+      >
+        CONTACTAR
+      </a>
+
+      <div class="hidden md:flex gap-8 text-white font-semibold items-center">
+        <a href="#servicios" class="nav-link p-2 hover:text-yellow-400 font-oswald transition">
+          PRODUCTOS
+        </a>
+
+        <a href="#trabajos" class="nav-link p-2 hover:text-yellow-400 font-oswald transition">
+          CATÁLOGO
+        </a>
+
+        <a
+          href="https://api.whatsapp.com/send?phone=34930234219&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20ropa%20de%20trabajo%20y%20EPIs"
+          target="_blank"
+          class="btn-main rounded px-5 py-3 font-oswald"
+        >
+          PEDIR INFORMACIÓN
+        </a>
+      </div>
+    </div>
+
+    <div class="hidden flex-col gap-4 text-white font-semibold px-6 pb-6 md:hidden" id="navbar">
+      <a href="#servicios" class="p-2 hover:text-yellow-400 font-oswald">PRODUCTOS</a>
+      <a href="#trabajos" class="p-2 hover:text-yellow-400 font-oswald">CATÁLOGO</a>
+      <a
+        href="https://api.whatsapp.com/send?phone=34930234219&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20ropa%20de%20trabajo%20y%20EPIs"
+        target="_blank"
+        class="btn-main rounded px-5 py-3 text-center font-oswald"
+      >
+        CONTACTAR POR WHATSAPP
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative h-screen w-full mx-auto py-20 flex justify-center items-center overflow-hidden">
+    <div class="absolute inset-0 z-10 bg-black/62"></div>
+
+    <div id="hero-slides" class="absolute inset-0 z-0">
+      <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
+        <div class="slide-bg slide-1">
+          <div class="hero-product">
+            <span>ROPA<br>LABORAL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+        <div class="slide-bg slide-2">
+          <div class="hero-product">
+            <span>EPIS<br>RUBI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+        <div class="slide-bg slide-3">
+          <div class="hero-product">
+            <span>CALZADO<br>PRO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative z-20 text-white text-center w-full flex-col justify-center mx-auto px-4 max-w-6xl">
+      <p class="font-oswald text-yellow-400 text-xl md:text-2xl mb-4">
+        ROPA DE TRABAJO · EPIS · CALZADO · SEÑALIZACIÓN
+      </p>
+
+      <h1 class="hero-title md:text-7xl text-4xl font-bold pb-5 font-oswald uppercase">
+        Todo lo necesario para trabajar seguro en un solo lugar
+      </h1>
+
+      <p class="md:text-3xl text-lg pb-8 text-white/90 max-w-4xl mx-auto">
+        Tienda especializada en ropa laboral, protección, higiene, señalización y calzado profesional.
+      </p>
+
+      <a
+        href="https://api.whatsapp.com/send?phone=34930234219&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20ropa%20de%20trabajo%20y%20EPIs"
+        target="_blank"
+        class="btn-main rounded px-6 py-4 md:text-2xl text-md inline-flex items-center justify-center gap-2 font-oswald"
+      >
+        CONSULTAR POR WHATSAPP
+        <i data-lucide="chevron-right" class="md:w-8 md:h-8"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="bg-[#151515] pt-12 pb-12 md:pt-0 md:pb-0" id="servicios">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+
+      <div class="mb-12 lg:mb-16 flex flex-col items-center justify-center text-center">
+        <p class="font-oswald text-yellow-400 text-lg mb-3">
+          PRODUCTOS PROFESIONALES
+        </p>
+
+        <h2 class="mb-4 text-5xl md:text-6xl text-center tracking-tight font-extrabold text-white font-oswald">
+          ¿Qué necesitas para tu trabajo?
+        </h2>
+
+        <p class="text-white/75 max-w-3xl text-lg">
+          Equipamiento para empresas, autónomos y profesionales que necesitan seguridad, comodidad e imagen laboral.
+        </p>
+      </div>
+
+      <div class="space-y-10 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-12 md:space-y-0">
+
+        <div class="service-card flex flex-col justify-center items-center cursor-pointer text-center">
+          <div class="flex justify-center items-center mb-6 w-24 h-24 rounded-full bg-black border border-yellow-400/30">
+            <i data-lucide="shirt" class="service-icon text-yellow-400 w-16 h-16"></i>
+          </div>
+
+          <h3 class="mb-2 text-3xl font-bold text-white font-oswald">
+            ROPA LABORAL
+          </h3>
+
+          <p class="text-white/80 text-lg mb-3">
+            Uniformes, chaquetas, pantalones, chalecos y prendas para trabajar cómodo y protegido.
+          </p>
+        </div>
+
+        <div class="service-card flex flex-col justify-center items-center cursor-pointer text-center">
+          <div class="flex justify-center items-center mb-6 w-24 h-24 rounded-full bg-black border border-yellow-400/30">
+            <i data-lucide="shield-check" class="service-icon text-yellow-400 w-16 h-16"></i>
+          </div>
+
+          <h3 class="mb-2 text-3xl font-bold text-white font-oswald">
+            EPIS Y PROTECCIÓN
+          </h3>
+
+          <p class="text-white/80 text-lg mb-3">
+            Cascos, guantes, protección ocular, alta visibilidad y seguridad para cada entorno.
+          </p>
+        </div>
+
+        <div class="service-card flex flex-col justify-center items-center cursor-pointer text-center">
+          <div class="flex justify-center items-center mb-6 w-24 h-24 rounded-full bg-black border border-yellow-400/30">
+            <i data-lucide="footprints" class="service-icon text-yellow-400 w-16 h-16"></i>
+          </div>
+
+          <h3 class="mb-2 text-3xl font-bold text-white font-oswald">
+            CALZADO LABORAL
+          </h3>
+
+          <p class="text-white/80 text-lg mb-3">
+            Zapatos y botas de seguridad preparados para jornadas exigentes y distintos sectores.
+          </p>
+        </div>
+
+        <div class="service-card flex flex-col justify-center items-center cursor-pointer text-center">
+          <div class="flex justify-center items-center mb-6 w-24 h-24 rounded-full bg-black border border-yellow-400/30">
+            <i data-lucide="traffic-cone" class="service-icon text-yellow-400 w-16 h-16"></i>
+          </div>
+
+          <h3 class="mb-2 text-3xl font-bold text-white font-oswald">
+            SEÑALIZACIÓN E HIGIENE
+          </h3>
+
+          <p class="text-white/80 text-lg mb-3">
+            Señalizaciones, productos de higiene laboral y material necesario para tu espacio de trabajo.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section class="bg-yellow-500 p-6 md:p-12" id="trabajos">
+    <div class="mb-10 lg:mb-16 flex flex-col justify-center text-center">
+      <p class="font-oswald text-black/70 text-lg mb-3">
+        CATÁLOGO EPIS RUBI
+      </p>
+
+      <h2 class="mb-4 text-5xl md:text-6xl text-center tracking-tight font-extrabold text-black font-oswald">
+        Equípate con lo necesario
+      </h2>
+
+      <p class="md:text-xl text-black/80 text-md text-center max-w-3xl mx-auto">
+        Ropa, calzado, protección laboral y accesorios para profesionales que necesitan soluciones reales.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-screen-xl mx-auto">
+
+      <div class="catalog-card card-yellow">
+        <span class="catalog-tag">ROPA</span>
+        <i data-lucide="shirt" class="catalog-icon"></i>
+        <div class="catalog-content">
+          <h3 class="font-oswald text-3xl text-white">Ropa laboral</h3>
+          <p class="text-white/75 text-sm">Uniformes, pantalones, chaquetas y chalecos.</p>
+        </div>
+      </div>
+
+      <div class="catalog-card card-dark">
+        <span class="catalog-tag">SEGURIDAD</span>
+        <i data-lucide="shield-check" class="catalog-icon"></i>
+        <div class="catalog-content">
+          <h3 class="font-oswald text-3xl text-white">EPIs</h3>
+          <p class="text-white/75 text-sm">Protección para cada tipo de trabajo.</p>
+        </div>
+      </div>
+
+      <div class="catalog-card card-red">
+        <span class="catalog-tag">CALZADO</span>
+        <i data-lucide="footprints" class="catalog-icon"></i>
+        <div class="catalog-content">
+          <h3 class="font-oswald text-3xl text-white">Calzado laboral</h3>
+          <p class="text-white/75 text-sm">Botas y zapatos de seguridad profesional.</p>
+        </div>
+      </div>
+
+      <div class="catalog-card card-orange">
+        <span class="catalog-tag">SEÑALES</span>
+        <i data-lucide="traffic-cone" class="catalog-icon"></i>
+        <div class="catalog-content">
+          <h3 class="font-oswald text-3xl text-white">Señalización</h3>
+          <p class="text-white/75 text-sm">Material para señalizar zonas de trabajo.</p>
+        </div>
+      </div>
+
+      <div class="catalog-card card-dark">
+        <span class="catalog-tag">HIGIENE</span>
+        <i data-lucide="spray-can" class="catalog-icon"></i>
+        <div class="catalog-content">
+          <h3 class="font-oswald text-3xl text-white">Higiene laboral</h3>
+          <p class="text-white/75 text-sm">Productos para mantener espacios seguros.</p>
+        </div>
+      </div>
+
+      <div class="catalog-card card-yellow">
+        <span class="catalog-tag">ALTA VIS.</span>
+        <i data-lucide="construction" class="catalog-icon"></i>
+        <div class="catalog-content">
+          <h3 class="font-oswald text-3xl text-white">Alta visibilidad</h3>
+          <p class="text-white/75 text-sm">Chalecos y prendas para máxima seguridad.</p>
+        </div>
+      </div>
+
+      <div class="catalog-card card-orange">
+        <span class="catalog-tag">GUANTES</span>
+        <i data-lucide="hand" class="catalog-icon"></i>
+        <div class="catalog-content">
+          <h3 class="font-oswald text-3xl text-white">Guantes</h3>
+          <p class="text-white/75 text-sm">Protección para manos y trabajos exigentes.</p>
+        </div>
+      </div>
+
+      <div class="catalog-card card-red">
+        <span class="catalog-tag">EMPRESA</span>
+        <i data-lucide="briefcase-business" class="catalog-icon"></i>
+        <div class="catalog-content">
+          <h3 class="font-oswald text-3xl text-white">Asesoramiento</h3>
+          <p class="text-white/75 text-sm">Te ayudamos a elegir según tu sector.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#151515] pt-12 pb-12 md:pt-0 md:pb-0" id="contacto">
+    <div class="flex flex-col text-white items-center justify-center text-center py-12 px-4 mx-auto max-w-screen-xl sm:py-20 lg:px-6">
+
+      <p class="font-oswald text-yellow-400 text-lg mb-3">
+        ATENCIÓN DIRECTA
+      </p>
+
+      <h2 class="mb-4 text-4xl md:text-6xl tracking-tight font-extrabold text-white font-oswald">
+        ¿Necesitas equipar a tu empresa o renovar tu ropa laboral?
+      </h2>
+
+      <p class="text-xl md:text-2xl pb-8 text-white/80 max-w-4xl">
+        Escríbenos y te orientamos sobre ropa, calzado, EPIs, señalización o higiene laboral según tu sector.
+      </p>
+
+      <a
+        href="https://api.whatsapp.com/send?phone=34930234219&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20ropa%20laboral%2C%20EPIs%20o%20calzado%20de%20trabajo"
+        target="_blank"
+        class="btn-main px-7 py-4 rounded text-md md:text-3xl font-oswald inline-flex items-center gap-3"
+      >
+        CONTACTAR POR WHATSAPP
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+      </a>
+
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.7.0/dist/umd/lucide.min.js"></script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('opacity-100');
+      slides[current].classList.add('opacity-0');
+
+      current = (current + 1) % slides.length;
+
+      slides[current].classList.remove('opacity-0');
+      slides[current].classList.add('opacity-100');
+    }, 4000);
+  </script>
+
+</body>
+</html>
