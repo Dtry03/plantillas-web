@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Maestre Physio | Fisioterapia, Neurociencia y Motorsport</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --cream: #f4efe7;
+      --cream-2: #e8dfd3;
+
+      --black: #08090b;
+      --asphalt: #15181d;
+      --graphite: #252b32;
+
+      --red: #b5121b;
+      --red-dark: #7f0d14;
+      --gold: #c9a24f;
+      --gold-soft: #f1e5c5;
+
+      --text: #16181c;
+      --muted: #686d74;
+      --line: rgba(8, 9, 11, 0.14);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Barlow Condensed", sans-serif;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+    }
+
+    .top-bar {
+      background: var(--black);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .header {
+      background: rgba(244, 239, 231, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      transition: 0.3s ease;
+    }
+
+    .nav-link {
+      color: var(--black);
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--red);
+    }
+
+    .btn-main {
+      background: var(--red);
+      color: white;
+      border: 1px solid var(--red);
+      transition: 0.25s ease;
+      box-shadow: 0 14px 30px rgba(181, 18, 27, 0.22);
+      font-weight: 700;
+    }
+
+    .btn-main:hover {
+      background: var(--black);
+      border-color: var(--black);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(8, 9, 11, 0.28);
+    }
+
+    .btn-secondary {
+      background: var(--gold);
+      color: var(--black);
+      border: 1px solid var(--gold);
+      transition: 0.25s ease;
+      font-weight: 800;
+    }
+
+    .btn-secondary:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--red);
+      color: var(--red);
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--red);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .logo-wordmark {
+      line-height: 1;
+    }
+
+    .logo-wordmark strong {
+      display: block;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 2.25rem;
+      color: var(--black);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .logo-wordmark span {
+      display: block;
+      margin-top: 0.12rem;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--red);
+      font-weight: 800;
+    }
+
+    .hero {
+      min-height: 64vh;
+      background-image:
+        linear-gradient(90deg, rgba(8, 9, 11, 0.90), rgba(21, 24, 29, 0.74), rgba(181, 18, 27, 0.34)),
+        url("https://imagenes2.eltiempo.com/files/image_1200_535/files/fp/uploads/2024/12/23/6769ba5b8b0c7.r_d.1305-1140.jpeg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(8,9,11,0.05), rgba(8,9,11,0.22)),
+        radial-gradient(circle at 80% 40%, rgba(201, 162, 79, 0.16), transparent 30%);
+      pointer-events: none;
+    }
+
+    .hero h1,
+    .hero p {
+      text-shadow: 0 5px 22px rgba(0,0,0,0.36);
+    }
+
+    .section-label {
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .feature-card {
+      background: white;
+      border: 1px solid rgba(8, 9, 11, 0.10);
+      transition: 0.25s ease;
+      box-shadow: 0 10px 24px rgba(8, 9, 11, 0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(8, 9, 11, 0.11);
+      border-color: rgba(181, 18, 27, 0.28);
+    }
+
+    .icon-box {
+      background: var(--gold-soft);
+      color: var(--red-dark);
+    }
+
+    .treatment-pill {
+      border-left: 4px solid var(--gold);
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+    }
+
+    .soft-section {
+      background:
+        radial-gradient(circle at top left, rgba(201, 162, 79, 0.22), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(181, 18, 27, 0.10), transparent 30%),
+        linear-gradient(180deg, var(--cream), #ffffff 100%);
+    }
+
+    .cta-section {
+      background-image:
+        linear-gradient(90deg, rgba(8, 9, 11, 0.94), rgba(21, 24, 29, 0.84), rgba(181, 18, 27, 0.56)),
+        url("https://i.blogs.es/dacb1b/alonso-dakar-2020/840_560.jpg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .work-block {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .work-block .section-label {
+      color: var(--gold-soft);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 76vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        line-height: 0.92;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .logo-wordmark strong {
+        font-size: 1.9rem;
+      }
+
+      .logo-wordmark span {
+        font-size: 0.55rem;
+        letter-spacing: 0.15em;
+      }
+
+      .treatment-pill {
+        background: rgba(255,255,255,0.97);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 3.45rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar hidden md:flex justify-center items-center gap-10 py-2 px-5">
+    <a href="#contacto" class="btn-secondary rounded-full px-5 py-1.5 text-[11px] uppercase tracking-[0.12em]">
+      Empezar valoración
+    </a>
+
+    <div class="flex items-center gap-2">
+      <i data-lucide="activity" class="w-4 h-4"></i>
+      <span>Fisioterapia · neurociencia · motorsport · rendimiento del piloto</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="logo-wordmark">
+        <strong>Maestre Physio</strong>
+      
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#tratamientos" class="nav-link">Enfoque</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="hidden md:inline-flex btn-main rounded-full px-6 py-3 text-sm">
+        Solicitar valoración
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[var(--black)]">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[var(--cream)] border-t border-[var(--line)] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-5 text-sm font-bold text-[var(--black)]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#tratamientos" class="mobile-link">Enfoque</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn-main mt-5 rounded-full px-6 py-4 text-sm inline-flex justify-center w-full">
+        Solicitar valoración
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero flex items-center justify-center text-center px-5">
+    <div class="relative z-10 max-w-5xl mx-auto text-white reveal">
+      <p class="text-lg md:text-2xl mb-4 font-semibold">
+        Fisioterapia · neurociencia · motorsport
+      </p>
+
+      <h1 class="font-title text-6xl md:text-8xl leading-[0.88] uppercase">
+        El piloto también necesita un fisio que hable su idioma
+      </h1>
+
+      <p class="text-white/90 text-base md:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+        Un enfoque de fisioterapia y neurociencia aplicado al motorsport para entender el cuello, la fatiga, la concentración y el rendimiento dentro y fuera del coche.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <a href="#contacto" class="btn-main rounded-full px-8 py-4 text-sm inline-flex justify-center">
+          Empezar valoración
+        </a>
+
+        <a href="#tratamientos" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full px-8 py-4 text-sm font-semibold inline-flex justify-center hover:bg-white/20 transition">
+          Ver enfoque
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENFOQUE / SERVICIOS -->
+  <section id="tratamientos" class="soft-section py-20 md:py-24 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="reveal">
+          <p class="section-label mb-4">
+            Fisio para pilotos
+          </p>
+
+          <h2 class="font-title text-5xl md:text-7xl leading-[0.9] uppercase text-[var(--black)]">
+            No se trata solo de tratar dolor, sino de entender qué exige el cockpit
+          </h2>
+
+          <p class="text-[var(--muted)] leading-relaxed mt-6">
+            Un piloto no se mueve como cualquier deportista. Cervicales, hombros, espalda, reflejos, fatiga mental y control del cuerpo influyen en cómo rindes cuando estás sometido a tensión, velocidad y toma de decisiones constante.
+          </p>
+
+          <p class="text-[var(--red)] font-bold mt-7">
+            Valoramos tu caso, entendemos tu contexto y creamos una estrategia adaptada a tu conducción.
+          </p>
+
+          <a href="#contacto" class="btn-main rounded-full px-7 py-3 mt-7 inline-flex text-sm">
+            Pedir valoración
+          </a>
+        </div>
+
+        <div class="reveal">
+          <img
+            src="https://img.redbull.com/images/c_crop,x_149,y_0,h_2133,w_1600/c_fill,w_450,h_600/q_auto,f_auto/redbullcom/2019/06/11/566ab259-539b-420b-9edd-c5820a0b87dc/max-verstappen"
+            alt="Motorsport y rendimiento del piloto"
+            class="w-full aspect-[4/3] object-cover shadow-xl"
+          >
+        </div>
+      </div>
+
+      <div class="bg-white/82 border border-[var(--line)] py-14 px-5 md:px-12 shadow-sm">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="reveal">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6axVbNyllyGIf9wLOxk5laJ2N9F4pBJ1B3CzHULGa8g&s=10"
+              alt="Análisis, preparación y rendimiento"
+              class="w-full aspect-[4/3] object-cover shadow-md"
+            >
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="stethoscope" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-semibold uppercase text-[var(--black)]">
+                Fisioterapia
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Valoración de dolor, movilidad, cuello, espalda y limitaciones físicas del piloto.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="brain" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-semibold uppercase text-[var(--black)]">
+                Neurociencia
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Sistema nervioso, percepción, fatiga, foco y respuesta bajo presión en pista.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="gauge" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-semibold uppercase text-[var(--black)]">
+                Motorsport
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Enfoque adaptado al piloto: fuerzas, postura, cockpit, cuello y exigencia mental.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i data-lucide="flag" class="w-6 h-6"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-semibold uppercase text-[var(--black)]">
+                Rendimiento
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Preparación para rendir mejor, recuperarte antes y soportar mejor la exigencia.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section py-20 md:py-28 px-5 md:px-8 text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <p class="uppercase tracking-[0.18em] text-sm font-bold text-[var(--gold-soft)] mb-5">
+          Valoración personalizada
+        </p>
+
+        <h2 class="font-title text-6xl md:text-8xl leading-[0.88] uppercase">
+          Si compites, tu cuerpo también forma parte del coche
+        </h2>
+
+        <p class="text-white/86 text-base md:text-lg leading-relaxed max-w-xl mt-6">
+          Cuéntame tu caso, tu disciplina y qué te limita. Vemos cómo trabajar tu cuerpo, tu recuperación y tu rendimiento con un enfoque adaptado al motorsport.
+        </p>
+
+        <a href="https://www.instagram.com/maestrephysio/"
+           target="_blank"
+           class="mt-8 inline-flex rounded-full bg-[var(--red)] hover:bg-[var(--gold)] hover:text-[var(--black)] text-white px-8 py-4 font-bold transition shadow-lg">
+          Pedir valoración por mensaje
+        </a>
+      </div>
+
+      <div class="work-block reveal">
+        <p class="section-label mb-5">
+          Cómo trabajamos
+        </p>
+
+        <div class="space-y-5">
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-semibold uppercase text-[var(--black)]">
+              1. Analizamos al piloto
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Dolor, postura, disciplina, entrenamientos, coche, casco, cuello y limitaciones reales.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-semibold uppercase text-[var(--black)]">
+              2. Entendemos la exigencia
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Relacionamos cuerpo, sistema nervioso, fatiga, reflejos y demandas del motorsport.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-semibold uppercase text-[var(--black)]">
+              3. Creamos estrategia
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Trabajo físico, educación, recuperación y pautas para rendir mejor dentro y fuera de pista.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    lucide.createIcons();
+
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
