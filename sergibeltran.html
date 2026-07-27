@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Sergi Beltran | Entrenador y Fisio para Corredores</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes deportivas / técnicas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Iconos personalizados: Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+
+      --cream: #f7f3e9;
+      --cream-2: #ece4d5;
+      --cream-3: #fffaf0;
+
+      --forest: #162719;
+      --forest-2: #203b26;
+      --green-dark: #2f5a35;
+      --green: #47a14f;
+      --green-bright: #5fd45f;
+      --green-soft: #e1efd9;
+
+      --orange: #f28c28;
+      --orange-deep: #c7651f;
+      --orange-soft: #f7dcc2;
+
+      --sky: #73b9d8;
+      --sky-soft: #e0f0f6;
+
+      --stone: #2d302b;
+      --text: #20251f;
+      --muted: #6d7369;
+      --line: rgba(22, 39, 25, 0.14);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Barlow Condensed", sans-serif;
+      letter-spacing: -0.01em;
+    }
+
+    .top-bar {
+      background: var(--forest);
+      color: rgba(255,255,255,0.94);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .top-bar i {
+      font-size: 1.05rem;
+      color: var(--green-bright);
+    }
+
+    .header {
+      background: rgba(247, 243, 233, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      transition: 0.3s ease;
+    }
+
+    .nav-link {
+      color: var(--forest);
+      font-size: 14px;
+      font-weight: 800;
+      transition: 0.25s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-link:hover {
+      color: var(--orange-deep);
+    }
+
+    .btn-main {
+      background: var(--green-dark);
+      color: white;
+      border: 1px solid var(--green-dark);
+      transition: 0.25s ease;
+      box-shadow: 0 14px 30px rgba(47, 90, 53, 0.22);
+      font-weight: 800;
+    }
+
+    .btn-main:hover {
+      background: var(--orange-deep);
+      border-color: var(--orange-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(199, 101, 31, 0.22);
+    }
+
+    .btn-secondary {
+      background: var(--orange-deep);
+      color: white;
+      border: 1px solid var(--orange-deep);
+      transition: 0.25s ease;
+      font-weight: 800;
+    }
+
+    .btn-secondary:hover {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--green-dark);
+      color: var(--green-dark);
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--green-dark);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .logo-wordmark {
+      line-height: 1;
+    }
+
+    .logo-wordmark strong {
+      display: block;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 2.35rem;
+      color: var(--forest);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .logo-wordmark span {
+      display: block;
+      margin-top: 0.12rem;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--orange-deep);
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 64vh;
+      background-image:
+        linear-gradient(90deg, rgba(0,0,0,0.58), rgba(0,0,0,0.40), rgba(0,0,0,0.22)),
+        url("https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 42%, rgba(95, 212, 95, 0.14), transparent 32%),
+        linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.18));
+      pointer-events: none;
+    }
+
+    .hero h1,
+    .hero p {
+      text-shadow: 0 6px 24px rgba(0,0,0,0.34);
+    }
+
+    .section-label {
+      color: var(--orange-deep);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .feature-card {
+      background: rgba(255, 250, 240, 0.96);
+      border: 1px solid rgba(22, 39, 25, 0.10);
+      transition: 0.25s ease;
+      box-shadow: 0 10px 24px rgba(22, 39, 25, 0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(22, 39, 25, 0.12);
+      border-color: rgba(71, 161, 79, 0.34);
+    }
+
+    .icon-box {
+      background: var(--green-soft);
+      color: var(--forest);
+      border: 1px solid rgba(71, 161, 79, 0.24);
+    }
+
+    .icon-box i {
+      font-size: 1.85rem;
+      color: var(--forest);
+    }
+
+    .treatment-pill {
+      border-left: 4px solid var(--green);
+      background:
+        linear-gradient(135deg, rgba(225, 239, 217, 0.98), rgba(247, 243, 233, 0.96));
+      border-top: 1px solid rgba(71, 161, 79, 0.18);
+      border-right: 1px solid rgba(71, 161, 79, 0.14);
+      border-bottom: 1px solid rgba(71, 161, 79, 0.14);
+      box-shadow: 0 14px 30px rgba(22, 39, 25, 0.10);
+    }
+
+    .soft-section {
+      background:
+        radial-gradient(circle at top left, rgba(225, 239, 217, 0.76), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(247, 220, 194, 0.44), transparent 30%),
+        linear-gradient(180deg, var(--cream), #ffffff 100%);
+    }
+
+    .cta-section {
+      background-image:
+        linear-gradient(90deg, rgba(0,0,0,0.58), rgba(0,0,0,0.42), rgba(0,0,0,0.26)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .cta-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 40%, rgba(95, 212, 95, 0.12), transparent 32%),
+        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.18));
+      pointer-events: none;
+    }
+
+    .cta-section > div {
+      position: relative;
+      z-index: 2;
+    }
+
+    .work-block {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .work-block .section-label {
+      color: var(--green-soft);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 76vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        line-height: 0.92;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .logo-wordmark strong {
+        font-size: 1.9rem;
+      }
+
+      .logo-wordmark span {
+        font-size: 0.55rem;
+        letter-spacing: 0.15em;
+      }
+
+      .treatment-pill {
+        background:
+          linear-gradient(135deg, rgba(225, 239, 217, 0.98), rgba(247, 243, 233, 0.98));
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 3.45rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar hidden md:flex justify-center items-center gap-10 py-2 px-5">
+    <a href="#contacto" class="btn-secondary rounded-full px-5 py-1.5 text-[11px] uppercase tracking-[0.12em]">
+      Entrena sin lesionarte
+    </a>
+
+    <div class="flex items-center gap-2">
+      <i class="ph-duotone ph-heartbeat"></i>
+      <span>Fisioterapia · running · trail · prevención de lesiones · return to running</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="logo-wordmark">
+        <strong>Sergi Beltran</strong>
+        <span>Entrenador y fisio para corredores</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#tratamientos" class="nav-link">Método</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="hidden md:inline-flex btn-main rounded-full px-6 py-3 text-sm">
+        Empezar entrenamiento
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[var(--forest)]">
+        <i class="ph ph-list text-3xl"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[var(--cream)] border-t border-[var(--line)] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-5 text-sm font-bold text-[var(--forest)]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#tratamientos" class="mobile-link">Método</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn-main mt-5 rounded-full px-6 py-4 text-sm inline-flex justify-center w-full">
+        Entrena sin lesionarte
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero flex items-center justify-center text-center px-5">
+    <div class="relative z-10 max-w-5xl mx-auto text-white reveal">
+      <p class="text-lg md:text-2xl mb-4 font-semibold">
+        Running · trail · prevención de lesiones · vuelta a correr
+      </p>
+
+      <h1 class="font-title text-6xl md:text-8xl leading-[0.88] uppercase font-bold">
+        Corre más fuerte sin volver a caer en la misma lesión
+      </h1>
+
+      <p class="text-white/90 text-base md:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+        Entrenamiento y fisioterapia para corredores que quieren mejorar, prevenir lesiones y volver a correr con seguridad después de una pausa, lesión o posparto.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <a href="#contacto" class="btn-main rounded-full px-8 py-4 text-sm inline-flex justify-center">
+          Empezar entrenamiento
+        </a>
+
+        <a href="#tratamientos" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full px-8 py-4 text-sm font-semibold inline-flex justify-center hover:bg-white/20 transition">
+          Ver método
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO / SERVICIOS -->
+  <section id="tratamientos" class="soft-section py-20 md:py-24 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="reveal">
+          <p class="section-label mb-4">
+            Especialista en corredores
+          </p>
+
+          <h2 class="font-title text-5xl md:text-7xl leading-[0.9] uppercase font-bold text-[var(--forest)]">
+            No se trata solo de sumar kilómetros, sino de preparar tu cuerpo para soportarlos
+          </h2>
+
+          <p class="text-[var(--muted)] leading-relaxed mt-6">
+            Muchos corredores se lesionan por entrenar sin adaptar cargas, fuerza, técnica y recuperación. El objetivo es ayudarte a correr mejor, prevenir recaídas y progresar con una planificación realista.
+          </p>
+
+          <p class="text-[var(--green-dark)] font-bold mt-7">
+            Entrenamiento, prevención de lesiones y vuelta progresiva al running según tu nivel y tu contexto.
+          </p>
+
+          <a href="#contacto" class="btn-main rounded-full px-7 py-3 mt-7 inline-flex text-sm">
+            Pedir valoración
+          </a>
+        </div>
+
+        <div class="reveal">
+          <img
+            src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop"
+            alt="Trail running en montaña"
+            class="w-full aspect-[4/3] object-cover shadow-xl"
+          >
+        </div>
+      </div>
+
+      <div class="bg-white/78 border border-[var(--line)] py-14 px-5 md:px-12 shadow-sm">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="reveal">
+            <img
+              src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=1200&auto=format&fit=crop"
+              alt="Entrenamiento de fuerza para corredores"
+              class="w-full aspect-[4/3] object-cover shadow-md"
+            >
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-person-simple-run"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--forest)]">
+                Running y trail
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Planificación para correr con más control, progresar mejor y adaptarte al terreno.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-shield-check"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--forest)]">
+                Prevención de lesiones
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Trabajo de fuerza, cargas y hábitos para reducir recaídas y entrenar con más seguridad.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-barbell"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--forest)]">
+                Fuerza para corredores
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Entrenamiento complementario para que tus piernas soporten mejor cada kilómetro.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-arrow-counter-clockwise"></i>
+              </div>
+
+              <h3 class="font-title text-3xl font-bold uppercase text-[var(--forest)]">
+                Return to running
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Vuelta progresiva a correr tras lesión, pausa o posparto sin precipitar el proceso.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section py-20 md:py-28 px-5 md:px-8 text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <p class="uppercase tracking-[0.18em] text-sm font-bold text-[var(--green-soft)] mb-5">
+          Valoración para corredores
+        </p>
+
+        <h2 class="font-title text-6xl md:text-8xl leading-[0.88] uppercase font-bold">
+          Cuéntame cómo corres y vemos cómo hacerte progresar
+        </h2>
+
+        <p class="text-white/86 text-base md:text-lg leading-relaxed max-w-xl mt-6">
+          Si corres, haces trail, vienes de una lesión o quieres volver al running después de una pausa, revisamos tu caso y definimos un plan adaptado a tu objetivo.
+        </p>
+
+        <a href="https://www.instagram.com/sergi_beltran/"
+           target="_blank"
+           class="mt-8 inline-flex rounded-full bg-[var(--green-dark)] hover:bg-[var(--orange-deep)] text-white px-8 py-4 font-bold transition shadow-lg">
+          Pedir información por mensaje
+        </a>
+      </div>
+
+      <div class="work-block reveal">
+        <p class="section-label mb-5">
+          Cómo trabajamos
+        </p>
+
+        <div class="space-y-5">
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-bold uppercase text-[var(--forest)]">
+              1. Analizamos tu caso
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Historial de lesiones, volumen actual, objetivos, carreras, ritmos y experiencia.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-bold uppercase text-[var(--forest)]">
+              2. Ajustamos carga y fuerza
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Planificamos running, fuerza, descanso y progresión para reducir riesgos.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-4xl font-bold uppercase text-[var(--forest)]">
+              3. Corres con seguridad
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              El objetivo es que mejores sin volver al ciclo de parar, volver y lesionarte otra vez.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
