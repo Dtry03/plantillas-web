@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Álvaro Romero | Fisioterapia, Ciencia y Tecnología Clínica</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes clínicas / científicas / premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Iconos personalizados: Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+
+      --ice: #f4f8fb;
+      --ice-2: #e8f1f6;
+      --ice-3: #f9fcfd;
+
+      --navy: #0d1b2a;
+      --navy-2: #13293d;
+      --blue: #1d4f73;
+      --blue-soft: #dbeaf2;
+
+      --teal: #1f9d8a;
+      --teal-deep: #117a6b;
+      --teal-soft: #dff5f1;
+
+      --green: #5fbf72;
+      --green-deep: #357a46;
+
+      --steel: #637381;
+      --text: #18212b;
+      --muted: #62707d;
+      --line: rgba(13, 27, 42, 0.13);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Sora", sans-serif;
+      letter-spacing: -0.055em;
+    }
+
+    .top-bar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.94);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .top-bar i {
+      font-size: 1.05rem;
+      color: var(--teal-soft);
+    }
+
+    .header {
+      background: rgba(244, 248, 251, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      transition: 0.3s ease;
+    }
+
+    .nav-link {
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--teal-deep);
+    }
+
+    .btn-main {
+      background: var(--teal-deep);
+      color: white;
+      border: 1px solid var(--teal-deep);
+      transition: 0.25s ease;
+      box-shadow: 0 14px 30px rgba(17, 122, 107, 0.20);
+      font-weight: 800;
+    }
+
+    .btn-main:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(13, 27, 42, 0.22);
+    }
+
+    .btn-secondary {
+      background: var(--blue);
+      color: white;
+      border: 1px solid var(--blue);
+      transition: 0.25s ease;
+      font-weight: 800;
+    }
+
+    .btn-secondary:hover {
+      background: var(--teal-deep);
+      border-color: var(--teal-deep);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--teal-deep);
+      color: var(--teal-deep);
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--teal-deep);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .logo-wordmark {
+      line-height: 1;
+    }
+
+    .logo-wordmark strong {
+      display: block;
+      font-family: "Sora", sans-serif;
+      font-size: 2rem;
+      color: var(--navy);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+    }
+
+    .logo-wordmark span {
+      display: block;
+      margin-top: 0.18rem;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--teal-deep);
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 64vh;
+      background-image:
+        linear-gradient(90deg, rgba(0,0,0,0.58), rgba(13,27,42,0.46), rgba(17,122,107,0.22)),
+        url("https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 42%, rgba(31, 157, 138, 0.14), transparent 32%),
+        linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.18));
+      pointer-events: none;
+    }
+
+    .hero h1,
+    .hero p {
+      text-shadow: 0 6px 24px rgba(0,0,0,0.34);
+    }
+
+    .section-label {
+      color: var(--teal-deep);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(13, 27, 42, 0.10);
+      transition: 0.25s ease;
+      box-shadow: 0 10px 24px rgba(13, 27, 42, 0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(13, 27, 42, 0.11);
+      border-color: rgba(31, 157, 138, 0.32);
+    }
+
+    .icon-box {
+      background: var(--teal-soft);
+      color: var(--navy);
+      border: 1px solid rgba(31, 157, 138, 0.22);
+    }
+
+    .icon-box i {
+      font-size: 1.85rem;
+      color: var(--navy);
+    }
+
+    .treatment-pill {
+      border-left: 4px solid var(--teal-deep);
+      background:
+        linear-gradient(135deg, rgba(223, 245, 241, 0.98), rgba(244, 248, 251, 0.96));
+      border-top: 1px solid rgba(31, 157, 138, 0.18);
+      border-right: 1px solid rgba(31, 157, 138, 0.14);
+      border-bottom: 1px solid rgba(31, 157, 138, 0.14);
+      box-shadow: 0 14px 30px rgba(13, 27, 42, 0.10);
+    }
+
+    .soft-section {
+      background:
+        radial-gradient(circle at top left, rgba(223, 245, 241, 0.80), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(219, 234, 242, 0.62), transparent 30%),
+        linear-gradient(180deg, var(--ice), #ffffff 100%);
+    }
+
+    .cta-section {
+      background-image:
+        linear-gradient(90deg, rgba(0,0,0,0.60), rgba(13,27,42,0.48), rgba(17,122,107,0.25)),
+        url("https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .cta-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 40%, rgba(31, 157, 138, 0.12), transparent 32%),
+        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.18));
+      pointer-events: none;
+    }
+
+    .cta-section > div {
+      position: relative;
+      z-index: 2;
+    }
+
+    .work-block {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .work-block .section-label {
+      color: var(--teal-soft);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 76vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 3.25rem;
+        line-height: 1;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .logo-wordmark strong {
+        font-size: 1.55rem;
+      }
+
+      .logo-wordmark span {
+        font-size: 0.54rem;
+        letter-spacing: 0.14em;
+      }
+
+      .treatment-pill {
+        background:
+          linear-gradient(135deg, rgba(223, 245, 241, 0.98), rgba(244, 248, 251, 0.98));
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 2.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar hidden md:flex justify-center items-center gap-10 py-2 px-5">
+    <a href="#contacto" class="btn-secondary rounded-full px-5 py-1.5 text-[11px] uppercase tracking-[0.12em]">
+      Solicitar colaboración
+    </a>
+
+    <div class="flex items-center gap-2">
+      <i class="ph-duotone ph-pulse"></i>
+      <span>Fisioterapia · investigación · contenido científico · tecnología clínica</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="logo-wordmark">
+        <strong>Álvaro Romero</strong>
+        <span>Fisioterapia · ciencia clínica</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#tratamientos" class="nav-link">Enfoque</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="hidden md:inline-flex btn-main rounded-full px-6 py-3 text-sm">
+        Contactar
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[var(--navy)]">
+        <i class="ph ph-list text-3xl"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[var(--ice)] border-t border-[var(--line)] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-5 text-sm font-bold text-[var(--navy)]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#tratamientos" class="mobile-link">Enfoque</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn-main mt-5 rounded-full px-6 py-4 text-sm inline-flex justify-center w-full">
+        Contactar
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero flex items-center justify-center text-center px-5">
+    <div class="relative z-10 max-w-5xl mx-auto text-white reveal">
+      <p class="text-lg md:text-2xl mb-4 font-semibold">
+        Investigación · práctica clínica · ondas de choque · divulgación científica
+      </p>
+
+      <h1 class="font-title text-5xl md:text-7xl leading-[1] font-bold">
+        Fisioterapia basada en ciencia, criterio clínico y tecnología
+      </h1>
+
+      <p class="text-white/90 text-base md:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+        Un espacio profesional para conectar fisioterapia, investigación, práctica clínica y contenido científico aplicado a la salud, la recuperación y la tecnología terapéutica.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <a href="#contacto" class="btn-main rounded-full px-8 py-4 text-sm inline-flex justify-center">
+          Contactar con Álvaro
+        </a>
+
+        <a href="#tratamientos" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full px-8 py-4 text-sm font-semibold inline-flex justify-center hover:bg-white/20 transition">
+          Ver enfoque
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO / SERVICIOS -->
+  <section id="tratamientos" class="soft-section py-20 md:py-24 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="reveal">
+          <p class="section-label mb-4">
+            Enfoque profesional
+          </p>
+
+          <h2 class="font-title text-4xl md:text-6xl leading-[1.05] font-bold text-[var(--navy)]">
+            No se trata solo de aplicar técnicas, sino de entender cuándo, por qué y para quién
+          </h2>
+
+          <p class="text-[var(--muted)] leading-relaxed mt-6">
+            La fisioterapia actual necesita criterio, evidencia y comunicación clara. Desde la práctica clínica hasta la divulgación científica, el objetivo es traducir el conocimiento en decisiones útiles para profesionales, pacientes y marcas sanitarias.
+          </p>
+
+          <p class="text-[var(--teal-deep)] font-bold mt-7">
+            Ciencia, tecnología terapéutica, ondas de choque y contenido clínico con rigor.
+          </p>
+
+          <a href="#contacto" class="btn-main rounded-full px-7 py-3 mt-7 inline-flex text-sm">
+            Hablar sobre colaboración
+          </a>
+        </div>
+
+        <div class="reveal">
+          <img
+            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop"
+            alt="Fisioterapia, investigación y práctica clínica"
+            class="w-full aspect-[4/3] object-cover shadow-xl"
+          >
+        </div>
+      </div>
+
+      <div class="bg-white/78 border border-[var(--line)] py-14 px-5 md:px-12 shadow-sm">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="reveal">
+            <img
+              src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?q=80&w=1200&auto=format&fit=crop"
+              alt="Tecnología clínica y fisioterapia avanzada"
+              class="w-full aspect-[4/3] object-cover shadow-md"
+            >
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-microscope"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-bold text-[var(--navy)]">
+                Investigación
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Lectura crítica, actualización científica y aplicación real del conocimiento clínico.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-stethoscope"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-bold text-[var(--navy)]">
+                Práctica clínica
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Razonamiento clínico, tratamiento y toma de decisiones basada en cada caso.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-waveform"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-bold text-[var(--navy)]">
+                Ondas de choque
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Tecnología terapéutica, medicina regenerativa y actualización sobre aplicaciones clínicas.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-megaphone"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-bold text-[var(--navy)]">
+                Contenido científico
+              </h3>
+
+              <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">
+                Divulgación clara para acercar ciencia, fisioterapia y tecnología a más personas.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section py-20 md:py-28 px-5 md:px-8 text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <p class="uppercase tracking-[0.18em] text-sm font-bold text-[var(--teal-soft)] mb-5">
+          Contacto profesional
+        </p>
+
+        <h2 class="font-title text-5xl md:text-7xl leading-[1] font-bold">
+          Conecta ciencia, clínica y comunicación con una imagen más profesional
+        </h2>
+
+        <p class="text-white/86 text-base md:text-lg leading-relaxed max-w-xl mt-6">
+          Si quieres hablar de fisioterapia, contenido científico, colaboración profesional o tecnología clínica, puedes contactar directamente por mensaje.
+        </p>
+
+        <a href="https://www.instagram.com/alvaroromero.fisio/"
+           target="_blank"
+           class="mt-8 inline-flex rounded-full bg-[var(--teal-deep)] hover:bg-[var(--navy)] text-white px-8 py-4 font-bold transition shadow-lg">
+          Contactar por mensaje
+        </a>
+      </div>
+
+      <div class="work-block reveal">
+        <p class="section-label mb-5">
+          Cómo trabajo
+        </p>
+
+        <div class="space-y-5">
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-3xl font-bold text-[var(--navy)]">
+              1. Analizo el contexto
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Caso clínico, objetivo, evidencia disponible, tecnología implicada o mensaje a comunicar.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-3xl font-bold text-[var(--navy)]">
+              2. Traduzco la evidencia
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Convierto ciencia y razonamiento clínico en contenido, decisiones o estrategias comprensibles.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-3xl font-bold text-[var(--navy)]">
+              3. Lo llevo a la práctica
+            </h3>
+            <p class="text-[var(--muted)] mt-2">
+              Aplicación clínica, comunicación profesional o colaboración con enfoque claro y riguroso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
