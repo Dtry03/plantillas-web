@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nacho Coloma | Fisioterapeuta</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes modernas, deportivas y profesionales -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Librería de iconos: Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --bg-light: #f8fafc;
+
+      --blue-accent: #2563eb;
+      --blue-light: #60a5fa;
+      --blue-soft: #dbeafe;
+      --blue-deep: #1d4ed8;
+
+      --slate-dark: #0f172a;
+      --slate-medium: #334155;
+      --slate-muted: #64748b;
+      --slate-light: #f1f5f9;
+
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --line: rgba(37, 99, 235, 0.15);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background: #f8fafc;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Montserrat", sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .top-bar {
+      background: var(--slate-dark);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .top-bar i {
+      font-size: 1.05rem;
+      color: var(--blue-light);
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      transition: 0.3s ease;
+    }
+
+    .nav-link {
+      color: var(--slate-dark);
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--blue-accent);
+    }
+
+    .btn-main {
+      background: var(--blue-accent);
+      color: white;
+      border: 1px solid var(--blue-accent);
+      transition: 0.25s ease;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.25);
+      font-weight: 700;
+    }
+
+    .btn-main:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(29, 78, 216, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--slate-dark);
+      color: white;
+      border: 1px solid var(--slate-dark);
+      transition: 0.25s ease;
+      font-weight: 700;
+    }
+
+    .btn-secondary:hover {
+      background: var(--blue-accent);
+      border-color: var(--blue-accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--blue-accent);
+      color: var(--blue-accent);
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--blue-accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .logo-wordmark {
+      line-height: 1;
+    }
+
+    .logo-wordmark strong {
+      display: block;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.9rem;
+      color: var(--slate-dark);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .logo-wordmark span {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--blue-accent);
+      font-weight: 800;
+    }
+
+    .hero {
+      min-height: 64vh;
+      background-image:
+        linear-gradient(90deg, rgba(15,23,42,0.85), rgba(15,23,42,0.65), rgba(15,23,42,0.4)),
+        url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 42%, rgba(59, 130, 246, 0.18), transparent 35%),
+        linear-gradient(180deg, rgba(15,23,42,0.2), rgba(15,23,42,0.5));
+      pointer-events: none;
+    }
+
+    .hero h1,
+    .hero p {
+      text-shadow: 0 4px 18px rgba(0,0,0,0.4);
+    }
+
+    .section-label {
+      color: var(--blue-accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      transition: 0.25s ease;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+      border-radius: 12px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(37, 99, 235, 0.12);
+      border-color: rgba(37, 99, 235, 0.3);
+    }
+
+    .icon-box {
+      background: var(--blue-soft);
+      color: var(--blue-accent);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+    }
+
+    .icon-box i {
+      font-size: 1.75rem;
+      color: var(--blue-accent);
+    }
+
+    .treatment-pill {
+      border-left: 4px solid var(--blue-accent);
+      background:
+        linear-gradient(135deg, rgba(239, 246, 255, 0.95), rgba(255, 255, 255, 0.98));
+      border-top: 1px solid rgba(37, 99, 235, 0.12);
+      border-right: 1px solid rgba(37, 99, 235, 0.12);
+      border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+      border-radius: 8px;
+    }
+
+    .soft-section {
+      background:
+        radial-gradient(circle at top left, rgba(219, 234, 254, 0.6), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(226, 232, 240, 0.8), transparent 30%),
+        linear-gradient(180deg, #f8fafc, #ffffff 100%);
+    }
+
+    .cta-section {
+      background-image:
+        linear-gradient(90deg, rgba(15,23,42,0.90), rgba(15,23,42,0.78), rgba(15,23,42,0.65)),
+        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .cta-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 40%, rgba(59, 130, 246, 0.15), transparent 32%),
+        linear-gradient(180deg, rgba(15,23,42,0.1), rgba(15,23,42,0.3));
+      pointer-events: none;
+    }
+
+    .cta-section > div {
+      position: relative;
+      z-index: 2;
+    }
+
+    .work-block {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .work-block .section-label {
+      color: var(--blue-light);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 76vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        line-height: 1;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .logo-wordmark strong {
+        font-size: 1.5rem;
+      }
+
+      .logo-wordmark span {
+        font-size: 0.55rem;
+        letter-spacing: 0.18em;
+      }
+
+      .treatment-pill {
+        background:
+          linear-gradient(135deg, rgba(239, 246, 255, 0.98), rgba(255, 255, 255, 0.98));
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar hidden md:flex justify-center items-center gap-10 py-2.5 px-5">
+    <a href="#contacto" class="btn-secondary rounded-full px-5 py-1.5 text-[11px] uppercase tracking-[0.12em]">
+      Reserva tu consulta
+    </a>
+
+    <div class="flex items-center gap-2">
+      <i class="ph-duotone ph-arm-chair"></i>
+      <span>Ejercicio terapéutico · Terapia manual · Prevención de lesiones · Rehabilitación</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="logo-wordmark">
+        <strong>Nacho Coloma</strong>
+     
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#tratamientos" class="nav-link">Servicios</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="hidden md:inline-flex btn-main rounded-full px-6 py-3 text-sm">
+        Pedir Cita
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[var(--slate-dark)]">
+        <i class="ph ph-list text-3xl"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-[var(--slate-light)] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-5 text-sm font-bold text-[var(--slate-dark)]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#tratamientos" class="mobile-link">Servicios</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn-main mt-5 rounded-full px-6 py-4 text-sm inline-flex justify-center w-full">
+        Pedir Cita
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero flex items-center justify-center text-center px-5">
+    <div class="relative z-10 max-w-5xl mx-auto text-white reveal">
+      <p class="text-lg md:text-2xl mb-4 font-semibold text-blue-300">
+        Ejercicio terapéutico · Terapia manual · Prevención · Rehabilitación
+      </p>
+
+      <h1 class="font-title text-5xl md:text-7xl leading-[1] font-extrabold uppercase">
+        Recupera tu rendimiento y vive sin dolor
+      </h1>
+
+      <p class="text-slate-200 text-base md:text-lg max-w-3xl mx-auto mt-6 leading-relaxed font-normal">
+        Soy Nacho, tu fisioterapeuta. Te ayudo a superar lesiones, optimizar tu movilidad y volver a moverte con confianza mediante ejercicio graduado y tratamiento personalizado.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <a href="#contacto" class="btn-main rounded-full px-8 py-4 text-sm inline-flex justify-center">
+          Pedir Cita
+        </a>
+
+        <a href="#tratamientos" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full px-8 py-4 text-sm font-semibold inline-flex justify-center hover:bg-white/20 transition">
+          Ver Servicios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO / SERVICIOS -->
+  <section id="tratamientos" class="soft-section py-20 md:py-24 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="reveal">
+          <p class="section-label mb-4">
+            Fisioterapia & Rendimiento
+          </p>
+
+          <h2 class="font-title text-4xl md:text-5xl leading-[1.05] font-bold text-[var(--slate-dark)]">
+            Reposo vs Ejercicio Graduado: El cambio real en tu rehabilitación
+          </h2>
+
+          <p class="text-[var(--text-muted)] leading-relaxed mt-6">
+            Las lesiones como las tendinopatías o los dolores musculares crónicos no mejoran solo con reposo pasivo. La clave está en la dosificación adecuada de la carga y el movimiento controlado.
+          </p>
+
+          <p class="text-[var(--blue-accent)] font-bold mt-7">
+            Evaluamos tu problema de raíz, diseñamos tu plan de rehabilitación activa y te acompañamos en todo el proceso.
+          </p>
+
+          <a href="#contacto" class="btn-main rounded-full px-7 py-3 mt-7 inline-flex text-sm">
+            Empezar valoración
+          </a>
+        </div>
+
+        <div class="reveal">
+          <img
+            src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop"
+            alt="Fisioterapia y Ejercicio Terapéutico"
+            class="w-full aspect-[4/3] object-cover shadow-xl rounded-xl"
+          >
+        </div>
+      </div>
+
+      <div class="bg-white border border-[var(--slate-light)] py-14 px-5 md:px-12 shadow-sm rounded-2xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="reveal">
+            <img
+              src="https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?q=80&w=1200&auto=format&fit=crop"
+              alt="Terapia manual y rehabilitación"
+              class="w-full aspect-[4/3] object-cover shadow-md rounded-lg"
+            >
+          </div>
+
+        <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+  <div class="feature-card p-6">
+    <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+      <i class="ph-duotone ph-barbell"></i>
+    </div>
+    <h3 class="font-title text-xl font-bold text-[var(--slate-dark)]">
+      Ejercicio Terapéutico
+    </h3>
+    <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+      Programas de fuerza y movilidad adaptados para restaurar la función articular.
+    </p>
+  </div>
+
+  <div class="feature-card p-6">
+    <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+      <!-- Icono cambiado a ph-hand-heart -->
+      <i class="ph-duotone ph-hand-heart"></i>
+    </div>
+    <h3 class="font-title text-xl font-bold text-[var(--slate-dark)]">
+      Terapia Manual
+    </h3>
+    <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+      Tratamiento analgésico y movilización tisular para aliviar el dolor y rigidez.
+    </p>
+  </div>
+
+  <div class="feature-card p-6">
+    <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+      <i class="ph-duotone ph-shield-check"></i>
+    </div>
+    <h3 class="font-title text-xl font-bold text-[var(--slate-dark)]">
+      Prevención de Lesiones
+    </h3>
+    <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+      Análisis biomecánico para detectar factores de riesgo antes de que aparezca el dolor.
+    </p>
+  </div>
+
+  <div class="feature-card p-6">
+    <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+      <!-- Icono cambiado a ph-pulse -->
+      <i class="ph-duotone ph-pulse"></i>
+    </div>
+    <h3 class="font-title text-xl font-bold text-[var(--slate-dark)]">
+      Rehabilitación Integrativa
+    </h3>
+    <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+      Recuperación progresiva tras lesiones deportivas, tendinopatías o cirugía.
+    </p>
+  </div>
+
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section py-20 md:py-28 px-5 md:px-8 text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <p class="uppercase tracking-[0.18em] text-sm font-bold text-[var(--blue-light)] mb-5">
+          Atención personalizada
+        </p>
+
+        <h2 class="font-title text-5xl md:text-6xl leading-[1] font-extrabold">
+          Vuelve a entrenar y a rendir sin limitaciones
+        </h2>
+
+        <p class="text-slate-300 text-base md:text-lg leading-relaxed max-w-xl mt-6">
+          Si sufres alguna molesta lesión, tendinopatía o quieres mejorar tu salud física, ponte en contacto y trazaremos el mejor camino para tu recuperación.
+        </p>
+
+        <a href="https://www.instagram.com/nachocoloma.fisio/"
+           target="_blank"
+           class="mt-8 inline-flex rounded-full bg-[var(--blue-accent)] hover:bg-[var(--blue-deep)] text-white px-8 py-4 font-bold transition shadow-lg">
+          Enviar mensaje por Instagram
+        </a>
+      </div>
+
+      <div class="work-block reveal">
+        <p class="section-label mb-5">
+          Mi proceso de trabajo
+        </p>
+
+        <div class="space-y-5">
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-2xl font-bold text-[var(--slate-dark)]">
+              1. Valoración inicial completa
+            </h3>
+            <p class="text-[var(--text-muted)] mt-2">
+              Analizamos los síntomas, historial de cargas, movimiento y requerimientos personales.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-2xl font-bold text-[var(--slate-dark)]">
+              2. Plan de tratamiento y cargas
+            </h3>
+            <p class="text-[var(--text-muted)] mt-2">
+              Combinación de terapia manual para control de dolor y ejercicio terapéutico adaptado.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-2xl font-bold text-[var(--slate-dark)]">
+              3. Progresión hacia tu objetivo
+            </h3>
+            <p class="text-[var(--text-muted)] mt-2">
+              Readaptación al deporte y a las actividades de tu vida diaria con total seguridad.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
