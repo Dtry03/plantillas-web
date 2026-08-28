@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ángela G. Diñeiro | Salud y Bienestar Ponferrada</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes elegantes y holísticas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Librería de iconos: Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+
+      --bg-cream: #f9f6f0;
+      --bg-cream-card: #f3eee3;
+      --surface-light: #ffffff;
+
+      --gold: #c5a059;
+      --gold-dark: #9e7b37;
+      --gold-light: #f4ebd9;
+
+      --green-nature: #4a6b5d;
+      --green-dark: #2d453b;
+
+      --navy-mystic: #1b263b;
+      --dark-charcoal: #121824;
+
+      --text-main: #2c3531;
+      --text-muted: #626d69;
+      --line: rgba(74, 107, 93, 0.15);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--bg-cream);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.02em;
+    }
+
+    .top-bar {
+      background: var(--dark-charcoal);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .top-bar i {
+      font-size: 1.05rem;
+      color: var(--gold);
+    }
+
+    .header {
+      background: rgba(249, 246, 240, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      transition: 0.3s ease;
+    }
+
+    .nav-link {
+      color: var(--navy-mystic);
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--gold-dark);
+    }
+
+    .btn-main {
+      background: var(--green-nature);
+      color: white;
+      border: 1px solid var(--green-nature);
+      transition: 0.25s ease;
+      box-shadow: 0 12px 26px rgba(74, 107, 93, 0.25);
+      font-weight: 600;
+    }
+
+    .btn-main:hover {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(45, 69, 59, 0.30);
+    }
+
+    .btn-secondary {
+      background: var(--gold);
+      color: white;
+      border: 1px solid var(--gold);
+      transition: 0.25s ease;
+      font-weight: 600;
+    }
+
+    .btn-secondary:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--green-nature);
+      color: var(--green-nature);
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--green-nature);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .logo-wordmark {
+      line-height: 1.1;
+    }
+
+    .logo-wordmark strong {
+      display: block;
+      font-family: "Cinzel", serif;
+      font-size: 1.6rem;
+      color: var(--navy-mystic);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .logo-wordmark span {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.60rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-dark);
+      font-weight: 700;
+    }
+
+    .hero {
+      min-height: 64vh;
+      background-image:
+        linear-gradient(90deg, rgba(18, 24, 36, 0.85), rgba(27, 38, 59, 0.70), rgba(74, 107, 93, 0.45)),
+        url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 42%, rgba(197, 160, 89, 0.18), transparent 35%),
+        linear-gradient(180deg, rgba(18, 24, 36, 0.1), rgba(18, 24, 36, 0.4));
+      pointer-events: none;
+    }
+
+    .hero h1,
+    .hero p {
+      text-shadow: 0 4px 18px rgba(0,0,0,0.40);
+    }
+
+    .section-label {
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .feature-card {
+      background: var(--surface-light);
+      border: 1px solid var(--line);
+      transition: 0.25s ease;
+      box-shadow: 0 10px 24px rgba(44, 53, 49, 0.04);
+      border-radius: 8px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(74, 107, 93, 0.12);
+      border-color: rgba(197, 160, 89, 0.45);
+    }
+
+    .icon-box {
+      background: var(--gold-light);
+      color: var(--gold-dark);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+    }
+
+    .icon-box i {
+      font-size: 1.75rem;
+      color: var(--gold-dark);
+    }
+
+    .treatment-pill {
+      border-left: 4px solid var(--gold);
+      background: linear-gradient(135deg, #ffffff, var(--bg-cream-card));
+      border-top: 1px solid rgba(74, 107, 93, 0.1);
+      border-right: 1px solid rgba(74, 107, 93, 0.1);
+      border-bottom: 1px solid rgba(74, 107, 93, 0.1);
+      box-shadow: 0 10px 25px rgba(27, 38, 59, 0.05);
+      border-radius: 6px;
+    }
+
+    .soft-section {
+      background:
+        radial-gradient(circle at top left, rgba(197, 160, 89, 0.12), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(74, 107, 93, 0.1), transparent 30%),
+        linear-gradient(180deg, var(--bg-cream), #ffffff 100%);
+    }
+
+    .cta-section {
+      background-image:
+        linear-gradient(90deg, rgba(18, 24, 36, 0.90), rgba(27, 38, 59, 0.80), rgba(74, 107, 93, 0.65)),
+        url("https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .cta-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 40%, rgba(197, 160, 89, 0.15), transparent 32%),
+        linear-gradient(180deg, rgba(18, 24, 36, 0.1), rgba(18, 24, 36, 0.3));
+      pointer-events: none;
+    }
+
+    .cta-section > div {
+      position: relative;
+      z-index: 2;
+    }
+
+    .work-block {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .work-block .section-label {
+      color: var(--gold);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 76vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+        line-height: 1.1;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .logo-wordmark strong {
+        font-size: 1.35rem;
+      }
+
+      .logo-wordmark span {
+        font-size: 0.52rem;
+        letter-spacing: 0.14em;
+      }
+
+      .treatment-pill {
+        background: linear-gradient(135deg, #ffffff, var(--bg-cream-card));
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar hidden md:flex justify-center items-center gap-10 py-2.5 px-5">
+    <a href="https://t.me/espaciodepresencia" target="_blank" class="btn-secondary rounded-full px-5 py-1.5 text-[11px] uppercase tracking-[0.12em]">
+      Reserva tu Sesión Presencial
+    </a>
+
+    <div class="flex items-center gap-2">
+      <span>Ponferrada · Centro Bienestar Ulassa · Lic. Deporte & Investigadora Científica (UniEA)</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="logo-wordmark">
+        <strong>Ángela G. Diñeiro</strong>
+        <span>Salud & Bienestar Ponferrada</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#tratamientos" class="nav-link">Servicios</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="https://t.me/espaciodepresencia" target="_blank" class="hidden md:inline-flex btn-main rounded-full px-6 py-3 text-sm">
+        Enviar Mensaje Directo
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[var(--navy-mystic)]">
+        <i class="ph ph-list text-3xl"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[var(--bg-cream)] border-t border-[var(--line)] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-5 text-sm font-bold text-[var(--navy-mystic)]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#tratamientos" class="mobile-link">Servicios</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="https://t.me/espaciodepresencia" target="_blank" class="btn-main mt-5 rounded-full px-6 py-4 text-sm inline-flex justify-center w-full">
+        Reserva tu Sesión
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero flex items-center justify-center text-center px-5">
+    <div class="relative z-10 max-w-5xl mx-auto text-white reveal">
+      <p class="text-lg md:text-2xl mb-4 font-medium text-[var(--gold)]">
+        🌿 Sana tu cuerpo, escucha tu alma
+      </p>
+
+      <h1 class="font-title text-4xl md:text-6xl leading-[1.15] font-bold">
+        Liberación de Estrés, Tensión Acumulada y Emociones Reprimidas
+      </h1>
+
+      <p class="text-white/90 text-base md:text-lg max-w-3xl mx-auto mt-6 leading-relaxed font-light">
+        Recupera tu ligereza, relaja tu sistema nervioso y experimenta un descanso real a través de sesiones presenciales respaldadas por la ciencia y el bienestar holístico.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <a href="https://t.me/espaciodepresencia" target="_blank" class="btn-main rounded-full px-8 py-4 text-sm inline-flex justify-center">
+          Reservar Sesión Presencial
+        </a>
+
+        <a href="#tratamientos" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full px-8 py-4 text-sm font-medium inline-flex justify-center hover:bg-white/20 transition">
+          Ver Servicios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO / SERVICIOS -->
+  <section id="tratamientos" class="soft-section py-20 md:py-24 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="reveal">
+          <p class="section-label mb-4">
+            Bienestar Holístico & Ciencia
+          </p>
+
+          <h2 class="font-title text-3xl md:text-5xl leading-[1.1] font-bold text-[var(--navy-mystic)]">
+            Desbloqueo de emociones y autorregulación del sistema nervioso
+          </h2>
+
+          <p class="text-[var(--text-muted)] leading-relaxed mt-6">
+            Combinando el conocimiento académico en Ciencias del Deporte e Investigación Científica con terapias presenciales en Ponferrada, te ayudo a liberar los traumas y la tensión física acumulada en tu cuerpo.
+          </p>
+
+          <p class="text-[var(--green-nature)] font-bold mt-7">
+            Ponferrada · Centro Bienestar Ulassa. Sesiones presenciales e individuales.
+          </p>
+
+          <a href="https://t.me/espaciodepresencia" target="_blank" class="btn-main rounded-full px-7 py-3 mt-7 inline-flex text-sm">
+            Reserva tu Espacio
+          </a>
+        </div>
+
+        <div class="reveal">
+          <img
+            src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop"
+            alt="Relajación y sanación corporal"
+            class="w-full aspect-[4/3] object-cover shadow-xl rounded-md"
+          >
+        </div>
+      </div>
+
+      <div class="bg-white border border-[var(--line)] py-14 px-5 md:px-12 shadow-sm rounded-lg">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="reveal">
+            <img
+              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop"
+              alt="Desbloqueo emocional y presencia"
+              class="w-full aspect-[4/3] object-cover shadow-md rounded-md"
+            >
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-brain"></i>
+              </div>
+
+              <h3 class="font-title text-lg font-bold text-[var(--navy-mystic)]">
+                Desbloqueo Emocional
+              </h3>
+
+              <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+                Liberación de cargas y traumas pasados alojados en el cuerpo para mejorar la digestión y el bienestar general.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-sparkle"></i>
+              </div>
+
+              <h3 class="font-title text-lg font-bold text-[var(--navy-mystic)]">
+                Relajación Profunda
+              </h3>
+
+              <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+                Calma tu sistema nervioso, libera el insomnio y recupera tu descanso real y revitalizador.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-dna"></i>
+              </div>
+
+              <h3 class="font-title text-lg font-bold text-[var(--navy-mystic)]">
+                Test Epigenético
+              </h3>
+
+              <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+                Evaluación integral para entender las necesidades de tu organismo y optimizar tu salud biológica.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-heartbeat"></i>
+              </div>
+
+              <h3 class="font-title text-lg font-bold text-[var(--navy-mystic)]">
+                Presencia & Escucha
+              </h3>
+
+              <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+                Espacios de presencia consciente para reconectar con tu alma, mejorar tus relaciones y tu equilibrio personal.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section py-20 md:py-28 px-5 md:px-8 text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <p class="uppercase tracking-[0.18em] text-xs font-bold text-[var(--gold)] mb-5">
+          Atención Presencial en Ponferrada
+        </p>
+
+        <h2 class="font-title text-4xl md:text-5xl leading-[1.1] font-bold">
+          ¿Sientes tu cuerpo tenso o sobrecargado?
+        </h2>
+
+        <p class="text-white/85 text-base md:text-lg leading-relaxed max-w-xl mt-6 font-light">
+          Reserva tu sesión presencial en el Centro Bienestar Ulassa. Mensaje directo o enlace en bio para solicitar información.
+        </p>
+
+        <a href="https://t.me/espaciodepresencia"
+           target="_blank"
+           class="mt-8 inline-flex rounded-full bg-[var(--green-nature)] hover:bg-[var(--green-dark)] text-white px-8 py-4 font-bold transition shadow-lg">
+          Reservar por Telegram 
+        </a>
+      </div>
+
+      <div class="work-block reveal">
+        <p class="section-label mb-5">
+          Proceso de Acompañamiento
+        </p>
+
+        <div class="space-y-5">
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-xl font-bold text-[var(--navy-mystic)]">
+              1. Escucha e Historial
+            </h3>
+            <p class="text-[var(--text-muted)] mt-2 text-sm">
+              Identificación del origen del estrés, bloqueos somáticos y estado de tu sistema nervioso.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-xl font-bold text-[var(--navy-mystic)]">
+              2. Sesión Presencial de Liberación
+            </h3>
+            <p class="text-[var(--text-muted)] mt-2 text-sm">
+              Trabajo corporal, regulación emocional y técnicas somáticas en Centro Bienestar Ulassa.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-xl font-bold text-[var(--navy-mystic)]">
+              3. Integración y Bienestar
+            </h3>
+            <p class="text-[var(--text-muted)] mt-2 text-sm">
+              Pautas para mantener la soltura corporal, la tranquilidad mental y la presencia en tu día a día.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
