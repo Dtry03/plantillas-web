@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Marina Alcaide | Fisio Online Pre y Post Parto</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes modernas y femeninas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Librería de iconos: Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+
+      --pink-soft: #fdf0f4;
+      --pink-light: #fbe4ec;
+      --pink-card: #fcf7f8;
+      
+      --pink-accent: #e882a6;
+      --pink-deep: #d8618c;
+      --pink-dark: #b8436f;
+
+      --dark-plum: #2d2729;
+      --text-main: #3d3538;
+      --text-muted: #73676c;
+      --line: rgba(232, 130, 166, 0.2);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background: var(--white);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    .font-title {
+      font-family: "Outfit", sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .top-bar {
+      background: var(--dark-plum);
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .top-bar i {
+      font-size: 1.05rem;
+      color: var(--pink-accent);
+    }
+
+    .header {
+      background: rgba(253, 240, 244, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      transition: 0.3s ease;
+    }
+
+    .nav-link {
+      color: var(--dark-plum);
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--pink-deep);
+    }
+
+    .btn-main {
+      background: var(--pink-deep);
+      color: white;
+      border: 1px solid var(--pink-deep);
+      transition: 0.25s ease;
+      box-shadow: 0 14px 30px rgba(216, 97, 140, 0.25);
+      font-weight: 700;
+    }
+
+    .btn-main:hover {
+      background: var(--pink-dark);
+      border-color: var(--pink-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(184, 67, 111, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--pink-accent);
+      color: white;
+      border: 1px solid var(--pink-accent);
+      transition: 0.25s ease;
+      font-weight: 700;
+    }
+
+    .btn-secondary:hover {
+      background: var(--pink-dark);
+      border-color: var(--pink-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--pink-deep);
+      color: var(--pink-deep);
+      background: transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--pink-deep);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .logo-wordmark {
+      line-height: 1;
+    }
+
+    .logo-wordmark strong {
+      display: block;
+      font-family: "Outfit", sans-serif;
+      font-size: 1.9rem;
+      color: var(--dark-plum);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .logo-wordmark span {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--pink-deep);
+      font-weight: 800;
+    }
+
+    .hero {
+      min-height: 64vh;
+      background-image:
+        linear-gradient(90deg, rgba(45, 39, 41, 0.75), rgba(45, 39, 41, 0.45), rgba(216, 97, 140, 0.3)),
+        url("https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 42%, rgba(232, 130, 166, 0.25), transparent 35%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2));
+      pointer-events: none;
+    }
+
+    .hero h1,
+    .hero p {
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-label {
+      color: var(--pink-deep);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .feature-card {
+      background: var(--pink-card);
+      border: 1px solid var(--line);
+      transition: 0.25s ease;
+      box-shadow: 0 10px 24px rgba(45, 39, 41, 0.03);
+      border-radius: 12px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(216, 97, 140, 0.15);
+      border-color: var(--pink-accent);
+    }
+
+    .icon-box {
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      border: 1px solid rgba(232, 130, 166, 0.3);
+    }
+
+    .icon-box i {
+      font-size: 1.75rem;
+      color: var(--pink-dark);
+    }
+
+    .treatment-pill {
+      border-left: 4px solid var(--pink-deep);
+      background: linear-gradient(135deg, var(--white), var(--pink-soft));
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 10px 25px rgba(45, 39, 41, 0.05);
+      border-radius: 8px;
+    }
+
+    .soft-section {
+      background:
+        radial-gradient(circle at top left, rgba(251, 228, 236, 0.7), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(232, 130, 166, 0.15), transparent 35%),
+        linear-gradient(180deg, var(--pink-soft), #ffffff 100%);
+    }
+
+    .cta-section {
+      background-image:
+        linear-gradient(90deg, rgba(45, 39, 41, 0.82), rgba(45, 39, 41, 0.65), rgba(216, 97, 140, 0.45)),
+        url("https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .cta-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 40%, rgba(232, 130, 166, 0.2), transparent 35%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.25));
+      pointer-events: none;
+    }
+
+    .cta-section > div {
+      position: relative;
+      z-index: 2;
+    }
+
+    .work-block {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .work-block .section-label {
+      color: var(--pink-accent);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 76vh;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 3.2rem;
+        line-height: 1;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .logo-wordmark strong {
+        font-size: 1.55rem;
+      }
+
+      .logo-wordmark span {
+        font-size: 0.55rem;
+        letter-spacing: 0.15em;
+      }
+
+      .treatment-pill {
+        background: linear-gradient(135deg, var(--white), var(--pink-soft));
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 2.7rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar hidden md:flex justify-center items-center gap-10 py-2.5 px-5">
+    <a href="#contacto" class="btn-secondary rounded-full px-5 py-1.5 text-[11px] uppercase tracking-[0.12em]">
+      Programa #MOMMYONFIT
+    </a>
+
+    <div class="flex items-center gap-2"> 
+      <span>Fisio Online · Embarazo y Postparto Saludable · Hipopresivos y Pilates</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="logo-wordmark">
+        <strong>Marina Alcaide</strong>
+        <span>Fisio Online · Pre y Post Parto</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#tratamientos" class="nav-link">Método</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="hidden md:inline-flex btn-main rounded-full px-6 py-3 text-sm">
+        Empezar Online
+      </a>
+
+      <button id="menu-btn" class="md:hidden text-[var(--dark-plum)]">
+        <i class="ph ph-list text-3xl"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[var(--pink-soft)] border-t border-[var(--line)] px-6 pb-6">
+      <nav class="flex flex-col gap-4 pt-5 text-sm font-bold text-[var(--dark-plum)]">
+        <a href="#inicio" class="mobile-link">Inicio</a>
+        <a href="#tratamientos" class="mobile-link">Método</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn-main mt-5 rounded-full px-6 py-4 text-sm inline-flex justify-center w-full">
+        Empieza tu programa
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero flex items-center justify-center text-center px-5">
+    <div class="relative z-10 max-w-5xl mx-auto text-white reveal">
+      <p class="text-lg md:text-2xl mb-4 font-semibold text-[var(--pink-light)]">
+        💖 Ayudo a mujeres a llevar un embarazo y postparto saludable
+      </p>
+
+      <h1 class="font-title text-5xl md:text-7xl leading-[1] font-extrabold">
+        Entrena segura, fortalece tu suelo pélvico y recupera tu bienestar
+      </h1>
+
+      <p class="text-white/90 text-base md:text-lg max-w-3xl mx-auto mt-6 leading-relaxed font-normal">
+        Fisioterapia online especialista en ejercicio durante el embarazo, recuperación postparto, pilates adaptado e hipopresivos guiados paso a paso.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <a href="#contacto" class="btn-main rounded-full px-8 py-4 text-sm inline-flex justify-center">
+          Ver Programas Online
+        </a>
+
+        <a href="#tratamientos" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full px-8 py-4 text-sm font-semibold inline-flex justify-center hover:bg-white/20 transition">
+          Conocer el Método
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO / SERVICIOS -->
+  <section id="tratamientos" class="soft-section py-20 md:py-24 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="reveal">
+          <p class="section-label mb-4">
+            Fisioterapia y Ejercicio Guiado
+          </p>
+
+          <h2 class="font-title text-4xl md:text-6xl leading-[1.05] font-bold text-[var(--dark-plum)]">
+            Tu cuerpo cambia en cada etapa. Tu entrenamiento también debe hacerlo.
+          </h2>
+
+          <p class="text-[var(--text-muted)] leading-relaxed mt-6">
+            Tanto si estás buscando un embarazo activo como si necesitas valorar y recuperar tu abdomen o suelo pélvico tras dar a luz, el movimiento adaptado es la clave para prevenir molestias y moverte con confianza.
+          </p>
+
+          <p class="text-[var(--pink-dark)] font-bold mt-7">
+            Únete al programa #MOMMYONFIT y entrena a tu ritmo con acompañamiento profesional.
+          </p>
+
+          <a href="#contacto" class="btn-main rounded-full px-7 py-3 mt-7 inline-flex text-sm">
+            Consultar Programas
+          </a>
+        </div>
+
+        <div class="reveal">
+          <img
+            src="https://images.unsplash.com/photo-1599447332412-6bc6830c815a?q=80&w=1200&auto=format&fit=crop"
+            alt="Ejercicio en embarazo y postparto"
+            class="w-full aspect-[4/3] object-cover shadow-xl rounded-2xl"
+          >
+        </div>
+      </div>
+
+      <div class="bg-white border border-[var(--line)] py-14 px-5 md:px-12 shadow-sm rounded-2xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="reveal">
+            <img
+              src="https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?q=80&w=1200&auto=format&fit=crop"
+              alt="Pilates e Hipopresivos online"
+              class="w-full aspect-[4/3] object-cover shadow-md rounded-xl"
+            >
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-baby"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-bold text-[var(--dark-plum)]">
+                Preparto Activo
+              </h3>
+
+              <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+                Prepara tu cuerpo para el parto, mantén la fuerza y evita molestias de espalda o pelvis.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-heartbeat"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-bold text-[var(--dark-plum)]">
+                Recuperación Postparto
+              </h3>
+
+              <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+                Rehabilita tu faja abdominal y suelo pélvico de forma progresiva y respetuosa.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-wind"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-bold text-[var(--dark-plum)]">
+                Hipopresivos
+              </h3>
+
+              <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+                Instructora especializada en gestión de presiones, diástasis y tono muscular.
+              </p>
+            </div>
+
+            <div class="feature-card p-6">
+              <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <i class="ph-duotone ph-flower-lotus"></i>
+              </div>
+
+              <h3 class="font-title text-2xl font-bold text-[var(--dark-plum)]">
+                Pilates Adaptado
+              </h3>
+
+              <p class="text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
+                Gana movilidad, postura y conciencia corporal con clases adaptadas a la mujer.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section py-20 md:py-28 px-5 md:px-8 text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <p class="uppercase tracking-[0.18em] text-sm font-bold text-[var(--pink-light)] mb-5">
+          Asesoramiento y Planes Online
+        </p>
+
+        <h2 class="font-title text-5xl md:text-7xl leading-[0.98] font-extrabold">
+          Empieza hoy a cuidar de ti y de tu bebé
+        </h2>
+
+        <p class="text-white/90 text-base md:text-lg leading-relaxed max-w-xl mt-6 font-normal">
+          Si tienes dudas sobre qué programa o ejercicio es el ideal para ti, escríbeme directamente por Instagram y valoramos tu caso.
+        </p>
+
+        <a href="https://www.instagram.com/fisiopelvicfloor/"
+           target="_blank"
+           class="mt-8 inline-flex rounded-full bg-[var(--pink-deep)] hover:bg-[var(--pink-dark)] text-white px-8 py-4 font-bold transition shadow-lg">
+          Hablar por WhastApp
+        </a>
+      </div>
+
+      <div class="work-block reveal">
+        <p class="section-label mb-5">
+          Pasos para empezar
+        </p>
+
+        <div class="space-y-5">
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-2xl font-bold text-[var(--dark-plum)]">
+              1. Cuéntame tu momento
+            </h3>
+            <p class="text-[var(--text-muted)] mt-2 text-sm">
+              Semanas de embarazo, meses de postparto o sensaciones de tu suelo pélvico.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-2xl font-bold text-[var(--dark-plum)]">
+              2. Elegimos tu plan o programa
+            </h3>
+            <p class="text-[var(--text-muted)] mt-2 text-sm">
+              Acceso a pautas, vídeos y rutinas diseñadas por fisioterapeuta.
+            </p>
+          </div>
+
+          <div class="treatment-pill p-5">
+            <h3 class="font-title text-2xl font-bold text-[var(--dark-plum)]">
+              3. Entrena con seguimiento
+            </h3>
+            <p class="text-[var(--text-muted)] mt-2 text-sm">
+              Avanza con seguridad, resuelve tus dudas y siente la evolución en tu cuerpo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
